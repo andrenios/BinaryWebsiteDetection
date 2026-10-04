@@ -1,0 +1,2 @@
+experiment,requests,ok,http_failures,cached,all_model_match,input_tokens_mean,usd_per_1000_sites,cost_usd_new_calls,cumulative_usd,latency_p50_ms,latency_p95_ms,wall_s
+t06_bootstrap-phreshphish_test,60,60,0,52,True,9335.7,0.39209939999999666,0.008138,0.192475,569.7290630050702,839.2990000138525,0

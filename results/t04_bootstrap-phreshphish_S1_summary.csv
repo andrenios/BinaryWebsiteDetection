@@ -1,0 +1,2 @@
+experiment,requests,ok,http_failures,cached,all_model_match,input_tokens_mean,usd_per_1000_sites,cost_usd_new_calls,cumulative_usd,latency_p50_ms,latency_p95_ms,wall_s,sites,split_source,n_questions,auroc_q_direct
+t04_bootstrap-phreshphish_S1,100,100,0,0,True,1876.07,0.07879494000000001,0.007879,0.026033,267.2540834901156,333.1425840151496,7.03,100,pseudo,15,0.9019999999999999

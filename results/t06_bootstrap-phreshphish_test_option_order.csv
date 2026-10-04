@@ -1,0 +1,2 @@
+n,flip_rate,mean_abs_shift_p_phishing,mean_p_phishing_first_order,mean_p_phishing_reversed,auroc_first_order,auroc_reversed,auroc_average,split_source
+60,0.0,0.011666666666666665,0.2603333333333333,0.25033333333333335,0.9083333333333333,0.916111111111111,0.9099999999999999,pseudo

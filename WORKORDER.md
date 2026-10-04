@@ -1,5 +1,7 @@
 # Work order for Claude Code: efficient phishing website detection with a decision model (Jev)
 
+Version 2.2 (2026-10-04). Changes over 2.1: new task T11b (evidence-acquisition cascade, RQ2/RQ4) and an option-order check for the choice question (Section 5, T05, T06).
+
 Version 2.1 (2026-10-04). Supersedes v1. Changes: efficiency is now the organising axis; state schema uses the real field names of the SVLM paper's summariser (`html_truncation_github.py`); new tasks for evidence-budget sweeps, question-count sweeps, a rule gate, raw-versus-rendered HTML, and pipeline-stage timing; Section 1 now lists data sources and the laptop-to-server workflow.
 
 **How to start a Claude Code session with this file:** place it in the repo root as `WORKORDER.md`, add a one-line `CLAUDE.md` saying "Read WORKORDER.md first; follow its ground rules; work on the lowest unfinished task; write the task report before stopping." Then begin with: "Start with T01. Data is at `<path>`. The co-author artefacts are / are not yet available."
@@ -76,7 +78,7 @@ The paper measures how much detection a phishing pipeline buys per unit of cost,
 | Model | decision model vs SVLM vs frontier LLM vs classical classifier | detection (F1, AUROC, PPV@1%) vs USD per 1,000 sites and vs latency per site |
 | Evidence | summary token budget 100 to 2,000; URL only; raw vs rendered HTML; with/without OCR | detection vs tokens per site (knee of the curve) |
 | Questions | 1 direct question vs bank of k indicator questions, k = 1..17 | detection vs k (marginal cost of a question is near zero in one request) |
-| Pipeline | rule gate before any model call; Jev to SVLM escalation band | detection vs fraction of sites that reach each stage; cost-detection frontier |
+| Pipeline | rule gate before any model call; Jev to SVLM escalation band; evidence-acquisition cascade (URL only, then HTML, then rendered DOM, then screenshot) | detection vs fraction of sites that reach each stage; cost-detection frontier with evidence-acquisition seconds on the cost axis |
 | Operating point | prevalence 0.1 / 1 / 5%, threshold on the noul probability | false positives per 1,000 benign sites and PPV at fixed recall |
 
 Soundness checks (calibration, cross-dataset transfer, adversarial steering) remain, in reduced scope, because the efficiency claims are worthless if the cheap stage is miscalibrated or trivially steerable.
@@ -172,7 +174,7 @@ All `noul`. Freeze before any test-set run; later changes are `bank_v2`. Field r
 - `q_ocr_brand_mismatch` (S2 only): "Does `screenshot_text` show a brand or organisation name whose official domain is not `registrable_domain`?"
 - `q_ocr_login_prompt` (S2 only): "Does `screenshot_text` show a sign-in or payment prompt?"
 
-Structural-invariance check (Design C): `q_direct_score` (type `score`, levels none / weak / moderate / strong / certain) and `q_direct_choice` (type `choice`, options phishing, benign).
+Structural-invariance check (Design C): `q_direct_score` (type `score`, levels none / weak / moderate / strong / certain) and `q_direct_choice` (type `choice`, options phishing, benign). Option-order check: `q_direct_choice_rev` is the same choice question with the options listed in the reverse order (benign, phishing). The Jev documentation states that `jev-1.13` leans toward the first option; the two variants are always sent in separate requests and the flip rate between them is reported wherever `q_direct_choice` is.
 
 Note for question wording: the summariser already computes `signals.form_posts_offsite`, `num_password_fields`, `num_sensitive_fields`. Keep both the deterministic signal and the Jev question so T07 can report whether Jev adds anything over the deterministic field for those indicators.
 
@@ -190,17 +192,17 @@ Note for question wording: the summariser already computes `signals.form_posts_o
 
 **T04 Go/no-go pilot (training split, 300 balanced sites, stratified as in paper 2).** bank_v1 on S1. Per question: AUROC vs label, noul distribution, inter-question correlation matrix. Cost and latency. Andreas decides continuation on `reports/T04.md`.
 
-**T05 Determinism and structure (training split, 200 sites).** Three repeated queries: share of identical probabilities, mean absolute difference. `q_direct` vs `q_direct_choice` vs `q_direct_score`: agreement and rank correlation.
+**T05 Determinism and structure (training split, 200 sites).** Three repeated queries: share of identical probabilities, mean absolute difference. `q_direct` vs `q_direct_choice` vs `q_direct_score`: agreement and rank correlation. Option order: `q_direct_choice` vs `q_direct_choice_rev` (separate requests): share of sites whose chosen option flips, mean absolute shift of P(phishing), and AUROC of each ordering and of their average. Also `q_direct` alone vs `q_direct` sent together with the bank: mean absolute shift (companion-question invariance).
 
 ### Phase 2: model and evidence efficiency on Putra (test split, cached)
 
-**T06 RQ1 direct question.** `q_direct` on S0, S1, S2, S3 over the 2,631 test sites. F1/P/R/Acc at 0.5, AUROC, AUPRC; latency p50/p95; USD per 1,000 sites; HTTP failures. Table places paper-2 text-mode rows beside Jev (muse-glimmer 0.962, gemma4:31b tuned 0.977, claude-opus-4.8 0.967 / 0.975, gpt-5.6-sol 0.967 / 0.968), sourced from `data/paper2/`.
+**T06 RQ1 direct question.** `q_direct` on S0, S1, S2, S3 over the 2,631 test sites. F1/P/R/Acc at 0.5, AUROC, AUPRC; latency p50/p95; USD per 1,000 sites; HTTP failures. On S1 additionally `q_direct_choice` and `q_direct_choice_rev` (separate requests): option-flip rate and AUROC per ordering, as the test-set counterpart of the T05 option-order check. Table places paper-2 text-mode rows beside Jev (muse-glimmer 0.962, gemma4:31b tuned 0.977, claude-opus-4.8 0.967 / 0.975, gpt-5.6-sol 0.967 / 0.968), sourced from `data/paper2/`.
 
 **T06b RQ2 evidence budget.** `q_direct` and bank_v1 on S1-b for all five budgets. Plot AUROC and F1 against mean tokens per site and against USD per 1,000 sites; report the smallest budget within 1 F1 point of the 2,000-token result. Budget selection for later tasks uses the training split curve, not this one.
 
 **T07 RQ3 indicator bank.** Full bank_v1 on S1 and S2 (one request per site). Combiners fitted on the training split with 5-fold CV, applied once to the test split: fixed weighted vote, logistic regression (L2, standardised), CatBoost (defaults, as in paper 2). Report per combiner and variant; LR odds ratios; CatBoost importances; leave-one-question-out ablation (CV on train); greedy forward selection giving the detection-vs-k curve for k = 1..17 (CV on train, final curve evaluated once on test); learning curve of the LR combiner at 50, 100, 200, 500, 1,000, 6,160 training sites. Separately: LR on the deterministic `signals` fields alone, and on `signals` plus Jev nouls, to show what the decision model adds over what the summariser already computes.
 
-**T08 Classical and encoder baselines (train 6,160, test 2,631).** (a) URL-feature gradient boosting; (b) TF-IDF over the serialised S1 + logistic regression; (c) hand-written rule set over summary fields mirroring the bank; (d) ModernBERT-base or DeBERTa-v3-base fine-tuned on serialised S1, 3 seeds. Record training time, inference time per site on CPU and GPU, and USD per 1,000 sites at the paper-2 L40S rate ($0.99/h). GPU needed for (d); otherwise implement and leave a blocker.
+**T08 Classical and encoder baselines (train 6,160, test 2,631).** (a) URL-feature gradient boosting; (b) TF-IDF over the serialised S1 + logistic regression; (c) hand-written rule set over summary fields mirroring the bank; (d) ModernBERT-base fine-tuned on serialised S1, 3 seeds (v2.2: DeBERTa-v3-base dropped; its 512-token limit would truncate the 1,000-token state and it doubles the GPU time for the less informative number). Record training time, inference time per site on CPU and GPU, and USD per 1,000 sites at the paper-2 L40S rate ($0.99/h). GPU needed for (d); otherwise implement and leave a blocker.
 
 **T09 Open-weight boolean baseline (GPU; Ollama or vLLM).** bank_v1 answered by gemma4:12b and qwen3.5:9b with constrained decoding to {yes, no}, P(yes) from logprobs. Same combiners as T07. Runtime per site and USD per 1,000 sites. This separates paradigm-level findings from Jev-specific ones.
 
@@ -209,6 +211,8 @@ Note for question wording: the summariser already computes `signals.form_posts_o
 **T10 RQ4 rule gate.** Deterministic rules over `signals` and `hosts` that declare a site benign without any model call (candidate: `num_forms == 0 and num_password_fields == 0 and num_sensitive_fields == 0 and num_phishy_keyword_links == 0`). On the training split: fraction of sites gated, phishing missed by the gate. On the test split, once: the gate followed by Jev; report detection, fraction of model calls saved, and the shift of the class ratio seen by Jev (paper 2 argued a pre-filter moves the detector toward a more favourable prevalence; measure it).
 
 **T11 RQ4 escalation cascade.** Jev combined probability; sites inside an uncertainty band [t_low, t_high] are escalated to the stored SVLM decision (gemma4:31b tuned and muse-glimmer original from `data/paper2/`; no new SVLM runs) and, as an upper bound, to the stored gpt-5.6-sol decision. Sweep the band on the training split; evaluate the chosen bands once on test. Plot F1 and PPV@1% against escalation rate, against USD per 1,000 sites, and against mean latency per site (Jev latency plus escalation fraction times paper-2 per-site runtime). Produce the cost-detection frontier with every configuration from T06 to T11 as a point.
+
+**T11b RQ2/RQ4 evidence-acquisition cascade.** In deployment the expensive step is acquiring the evidence, not judging it: a URL costs nothing, a plain HTTP GET about a second, a rendered DOM several seconds and a browser, a screenshot plus OCR more still; the Jev call is 0.3 s at every stage. The cascade asks `q_direct` (and, in a second arm, the bank with its combiner) on the cheapest evidence first and acquires the next level only when the probability lies inside an uncertainty band [t_low, t_high]: S0 (URL only) -> S1 (summary of the HTML) -> S2 (plus OCR text); on the fresh crawl (T17) the S1 stage splits into S5 (plain GET body) -> S1 (rendered DOM), which answers render-or-not inside the cascade. Bands are swept on the training split; the chosen bands are evaluated once on the test split. Report per configuration: detection (F1, AUROC, PPV@1%), fraction of sites that stop at each stage, mean evidence-acquisition seconds per site (fetch, render, screenshot, OCR from `results/timing/`; Putra's stored fetch and render times are unknown, so Putra uses the fresh-crawl medians as unit costs and says so), Jev cost, and total wall time per site. Add every cascade configuration as a point to the T11 frontier, with evidence-acquisition seconds on the latency axis. Comparison rows: S0 alone, S1 alone, S2 alone (from T06). On Putra this task needs no new data; the states already exist.
 
 **T12 RQ1/RQ4 cost, latency, throughput, and stage breakdown.** Per configuration: tokens per site, USD per 1,000 sites from `usage.cost`, latency p50/p95, achieved requests per minute at concurrency 1, 4, 16 (respect the documented rate limits), and the per-site wall-time breakdown across summarise, OCR, decide, combine from `results/timing/`. Paper-2 comparison rows: 12 to 32 s per site for SVLMs on one L40S, 3.3 to 6.5 s for the APIs, $3 to $24 per data-mode pass GPU, $52 to $60 API.
 
@@ -249,4 +253,4 @@ Note for question wording: the summariser already computes `signals.form_posts_o
 
 ## 9. Order of work
 
-T01 to T05 first week (go/no-go after T04). T06, T06b, T07 week 2. T08, T09 week 3 (GPU session). T10 to T12 week 4. T13 to T15 weeks 5 to 6. T16, T17 when data exists. T18 last.
+T01 to T05 first week (go/no-go after T04). T06, T06b, T07 week 2. T08, T09 week 3 (GPU session). T10, T11, T11b, T12 week 4 (T11b's fresh-crawl arm runs after T17). T13 to T15 weeks 5 to 6. T16, T17 when data exists. T18 last.

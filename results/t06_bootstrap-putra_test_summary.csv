@@ -1,0 +1,2 @@
+experiment,requests,ok,http_failures,cached,all_model_match,input_tokens_mean,usd_per_1000_sites,cost_usd_new_calls,cumulative_usd,latency_p50_ms,latency_p95_ms,wall_s
+t06_bootstrap-putra_test,64,64,0,16,True,2437.359375,0.10236909375,0.005576,0.177235,274.367792007979,421.97933298302814,0

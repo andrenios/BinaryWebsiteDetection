@@ -21,7 +21,7 @@ reports_root: reports
 
 summary_budgets: [100, 250, 500, 1000, 2000]
 s1_budget: 1000
-s3_max_tokens: 30000
+s3_max_tokens: 22000     # see config.yaml / decisions D17
 token_counter_model: gpt-4
 
 concurrency: 16

@@ -89,6 +89,44 @@ slow on very large pages; `t02_states.py` applies a per-site wall-clock timeout
 (`--s3-timeout`, default 180 s) and records timeouts in the timing CSV instead
 of silently skipping.
 
+**D12. Pilot site selection (T04).** The paper's stratification (language x 3
+HTML-length buckets) needs the full training split; `t04_pilot.py` selects a
+label-balanced sample after a seeded shuffle within the split. Replace with the
+paper's stratification in `data/registry.py::sites_for` once the full data is
+here, if Andreas wants exact comparability of the pilot sample.
+
+**D13. Pseudo split for development.** Datasets without `paper2/train.csv`
+and `test.csv` get a deterministic 70/30 label-stratified pseudo split
+(`data/registry.py`, SEED). Every table produced on it carries
+`split_source = pseudo` and is development-only; the scripts print a banner.
+On the real data the split comes from the co-author's files and
+`split_source = paper2`.
+
+**D14. Evidence-acquisition seconds (T11b) are placeholders.** `config.yaml:
+evidence_seconds` (S0 0 s, S5 1 s, S1 4 s, S2 4.5 s) stand in until the fresh
+crawl measures fetch and render times; `evidence_seconds_source` is written
+into every T11b table and must read "fresh-crawl medians (T17)" before any
+T11b number is reported.
+
+**D15. T08d uses ModernBERT-base only** (Andreas, 2026-10-04, option 3):
+8k context fits the 1,000-token state; DeBERTa-v3-base dropped (512 tokens,
+doubles GPU time). Three seeds. `scripts/t08d_encoder.py`, untested (no GPU).
+
+**D16. Experiment names are shared across tasks on purpose.** T10 and T11b
+request `q_direct` under the T06 experiment names, and T11b's LR arm under the
+T07 names, so the content-addressed cache serves them and no site is queried
+twice for the same (model, state, questions). The JSONL log of the first task
+that ran holds the verbatim responses; later tasks log cache hits.
+
+**D17. S3 budget lowered from 30k to 22k tiktoken tokens.** With the
+work-order budget, 3 of 60 bootstrap S3 requests were rejected
+(`400 {"error_type": "max_tokens_exceeded"}`; `results/t06_bootstrap-phreshphish_test_S3_direct.csv`).
+Jev's tokenizer counts about 1.3x tiktoken-gpt-4 on JSON state, so 30k
+tiktoken tokens exceed the API's 32k state+question limit. 22k keeps the
+largest pages under the limit while preserving the intent (as much raw HTML
+as the model accepts). Rejections are still recorded as HTTP failures if they
+occur. `config.yaml: s3_max_tokens`.
+
 **D11. Structural-invariance request shape (T05).** The three repeats of
 `q_direct` are sent alone (same request shape as T03/T06). The choice and score
 variants are sent in one extra request together with `q_direct`, which also

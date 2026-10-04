@@ -1,0 +1,4 @@
+gate,n,fraction_gated,benign_gated,phishing_missed,phishing_missed_rate,prevalence_before,prevalence_after_gate,split,split_source
+no_forms_no_phishy_links,140,0.30714285714285716,0.12857142857142856,34,0.4857142857142857,0.5,0.3711340206185567,train,pseudo
+no_password_no_sensitive,140,0.7142857142857143,0.7,51,0.7285714285714285,0.5,0.475,train,pseudo
+no_forms,140,0.38571428571428573,0.21428571428571427,39,0.5571428571428572,0.5,0.36046511627906974,train,pseudo

@@ -1,0 +1,5 @@
+combiner,features,cv_auroc_train,threshold_fit_on_train,test_f1_at_fit,test_precision_at_fit,test_recall_at_fit,test_f1_at_0.5,test_auroc,test_auprc,n_train,n_test,split_source
+vote,q_direct + 14 indicators,0.9816176470588235,0.34352941176470586,0.7692307692307693,1.0,0.625,0.5454545454545454,0.875,0.914423076923077,33,16,pseudo
+lr,q_direct + 14 indicators,0.963235294117647,0.2711266219871799,1.0,1.0,1.0,0.9333333333333333,1.0,1.0,33,16,pseudo
+catboost,q_direct + 14 indicators,0.9742647058823529,0.3779070350989225,1.0,1.0,1.0,1.0,1.0,1.0,33,16,pseudo
+q_direct alone,q_direct,0.9797794117647058,0.29,0.9333333333333333,1.0,0.875,0.7692307692307693,0.984375,0.975,33,16,pseudo

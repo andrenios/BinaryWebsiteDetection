@@ -1,0 +1,4 @@
+features,cv_auroc_train,test_auroc,test_f1_at_fit
+signals only,0.53125,0.59375,0.6363636363636364
+signals + nouls,0.9705882352941176,1.0,1.0
+nouls only,0.963235294117647,1.0,1.0

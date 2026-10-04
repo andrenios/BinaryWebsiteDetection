@@ -24,7 +24,7 @@ reports_root: reports
 
 summary_budgets: [100, 250, 500, 1000, 2000]   # S1-b
 s1_budget: 1000
-s3_max_tokens: 30000
+s3_max_tokens: 22000     # WORKORDER says 30k; Jev counts ~1.3x tiktoken and rejects >32k (D17)
 token_counter_model: gpt-4                     # make_token_counter("gpt-4"), as in the SVLM paper
 
 # Client behaviour
@@ -35,3 +35,24 @@ checkpoint_every: 200
 
 # OCR
 tesseract_lang: eng
+
+# Evaluation
+prevalences: [0.001, 0.01, 0.05]
+operating_threshold: 0.5
+learning_curve_sizes: [50, 100, 200, 500, 1000, 6160]
+pilot_sites: 300
+
+# Evidence-acquisition unit costs in seconds per site (T11b). PLACEHOLDERS until
+# the fresh crawl (T17) measures them; Putra has no stored fetch/render times.
+evidence_seconds:
+  S0: 0.0        # URL only, nothing fetched
+  S5: 1.0        # plain HTTP GET
+  S1: 4.0        # rendered DOM (headless browser)
+  S2: 4.5        # rendered DOM + screenshot + OCR (OCR measured: ~0.2 s)
+  S3: 4.0
+evidence_seconds_source: placeholder   # becomes "fresh-crawl medians (T17)" once measured
+
+# Paper-2 reference rows: read from data/paper2/reference_rows.csv when present
+# (columns: model,mode,dataset,f1,auroc,seconds_per_site,usd_per_pass,source_file).
+paper2_reference_csv: data/paper2/reference_rows.csv
+gpu_usd_per_hour: 0.99

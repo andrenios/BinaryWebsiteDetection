@@ -1,0 +1,5 @@
+config,n,n_pos,threshold,f1,precision,recall,accuracy,auroc,auprc,mean_usd_per_site,usd_per_1000,mean_seconds_per_site,stop_S0,ppv_at_1pct,stop_S1,stop_S2,t_low,t_high,evidence_seconds_source,split_source
+S0 alone (direct),16,8,0.5,0.0,0.0,0.0,0.5,0.9296875,0.9381313131313131,1.4917875e-05,0.014917875,0.2776321614310291,1.0,,,,,,placeholder,pseudo
+S1 alone (direct),16,8,0.5,0.7692307692307693,1.0,0.625,0.8125,1.0,1.0,5.8768500000000005e-05,0.05876850000000001,4.286692328184472,,1.0,1.0,,,,placeholder,pseudo
+S2 alone (direct),16,8,0.5,0.7692307692307693,1.0,0.625,0.8125,0.984375,0.9861111111111112,6.2750625e-05,0.062750625,4.791120033813058,,1.0,,1.0,,,placeholder,pseudo
+"cascade S0->S1->S2 band [0.05,0.5] (direct)",16,8,0.5,0.7692307692307693,1.0,0.625,0.8125,0.984375,0.9861111111111112,0.0001089836015625,0.1089836015625,7.259329508635346,,1.0,0.4375,0.5625,0.05,0.5,placeholder,pseudo

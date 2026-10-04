@@ -99,7 +99,8 @@ questions:
       Does `screenshot_text` show a sign-in or payment prompt?
 
 # Structural-invariance check (Design C): same judgement as q_direct, asked
-# as a score and as a choice. Not part of the indicator bank.
+# as a score and as a choice; q_direct_choice_rev reverses the option order
+# (option-order check, WORKORDER Section 5). Not part of the indicator bank.
 structural:
   q_direct_score:
     type: score
@@ -119,3 +120,13 @@ structural:
     criteria:
       phishing: null
       benign: null
+  q_direct_choice_rev:
+    type: choice
+    instructions: >-
+      Judging only from the fields in the state, is this web page a phishing
+      page (it attempts to obtain login credentials, payment data or other
+      personal data while presenting itself as an organisation other than the
+      one that controls `registrable_domain`) or a benign page?
+    criteria:
+      benign: null
+      phishing: null

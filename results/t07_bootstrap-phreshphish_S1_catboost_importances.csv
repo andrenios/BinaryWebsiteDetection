@@ -1,0 +1,16 @@
+question,importance
+q_ip_or_freehost,20.85992768232371
+q_language_brand_mismatch,17.710856077713636
+q_direct,10.874818717443304
+q_brand_domain_mismatch,9.203474373122061
+q_suspicious_url_shape,9.03656513523937
+q_form_offsite,4.830696546543116
+q_shell_page,4.738633593626458
+q_obfuscated_scripts,4.511079522658527
+q_urgency,3.3480073698860697
+q_cloned_assets,3.1120065494010407
+q_external_favicon,3.0839773350986954
+q_missing_legitimacy,2.8672032079973224
+q_brand_in_url_not_domain,2.0844933644453696
+q_collects_credentials,1.9896609216095344
+q_reward_bait,1.7485996028917932
