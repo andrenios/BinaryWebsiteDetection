@@ -1,0 +1,31 @@
+[project]
+name = "jev-phishing"
+version = "0.1.0"
+description = "Efficient phishing website detection with a decision model (Jev); follow-up to the SLM and SVLM papers"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "httpx>=0.28",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "catboost>=1.2",
+    "beautifulsoup4>=4.12",
+    "lxml>=5",
+    "tiktoken>=0.8",
+    "pytesseract>=0.3",
+    "pillow>=10",
+    "matplotlib>=3.9",
+    "pyyaml>=6",
+    "pytest>=8",
+    "python-dotenv>=1",
+    "tldextract>=5",
+    "datasets>=3",
+    "remotezip>=0.12",
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+crawl = ["playwright>=1.47"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

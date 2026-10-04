@@ -1,0 +1,4 @@
+class,rows,n_languages,top_languages
+benign,5244,42,en:3397;de:405;es:233;pt:176;fr:167;ru:148;it:98;ja:90;nl:61;pl:50
+phishing,5151,29,en:3415;es:282;de:278;fr:268;ja:236;it:128;vi:94;tr:92;zh-cn:56;so:52
+total,10395,42,

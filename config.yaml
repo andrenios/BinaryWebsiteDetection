@@ -1,0 +1,37 @@
+# Laptop profile. All paths are relative to the repository root unless absolute.
+profile: laptop
+
+# Model. WORKORDER.md says "jev-1.13"; the API rejects that string and only
+# accepts the versioned id "jev-1.13.0" (reports/decisions.md, D1).
+model: jev-1.13.0
+expected_response_model: jev-1.13.0     # abort if response.model differs
+api_base: https://api.typesafe.ai
+price_usd_per_mtok_input: 0.042        # docs.typesafe.ai/models; output tokens are free
+price_usd_per_mtok_output: 0.0
+
+# Spend cap over ALL Jev runs together (ledger in data/raw_responses/spend_ledger.jsonl).
+# 1.0 for the first session (Andreas, 2026-10-04); WORKORDER.md default is 5.0.
+MAX_USD: 1.0
+
+SEED: 2107
+bank_version: bank_v1
+bank_path: src/questions/bank_v1.yaml
+
+data_root: data
+results_root: results
+figures_root: figures
+reports_root: reports
+
+summary_budgets: [100, 250, 500, 1000, 2000]   # S1-b
+s1_budget: 1000
+s3_max_tokens: 30000
+token_counter_model: gpt-4                     # make_token_counter("gpt-4"), as in the SVLM paper
+
+# Client behaviour
+concurrency: 4
+timeout_s: 60
+max_retries: 6
+checkpoint_every: 200
+
+# OCR
+tesseract_lang: eng

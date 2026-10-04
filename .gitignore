@@ -1,0 +1,16 @@
+# data never goes into git (only the fixed fixture id list)
+data/*
+!data/fixture/
+data/fixture/*
+!data/fixture/ids.txt
+# secrets
+.env
+# python
+__pycache__/
+*.pyc
+.venv/
+# large outputs (keep results/ csv + reports/ md in git)
+figures/*.png
+# local reference material, not for the repository
+*.pdf
+*.zip

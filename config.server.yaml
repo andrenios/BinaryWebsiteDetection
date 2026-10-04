@@ -1,0 +1,32 @@
+# Server profile: same settings as config.yaml except the roots. Copy
+# data/raw_responses/ and data/derived/ from the laptop before Phase 2.
+profile: server
+
+model: jev-1.13.0
+expected_response_model: jev-1.13.0
+api_base: https://api.typesafe.ai
+price_usd_per_mtok_input: 0.042
+price_usd_per_mtok_output: 0.0
+
+MAX_USD: 5.0
+
+SEED: 2107
+bank_version: bank_v1
+bank_path: src/questions/bank_v1.yaml
+
+data_root: /data/jev-phishing/data        # adjust on the server
+results_root: results
+figures_root: figures
+reports_root: reports
+
+summary_budgets: [100, 250, 500, 1000, 2000]
+s1_budget: 1000
+s3_max_tokens: 30000
+token_counter_model: gpt-4
+
+concurrency: 16
+timeout_s: 60
+max_retries: 6
+checkpoint_every: 200
+
+tesseract_lang: eng

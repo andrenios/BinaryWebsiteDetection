@@ -1,0 +1,2 @@
+experiment,sites,requests,ok,http_failures,cached,models_returned,all_model_match,input_tokens_mean,cost_usd_new_calls,cumulative_usd,usd_per_1000_sites,latency_p50_ms,latency_p95_ms,wall_s,workers,n_live_latency
+t03_fixture_S1_bank,20,20,20,0,0,jev-1.13.0,True,1829.8,0.001537,0.003738,0.0769,280.09033350099344,396.79850000538863,1.6,4,20

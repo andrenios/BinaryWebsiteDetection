@@ -1,0 +1,5 @@
+dataset,path,present,bootstrap_only,n,phishing,benign,with_html,with_screenshot,languages
+fixture,/Users/andreas/Documents/git/Jev Malicious Websites/data/fixture,True,False,20,10.0,10.0,20.0,20.0,en:15;fr:1;ru:1;de:1;ja:1;tr:1
+bootstrap-phreshphish,/Users/andreas/Documents/git/Jev Malicious Websites/data/derived/bootstrap/phreshphish,True,True,200,100.0,100.0,200.0,0.0,en:160;ja:12;fr:8;:4;ru:3;de:3;nl:2;tr:2
+bootstrap-putra,/Users/andreas/Documents/git/Jev Malicious Websites/data/derived/bootstrap/putra,True,True,50,25.0,25.0,50.0,49.0,en:32;de:7;fr:4;ja:2;ru:1;it:1;bg:1;tr:1
+phreshphish_dev_ids,/Users/andreas/Documents/git/Jev Malicious Websites/data/derived/phreshphish_dev_ids.txt,True,,200,,,,,
