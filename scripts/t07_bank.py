@@ -12,6 +12,10 @@ Outputs (prefix results/t07_<dataset>_<variant>_):
   forward_selection.csv                 detection vs k (CV on train, final curve on test)
   learning_curve.csv                    LR test AUROC vs training-set size
   signals.csv                           LR on deterministic signals alone, signals + nouls
+  train_scores.csv                      out-of-fold combiner scores on train (v2.3; used by T11, T20)
+  forward_selection_semantic.csv        forward selection restricted to the semantic indicators (v2.3)
+  results/t19_<dataset>_semantic_set.csv  deterministic / semantic / both partition (v2.3, shared with T19;
+                                          written as results/t19_semantic_set.csv for --dataset putra --variant S1)
   figures/t07_<dataset>_<variant>_forward_selection
 """
 from __future__ import annotations
@@ -34,6 +38,20 @@ from eval.timing import TimingLog  # noqa: E402
 from combine.combiners import (COMBINERS, make_lr, make_catboost, cv_auroc, cv_scores, fit_apply, lr_odds_ratios,  # noqa: E402
                                catboost_importances, leave_one_out, forward_selection, learning_curve,
                                question_columns, signals_from_states, SIGNAL_COLS)
+from combine.stability import SEMANTIC_QUESTIONS  # noqa: E402
+from summarise.html_truncation import make_token_counter  # noqa: E402
+
+
+def estimated_tokens_per_site(df: pd.DataFrame, states_tokens: float, qs: dict, keep: list[str], token_model: str) -> float:
+    """Billed tokens of the full-bank request scaled by the tiktoken share of the
+    questions kept: measured(bank) x (state + kept questions) / (state + all
+    questions). An estimate, flagged in reports/decisions.md (D19); the measured
+    value is the full-bank row."""
+    cnt = make_token_counter(token_model)
+    q_tok = {q: cnt(v["instructions"]) for q, v in qs.items()}
+    full = states_tokens + sum(q_tok.values())
+    kept = states_tokens + sum(q_tok[q] for q in keep if q in q_tok)
+    return float(df.input_tokens.mean() * kept / full) if full else float("nan")
 
 
 def main() -> None:
@@ -66,10 +84,11 @@ def main() -> None:
     Xte, yte = te[allq].astype(float), te.label.values.astype(int)
     thr = cfg.get("operating_threshold", 0.5)
 
-    rows, models = [], {}
+    rows, models, oofs = [], {}, {}
     for name, factory in COMBINERS.items():
         fac = (lambda f=factory: f(seed=seed)) if name == "catboost" else factory
         oof = cv_scores(fac, Xtr, ytr, seed=seed)
+        oofs[name] = oof
         t_fit, _ = best_f1_threshold(ytr, oof)
         model, p = fit_apply(fac, Xtr, ytr, Xte)
         models[name] = model
@@ -91,6 +110,10 @@ def main() -> None:
     comb["split_source"] = tables["test"].split_source.iloc[0] if len(te) else ""
     save_table(cfg, comb, f"{tag}_combiners")
     save_table(cfg, te[["site_id", "label", "split", "split_source"] + allq + [f"p_{n}" for n in COMBINERS]], f"{tag}_test_scores")
+    trs = tr[["site_id", "label", "split", "split_source"] + allq].copy()
+    for n, oof in oofs.items():
+        trs[f"p_{n}"] = oof
+    save_table(cfg, trs, f"{tag}_train_scores")          # out-of-fold scores on train (T11 band sweep, T20 transition model)
     print(comb.round(3).to_string(index=False))
 
     save_table(cfg, lr_odds_ratios(models["lr"], allq), f"{tag}_lr_odds_ratios")
@@ -114,6 +137,36 @@ def main() -> None:
         save_table(cfg, pd.DataFrame(srows), f"{tag}_signals")
         print(pd.DataFrame(srows).round(3).to_string(index=False))
 
+        # v2.3: semantic-versus-deterministic partition (Table 14b). Deterministic =
+        # the summariser's signal fields (computed in code, no model call); semantic =
+        # the indicators no regular expression over the summary computes; both = union.
+        sem = [q for q in SEMANTIC_QUESTIONS if q in qcols]
+        import json as _json
+        from summarise.state import state_tokens
+        toks = []
+        for sid in list(tr.site_id)[:200]:
+            sp = cfg.derived_root / "states" / args.dataset / args.variant / f"{sid}.json"
+            if sp.exists():
+                toks.append(state_tokens(_json.load(open(sp, encoding="utf-8")), cfg["token_counter_model"]))
+        st_tok = float(np.mean(toks)) if toks else float("nan")
+        parts = {"deterministic": (str_[SIGNAL_COLS], ste_[SIGNAL_COLS], 0.0),
+                 "semantic": (Xtr[sem], Xte[sem], estimated_tokens_per_site(tr, st_tok, qs, sem, cfg["token_counter_model"])),
+                 "both": (pd.concat([str_[SIGNAL_COLS], Xtr[sem].reset_index(drop=True)], axis=1),
+                          pd.concat([ste_[SIGNAL_COLS], Xte[sem].reset_index(drop=True)], axis=1),
+                          estimated_tokens_per_site(tr, st_tok, qs, sem, cfg["token_counter_model"]))}
+        prow = []
+        for name, (Xa, Xb, tok) in parts.items():
+            oof = cv_scores(make_lr, Xa.astype(float), ytr, seed=seed)
+            _, p = fit_apply(make_lr, Xa.astype(float), ytr, Xb.astype(float))
+            prow.append({"features": name, "cv_auroc_train": roc_auc_score(ytr, oof), "test_auroc": roc_auc_score(yte, p),
+                         "test_f1_at_fit": detection(yte, p, best_f1_threshold(ytr, oof)[0])["f1"], "tokens_per_site": tok})
+        sem_tab = pd.DataFrame(prow)
+        sem_tab["tokens_source"] = ["none (computed in code)", "estimated from the full-bank request (D19)", "estimated from the full-bank request (D19)"]
+        sem_tab["split_source"] = comb.split_source.iloc[0]
+        name19 = "t19_semantic_set" if (args.dataset == "putra" and args.variant == "S1") else f"t19_{args.dataset}_{args.variant}_semantic_set"
+        save_table(cfg, sem_tab, name19)
+        print(sem_tab.round(3).to_string(index=False))
+
     if not args.skip_slow:
         loqo = leave_one_out(make_lr, Xtr, ytr, seed=seed)
         save_table(cfg, loqo, f"{tag}_loqo")
@@ -124,6 +177,13 @@ def main() -> None:
         save_table(cfg, fs, f"{tag}_forward_selection")
         curve(fs, "k", ["cv_auroc", "test_auroc"], cfg.figures_root / f"{tag}_forward_selection",
               xlabel="number of questions k", ylabel="AUROC")
+        # v2.3: forward selection restricted to the semantic indicators
+        sem = [q for q in SEMANTIC_QUESTIONS if q in qcols]
+        if sem:
+            fss = forward_selection(make_lr, Xtr[sem], ytr, seed=seed)
+            fss["test_auroc"] = [roc_auc_score(yte, fit_apply(make_lr, Xtr[r.questions.split("|")], ytr, Xte[r.questions.split("|")])[1])
+                                 for r in fss.itertuples()]
+            save_table(cfg, fss, f"{tag}_forward_selection_semantic")
         sizes = [s for s in cfg.get("learning_curve_sizes", [50, 100, 200]) if s <= len(ytr)] or [len(ytr)]
         lc = learning_curve(make_lr, Xtr, ytr, Xte, yte, sizes, seed=seed)
         save_table(cfg, lc, f"{tag}_learning_curve")

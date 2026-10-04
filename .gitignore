@@ -14,3 +14,4 @@ figures/*.png
 # local reference material, not for the repository
 *.pdf
 *.zip
+results/dryrun/

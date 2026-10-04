@@ -42,7 +42,16 @@ REGISTRY: dict[str, DatasetSpec] = {
     "phreshphish-2500": DatasetSpec("phreshphish-2500", "derived/phreshphish/paper2_2500", screenshots=False,
                                     notes="the SVLM paper's 2,500-site sample (ids from paper2/)"),
     "phreshphish-20k": DatasetSpec("phreshphish-20k", "derived/phreshphish/sample20k", screenshots=False,
-                                   notes="stratified 20,000-site transfer sample (scripts/t14_sample.py)"),
+                                   notes="balanced, language-stratified 20,000-site evaluation sample from the "
+                                         "PhreshPhish benchmark TEST split (scripts/t14_sample.py --role eval)"),
+    "phreshphish-native": DatasetSpec("phreshphish-native", "derived/phreshphish/native_test", screenshots=False,
+                                      notes="benchmark TEST split at its native base rate (t14_sample.py --role native)"),
+    "phreshphish-adapt": DatasetSpec("phreshphish-adapt", "derived/phreshphish/adapt5700", screenshots=False,
+                                     notes="R1/R2/R3 adaptation sets (200+500+5,000) from the TRAIN split minus dev ids, "
+                                           "disjoint from the stability sample (t14_sample.py --role adapt)"),
+    "phreshphish-stab": DatasetSpec("phreshphish-stab", "derived/phreshphish/stability5k", screenshots=False,
+                                    notes="T19 stability sample, 5,000 TRAIN-split sites stratified by language, minus dev ids "
+                                          "(t14_sample.py --role stability)"),
     "phishark": DatasetSpec("phishark", "datasets/phishark", notes="T16, controlled access"),
     "fresh": DatasetSpec("fresh", "datasets/fresh", notes="T17 own crawl"),
 }

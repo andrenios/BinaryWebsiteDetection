@@ -1,0 +1,15 @@
+question,auroc_bootstrap_putra_train,sign_bootstrap_putra,auroc_bootstrap_phreshphish_stab,sign_bootstrap_phreshphish,class,rank_bootstrap_putra,rank_bootstrap_phreshphish,split_source
+q_collects_credentials,0.6764705882352942,+,0.3733673469387755,-,artefact,7,12,pseudo
+q_form_offsite,0.6470588235294117,+,0.313469387755102,-,artefact,9,9,pseudo
+q_brand_domain_mismatch,0.911764705882353,+,0.7329591836734693,+,stable,2,7,pseudo
+q_brand_in_url_not_domain,0.661764705882353,+,0.7707142857142858,+,stable,8,5,pseudo
+q_ip_or_freehost,0.8345588235294117,+,0.9619387755102042,+,stable,4,1,pseudo
+q_urgency,0.7536764705882353,+,0.7379591836734694,+,stable,6,6,pseudo
+q_reward_bait,0.5845588235294117,+,0.5871428571428571,+,uninformative,11,14,pseudo
+q_obfuscated_scripts,0.4650735294117647,-,0.32622448979591834,-,artefact,13,10,pseudo
+q_external_favicon,0.4650735294117647,-,0.6304081632653061,+,uninformative,13,11,pseudo
+q_shell_page,0.8511029411764706,+,0.7823469387755101,+,stable,3,4,pseudo
+q_missing_legitimacy,0.43014705882352944,-,0.7291836734693877,+,artefact,12,8,pseudo
+q_language_brand_mismatch,0.801470588235294,+,0.9461224489795919,+,stable,5,2,pseudo
+q_suspicious_url_shape,0.9540441176470588,+,0.92,+,stable,1,3,pseudo
+q_cloned_assets,0.6139705882352942,+,0.5975510204081633,+,uninformative,10,13,pseudo

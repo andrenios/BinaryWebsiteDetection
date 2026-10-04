@@ -7,10 +7,17 @@ Stage probabilities are q_direct (default) or, with --score lr, the LR
 combiner fitted on the training split's bank run per stage. Per-stage
 evidence-acquisition seconds come from config `evidence_seconds`
 (PLACEHOLDERS until T17 measures them; the table says so). Bands are swept on
-train and evaluated once on test. Outputs results/t11b_<dataset>_{sweep_train,test}.csv
-and appends frontier points.
+train and evaluated once on test. Outputs results/t11b_<dataset>_{sweep_train,test}.csv,
+per-site test scores (_test_scores.csv, for T_STATS), appends frontier points and
+(v2.3) writes the unit-cost sensitivity sweep results/t11b_<dataset>_sensitivity.csv:
+27 grid points over GET / render / screenshot+OCR seconds; the frontier ordering
+(configurations sorted by mean acquisition seconds per site) per grid point and a
+flag whether it differs from the central grid point. The primary reported quantity
+remains the fraction of pages stopped per stage.
 """
 from __future__ import annotations
+
+from itertools import product
 
 import argparse
 import sys
@@ -25,6 +32,41 @@ from jev.run import run_questions  # noqa: E402
 from questions.bank import load_bank, direct_question, bank_questions  # noqa: E402
 from cascade.band import Stage, run_cascade, evaluate_cascade, sweep_bands, pick_band  # noqa: E402
 from combine.combiners import make_lr, fit_apply, cv_scores, question_columns  # noqa: E402
+
+UNIT_COST_GRID = {"get_s": [0.5, 1.5, 3.0], "render_s": [2.0, 5.0, 10.0], "ocr_s": [0.3, 1.0, 2.0]}   # WORKORDER v2.3, T11b
+
+
+def stage_seconds(get_s: float, render_s: float, ocr_s: float) -> dict[str, float]:
+    """Evidence levels in seconds: S0 nothing, S5 a plain GET, S1 a rendered DOM
+    (the browser performs the GET), S2 the rendered DOM plus screenshot and OCR,
+    S3 the rendered DOM (raw HTML)."""
+    return {"S0": 0.0, "S5": get_s, "S1": render_s, "S2": render_s + ocr_s, "S3": render_s}
+
+
+def sensitivity_table(configs: dict[str, list[Stage]], bands: dict[str, tuple[float, float]], y: pd.Series,
+                      lat: dict[str, float], threshold: float) -> pd.DataFrame:
+    """Re-cost every configuration at every grid point and record the ordering
+    by mean seconds per site (acquisition + decide)."""
+    rows, central = [], None
+    grid = list(product(UNIT_COST_GRID["get_s"], UNIT_COST_GRID["render_s"], UNIT_COST_GRID["ocr_s"]))
+    centre = (1.5, 5.0, 1.0)
+    for gi, (g, r, o) in enumerate(grid):
+        secs = stage_seconds(g, r, o)
+        pts = []
+        for name, stages in configs.items():
+            st = [Stage(s.name, s.prob, s.usd_per_site, lat.get(s.name, 0.0) + secs.get(s.name, 0.0), s.is_decision) for s in stages]
+            lo, hi = bands.get(name, (0, 0))
+            ev = evaluate_cascade(run_cascade(st, lo, hi), y, threshold)
+            pts.append((name, ev["mean_seconds_per_site"], ev["f1"]))
+        pts.sort(key=lambda t: (t[1], -t[2]))
+        ordering = " < ".join(f"{n}" for n, _, _ in pts)
+        if (g, r, o) == centre:
+            central = ordering
+        rows.append({"grid_point": gi, "get_s": g, "render_s": r, "ocr_s": o, "ordering": ordering,
+                     "seconds": "|".join(f"{n}={sec:.2f}" for n, sec, _ in pts)})
+    df = pd.DataFrame(rows)
+    df["ordering_changed"] = df.ordering != central
+    return df
 
 
 def main() -> None:
@@ -92,11 +134,24 @@ def main() -> None:
     print(f"[t11b] band chosen on train: [{band.t_low}, {band.t_high}] {args.objective}={band[args.objective]:.3f}")
 
     rows = []
+    configs, bands = {}, {}
     for s in st_te:   # single-stage references
-        rows.append({"config": f"{s.name} alone ({args.score})", **evaluate_cascade(run_cascade([s], 0, 0), labels["test"], thr)})
+        name = f"{s.name} alone ({args.score})"
+        rows.append({"config": name, **evaluate_cascade(run_cascade([s], 0, 0), labels["test"], thr)})
+        configs[name] = [s]; bands[name] = (0, 0)
     res = run_cascade(st_te, band.t_low, band.t_high)
-    rows.append({"config": f"cascade {'->'.join(s.name for s in st_te)} band [{band.t_low},{band.t_high}] ({args.score})",
-                 **evaluate_cascade(res, labels["test"], thr), "t_low": band.t_low, "t_high": band.t_high})
+    cname = f"cascade {'->'.join(s.name for s in st_te)} band [{band.t_low},{band.t_high}] ({args.score})"
+    rows.append({"config": cname, **evaluate_cascade(res, labels["test"], thr), "t_low": band.t_low, "t_high": band.t_high})
+    configs[cname] = st_te; bands[cname] = (band.t_low, band.t_high)
+    # per-site scores of the chosen cascade (paired statistics, T_STATS)
+    res.rename_axis("site_id").reset_index().assign(label=labels["test"].reindex(res.index).values, threshold=thr) \
+        .to_csv(cfg.results_root / f"{tag}_test_scores.csv", index=False)
+    # additional cascade points at bounded escalation rates, for the frontier ordering (sensitivity sweep)
+    for cap in (0.25, 0.5, 0.75):
+        b2 = pick_band(sweep, args.objective, cap, stages[0])
+        n2 = f"cascade {'->'.join(s.name for s in st_te)} band [{b2.t_low},{b2.t_high}] esc<={cap} ({args.score})"
+        if (b2.t_low, b2.t_high) not in bands.values():
+            configs[n2] = st_te; bands[n2] = (b2.t_low, b2.t_high)
     out = pd.DataFrame(rows)
     out["evidence_seconds_source"] = cfg.get("evidence_seconds_source", "placeholder")
     out["split_source"] = sites_for(cfg, args.dataset, "test", limit=1)[1]
@@ -106,6 +161,17 @@ def main() -> None:
     fp = cfg.results_root / "frontier_points.csv"
     out[cols].rename(columns={"mean_seconds_per_site": "latency_s_per_site"}).assign(task="t11b", dataset=args.dataset) \
         .to_csv(fp, mode="a", header=not fp.exists(), index=False)
+    # v2.3 unit-cost sensitivity sweep (27 grid points)
+    sens = sensitivity_table(configs, bands, labels["test"], lat, thr)
+    sens["score"] = args.score; sens["stages"] = "-".join(stages); sens["split_source"] = out.split_source.iloc[0]
+    sp = cfg.results_root / f"t11b_{args.dataset}_sensitivity.csv"     # one file per dataset, rows tagged by score and stages
+    if sp.exists():
+        prev = pd.read_csv(sp)
+        prev = prev[~((prev.score == args.score) & (prev.stages == "-".join(stages)))]
+        sens = pd.concat([prev, sens], ignore_index=True)
+    sens.to_csv(sp, index=False)
+    print(f"[t11b] sensitivity: ordering changed at {int(sens.ordering_changed.sum())} of {len(sens)} grid points "
+          f"(central ordering: {sens[~sens.ordering_changed].ordering.iloc[0] if (~sens.ordering_changed).any() else 'n/a'})")
     client.close()
 
 

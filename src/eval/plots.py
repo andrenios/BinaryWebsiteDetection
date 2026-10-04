@@ -76,3 +76,21 @@ def heatmap(corr: pd.DataFrame, out_base: Path, title: str = "") -> list[Path]:
     if title:
         ax.set_title(title)
     return _save(fig, out_base)
+
+
+def stability_scatter(inv: pd.DataFrame, x: str, y: str, out_base: Path, xlabel: str = "", ylabel: str = "",
+                      label: str = "question", cls: str = "class") -> list[Path]:
+    """Per-indicator AUROC on the source corpus against the stability corpus,
+    one point per indicator, marker by class (T19)."""
+    fig, ax = plt.subplots(figsize=(5.5, 5.5))
+    markers = {"stable": "o", "artefact": "x", "uninformative": "s"}
+    for c, g in inv.groupby(cls):
+        ax.scatter(g[x], g[y], marker=markers.get(c, "o"), label=c)
+    for _, r in inv.iterrows():
+        ax.annotate(str(r[label]).replace("q_", ""), (r[x], r[y]), fontsize=6, xytext=(3, 3), textcoords="offset points")
+    for v in (0.5,):
+        ax.axhline(v, color="grey", lw=0.5); ax.axvline(v, color="grey", lw=0.5)
+    ax.plot([0, 1], [0, 1], "--", color="grey", lw=0.5)
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+    ax.set_xlabel(xlabel or x); ax.set_ylabel(ylabel or y); ax.legend(fontsize=8)
+    return _save(fig, out_base)

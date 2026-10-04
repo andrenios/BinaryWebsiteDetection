@@ -121,3 +121,79 @@ def latency_summary(ms: pd.Series) -> dict:
 def usd_per_1000(cost_usd: pd.Series) -> float:
     c = cost_usd.dropna()
     return float(1000 * c.mean()) if len(c) else float("nan")
+
+
+# ----------------------------------------------------------------------------- paired statistics (T_STATS, v2.3)
+def _metric_fn(metric: str):
+    if metric == "f1":
+        return lambda y, pred: f1_score(y, pred, zero_division=0)
+    if metric == "auroc":
+        return lambda y, p: roc_auc_score(y, p) if len(set(y)) == 2 else float("nan")
+    raise ValueError(metric)
+
+
+def paired_bootstrap_diff(y, p_a, p_b, metric: str = "f1", thr_a: float = 0.5, thr_b: float = 0.5,
+                          n: int = 1000, seed: int = 2107) -> dict:
+    """Paired bootstrap over sites (the same resample is applied to both scores)
+    for the difference metric(a) - metric(b). F1 is computed at the given
+    operating thresholds; AUROC is threshold-free. Returns estimate and 95 %
+    percentile interval. Sites with a NaN score on either side are dropped."""
+    y = np.asarray(y, dtype=int); a = np.asarray(p_a, dtype=float); b = np.asarray(p_b, dtype=float)
+    m = ~(np.isnan(a) | np.isnan(b)); y, a, b = y[m], a[m], b[m]
+    fn = _metric_fn(metric)
+    if metric == "f1":
+        xa, xb = (a >= thr_a).astype(int), (b >= thr_b).astype(int)
+    else:
+        xa, xb = a, b
+    est = float(fn(y, xa) - fn(y, xb))
+    rng = np.random.default_rng(seed)
+    diffs = []
+    for _ in range(n):
+        i = rng.integers(0, len(y), len(y))
+        if len(set(y[i])) < 2:
+            continue
+        diffs.append(fn(y[i], xa[i]) - fn(y[i], xb[i]))
+    diffs = np.asarray(diffs, dtype=float)
+    lo, hi = (float(np.nanpercentile(diffs, 2.5)), float(np.nanpercentile(diffs, 97.5))) if len(diffs) else (np.nan, np.nan)
+    return {"metric": metric, "estimate": est, "ci_low": lo, "ci_high": hi, "n_sites": int(len(y)), "n_resamples": int(len(diffs))}
+
+
+def two_sample_bootstrap_diff(y_a, p_a, y_b, p_b, metric: str = "f1", thr_a: float = 0.5, thr_b: float = 0.5,
+                              n: int = 1000, seed: int = 2107) -> dict:
+    """Unpaired bootstrap for metric(a) - metric(b) when the two scores live on
+    different site sets (e.g. in-distribution test versus a transfer corpus)."""
+    ya, a = _np(y_a, p_a); yb, b = _np(y_b, p_b)
+    fn = _metric_fn(metric)
+    xa, xb = ((a >= thr_a).astype(int), (b >= thr_b).astype(int)) if metric == "f1" else (a, b)
+    est = float(fn(ya, xa) - fn(yb, xb))
+    rng = np.random.default_rng(seed)
+    diffs = []
+    for _ in range(n):
+        i = rng.integers(0, len(ya), len(ya)); j = rng.integers(0, len(yb), len(yb))
+        if len(set(ya[i])) < 2 or len(set(yb[j])) < 2:
+            continue
+        diffs.append(fn(ya[i], xa[i]) - fn(yb[j], xb[j]))
+    diffs = np.asarray(diffs, dtype=float)
+    lo, hi = (float(np.nanpercentile(diffs, 2.5)), float(np.nanpercentile(diffs, 97.5))) if len(diffs) else (np.nan, np.nan)
+    return {"metric": metric, "estimate": est, "ci_low": lo, "ci_high": hi, "n_a": int(len(ya)), "n_b": int(len(yb))}
+
+
+def mcnemar(y, pred_a, pred_b) -> dict:
+    """McNemar test on the discordant pairs (a right / b wrong versus a wrong / b
+    right). Exact binomial p-value when the number of discordant pairs is below
+    25, otherwise the chi-square statistic with continuity correction."""
+    from math import comb
+    from scipy.stats import chi2
+    y = np.asarray(y, dtype=int); pa = np.asarray(pred_a, dtype=int); pb = np.asarray(pred_b, dtype=int)
+    ra, rb = pa == y, pb == y
+    b = int((ra & ~rb).sum())      # a right, b wrong
+    c = int((~ra & rb).sum())      # a wrong, b right
+    n = b + c
+    if n == 0:
+        return {"mcnemar_b": b, "mcnemar_c": c, "mcnemar_p": 1.0, "mcnemar_method": "none (no discordant pairs)"}
+    if n < 25:
+        k = min(b, c)
+        p = min(1.0, 2 * sum(comb(n, i) for i in range(k + 1)) / 2 ** n)
+        return {"mcnemar_b": b, "mcnemar_c": c, "mcnemar_p": float(p), "mcnemar_method": "exact binomial"}
+    stat = (abs(b - c) - 1) ** 2 / n
+    return {"mcnemar_b": b, "mcnemar_c": c, "mcnemar_p": float(chi2.sf(stat, 1)), "mcnemar_method": "chi-square, continuity corrected"}

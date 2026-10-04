@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""T14 sampling: a balanced, language-stratified PhreshPhish sample that
-excludes the bootstrap dev ids, written in the folder layout.
+"""T14 sampling (WORKORDER v2.3): PhreshPhish samples in the folder layout.
 
-  python scripts/t14_sample.py --n 20000 --out data/derived/phreshphish/sample20k
+  # evaluation: balanced, language-stratified, from the BENCHMARK TEST split
+  python scripts/t14_sample.py --role eval       --n 20000 --out data/derived/phreshphish/sample20k
+  # the same split at its NATIVE base rate (seeded thinning, no balancing)
+  python scripts/t14_sample.py --role native     --n 20000 --out data/derived/phreshphish/native_test
+  # T19 stability sample, TRAIN split minus dev ids, 5,000, stratified by language
+  python scripts/t14_sample.py --role stability  --n 5000  --out data/derived/phreshphish/stability5k
+  # R1/R2/R3 adaptation sets (200 + 500 + 5,000), TRAIN split minus dev ids, disjoint from the stability sample
+  python scripts/t14_sample.py --role adapt      --n 5700  --out data/derived/phreshphish/adapt5700 \
+         --exclude data/derived/phreshphish/stability5k/meta.csv
+  # the SVLM paper's 2,500-site sample by id
   python scripts/t14_sample.py --ids data/paper2/phreshphish_2500_ids.txt --out data/derived/phreshphish/paper2_2500
 
-Streams the `test` (benchmark) split by default: it is the realistic-base-rate
-benchmark split and disjoint from the `train` split used for the bootstrap.
-Stratification: per class, language quotas proportional to the language
-distribution seen in the first --scan rows (languages with fewer than
---min-lang rows are pooled as 'other'). Sampling code and seed recorded in
-<out>/sampling.json so the sample is reproducible.
+Every role excludes the bootstrap dev rows (data/derived/bootstrap/phreshphish/
+meta.csv and data/derived/phreshphish_dev_ids.txt) and every meta.csv passed
+with --exclude. Stratification (eval / stability / adapt): per class, language
+quotas proportional to the language distribution seen in the first --scan rows
+(languages with fewer than --min-lang rows are pooled as 'other'). Sampling
+code, seed, role, split and exclusions are recorded in <out>/sampling.json.
 """
 from __future__ import annotations
 
@@ -32,7 +40,11 @@ def main() -> None:
     ap.add_argument("--config", default="config.yaml")
     ap.add_argument("--n", type=int, default=20000)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--split", default="test")
+    ap.add_argument("--role", default="eval", choices=["eval", "native", "stability", "adapt", "custom"],
+                    help="eval/native: benchmark test split; stability/adapt: train split; custom: as given by --split")
+    ap.add_argument("--split", default=None, help="overrides the role's split (custom)")
+    ap.add_argument("--split-size", type=int, default=None, help="rows in the split (native thinning rate); default from the HF card")
+    ap.add_argument("--exclude", nargs="*", default=[], help="meta.csv files of samples that must stay disjoint from this one")
     ap.add_argument("--ids", default=None, help="take exactly these sha256 ids (paper-2 sample) instead of sampling")
     ap.add_argument("--scan", type=int, default=20000, help="rows scanned to estimate the language distribution")
     ap.add_argument("--min-lang", type=int, default=200)
@@ -41,13 +53,23 @@ def main() -> None:
     cfg = load_config(args.config)
     seed = args.seed or cfg["SEED"]
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
-    dev = DevIds(cfg.derived_root / "bootstrap" / "phreshphish" / "meta.csv")
+    role_split = {"eval": "test", "native": "test", "stability": "train", "adapt": "train", "custom": "test"}
+    args.split = args.split or role_split[args.role]
+    if args.role in ("stability", "adapt") and args.split != "train":
+        raise SystemExit("stability and adaptation samples must come from the train split (WORKORDER v2.3, T14)")
+    if args.role in ("eval", "native") and args.split != "test":
+        raise SystemExit("evaluation samples must come from the benchmark test split (WORKORDER v2.3, T14)")
+    dev = DevIds(cfg.derived_root / "bootstrap" / "phreshphish" / "meta.csv", cfg.derived_root / "phreshphish_dev_ids.txt")
+    for ex in args.exclude:
+        dev.add_meta(ex)
     want_ids = set(l.strip() for l in open(args.ids) if l.strip()) if args.ids else None
     rnd = random.Random(seed)
+    split_sizes = {"train": 498255, "test": 168060}            # HF dataset card, checked 2026-10-04
+    native_rate = min(1.0, args.n / (args.split_size or split_sizes.get(args.split, args.n))) if args.role == "native" else None
 
     rows, counts = [], collections.Counter()
     quotas = None
-    if want_ids is None:
+    if want_ids is None and args.role != "native":
         # pass 1 (bounded): language distribution per class
         lang_counts = {0: collections.Counter(), 1: collections.Counter()}
         for i, r in enumerate(stream(args.split)):
@@ -76,6 +98,8 @@ def main() -> None:
             return False
         if want_ids is not None:
             return r["sha256"] in want_ids
+        if args.role == "native":                      # seeded thinning keeps the split's base rate and language mix
+            return rnd.random() < native_rate
         lang = r["language"] or "unk"
         key = lang if lang in quotas[r["label"]] else "other"
         if counts[(r["label"], key)] >= quotas[r["label"]].get(key, 0):
@@ -100,8 +124,10 @@ def main() -> None:
     import csv
     with open(out / "meta.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
-    json.dump({"n": len(rows), "split": args.split, "seed": seed, "quotas": quotas, "ids_file": args.ids,
-               "dev_ids_excluded": len(dev), "script": "scripts/t14_sample.py"}, open(out / "sampling.json", "w"), indent=1)
+    json.dump({"n": len(rows), "role": args.role, "split": args.split, "seed": seed, "quotas": quotas, "ids_file": args.ids,
+               "native_rate": native_rate, "n_phishing": int(sum(r["label"] for r in rows)),
+               "excluded_ids": len(dev), "exclude_files": args.exclude, "script": "scripts/t14_sample.py"},
+              open(out / "sampling.json", "w"), indent=1)
     print(f"[t14] wrote {len(rows)} sites to {out}")
 
 

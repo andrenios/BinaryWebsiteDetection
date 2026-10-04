@@ -1,0 +1,10 @@
+hypothesis,metric,decision_model_value,twin_value,same_direction,twin_model,reference,note
+H1,lr test F1 at the train-fitted threshold (S1); reference best SVLM F1 - 0.03,0.935483870967742,,not available,fake-twin,,missing t09_bootstrap-phreshphish_S1_combiners.csv
+H2,"smallest budget within 1 F1 point of 2,000 tokens (not run for the twin)",500.0,,not available,fake-twin,1000.0,missing t06b_bootstrap-phreshphish_test_curve_twin-fake-twin.csv
+H3,lr F1 minus q_direct F1 (S1); reference 0,0.17357910906298013,,not available,fake-twin,0.0,missing t09_bootstrap-phreshphish_S1_combiners.csv
+H4,fraction of pages never fetched by the swept-band evidence cascade (lr arm),,,not available,fake-twin,0.5,missing t11b_bootstrap-phreshphish_lr_S0-S1-S2_test.csv; missing t11b_bootstrap-phreshphish_lr_S0-S1-S2_test_twin-fake-twin.csv
+H5,ECE (10 equal-mass bins) of the raw lr score; reference 0.10,0.0294234028589012,,not available,fake-twin,0.1,missing t13_bootstrap-phreshphish_S1_calibration_twin-fake-twin.csv
+H6,"A5 flip rate at 1,000 queries against the lr bank score; reference 0.5",,,not available,fake-twin,0.5,
+H7,transfer loss of the stable-set lr minus the all-indicator lr; reference 0,,,not available,fake-twin,0.0,missing t19_transfer_by_combiner.csv; missing t19_transfer_by_combiner_twin-fake-twin.csv
+H8,"fetched fraction under VoI (10:1, central costs) minus the swept band's; reference 0",,,not available,fake-twin,0.0,missing t20_bootstrap-phreshphish_twin-fake-twin_voi_test.csv
+H9,share of the R1 gain recovered by prior_em on the native-rate target; reference 2/3,,,not available,fake-twin,0.6666666666666666,missing t21_prior_shift.csv; missing t21_prior_shift_twin-fake-twin.csv

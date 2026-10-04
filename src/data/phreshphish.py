@@ -36,12 +36,25 @@ def stream(split: str = "train", cache_dir: str | Path | None = None) -> Iterato
 
 
 class DevIds:
-    """Bootstrap ids (sha256 + url) that T14 must exclude."""
+    """Ids that a PhreshPhish sample must exclude: the bootstrap dev rows
+    (sha256 + url from the bootstrap meta.csv, or the short ids
+    `pp_<sha256[:16]>` of data/derived/phreshphish_dev_ids.txt) and, via
+    `add_meta`, any previously drawn sample (so that the evaluation, adaptation
+    and stability samples are disjoint; WORKORDER v2.3, T14)."""
 
-    def __init__(self, bootstrap_meta_csv: str | Path):
+    def __init__(self, bootstrap_meta_csv: str | Path | None = None, ids_file: str | Path | None = None):
         self.sha = set()
         self.urls = set()
-        p = Path(bootstrap_meta_csv)
+        self.short = set()
+        if bootstrap_meta_csv:
+            self.add_meta(bootstrap_meta_csv)
+        if ids_file and Path(ids_file).exists():
+            for line in open(ids_file, encoding="utf-8"):
+                if line.strip():
+                    self.short.add(line.strip())
+
+    def add_meta(self, meta_csv: str | Path) -> "DevIds":
+        p = Path(meta_csv)
         if p.exists():
             with open(p, newline="", encoding="utf-8") as f:
                 for row in csv.DictReader(f):
@@ -49,9 +62,13 @@ class DevIds:
                         self.sha.add(row["sha256"])
                     if row.get("url"):
                         self.urls.add(row["url"])
+                    if row.get("_id"):
+                        self.short.add(row["_id"])
+        return self
 
     def is_dev(self, row: dict) -> bool:
-        return row.get("sha256") in self.sha or row.get("url") in self.urls
+        sha = row.get("sha256") or ""
+        return sha in self.sha or row.get("url") in self.urls or ("pp_" + sha[:16]) in self.short
 
     def __len__(self) -> int:
-        return len(self.sha | self.urls)
+        return len(self.sha | self.urls | self.short)

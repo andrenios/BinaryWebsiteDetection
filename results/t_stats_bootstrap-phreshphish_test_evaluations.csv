@@ -1,0 +1,13 @@
+file,configurations
+t06_bootstrap-phreshphish_test_table.csv,1
+t07_bootstrap-phreshphish_S1_combiners.csv,4
+t06b_bootstrap-phreshphish_test_curve.csv,5
+t10_bootstrap-phreshphish_test.csv,2
+t11_bootstrap-phreshphish_lr_to_s3_test.csv,101
+t11b_bootstrap-phreshphish_direct_S0-S1-S3_test.csv,4
+t11b_bootstrap-phreshphish_lr_S0-S1_test.csv,3
+t20_bootstrap-phreshphish_voi_test.csv,6
+t20_bootstrap-phreshphish_conformal_test.csv,4
+t13_bootstrap-phreshphish_S1_calibration.csv,2
+t15_bootstrap-phreshphish_direct_summary.csv,7
+t08_bootstrap-phreshphish_baselines.csv,3

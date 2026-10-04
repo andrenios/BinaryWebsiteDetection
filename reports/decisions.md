@@ -131,3 +131,98 @@ occur. `config.yaml: s3_max_tokens`.
 `q_direct` are sent alone (same request shape as T03/T06). The choice and score
 variants are sent in one extra request together with `q_direct`, which also
 measures whether companion questions move the `q_direct` probability.
+
+## 2026-10-04 (session 3, work order v2.3 implementation; no API calls)
+
+**D18. PhreshPhish split roles and disjointness (T14, T19, T21).** Evaluation
+samples come from the benchmark **test** split: `phreshphish-20k` (balanced,
+language-stratified, `t14_sample.py --role eval`) and `phreshphish-native`
+(seeded thinning of the test split at its native base rate, `--role native`).
+Labelled samples come from the **train** split minus the dev ids
+(`data/derived/phreshphish_dev_ids.txt` and the bootstrap `meta.csv`):
+`phreshphish-stab` (5,000, `--role stability`) and `phreshphish-adapt` (5,700,
+`--role adapt --exclude <stability meta.csv>`). The R1 / R2 / R3 adaptation sets
+are disjoint slices (200, 500, 5,000) of a seeded permutation of the
+adaptation sample, and the whole evaluation sample is scored
+(`t14_transfer.py --adapt-dataset phreshphish-adapt`); "disjoint from each
+other" in the addendum was read as covering the three adaptation sets too.
+`src/data/registry.py`, `src/data/phreshphish.py::DevIds`.
+
+**D19. `tokens_per_site` of the semantic question set is an estimate.** The
+semantic-only request was never sent; its billed tokens are estimated as the
+measured full-bank tokens scaled by the tiktoken share of the state plus the
+kept questions over the state plus all questions
+(`scripts/t07_bank.py::estimated_tokens_per_site`); the column
+`tokens_source` says so. The deterministic row costs no model tokens. A
+measured value needs one extra request per site (Andreas's call).
+
+**D20. VoI conventions (T20).** Myopic one-step rule as specified; transition
+model with 20 equal-mass bins (duplicate cut points from two-decimal
+probabilities are dropped; the expectation uses the per-cell mean of the
+next-level score); c_FP = 1, c_FN in {1, 10, 100}; acquisition costs are the
+T11b unit-cost grid in seconds divided by the exchange rate
+`voi_seconds_per_fp_unit` = 60 s per unit of c_FP (reported in the table and
+to be quoted in the paper); stage scores are Platt-calibrated on train by
+default (T13 -> T20); F1 is computed at the train-fitted threshold of the
+stopping stage so that the rows are comparable with T11b's swept band.
+
+**D21. Conformal rates (T20).** Thresholds are calibrated per level on the
+calibration half of a 50/50 stratified split of train (the other half fits the
+combiner and the calibration map). `realised_miss_rate` is the share of all
+phishing pages declared benign at or before the level (the marginal quantity
+the per-level quantile bounds by alpha), `realised_fp_rate` the share of benign
+pages declared phishing at or before the level; both cumulative over levels.
+A finite-sample quantile that exceeds the calibration set gives an infinite
+threshold, i.e. "never stop at this level" (happens below about 1/alpha
+phishing calibration pages; irrelevant on Putra).
+
+**D22. Label-free threshold after prior correction (T21).** "Re-derived for the
+same target FPR as on Putra" is implemented from the calibrated shifted
+posteriors without labels: expected FPR(t) = sum_{p_i >= t}(1 - p_i) / sum_i
+(1 - p_i), threshold = the smallest t whose expected FPR does not exceed the
+FPR of the Putra threshold on Putra train benign pages (`prior_known`,
+`prior_em`). The variant that keeps the Putra posterior threshold after the
+shift is reported as `prior_known_bayes` / `prior_em_bayes`.
+
+**D23. Output columns.** Every new table carries the columns of
+`paper/tables.md` first, verbatim and in order; provenance columns follow
+(`target`, `score`, `calibration`, `grid_point`, `status`, `split_source`, ...).
+Where tables.md names one file but several arms or datasets produce rows,
+rows are tagged instead of multiplying files: `t11b_<dataset>_sensitivity.csv`
+(rows per `score` and `stages`), `t12_<dataset>_throughput.csv` (`source` =
+burst or sustained), `t21_prior_shift.csv` (`target`). The decision model's
+files keep the tables.md names; the twin instantiation appends
+`_twin-<model>` (`scripts/_bootstrap.py::out_name`).
+
+**D24. A5 spend cap.** The addendum budgets about 1 USD for A5, but 200 pages
+x 1,000 queries x 1,300 to 1,900 billed tokens is 11 to 16 USD per target in
+the worst case (no early flips). `a5_max_usd_per_target` (config, 1.0 USD)
+stops the arm per target; the summary reports the pages attempted before the
+stop (`n_pages_attempted`, `arm_usd`). Budgets 50 / 200 / 1,000 are prefixes
+of one greedy random search per page (same seed), so the three rows describe
+the same attack trajectory. The twin target costs 15 generations per query.
+
+**D25. Twin fake backend.** `t09_open_weight_twin.py --backend fake` is a
+deterministic stand-in for exercising the code path without a GPU; it is
+refused outside bootstrap / fixture datasets and writes under
+`results/dryrun/` (git-ignored). Twin cost is generation seconds x
+`gpu_usd_per_hour`; whether Ollama returns first-token logprobs for the
+installed version is unverified (fallback: P(yes) from the answer text,
+flagged in `notes`).
+
+**D26. Stable-set freeze (T19).** The frozen file
+`src/questions/stable_set_v1.yaml` is written only by `--dataset putra
+--variant S1` with the decision model, once; later runs load it and warn on a
+mismatch. Other datasets and the twin write development files under
+`results/`. The stable-set and all-indicator combiners exclude `q_direct` so
+that the comparison isolates the indicators; the T07 combiner with `q_direct`
+is kept as a fourth row.
+
+**D27. `MAX_USD` in `config.server.yaml` is 10.0** (already above the
+addendum's 9 USD); left unchanged, Andreas decides.
+
+**D28. Sustained throughput (T12 `--sustained`)** is computed from the
+persisted live records of the T06 S1 test run (completion timestamps and
+latencies; wall = last completion - first start). `jev/run.py` now logs the
+worker count per request; for older logs the concurrency column falls back to
+the config value.

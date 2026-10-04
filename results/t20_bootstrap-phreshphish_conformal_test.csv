@@ -1,0 +1,5 @@
+alpha,beta,level,threshold_low,threshold_high,fraction_stopped,realised_miss_rate,realised_fp_rate,n,score,calibration,split_source
+0.01,0.05,S0,-inf,0.873398399373734,0.3333333333333333,0.0,0.06666666666666667,60,lr,platt,pseudo
+0.01,0.05,S1,,,0.6666666666666666,0.03333333333333333,0.1,60,lr,platt,pseudo
+0.05,0.05,S0,0.08450035909536535,0.873398399373734,0.7,0.03333333333333333,0.06666666666666667,60,lr,platt,pseudo
+0.05,0.05,S1,,,0.3,0.03333333333333333,0.1,60,lr,platt,pseudo

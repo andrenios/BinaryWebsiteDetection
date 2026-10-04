@@ -1,0 +1,5 @@
+score,budget,n_pages,flip_rate,mean_prob_reduction,mean_queries_to_flip,usd_per_flipped_page,mean_indicators_dropped,threshold,n_pages_attempted,arm_usd,split_source
+q_direct,5,1,0.0,0.0,,,,0.12,3,0.0,pseudo
+q_direct,10,1,0.0,0.0,,,,0.12,3,0.0,pseudo
+lr_bank,5,1,0.0,0.0,,,,0.3400501864462177,3,0.0,pseudo
+lr_bank,10,1,0.0,0.0,,,,0.3400501864462177,3,0.0,pseudo

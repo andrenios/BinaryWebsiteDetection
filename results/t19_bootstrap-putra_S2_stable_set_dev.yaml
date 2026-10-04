@@ -1,0 +1,34 @@
+version: stable_set_dev_t19_bootstrap-putra_S2
+frozen: false
+frozen_at: '2026-10-04T21:54:57'
+source_corpus: bootstrap-putra S2 train
+stability_corpus: bootstrap-phreshphish S1 train
+rule:
+  stable: same sign and oriented AUROC > 0.6 on both corpora
+  artefact: oriented AUROC > 0.65 on one corpus and < 0.55 or reversed on the other
+n_source: 33
+n_stability: 140
+questions:
+- q_brand_domain_mismatch
+- q_brand_in_url_not_domain
+- q_ip_or_freehost
+- q_urgency
+- q_shell_page
+- q_language_brand_mismatch
+- q_suspicious_url_shape
+classes:
+  q_collects_credentials: artefact
+  q_form_offsite: artefact
+  q_brand_domain_mismatch: stable
+  q_brand_in_url_not_domain: stable
+  q_ip_or_freehost: stable
+  q_urgency: stable
+  q_reward_bait: uninformative
+  q_obfuscated_scripts: artefact
+  q_external_favicon: uninformative
+  q_shell_page: stable
+  q_missing_legitimacy: artefact
+  q_language_brand_mismatch: stable
+  q_suspicious_url_shape: stable
+  q_cloned_assets: uninformative
+note: development file (bootstrap / pseudo split); never used for a report

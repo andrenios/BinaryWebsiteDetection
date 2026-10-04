@@ -12,7 +12,8 @@ from it is logged in `reports/decisions.md`. Task reports are `reports/T<nn>.md`
 | T01 environment and data, T02 states, T03 client smoke test, T05 light determinism | **done** on bootstrap/fixture data (`reports/T01–T05.md`) |
 | Scripts for T04, T06, T06b, T07, T08(a–c), T10, T11, T11b, T12, T13, T14 (sampler + transfer), T15 | **written and exercised end to end on the bootstrap samples** with a pseudo split; waiting for the real data (`reports/RUNBOOK.md`) |
 | T08d ModernBERT fine-tune | written, **untested** (needs GPU + `torch transformers`) |
-| T09 open-weight boolean baseline, T15 SVLM comparison arm, T16, T17 crawler, T18 bundle | **not written** |
+| T09 open-weight twin (`t09_open_weight_twin.py`, Ollama / vLLM, GPU), T19 stability, T20 VoI + conformal, T21 prior shift, T_STATS, A5 (v2.3) | written, exercised on the bootstrap samples with cached responses; T09 only with the fake backend |
+| T15 SVLM comparison arm, T16, T17 crawler, T18 bundle | **not written** |
 | Co-author artefacts (split, stored summaries, SVLM outputs) | **not on this machine** — see "Data to load" |
 
 Jev spend so far: < 0.5 USD (ledger: `data/raw_responses/spend_ledger.jsonl`). Nothing run so far needs a GPU.
@@ -25,7 +26,7 @@ git clone <repo> && cd jev-phishing
 cp .env.example .env            # put TYPESAFE_API_KEY=... in .env (never commit it)
 make env                        # Python 3.11 venv (.venv), pins from pyproject.toml
 brew install tesseract          # macOS; apt install tesseract-ocr on Linux (eng is enough for now)
-make test                       # 15 tests, no network, no API calls
+make test                       # 28 tests, no network, no API calls
 ```
 
 Everything reads `config.yaml` (laptop) or `config.server.yaml` (server);

@@ -63,7 +63,8 @@ def run_questions(cfg, client: JevClient, sites, dataset: str, variant: str, que
         if state_transform:
             st = state_transform(st)
         meta = {"site_id": s.id, "label": s.label, "variant": variant, "dataset": dataset,
-                "experiment": experiment, "split": split or "all", **(extra_meta or {})}
+                "experiment": experiment, "split": split or "all",
+                "workers": workers or cfg.get("concurrency", 4), **(extra_meta or {})}
         items.append((st, questions, meta))
     if missing:
         print(f"[run] {experiment}: {len(missing)} sites without a {variant} state (run t02 first)")

@@ -56,3 +56,13 @@ evidence_seconds_source: placeholder   # becomes "fresh-crawl medians (T17)" onc
 # (columns: model,mode,dataset,f1,auroc,seconds_per_site,usd_per_pass,source_file).
 paper2_reference_csv: data/paper2/reference_rows.csv
 gpu_usd_per_hour: 0.99
+
+# ---- v2.3 additions
+cpu_usd_per_hour: 0.10                 # appendix A5 only: CPU inference converted to USD at a stated rate
+voi_seconds_per_fp_unit: 60            # T20 exchange rate: one unit of c_FP equals this many acquisition seconds
+voi_cost_ratios: [1, 10, 100]          # c_FN : c_FP
+conformal_alphas: [0.01, 0.05]
+conformal_beta: 0.05
+twin_base_url: http://localhost:11434  # T09: Ollama (11434) or vLLM OpenAI-compatible server (8000)
+twin_models: [gemma4:12b, qwen3.5:9b]
+a5_max_usd_per_target: 1.0             # T15 A5: stop the arm when its own spend exceeds this

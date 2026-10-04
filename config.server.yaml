@@ -8,9 +8,9 @@ api_base: https://api.typesafe.ai
 price_usd_per_mtok_input: 0.042
 price_usd_per_mtok_output: 0.0
 
-MAX_USD: 5.0
+MAX_USD: 10.0
 
-SEED: 2107
+SEED: 2107 
 bank_version: bank_v1
 bank_path: src/questions/bank_v1.yaml
 
@@ -30,3 +30,21 @@ max_retries: 6
 checkpoint_every: 200
 
 tesseract_lang: eng
+
+# ---- v2.3 additions (see config.yaml)
+evidence_seconds: {S0: 0.0, S5: 1.0, S1: 4.0, S2: 4.5, S3: 4.0}
+evidence_seconds_source: placeholder
+paper2_reference_csv: data/paper2/reference_rows.csv
+gpu_usd_per_hour: 0.99
+cpu_usd_per_hour: 0.10
+voi_seconds_per_fp_unit: 60
+voi_cost_ratios: [1, 10, 100]
+conformal_alphas: [0.01, 0.05]
+conformal_beta: 0.05
+twin_base_url: http://localhost:11434
+twin_models: [gemma4:12b, qwen3.5:9b]
+a5_max_usd_per_target: 1.0
+prevalences: [0.001, 0.01, 0.05]
+operating_threshold: 0.5
+learning_curve_sizes: [50, 100, 200, 500, 1000, 6160]
+pilot_sites: 300

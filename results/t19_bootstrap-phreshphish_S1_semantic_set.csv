@@ -1,0 +1,4 @@
+features,cv_auroc_train,test_auroc,test_f1_at_fit,tokens_per_site,tokens_source,split_source
+deterministic,0.866734693877551,0.9544444444444445,0.90625,0.0,none (computed in code),pseudo
+semantic,0.9653061224489796,0.9911111111111112,0.9152542372881356,1666.5391734545565,estimated from the full-bank request (D19),pseudo
+both,0.9697959183673469,0.99,0.9333333333333333,1666.5391734545565,estimated from the full-bank request (D19),pseudo
