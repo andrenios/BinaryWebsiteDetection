@@ -1,0 +1,1030 @@
+<html lang="en"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>NHL Goalie Advanced Stats 2024-2025</title>
+		<meta name="description" content="NHL Goalie Analytics, Goals Saved Above Expected">
+		<meta name="keywords" content="money puck, moneypuck, 2024-2025 NHL goalies, NHL goalies, goalie stats, NHL player statistics, expected goals, xGoals, xRebounds, hockey analytics">
+		<meta property="og:image" content="final_circle.png">
+
+		<link rel="stylesheet" href="https://peter-tanner.com/moneypuck/css/style.css" type="text/css">
+		
+		<link rel="stylesheet" href="https://peter-tanner.com/moneypuck/css/menu_style.css" type="text/css">
+		<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202508280201/reactive_library_fy2021.js?bust=31094405"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-XVF5QHYLHX&amp;cx=c&amp;_slc=1"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202508280201/show_ads_impl_fy2021.js?bust=31094405"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="jss/geo2.js"></script>	
+		<script src="jss/part.js"></script>
+		
+		<script src="https://peter-tanner.com/moneypuck/jss/part.js"></script> 
+		<script src="https://peter-tanner.com/moneypuck/jss/team_colours.js"></script>
+		
+		
+		<link href="https://peter-tanner.com/moneypuck/icons/apple-touch-icon.png" rel="apple-touch-icon">
+		<link href="https://peter-tanner.com/moneypuck/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+		<link href="https://peter-tanner.com/moneypuck/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+		<link href="https://peter-tanner.com/moneypuck/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+		<link href="https://peter-tanner.com/moneypuck/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+		<link href="https://peter-tanner.com/moneypuck/icons/icon-hires.png" rel="icon" sizes="192x192">
+		<link href="https://peter-tanner.com/moneypuck/icons/icon-normal.png" rel="icon" sizes="128x128">
+		
+		<script src="https://peter-tanner.com/moneypuck/jss/moment.min.js"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://peter-tanner.com/moneypuck/jquery.tablesorter_zip.js"></script> 
+		<script src="https://peter-tanner.com/moneypuck/jss/jquery.doubleScroll.js"></script>
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+		
+
+<style>
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 20px;
+    border-radius: 15px;
+    background: #dadada;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 128px;
+    height: 75px;
+    border: 0;
+    background: url('http://moneypuck.com/moneypuck/slider_medium.png'); 
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 128px;
+    height: 75px;
+    border: 0;
+    background: url('http://moneypuck.com/moneypuck/slider_medium.png');
+    cursor: pointer;
+}
+
+ select {
+  font-family: verdana, Arial, san-serif;
+  font-size:    28px;
+ }
+ 
+
+ 
+ body {
+  min-height: 2000px;
+  padding-top: 152px;
+}
+
+.rainbow-text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+}
+
+table.tablesorter {
+  white-space: nowrap;
+  margin: 0;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  border: 1px solid black;
+}
+table.tablesorter td,
+table.tablesorter th {
+  border: 1px solid black;
+
+  
+}
+table.tablesorter thead th {
+  padding: 3px;
+  position: sticky;
+  top: 0;
+  text-align:center;
+  z-index: 1;
+  
+  width: 15vw;
+  background-color: #f5fbfd;
+  font-size:    24px;
+}
+table.tablesorter td {
+  padding: 4px 5px;
+  text-align: center;
+  font-size:    22px;
+}
+
+table.tablesortertbody th {
+  border: 1px solid black;
+  text-align: left;
+  position: relative;
+  font-size:    24px;
+
+}
+table.tablesorter thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+table.tablesorter tbody th {
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+    font-size:    20px;
+}
+caption {
+  text-align: left;
+  padding: 0.25rem;
+  position: sticky;
+  left: 0;
+}
+
+[role="region"][aria-labelledby][tabindex] {
+  width: 100%;
+  max-height: 98vh;
+  overflow: auto;
+}
+
+
+table#goaliesTable td, table#goaliesTable th {
+	 border: 1px solid black;
+ }
+ 
+ table#noBorders td  {
+	 border: 0px;
+ }
+ 
+
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+
+  </style>
+  
+
+  
+<script data-cfasync="false" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1085579666653840" data-checked-head="true"></script><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="https://fundingchoicesmessages.google.com/i/ca-pub-1085579666653840?href=https%3A%2F%2Fmoneypuck.com%2Fgoalies.htm&amp;ers=2"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxWomS6pynIn4_jxr8EleTm5DDm-Syzc785-F-6cKP3IeJna6U3lRu3tdWgcO4d5xBVy8gQMjYsTS7ZJlnn-xZuF3rW_rFcwCE9H-pC1Wkcorpqop2kAknXY9admuSZ8UlYqpP39UQ==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzU2Nzk4MzQ1LDU1MzAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzddXSwiaHR0cHM6Ly9tb25leXB1Y2suY29tL2dvYWxpZXMuaHRtIixudWxsLFtbOCwiSHd5UnhNLW4zdE0iXSxbOSwiZW4tVVMiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxWDVDb-4LQwTnTVDqd_YCwXETa4cBf7ChMBCSSbLnG-ovsmeSioOgozUTHAmrUEfwWPkWE8NEfQuMML0DmHQCFcXX331pgmtWzr_mpsNpSIpbvj5FGpSToaMNQ_onMapSaX6MScMw==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzU2Nzk4MzQ1LDYyMzAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOV0sbnVsbCwyLG51bGwsImVuIl0sImh0dHBzOi8vbW9uZXlwdWNrLmNvbS9nb2FsaWVzLmh0bSIsbnVsbCxbWzgsIkh3eVJ4TS1uM3RNIl0sWzksImVuLVVTIl0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdLFsyOSwiZmFsc2UiXV1d"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxU9_Zhyo8EduKtFun1ozhTIydmdIw1TGXLyGvBxEYZcuBtgI_gcgkV0PN50F4s64VH3c4_L39D_PT4NiojntaspRav7jZ-uo6Yi8sjhg7W_sFJKQd-GKP9Xyc1mW6h-qYP9TauFHQ==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzU2Nzk4MzQ2LDg3NTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOSw2XSxudWxsLDIsbnVsbCwiZW4iLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwxXSwiaHR0cHM6Ly9tb25leXB1Y2suY29tL2dvYWxpZXMuaHRtIixudWxsLFtbOCwiSHd5UnhNLW4zdE0iXSxbOSwiZW4tVVMiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0"></script></head>
+
+<body style="padding: 152px 0px 154px;">
+	<nav class="navbar navbar-default navbar-fixed-top" id="top_nav_bar" style="background:white; width:100vw; ">
+<table style="width:100%;">
+	<tbody><tr>
+	
+	
+		<td style="text-align:center" width="17%">
+			<table class="navBarDesktop">
+			<tbody><tr><td><a href="index.html"><img src="https://peter-tanner.com/moneypuck/icons/menu/Games.png" width="">Games</a></td></tr>
+			<tr><td><a href="predictions.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Playoff Odds.png">Playoff Odds</a></td></tr>
+			</tbody></table>
+		</td>
+		
+		
+		<td width="17%">
+			<table class="navBarDesktop">
+			<tbody><tr><td><a href="power.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Power Rankings.png">Power Rankings</a></td></tr>
+			<tr><td><a href="teams.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Teams.png">Teams</a></td></tr>
+			</tbody></table>
+		</td>
+		
+		<td width="14%">
+			<table class="navBarDesktop">
+			<tbody><tr><td><a href="stats.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Players.png">Players</a></td></tr>
+			<tr><td><a href="goalies.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Goalies.png">Goalies</a></td></tr>
+			</tbody></table>
+		</td>
+		
+		<td width="12%"><a href="index.html"><img src="https://peter-tanner.com/moneypuck/logos/moneypucklogo.png" width="112" height="106" align="middle"></a></td>
+
+		<td width="15%">
+			<table class="navBarDesktop">
+			<tbody><tr><td><a href="lines.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Lines.png">Lines</a></td></tr>
+			<tr><td><a href="bet.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Bet.png">Betting</a></td></tr>
+			</tbody></table>
+		</td>
+		
+		
+		<td width="14%">
+			<table class="navBarDesktop">
+			<tbody><tr><td><a href="standings.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/standings.png">Standings</a></td></tr>
+			<tr><td><a href="injuries.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Injury News.png">Injuries</a></td></tr>
+			
+			</tbody></table>
+		</td>
+		
+			
+		<td>
+			<table class="navBarDesktop" width="14%">
+			<tbody><tr><td><a href="data.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Data.png">Data</a></td></tr>
+			<tr><td><a href="about.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/About.png">About</a></td></tr>	
+			</tbody></table>
+		</td>
+
+	
+</tr>
+</tbody></table>
+</nav>
+
+
+<div id="wrapper">
+
+<div id="sidebar-wrapper" style="font-size: 250%; font-weight: bold; width:0px; color:black; ">
+
+	<ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+	<li><a href="index.html"><img src="https://peter-tanner.com/moneypuck/icons/menu/Games.png" width="100" height="100">Games</a></li>
+	<li><a href="predictions.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Playoff Odds.png" width="100" height="100">Playoff Odds</a></li>
+	<li><a href="power.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Power Rankings.png" width="100" height="100">Power Rankings</a></li>
+	<li><a href="standings.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/standings.png" width="100" height="100">Standings</a></li>
+	<li><a href="bet.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Bet.png" width="100" height="100">Betting</a></li>
+	<li><a href="teams.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Teams.png" width="100" height="100">Teams</a></li>
+	<li><a href="stats.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Players.png" width="100" height="100">Players</a></li>
+	<li><a href="goalies.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Goalies.png" width="100" height="100">Goalies</a></li>
+	<li><a href="lines.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Lines.png" width="100" height="100">Lines</a></li>
+	<li><a href="injuries.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Injury News.png" width="100" height="100">Injuries</a></li>
+	<li><a href="data.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/Data.png" width="100" height="100">Data</a></li>
+	<li><a href="about.htm"><img src="https://peter-tanner.com/moneypuck/icons/menu/About.png" width="100" height="100">About</a></li>
+
+	<br><br><br><br><br><br>
+	</ul>
+	
+</div>
+
+
+
+
+
+
+<div id="page-content-wrapper" width="100%">
+
+<div width="100%">
+
+   <hr style="width:98vw; border: 0px;">
+<!-- page content starts here -->
+	
+	
+	<h3>
+		<font size="+3"><div id="updateTime">Stats updated: Wednesday June 18, 2025 at 11:22 PM Eastern Time</div></font> <br>
+	</h3>
+	
+
+				
+<div id="fd_banner" style="margin: auto; width: 980; display:none">
+
+<script type="text/adtag"><div class="ft_async_tag">
+    <noscript>
+        <a href="https://servedby.flashtalking.com/click/8/233170;9211535;0;209;0/?gdpr=${GDPR}&gdpr_consent=${GDPR_CONSENT_78}&us_privacy=${US_PRIVACY}&ft_width=970&ft_height=250&url=40989586" target="_blank">
+        <img border="0" src="https://servedby.flashtalking.com/imp/8/233170;9211535;205;gif;MoneyPuck;sbknhlnooffermpseasonprospecting970x250/?gdpr=${GDPR}&gdpr_consent=${GDPR_CONSENT_78}&us_privacy=${US_PRIVACY}">
+        </a>
+    </noscript>
+    <img src="data:image/png,ft" style="display: none" onerror='
+        (function(img) {
+            window.ftClick = "";
+            window.ftExpTrack_9211535 = "";
+            window.ftX = "";
+            window.ftY = "";
+            window.ftZ = "";
+            window.ftOBA = 1;
+            window.ftContent = "";
+            window.ftCustom = "";
+            window.ft970x250_OOBclickTrack = "";
+            window.ftRandom = Math.random()*1000000;
+            window.ftClick_9211535 = ftClick;
+            if(typeof(ft_referrer)=="undefined"){window.ft_referrer=(function(){var r="";if(window==top){r=window.location.href;}else{try{r=window.parent.location.href;}catch(e){}r=(r)?r:document.referrer;}while(encodeURIComponent(r).length>1000){r=r.substring(0,r.length-1);}return r;}());}
+            var ftDomain = (window==top)?"":(function(){var d=document.referrer,m=(d)?d.match("(?::q/q/)+([qw-]+(q.[qw-]+)+)(q/)?".replace(/q/g,decodeURIComponent("%"+"5C"))):"",h=(m&&m[1])?m[1]:"";return (h&&h!=location.host)?"&ft_ifb=1&ft_domain="+encodeURIComponent(h):"";}());
+            var ftV_9211535={pID:"9211535",width:"970",height:"250",params:{ftx:window.ftX,fty:window.ftY,ftadz:window.ftZ,ftscw:window.ftContent,ft_custom:window.ftCustom,ft_id:window.ftID||"",ft_idEnabled:window.ftIDEnabled||"",ftOBA:window.ftOBA,ft_domain:((ftDomain||"").match(RegExp("&ft_domain=([^&$]+)","i"))||["",""])[1],ft_ifb:((ftDomain||"").match(RegExp("&ft_ifb=([^&$]+)","i"))||["",""])[1],ft_agentEnv:window.mraid||window.ormma?"1":"0",ft_referrer:encodeURIComponent(window.ft_referrer),gdpr:"${GDPR}",gdpr_consent:"${GDPR_CONSENT_78}",us_privacy:"${US_PRIVACY}",ftClick:window.ftClick,cachebuster:window.ftRandom},winVars:{ftClick_9211535:window.ftClick_9211535,ftExpTrack_9211535:window.ftExpTrack_9211535,ft970x250_OOBclickTrack:window.ft970x250_OOBclickTrack},DTimeout:1E3,GTimeout:1E3},
+            ftPProc=function(d){var c=this;d=JSON.parse(JSON.stringify(d));var f=[],l=function(a,b){b="undefined"===typeof b||isNaN(b)?1:parseInt(b,10);a=a||"";for(var e=0<=b?b:0;e--;)a=encodeURIComponent(a);return a},h=function(a){a=a.constructor==Array?a:[];for(var b=0;b<a.length;b++){var e=a[b].t&&"w"==a[b].t?"winVars":"params",c=d[e][a[b].p],g=l(a[b].n||"",a[b].e),h=l(a[b].v||"",a[b].e);g=(g?g+":":"")+h;""!==g&&(c="undefined"===typeof c||""===c||"o"===a[b].m?"":c+";",d[e][a[b].p]=c+g)}a=!0;for(b=0;b<f.length;b++)if(!f[b].deployed){a=!1;break}a&&k()},k=function(){k=function(){};deployTag()};c.getVars=function(a){return JSON.parse(JSON.stringify(a?"string"===typeof a&&"undefined"!==typeof d[a]?d[a]:{}:d))};c.getSrcString=function(){var a=c.getVars("params"),b=[],e;for(e in a)a.hasOwnProperty(e)&&"undefined"!==typeof a[e]&&""!==a[e]&&b.push(e+"="+a[e]);return b.join("&")};c.deployWinVars=function(){var a=c.getVars("winVars"),b;for(b in a)a.hasOwnProperty(b)&&"undefined"!==typeof a[b]&&(window[b]=a[b])};c.addPProc=function(a){a.deployed=!1;f.push(a)};c.init=function(){d.v=5;var a=[];0===f.length?k():(f.forEach(function(b){a.push(b.id);b.timeout=parseInt(isNaN(b.timeout)?d.DTimeout:b.timeout,10);b.timer=setTimeout(function(){var a={};clearTimeout(b.timer);b.deployed||(b.deployed=!0,h(a))},b.timeout||d.DTimeout);b.deploy(c.getVars(),function(a){clearTimeout(b.timer);b.deployed||(b.deployed=!0,h(a))})}),window["ftPPIDs_"+d.pID]=d.v+";"+a.join(","))}},ft9211535PP = new ftPProc(ftV_9211535);
+            
+            var deployTag = function(){deployTag = function(){};clearTimeout(gTimer);ft9211535PP.deployWinVars();
+                var ftTag = document.createElement("script");
+                ftTag.id = "ft_servedby_9211535";
+                ftTag.src = "https://servedby.flashtalking.com/imp/8/233170;9211535;201;jsappend;MoneyPuck;sbknhlnooffermpseasonprospecting970x250/?"+ft9211535PP.getSrcString();
+                ftTag.name = "ftscript_970x250";
+                img.parentNode.insertBefore(ftTag, img.nextSibling);
+            },gTimer = setTimeout(function(){clearTimeout(gTimer);deployTag();},ftV_9211535.GTimeout);ft9211535PP.init();
+        })(this);
+    '>
+</div>
+</script><script language="javascript" type="text/javascript" src="https://cdn.doubleverify.com/dvbs_src.js?ctx=16559824&amp;cmp=233170&amp;plc=9211535&amp;sid=23872&amp;dvregion=0&amp;unit=970x250"></script><script type="text/javascript" src="https://cdn.doubleverify.com/dvbs_src_internal139.js"></script><script data-uk="dv_baseHandler__733336174931" onerror="(function dv_onError(evt) {
+    var elm = evt &amp;&amp; evt.target || {};
+    var globalScope = dv_getDVErrorGlobalScope(elm);
+    if (globalScope) {
+        globalScope.onError(dv_getScriptSRC(elm));
+    }
+})({target:this});" onload="(function dv_onResponse(evt) {
+    var elm = evt &amp;&amp; evt.target || {};
+    var globalScope = dv_getDVErrorGlobalScope(elm);
+    if (globalScope) {
+        var scriptSRC = dv_getScriptSRC(elm);
+        if (!globalScope.isJSONPCalled) {
+            globalScope.onResponse(scriptSRC);
+        }
+    }
+})({target:this});" type="text/javascript" src="https://rtb0.doubleverify.com/verify.js?flvr=0&amp;jsCallback=__verify_callback_524400413785&amp;jsTagObjCallback=__tagObject_callback_524400413785&amp;num=6&amp;ctx=16559824&amp;cmp=233170&amp;plc=9211535&amp;sid=23872&amp;advid=&amp;adsrv=&amp;unit=970x250&amp;isdvvid=&amp;uid=524400413785&amp;tagtype=&amp;adID=&amp;app=&amp;sup=&amp;isovv=0&amp;gmnpo=&amp;crt=&amp;ee_dp_rdystreq=loading&amp;dvp_intrst=1&amp;dvp_ttp=&amp;nav_pltfrm=Win32&amp;brid=97&amp;brver=&amp;bridua=2&amp;dup=null&amp;chro=0&amp;hist=1&amp;winh=683&amp;winw=1366&amp;wouh=768&amp;wouw=1366&amp;scah=768&amp;scaw=1366&amp;srcurlD=0&amp;ssl=1&amp;refD=0&amp;htmlmsging=1&amp;tstype=1&amp;m1=13&amp;noc=2&amp;fcifrms=0&amp;brh=1&amp;fwc=0&amp;flt=25&amp;fec=52&amp;vavbkt=&amp;lvvn=28&amp;dvp_idcerr=undefined&amp;ver=185&amp;eparams=DC4FC%3Dl9EEADTbpTauTau%3E%40%3F6JAF4%3C%5D4%40%3ETau8%402%3D%3A6D%5D9E%3E&amp;dvp_exetime=8.00&amp;callbackName=__verify_callback_524400413785"></script><div style="display: flex; align-items: center; justify-content: center; width: 970px; height: 250px; outline-offset: -1px; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAAGWvHq+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5AQBECEbFuFN7gAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAFBklEQVRo3uUby3arOEzxAbxIyKLt//9gIQtIF4aFZ5ERVxhJyIbcnjmjTZLast4vQ+G762OMMX53fQzTFIfxGenfKvgXvj4/oOsfy3eECgBgmmcYhnFZ6PoHeO//bBiGEQAAxufPghlC+LOBYqa/HezAJcYYOUz87QAA7vd2g4lMAsrLfQJ+QeUM43PZsMJEwN8L58gMfgIAAMVKv6syX4bxGVF9qTiuvV2Byouf7e0Kl++uj6kJU8aktV07aFClTkThfm9hGMbNGu53dCNd/Pr8gBCm5TsnAivz+PwBqkHvPaDiVvpAW6Nh0FBhmpagSdfQV0Q7oVySPrz3LyO3t+vCKrJIHTtdG58/vLycZk+zr1uFkgFWuYHKZHHNEMIr4lMb0pO5v7e3qyyj983KATYydv1jswFZneZ5wzaKVaEMVnNgjsw2B8pcbMdLmKbY1PVG5dTl0rVpnsGlSDReOcfo+gc0df3SagrTPC8m4aDrH1ClaR4AgHKRmgN/L9HBbeI4wdKVitXUtYpLGXPSgpUg1lBaPzWCWW6wJ4lkB9aFUL1pQkXOvW9WBDltULNM8wwhTEtIcQn88t31kdpEU7FmOwsemqiiqtPsQvufXMCmCulUSKy9XaG9XYGrLhbv1iSlWU0NGdyQqlPKBHQfh0vxVkQ1abSQybX3oQ7nUPWUpEQ1oaokLVAnSfG4cy8xxpjrEFyVtuCJNt3rETDgu/6xiT9zRqKSci0DxzHdZ5E0zXabjGTtwSxr9FyqjazSJkmTi+ckb01BS5HaGnems+ZWzdb62qQTfQdwDDl2Wj0RuKnYpX1sDrJljcvHTqow4/Nn5SBNXYuzPD0Y8agDsRlpr3NIg1vyYGnSS+PUURVIcRhC2A0ZyYPxTKqNyuo8IYRlpMSGLYRJDRdOYyEEqEpDIIfY5qYhhLBrL0s+LS7imqq995tijYVdCxlx0EMnaW9XlvD93m4aZ0s4cZ3gqspYOjppRKcMcXipGZyU7Ju63iXIhVOKx53trCWqtMpwZzor8n+qynBnnlJlNGa5M51VSmlksBSDlOHlKk/zUq0KcVVEYgidytz3coS19lPrFh1y2fUP1Xu1HKsRxHWakao9hLNglZHeESaal3vvocKx3zKP7BXnLJtaxgNkjKY1Wp1y7inYUVG7Akg79vSeKefKwHJ1kEtTikBxJrYkmpIBr1TgPdgbrZ1WkPbuz84UEiNZG1ZLhdydE0sqeqlytGG2pEt4+0Ccc9H8zs4kS1Br0542F0fqR0lesOCwyehoIioZq86gqcWq6XbZwrTGqMSAhmOhKWVpjp74PObIsLt3R3g0g1oETs8R32woFbLEHUuEs9CiZa6SslZJmpcuf/4GcNc0tDf9lYcxvwGVrI3mkDVeY0NjbumOui9XCtkYlZJIbjt3pF8tzQ0czZTvTXnJSdlHSstRXAlPUpQ4vRy1TK4nnNEwaDTd2ZNE6fQSQiieevBiprjXLamjpco5Mv1YSuH/pry4o+MPN70cgZI4tYyG7h3J4evzI1tJ+IynBLTHMdnlpXQKsTQCkoAaPakZEctL+pbK0Y7FMkloCnrXHMsKileMpS0ZR3zvveez2kDJG6szRiSuJqaulfbOaQJ5KfcYH5wnLK82v2uMCmHaPDz+DVj+fSNNBGdZmIu9v6EIKWbVZHTmVYrl9clSRVsS0urOKDdlW1J+6SubFoH3SiF13X8A3uobUgsAG3MAAAAASUVORK5CYII=') repeat; outline: solid 1px #969696;"></div>
+
+
+</div>
+
+
+	
+<br>
+	<h3>
+
+	
+		<table align="center">
+	<tbody><tr><td align="center">	
+		<h1>NHL Goaltending Leaders</h1>
+		
+<select id="situation_type" onkeydown="updateChart('situation');" onkeyup="updateChart('situation');" onchange="updateChart('situation');">
+<option value="all" selected="">All Situations</option>
+<option value="5on5">5 on 5</option>
+<option value="5on4">5 on 4</option>
+<option value="4on5">4 on 5</option>
+<option value="other">Other</option>
+</select>
+
+
+<select id="team_type" onkeydown="updateChart('team');" onkeyup="updateChart('team');" onchange="updateChart('team');">
+
+		<option value="all">All Teams</option>
+		<option value="ANA">Anaheim Ducks</option>
+		<option value="ARI">Arizona Coyotes</option> 
+		<option value="BOS">Boston Bruins</option>
+		<option value="BUF">Buffalo Sabres</option>
+		<option value="CGY">Calgary Flames</option>
+		<option value="CAR">Carolina Hurricanes</option>
+		<option value="CHI">Chicago Blackhawks</option>
+		<option value="COL">Colorado Avalanche</option>
+		<option value="CBJ">Columbus Blue Jackets</option>
+		<option value="DAL">Dallas Stars</option> 
+		<option value="DET">Detroit Red Wings</option>  
+		<option value="EDM">Edmonton Oilers</option>
+		<option value="FLA">Florida Panthers</option>
+		<option value="LAK">Los Angeles Kings</option>
+		<option value="MTL">Montreal Canadiens</option>
+		<option value="MIN">Minnesota Wild</option>
+		<option value="NSH">Nashville Predators</option>
+		<option value="NYR">New York Rangers</option>
+		<option value="NYI">New York Islanders</option>
+		<option value="NJD">New Jersey Devils</option>
+		<option value="OTT">Ottawa Senators</option>
+		<option value="PHI">Philadelphia Flyers</option>
+		<option value="PIT">Pittsburgh Penguins</option> 
+		<option value="SJS">San Jose Sharks</option>
+		<option value="SEA">Seattle Kraken</option>
+		<option value="STL">St. Louis Blues</option>
+		<option value="TBL">Tampa Bay Lightning</option>
+		<option value="TOR">Toronto Maple Leafs</option>
+		<option value="UTA">Utah Hockey Club</option>
+		<option value="VAN">Vancouver Canucks</option>
+		<option value="VGK">Vegas Golden Knights</option>
+		<option value="WSH">Washington Capitals</option>
+		<option value="WPG">Winnipeg Jets</option>
+		
+</select>
+
+
+<select id="season_type" onkeydown="updateSeason();" onkeyup="updateSeason();" onchange="updateSeason();">
+<option value="2024" selected="">2024-2025</option>
+<option value="2023">2023-2024</option>
+<option value="2022">2022-2023</option>
+<option value="2021">2021-2022</option>
+<option value="2020">2020-2021</option>
+<option value="2019">2019-2020</option>
+<option value="2018">2018-2019</option>
+<option value="2017">2017-2018</option>
+<option value="2016">2016-2017</option>
+<option value="2015">2015-2016</option>
+<option value="2014">2014-2015</option>
+<option value="2013">2013-2014</option>
+<option value="2012">2012-2013</option>
+<option value="2011">2011-2012</option>
+<option value="2010">2010-2011</option>
+<option value="2009">2009-2010</option>
+<option value="2008">2008-2009</option>
+
+</select>
+
+<select id="table_playoff_type" onkeydown="updateSeason();" onkeyup="updateSeason();" onchange="updateSeason();" style="font-size:30px;">
+<option value="regular" selected=""> Regular Season</option>
+<option value="playoffs"> Playoffs</option>
+</select>
+
+<select id="num_games_type" onkeydown="updateSeason();" onkeyup="updateSeason();" onchange="updateSeason();" style="font-size:30px;">
+<option value="" selected="">All Season</option>
+<option value="_10">Last 10 Games</option>
+<option value="_20">Last 20 Games</option>
+</select>
+
+
+<br><br>
+
+<div class="slidecontainer">
+
+  <p></p><h3>Minimum Games Played: <span id="demo">15 Games</span><p></p></h3> 
+  
+ 
+    <input type="range" min="1" max="82" value="15" class="slider" id="myRange">
+
+</div>
+
+<br><br>
+
+</td></tr></tbody></table>
+
+
+		
+		</h3>
+		
+		
+		<div>
+		
+			
+			<div class="doubleScroll-scroll-wrapper" style="overflow: auto; height: 20px; width: 1325.02px;"><div class="doubleScroll-scroll" style="height: 20px; width: 7119.2px;"></div></div><div style="width: 97vw; max-height: 75vh; overflow: auto;" role="region" ,="" aria-labelledby="caption" tabindex="0" id="includedContent"><table class="tablesorter" id="goaliesTable"><thead><tr><th class="header">Name<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span></th><th class="header">Games<br>Played<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Goals<br>Against<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Expected<br>Goals<br>Against<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header headerSortUp">Goals Saved<br>Above<br>Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">% of Expected<br>Goals Saved<br>Above Average<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Goals Saved<br>Above Expected<br>Per 60<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Save % on<br>Unblocked<br>Shots<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">xSave % on<br>Unblocked<br>Shots<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Save %<br>Above<br>Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Save % on<br>Shots On<br>Goal<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">GAA<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">xGAA<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">GAA Better<br>Than Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Wins Above<br>Replacement<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Icetime<br>(Minutes)<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Rebounds<br>Per Save<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Puck Freezes<br>Per Save<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Goals Against<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Saves on Shots<br>On Goal<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Saves on Unblocked<br>Shot Attempts<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">% of Shot Attempts<br>Blocked By Teammates<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">% of Unblocked Shot<br>Attempts Against<br>On Goal<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Expected % of Unblocked<br>Shot Attempts<br>Against On Goal<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">On Goal %<br>Above Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Low Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">xLow Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Low Danger Unblocked Shot<br>Attempt Save%<br>Above Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Medium Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">xMedium Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">Medium Danger Unblocked Shot<br>AttemptSave %<br>Above Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">High Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">xHigh Danger Unblocked<br>Shot Attempt<br>Save %<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th><th class="header">High Danger Unblocked Shot<br>Attempt Save %<br>Above Expected<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span><i class="fas fa-sort"></i></th></tr></thead><tbody><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">1</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/WPG.png" width="75" height="50" align="left" alt="Winnipeg Jets"></td><td style="text-align:left;">Connor Hellebuyck</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">63</td><td style="background-color:#f5fbfd" ;="">125</td><td style="background-color:#f5fbfd" ;="">164.59</td><td style="background-color:#45b3e0" ;="">39.6</td><td style="background-color:#45b3e0" ;="">24.05</td><td style="background-color:#45b3e0" ;="">0.635</td><td style="background-color:#45b3e0" ;="">0.966</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#45b3e0" ;="">0.0109</td><td style="background-color:#45b3e0" ;="">0.925</td><td style="background-color:#45b3e0" ;="">2.00</td><td style="background-color:#f5fbfd" ;="">2.64</td><td style="background-color:#45b3e0" ;="">0.63</td><td style="background-color:#45b3e0" ;="">6.60</td><td style="background-color:#45b3e0" ;="">3741</td><td style="background-color:#f5fbfd" ;="">0.058</td><td style="background-color:#f5fbfd" ;="">0.103</td><td style="background-color:#f5fbfd" ;="">125</td><td style="background-color:#45b3e0" ;="">1539</td><td style="background-color:#45b3e0" ;="">3522</td><td style="background-color:#45b3e0" ;="">22.32%</td><td style="background-color:#f5fbfd" ;="">45.63%</td><td style="background-color:#c9e9f6" ;="">51.43%</td><td style="background-color:#45b3e0" ;="">-5.8%</td><td style="background-color:#71c5e7" ;="">0.974</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#9dd7ef" ;="">0.001</td><td style="background-color:#45b3e0" ;="">0.919</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#45b3e0" ;="">0.045</td><td style="background-color:#45b3e0" ;="">0.780</td><td style="background-color:#71c5e7" ;="">0.678</td><td style="background-color:#45b3e0" ;="">0.102</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">2</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/TBL.png" width="75" height="50" align="left" alt="Tampa Bay Lightning"></td><td style="text-align:left;">Andrei Vasilevskiy</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">63</td><td style="background-color:#f5fbfd" ;="">136</td><td style="background-color:#f5fbfd" ;="">165.16</td><td style="background-color:#45b3e0" ;="">29.2</td><td style="background-color:#45b3e0" ;="">17.66</td><td style="background-color:#45b3e0" ;="">0.468</td><td style="background-color:#71c5e7" ;="">0.961</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.0084</td><td style="background-color:#71c5e7" ;="">0.921</td><td style="background-color:#9dd7ef" ;="">2.18</td><td style="background-color:#f5fbfd" ;="">2.65</td><td style="background-color:#45b3e0" ;="">0.47</td><td style="background-color:#45b3e0" ;="">4.86</td><td style="background-color:#45b3e0" ;="">3743</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.114</td><td style="background-color:#f5fbfd" ;="">136</td><td style="background-color:#45b3e0" ;="">1581</td><td style="background-color:#45b3e0" ;="">3352</td><td style="background-color:#45b3e0" ;="">22.13%</td><td style="background-color:#c9e9f6" ;="">49.23%</td><td style="background-color:#9dd7ef" ;="">52.41%</td><td style="background-color:#45b3e0" ;="">-3.18%</td><td style="background-color:#9dd7ef" ;="">0.968</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.003</td><td style="background-color:#71c5e7" ;="">0.886</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#71c5e7" ;="">0.008</td><td style="background-color:#45b3e0" ;="">0.855</td><td style="background-color:#71c5e7" ;="">0.671</td><td style="background-color:#45b3e0" ;="">0.184</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">3</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/WSH.png" width="75" height="50" align="left" alt="Washington Capitals"></td><td style="text-align:left;">Logan Thompson</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">43</td><td style="background-color:#f5fbfd" ;="">105</td><td style="background-color:#f5fbfd" ;="">130.96</td><td style="background-color:#45b3e0" ;="">26.0</td><td style="background-color:#45b3e0" ;="">19.82</td><td style="background-color:#45b3e0" ;="">0.615</td><td style="background-color:#71c5e7" ;="">0.959</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#45b3e0" ;="">0.0101</td><td style="background-color:#9dd7ef" ;="">0.91</td><td style="background-color:#f5fbfd" ;="">2.49</td><td style="background-color:#f5fbfd" ;="">3.10</td><td style="background-color:#45b3e0" ;="">0.61</td><td style="background-color:#45b3e0" ;="">4.33</td><td style="background-color:#45b3e0" ;="">2535</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.1</td><td style="background-color:#f5fbfd" ;="">105</td><td style="background-color:#45b3e0" ;="">1067</td><td style="background-color:#45b3e0" ;="">2474</td><td style="background-color:#45b3e0" ;="">22.88%</td><td style="background-color:#f5fbfd" ;="">45.44%</td><td style="background-color:#c9e9f6" ;="">51.69%</td><td style="background-color:#45b3e0" ;="">-6.24%</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">-0.002</td><td style="background-color:#71c5e7" ;="">0.904</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#45b3e0" ;="">0.029</td><td style="background-color:#45b3e0" ;="">0.794</td><td style="background-color:#71c5e7" ;="">0.675</td><td style="background-color:#45b3e0" ;="">0.118</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">4</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/TOR.png" width="75" height="50" align="left" alt="Toronto Maple Leafs"></td><td style="text-align:left;">Anthony Stolarz</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">34</td><td style="background-color:#f5fbfd" ;="">71</td><td style="background-color:#f5fbfd" ;="">96.78</td><td style="background-color:#45b3e0" ;="">25.8</td><td style="background-color:#45b3e0" ;="">26.64</td><td style="background-color:#45b3e0" ;="">0.779</td><td style="background-color:#45b3e0" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#45b3e0" ;="">0.0121</td><td style="background-color:#45b3e0" ;="">0.926</td><td style="background-color:#9dd7ef" ;="">2.14</td><td style="background-color:#f5fbfd" ;="">2.92</td><td style="background-color:#45b3e0" ;="">0.78</td><td style="background-color:#45b3e0" ;="">4.30</td><td style="background-color:#45b3e0" ;="">1986</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.092</td><td style="background-color:#f5fbfd" ;="">71</td><td style="background-color:#45b3e0" ;="">884</td><td style="background-color:#45b3e0" ;="">2062</td><td style="background-color:#45b3e0" ;="">22.86%</td><td style="background-color:#f5fbfd" ;="">44.77%</td><td style="background-color:#c9e9f6" ;="">50.85%</td><td style="background-color:#45b3e0" ;="">-6.08%</td><td style="background-color:#45b3e0" ;="">0.979</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#71c5e7" ;="">0.006</td><td style="background-color:#71c5e7" ;="">0.891</td><td style="background-color:#9dd7ef" ;="">0.872</td><td style="background-color:#45b3e0" ;="">0.019</td><td style="background-color:#45b3e0" ;="">0.820</td><td style="background-color:#71c5e7" ;="">0.688</td><td style="background-color:#45b3e0" ;="">0.131</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">5</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/MTL.png" width="75" height="50" align="left" alt="Montreal Canadiens"></td><td style="text-align:left;">Sam Montembeault</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">62</td><td style="background-color:#f5fbfd" ;="">166</td><td style="background-color:#f5fbfd" ;="">190.59</td><td style="background-color:#45b3e0" ;="">24.6</td><td style="background-color:#45b3e0" ;="">12.9</td><td style="background-color:#45b3e0" ;="">0.418</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#71c5e7" ;="">0.0067</td><td style="background-color:#c9e9f6" ;="">0.901</td><td style="background-color:#f5fbfd" ;="">2.82</td><td style="background-color:#f5fbfd" ;="">3.24</td><td style="background-color:#45b3e0" ;="">0.42</td><td style="background-color:#45b3e0" ;="">4.10</td><td style="background-color:#45b3e0" ;="">3533</td><td style="background-color:#f5fbfd" ;="">0.056</td><td style="background-color:#f5fbfd" ;="">0.097</td><td style="background-color:#f5fbfd" ;="">166</td><td style="background-color:#45b3e0" ;="">1513</td><td style="background-color:#45b3e0" ;="">3528</td><td style="background-color:#45b3e0" ;="">23.09%</td><td style="background-color:#f5fbfd" ;="">45.45%</td><td style="background-color:#c9e9f6" ;="">51.63%</td><td style="background-color:#45b3e0" ;="">-6.17%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">-0.003</td><td style="background-color:#9dd7ef" ;="">0.867</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#c9e9f6" ;="">-0.008</td><td style="background-color:#45b3e0" ;="">0.826</td><td style="background-color:#71c5e7" ;="">0.671</td><td style="background-color:#45b3e0" ;="">0.155</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">6</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/LAK.png" width="75" height="50" align="left" alt="Los Angeles Kings"></td><td style="text-align:left;">Darcy Kuemper</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">50</td><td style="background-color:#f5fbfd" ;="">100</td><td style="background-color:#f5fbfd" ;="">122.51</td><td style="background-color:#45b3e0" ;="">22.5</td><td style="background-color:#45b3e0" ;="">18.37</td><td style="background-color:#45b3e0" ;="">0.454</td><td style="background-color:#45b3e0" ;="">0.963</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#71c5e7" ;="">0.0082</td><td style="background-color:#71c5e7" ;="">0.921</td><td style="background-color:#45b3e0" ;="">2.02</td><td style="background-color:#f5fbfd" ;="">2.47</td><td style="background-color:#45b3e0" ;="">0.45</td><td style="background-color:#45b3e0" ;="">3.75</td><td style="background-color:#45b3e0" ;="">2973</td><td style="background-color:#f5fbfd" ;="">0.052</td><td style="background-color:#f5fbfd" ;="">0.098</td><td style="background-color:#f5fbfd" ;="">100</td><td style="background-color:#45b3e0" ;="">1168</td><td style="background-color:#45b3e0" ;="">2635</td><td style="background-color:#45b3e0" ;="">22.21%</td><td style="background-color:#f5fbfd" ;="">46.36%</td><td style="background-color:#9dd7ef" ;="">52.16%</td><td style="background-color:#45b3e0" ;="">-5.8%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#9dd7ef" ;="">-0.002</td><td style="background-color:#71c5e7" ;="">0.903</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#45b3e0" ;="">0.028</td><td style="background-color:#45b3e0" ;="">0.803</td><td style="background-color:#71c5e7" ;="">0.672</td><td style="background-color:#45b3e0" ;="">0.132</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">7</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NYR.png" width="75" height="50" align="left" alt="New York Rangers"></td><td style="text-align:left;">Igor Shesterkin</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">61</td><td style="background-color:#f5fbfd" ;="">167</td><td style="background-color:#f5fbfd" ;="">188.56</td><td style="background-color:#45b3e0" ;="">21.6</td><td style="background-color:#45b3e0" ;="">11.43</td><td style="background-color:#45b3e0" ;="">0.370</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#71c5e7" ;="">0.0060</td><td style="background-color:#c9e9f6" ;="">0.905</td><td style="background-color:#f5fbfd" ;="">2.86</td><td style="background-color:#f5fbfd" ;="">3.23</td><td style="background-color:#45b3e0" ;="">0.37</td><td style="background-color:#45b3e0" ;="">3.59</td><td style="background-color:#45b3e0" ;="">3505</td><td style="background-color:#f5fbfd" ;="">0.06</td><td style="background-color:#f5fbfd" ;="">0.095</td><td style="background-color:#f5fbfd" ;="">167</td><td style="background-color:#45b3e0" ;="">1584</td><td style="background-color:#45b3e0" ;="">3422</td><td style="background-color:#45b3e0" ;="">21.43%</td><td style="background-color:#f5fbfd" ;="">48.79%</td><td style="background-color:#9dd7ef" ;="">53.75%</td><td style="background-color:#45b3e0" ;="">-4.96%</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.002</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#9dd7ef" ;="">0.000</td><td style="background-color:#45b3e0" ;="">0.794</td><td style="background-color:#71c5e7" ;="">0.687</td><td style="background-color:#45b3e0" ;="">0.107</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">8</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/SEA.png" width="75" height="50" align="left" alt="Seattle Kraken"></td><td style="text-align:left;">Joey Daccord</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">57</td><td style="background-color:#f5fbfd" ;="">151</td><td style="background-color:#f5fbfd" ;="">170.05</td><td style="background-color:#45b3e0" ;="">19.1</td><td style="background-color:#45b3e0" ;="">11.2</td><td style="background-color:#71c5e7" ;="">0.348</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#71c5e7" ;="">0.0055</td><td style="background-color:#c9e9f6" ;="">0.906</td><td style="background-color:#f5fbfd" ;="">2.75</td><td style="background-color:#f5fbfd" ;="">3.10</td><td style="background-color:#45b3e0" ;="">0.35</td><td style="background-color:#45b3e0" ;="">3.18</td><td style="background-color:#45b3e0" ;="">3295</td><td style="background-color:#f5fbfd" ;="">0.062</td><td style="background-color:#f5fbfd" ;="">0.12</td><td style="background-color:#f5fbfd" ;="">151</td><td style="background-color:#45b3e0" ;="">1449</td><td style="background-color:#45b3e0" ;="">3344</td><td style="background-color:#45b3e0" ;="">21.93%</td><td style="background-color:#f5fbfd" ;="">45.78%</td><td style="background-color:#c9e9f6" ;="">52%</td><td style="background-color:#45b3e0" ;="">-6.22%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#71c5e7" ;="">0.888</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#45b3e0" ;="">0.013</td><td style="background-color:#45b3e0" ;="">0.789</td><td style="background-color:#71c5e7" ;="">0.681</td><td style="background-color:#45b3e0" ;="">0.108</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">9</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NJD.png" width="75" height="50" align="left" alt="New Jersey Devils"></td><td style="text-align:left;">Jake Allen</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">31</td><td style="background-color:#f5fbfd" ;="">77</td><td style="background-color:#f5fbfd" ;="">95.42</td><td style="background-color:#45b3e0" ;="">18.4</td><td style="background-color:#45b3e0" ;="">19.3</td><td style="background-color:#45b3e0" ;="">0.635</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#c9e9f6" ;="">0.944</td><td style="background-color:#45b3e0" ;="">0.0108</td><td style="background-color:#c9e9f6" ;="">0.906</td><td style="background-color:#f5fbfd" ;="">2.66</td><td style="background-color:#f5fbfd" ;="">3.29</td><td style="background-color:#45b3e0" ;="">0.64</td><td style="background-color:#45b3e0" ;="">3.07</td><td style="background-color:#45b3e0" ;="">1738</td><td style="background-color:#f5fbfd" ;="">0.079</td><td style="background-color:#f5fbfd" ;="">0.105</td><td style="background-color:#f5fbfd" ;="">77</td><td style="background-color:#45b3e0" ;="">744</td><td style="background-color:#45b3e0" ;="">1623</td><td style="background-color:#45b3e0" ;="">21.04%</td><td style="background-color:#f5fbfd" ;="">48.29%</td><td style="background-color:#9dd7ef" ;="">53.65%</td><td style="background-color:#45b3e0" ;="">-5.36%</td><td style="background-color:#45b3e0" ;="">0.977</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#71c5e7" ;="">0.005</td><td style="background-color:#c9e9f6" ;="">0.847</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#f5fbfd" ;="">-0.027</td><td style="background-color:#45b3e0" ;="">0.811</td><td style="background-color:#71c5e7" ;="">0.653</td><td style="background-color:#45b3e0" ;="">0.159</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">10</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NYI.png" width="75" height="50" align="left" alt="New York Islanders"></td><td style="text-align:left;">Ilya Sorokin</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">61</td><td style="background-color:#f5fbfd" ;="">158</td><td style="background-color:#f5fbfd" ;="">175.54</td><td style="background-color:#45b3e0" ;="">17.5</td><td style="background-color:#45b3e0" ;="">9.99</td><td style="background-color:#71c5e7" ;="">0.300</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#71c5e7" ;="">0.0048</td><td style="background-color:#9dd7ef" ;="">0.907</td><td style="background-color:#f5fbfd" ;="">2.71</td><td style="background-color:#f5fbfd" ;="">3.01</td><td style="background-color:#71c5e7" ;="">0.30</td><td style="background-color:#45b3e0" ;="">2.92</td><td style="background-color:#45b3e0" ;="">3498</td><td style="background-color:#f5fbfd" ;="">0.059</td><td style="background-color:#f5fbfd" ;="">0.091</td><td style="background-color:#f5fbfd" ;="">158</td><td style="background-color:#45b3e0" ;="">1538</td><td style="background-color:#45b3e0" ;="">3479</td><td style="background-color:#45b3e0" ;="">22.45%</td><td style="background-color:#f5fbfd" ;="">46.63%</td><td style="background-color:#c9e9f6" ;="">51.87%</td><td style="background-color:#45b3e0" ;="">-5.24%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#9dd7ef" ;="">0.880</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#71c5e7" ;="">0.007</td><td style="background-color:#45b3e0" ;="">0.793</td><td style="background-color:#71c5e7" ;="">0.675</td><td style="background-color:#45b3e0" ;="">0.118</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">11</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/TOR.png" width="75" height="50" align="left" alt="Toronto Maple Leafs"></td><td style="text-align:left;">Joseph Woll</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">42</td><td style="background-color:#f5fbfd" ;="">111</td><td style="background-color:#f5fbfd" ;="">127.85</td><td style="background-color:#45b3e0" ;="">16.8</td><td style="background-color:#45b3e0" ;="">13.18</td><td style="background-color:#45b3e0" ;="">0.413</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#71c5e7" ;="">0.0066</td><td style="background-color:#9dd7ef" ;="">0.909</td><td style="background-color:#f5fbfd" ;="">2.73</td><td style="background-color:#f5fbfd" ;="">3.14</td><td style="background-color:#45b3e0" ;="">0.41</td><td style="background-color:#45b3e0" ;="">2.81</td><td style="background-color:#45b3e0" ;="">2442</td><td style="background-color:#f5fbfd" ;="">0.058</td><td style="background-color:#f5fbfd" ;="">0.113</td><td style="background-color:#f5fbfd" ;="">111</td><td style="background-color:#45b3e0" ;="">1105</td><td style="background-color:#45b3e0" ;="">2447</td><td style="background-color:#45b3e0" ;="">22.11%</td><td style="background-color:#f5fbfd" ;="">47.54%</td><td style="background-color:#c9e9f6" ;="">51.78%</td><td style="background-color:#45b3e0" ;="">-4.24%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.005</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#9dd7ef" ;="">-0.003</td><td style="background-color:#45b3e0" ;="">0.834</td><td style="background-color:#71c5e7" ;="">0.665</td><td style="background-color:#45b3e0" ;="">0.169</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">12</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/DAL.png" width="75" height="50" align="left" alt="Dallas Stars"></td><td style="text-align:left;">Casey DeSmith</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">27</td><td style="background-color:#f5fbfd" ;="">65</td><td style="background-color:#f5fbfd" ;="">80.86</td><td style="background-color:#45b3e0" ;="">15.9</td><td style="background-color:#45b3e0" ;="">19.61</td><td style="background-color:#45b3e0" ;="">0.634</td><td style="background-color:#71c5e7" ;="">0.958</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#45b3e0" ;="">0.0103</td><td style="background-color:#71c5e7" ;="">0.915</td><td style="background-color:#f5fbfd" ;="">2.59</td><td style="background-color:#f5fbfd" ;="">3.22</td><td style="background-color:#45b3e0" ;="">0.63</td><td style="background-color:#45b3e0" ;="">2.64</td><td style="background-color:#45b3e0" ;="">1504</td><td style="background-color:#f5fbfd" ;="">0.056</td><td style="background-color:#f5fbfd" ;="">0.102</td><td style="background-color:#f5fbfd" ;="">65</td><td style="background-color:#45b3e0" ;="">696</td><td style="background-color:#45b3e0" ;="">1476</td><td style="background-color:#45b3e0" ;="">20.93%</td><td style="background-color:#c9e9f6" ;="">49.38%</td><td style="background-color:#9dd7ef" ;="">53.67%</td><td style="background-color:#45b3e0" ;="">-4.29%</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">0.002</td><td style="background-color:#71c5e7" ;="">0.908</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#45b3e0" ;="">0.030</td><td style="background-color:#45b3e0" ;="">0.758</td><td style="background-color:#71c5e7" ;="">0.681</td><td style="background-color:#45b3e0" ;="">0.077</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">13</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/ANA.png" width="75" height="50" align="left" alt="Anaheim Ducks"></td><td style="text-align:left;">John Gibson</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">29</td><td style="background-color:#f5fbfd" ;="">72</td><td style="background-color:#f5fbfd" ;="">87.34</td><td style="background-color:#45b3e0" ;="">15.3</td><td style="background-color:#45b3e0" ;="">17.56</td><td style="background-color:#45b3e0" ;="">0.588</td><td style="background-color:#71c5e7" ;="">0.958</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#71c5e7" ;="">0.0090</td><td style="background-color:#9dd7ef" ;="">0.911</td><td style="background-color:#f5fbfd" ;="">2.77</td><td style="background-color:#f5fbfd" ;="">3.35</td><td style="background-color:#45b3e0" ;="">0.59</td><td style="background-color:#45b3e0" ;="">2.56</td><td style="background-color:#45b3e0" ;="">1562</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.125</td><td style="background-color:#f5fbfd" ;="">72</td><td style="background-color:#45b3e0" ;="">740</td><td style="background-color:#45b3e0" ;="">1624</td><td style="background-color:#45b3e0" ;="">22.27%</td><td style="background-color:#f5fbfd" ;="">47.88%</td><td style="background-color:#c9e9f6" ;="">51.86%</td><td style="background-color:#45b3e0" ;="">-3.98%</td><td style="background-color:#45b3e0" ;="">0.981</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#71c5e7" ;="">0.011</td><td style="background-color:#9dd7ef" ;="">0.879</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#9dd7ef" ;="">0.001</td><td style="background-color:#45b3e0" ;="">0.716</td><td style="background-color:#71c5e7" ;="">0.659</td><td style="background-color:#45b3e0" ;="">0.057</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">14</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/MIN.png" width="75" height="50" align="left" alt="Minnesota Wild"></td><td style="text-align:left;">Filip Gustavsson</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">58</td><td style="background-color:#f5fbfd" ;="">146</td><td style="background-color:#f5fbfd" ;="">161.32</td><td style="background-color:#45b3e0" ;="">15.3</td><td style="background-color:#45b3e0" ;="">9.5</td><td style="background-color:#71c5e7" ;="">0.268</td><td style="background-color:#71c5e7" ;="">0.960</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#71c5e7" ;="">0.0042</td><td style="background-color:#9dd7ef" ;="">0.914</td><td style="background-color:#f5fbfd" ;="">2.56</td><td style="background-color:#f5fbfd" ;="">2.83</td><td style="background-color:#71c5e7" ;="">0.27</td><td style="background-color:#45b3e0" ;="">2.55</td><td style="background-color:#45b3e0" ;="">3423</td><td style="background-color:#f5fbfd" ;="">0.048</td><td style="background-color:#f5fbfd" ;="">0.112</td><td style="background-color:#f5fbfd" ;="">146</td><td style="background-color:#45b3e0" ;="">1547</td><td style="background-color:#45b3e0" ;="">3461</td><td style="background-color:#45b3e0" ;="">22.15%</td><td style="background-color:#f5fbfd" ;="">46.94%</td><td style="background-color:#c9e9f6" ;="">51.65%</td><td style="background-color:#45b3e0" ;="">-4.71%</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.000</td><td style="background-color:#9dd7ef" ;="">0.884</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#71c5e7" ;="">0.006</td><td style="background-color:#45b3e0" ;="">0.761</td><td style="background-color:#71c5e7" ;="">0.688</td><td style="background-color:#45b3e0" ;="">0.074</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">15</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/VGK.png" width="75" height="50" align="left" alt="Vegas Golden Knights"></td><td style="text-align:left;">Adin Hill</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">50</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#f5fbfd" ;="">135.53</td><td style="background-color:#45b3e0" ;="">14.5</td><td style="background-color:#45b3e0" ;="">10.72</td><td style="background-color:#71c5e7" ;="">0.296</td><td style="background-color:#71c5e7" ;="">0.958</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.0050</td><td style="background-color:#c9e9f6" ;="">0.906</td><td style="background-color:#f5fbfd" ;="">2.47</td><td style="background-color:#f5fbfd" ;="">2.77</td><td style="background-color:#71c5e7" ;="">0.30</td><td style="background-color:#45b3e0" ;="">2.42</td><td style="background-color:#45b3e0" ;="">2940</td><td style="background-color:#f5fbfd" ;="">0.056</td><td style="background-color:#f5fbfd" ;="">0.096</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#45b3e0" ;="">1172</td><td style="background-color:#45b3e0" ;="">2759</td><td style="background-color:#45b3e0" ;="">22.79%</td><td style="background-color:#f5fbfd" ;="">44.9%</td><td style="background-color:#c9e9f6" ;="">51.19%</td><td style="background-color:#45b3e0" ;="">-6.29%</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">0.002</td><td style="background-color:#71c5e7" ;="">0.888</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#71c5e7" ;="">0.012</td><td style="background-color:#45b3e0" ;="">0.730</td><td style="background-color:#71c5e7" ;="">0.679</td><td style="background-color:#45b3e0" ;="">0.051</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">16</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/ANA.png" width="75" height="50" align="left" alt="Anaheim Ducks"></td><td style="text-align:left;">Lukas Dostal</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">54</td><td style="background-color:#f5fbfd" ;="">158</td><td style="background-color:#f5fbfd" ;="">172.35</td><td style="background-color:#45b3e0" ;="">14.3</td><td style="background-color:#71c5e7" ;="">8.33</td><td style="background-color:#71c5e7" ;="">0.281</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#71c5e7" ;="">0.0042</td><td style="background-color:#c9e9f6" ;="">0.903</td><td style="background-color:#f5fbfd" ;="">3.10</td><td style="background-color:#f5fbfd" ;="">3.38</td><td style="background-color:#71c5e7" ;="">0.28</td><td style="background-color:#45b3e0" ;="">2.39</td><td style="background-color:#45b3e0" ;="">3057</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.124</td><td style="background-color:#f5fbfd" ;="">158</td><td style="background-color:#45b3e0" ;="">1467</td><td style="background-color:#45b3e0" ;="">3266</td><td style="background-color:#45b3e0" ;="">21.29%</td><td style="background-color:#f5fbfd" ;="">47.46%</td><td style="background-color:#9dd7ef" ;="">53.04%</td><td style="background-color:#45b3e0" ;="">-5.58%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#9dd7ef" ;="">0.000</td><td style="background-color:#9dd7ef" ;="">0.866</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#45b3e0" ;="">0.771</td><td style="background-color:#71c5e7" ;="">0.667</td><td style="background-color:#45b3e0" ;="">0.104</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">17</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/UTA.png" width="75" height="50" align="left" alt="Utah Hockey Club"></td><td style="text-align:left;">Karel Vejmelka</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">58</td><td style="background-color:#f5fbfd" ;="">145</td><td style="background-color:#f5fbfd" ;="">159.18</td><td style="background-color:#45b3e0" ;="">14.2</td><td style="background-color:#71c5e7" ;="">8.91</td><td style="background-color:#71c5e7" ;="">0.253</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#71c5e7" ;="">0.0045</td><td style="background-color:#c9e9f6" ;="">0.904</td><td style="background-color:#f5fbfd" ;="">2.58</td><td style="background-color:#f5fbfd" ;="">2.84</td><td style="background-color:#71c5e7" ;="">0.25</td><td style="background-color:#45b3e0" ;="">2.36</td><td style="background-color:#45b3e0" ;="">3368</td><td style="background-color:#f5fbfd" ;="">0.049</td><td style="background-color:#f5fbfd" ;="">0.107</td><td style="background-color:#f5fbfd" ;="">145</td><td style="background-color:#45b3e0" ;="">1364</td><td style="background-color:#45b3e0" ;="">3009</td><td style="background-color:#45b3e0" ;="">22.64%</td><td style="background-color:#f5fbfd" ;="">47.84%</td><td style="background-color:#9dd7ef" ;="">52.07%</td><td style="background-color:#45b3e0" ;="">-4.22%</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">0.001</td><td style="background-color:#71c5e7" ;="">0.907</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#45b3e0" ;="">0.030</td><td style="background-color:#9dd7ef" ;="">0.650</td><td style="background-color:#71c5e7" ;="">0.656</td><td style="background-color:#9dd7ef" ;="">-0.006</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">18</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/OTT.png" width="75" height="50" align="left" alt="Ottawa Senators"></td><td style="text-align:left;">Linus Ullmark</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">44</td><td style="background-color:#f5fbfd" ;="">112</td><td style="background-color:#f5fbfd" ;="">125.84</td><td style="background-color:#45b3e0" ;="">13.8</td><td style="background-color:#45b3e0" ;="">11</td><td style="background-color:#71c5e7" ;="">0.336</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#71c5e7" ;="">0.0057</td><td style="background-color:#9dd7ef" ;="">0.909</td><td style="background-color:#f5fbfd" ;="">2.72</td><td style="background-color:#f5fbfd" ;="">3.06</td><td style="background-color:#45b3e0" ;="">0.34</td><td style="background-color:#45b3e0" ;="">2.31</td><td style="background-color:#45b3e0" ;="">2467</td><td style="background-color:#f5fbfd" ;="">0.067</td><td style="background-color:#f5fbfd" ;="">0.117</td><td style="background-color:#f5fbfd" ;="">112</td><td style="background-color:#45b3e0" ;="">1118</td><td style="background-color:#45b3e0" ;="">2334</td><td style="background-color:#45b3e0" ;="">21.73%</td><td style="background-color:#c9e9f6" ;="">50.29%</td><td style="background-color:#9dd7ef" ;="">52.51%</td><td style="background-color:#45b3e0" ;="">-2.22%</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.002</td><td style="background-color:#71c5e7" ;="">0.887</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#45b3e0" ;="">0.013</td><td style="background-color:#45b3e0" ;="">0.753</td><td style="background-color:#71c5e7" ;="">0.675</td><td style="background-color:#45b3e0" ;="">0.078</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">19</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/COL.png" width="75" height="50" align="left" alt="Colorado Avalanche"></td><td style="text-align:left;">Mackenzie Blackwood</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">56</td><td style="background-color:#f5fbfd" ;="">137</td><td style="background-color:#f5fbfd" ;="">150.32</td><td style="background-color:#45b3e0" ;="">13.3</td><td style="background-color:#71c5e7" ;="">8.86</td><td style="background-color:#71c5e7" ;="">0.248</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.0042</td><td style="background-color:#9dd7ef" ;="">0.912</td><td style="background-color:#f5fbfd" ;="">2.55</td><td style="background-color:#f5fbfd" ;="">2.80</td><td style="background-color:#71c5e7" ;="">0.25</td><td style="background-color:#45b3e0" ;="">2.22</td><td style="background-color:#45b3e0" ;="">3223</td><td style="background-color:#f5fbfd" ;="">0.063</td><td style="background-color:#f5fbfd" ;="">0.101</td><td style="background-color:#f5fbfd" ;="">137</td><td style="background-color:#45b3e0" ;="">1413</td><td style="background-color:#45b3e0" ;="">3072</td><td style="background-color:#45b3e0" ;="">21.94%</td><td style="background-color:#f5fbfd" ;="">48.3%</td><td style="background-color:#9dd7ef" ;="">52.57%</td><td style="background-color:#45b3e0" ;="">-4.27%</td><td style="background-color:#9dd7ef" ;="">0.963</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#71c5e7" ;="">0.907</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#45b3e0" ;="">0.033</td><td style="background-color:#45b3e0" ;="">0.786</td><td style="background-color:#71c5e7" ;="">0.689</td><td style="background-color:#45b3e0" ;="">0.097</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">20</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/DET.png" width="75" height="50" align="left" alt="Detroit Red Wings"></td><td style="text-align:left;">Cam Talbot</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">47</td><td style="background-color:#f5fbfd" ;="">129</td><td style="background-color:#f5fbfd" ;="">141.8</td><td style="background-color:#45b3e0" ;="">12.8</td><td style="background-color:#45b3e0" ;="">9.03</td><td style="background-color:#71c5e7" ;="">0.291</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#71c5e7" ;="">0.0047</td><td style="background-color:#c9e9f6" ;="">0.9</td><td style="background-color:#f5fbfd" ;="">2.93</td><td style="background-color:#f5fbfd" ;="">3.22</td><td style="background-color:#71c5e7" ;="">0.29</td><td style="background-color:#45b3e0" ;="">2.13</td><td style="background-color:#45b3e0" ;="">2642</td><td style="background-color:#f5fbfd" ;="">0.06</td><td style="background-color:#f5fbfd" ;="">0.113</td><td style="background-color:#f5fbfd" ;="">129</td><td style="background-color:#45b3e0" ;="">1167</td><td style="background-color:#45b3e0" ;="">2580</td><td style="background-color:#45b3e0" ;="">21.98%</td><td style="background-color:#f5fbfd" ;="">47.84%</td><td style="background-color:#9dd7ef" ;="">52.7%</td><td style="background-color:#45b3e0" ;="">-4.86%</td><td style="background-color:#9dd7ef" ;="">0.968</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#71c5e7" ;="">0.890</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#45b3e0" ;="">0.015</td><td style="background-color:#45b3e0" ;="">0.740</td><td style="background-color:#71c5e7" ;="">0.664</td><td style="background-color:#45b3e0" ;="">0.076</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">21</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CGY.png" width="75" height="50" align="left" alt="Calgary Flames"></td><td style="text-align:left;">Dustin Wolf</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">53</td><td style="background-color:#f5fbfd" ;="">140</td><td style="background-color:#f5fbfd" ;="">151.93</td><td style="background-color:#45b3e0" ;="">11.9</td><td style="background-color:#71c5e7" ;="">7.85</td><td style="background-color:#71c5e7" ;="">0.224</td><td style="background-color:#71c5e7" ;="">0.956</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#71c5e7" ;="">0.0038</td><td style="background-color:#9dd7ef" ;="">0.91</td><td style="background-color:#f5fbfd" ;="">2.64</td><td style="background-color:#f5fbfd" ;="">2.86</td><td style="background-color:#71c5e7" ;="">0.22</td><td style="background-color:#45b3e0" ;="">1.99</td><td style="background-color:#45b3e0" ;="">3182</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.129</td><td style="background-color:#f5fbfd" ;="">140</td><td style="background-color:#45b3e0" ;="">1409</td><td style="background-color:#45b3e0" ;="">3041</td><td style="background-color:#45b3e0" ;="">22.41%</td><td style="background-color:#f5fbfd" ;="">48.7%</td><td style="background-color:#c9e9f6" ;="">51.8%</td><td style="background-color:#45b3e0" ;="">-3.1%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.000</td><td style="background-color:#9dd7ef" ;="">0.871</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#45b3e0" ;="">0.757</td><td style="background-color:#71c5e7" ;="">0.664</td><td style="background-color:#45b3e0" ;="">0.093</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">22</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/DAL.png" width="75" height="50" align="left" alt="Dallas Stars"></td><td style="text-align:left;">Jake Oettinger</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">58</td><td style="background-color:#f5fbfd" ;="">147</td><td style="background-color:#f5fbfd" ;="">157.65</td><td style="background-color:#45b3e0" ;="">10.7</td><td style="background-color:#71c5e7" ;="">6.76</td><td style="background-color:#71c5e7" ;="">0.188</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#71c5e7" ;="">0.0032</td><td style="background-color:#9dd7ef" ;="">0.909</td><td style="background-color:#f5fbfd" ;="">2.59</td><td style="background-color:#f5fbfd" ;="">2.77</td><td style="background-color:#71c5e7" ;="">0.19</td><td style="background-color:#45b3e0" ;="">1.78</td><td style="background-color:#45b3e0" ;="">3410</td><td style="background-color:#f5fbfd" ;="">0.051</td><td style="background-color:#f5fbfd" ;="">0.119</td><td style="background-color:#f5fbfd" ;="">147</td><td style="background-color:#45b3e0" ;="">1464</td><td style="background-color:#45b3e0" ;="">3137</td><td style="background-color:#45b3e0" ;="">20.6%</td><td style="background-color:#c9e9f6" ;="">49.06%</td><td style="background-color:#9dd7ef" ;="">54.27%</td><td style="background-color:#45b3e0" ;="">-5.22%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#9dd7ef" ;="">-0.000</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#9dd7ef" ;="">0.881</td><td style="background-color:#c9e9f6" ;="">-0.008</td><td style="background-color:#45b3e0" ;="">0.772</td><td style="background-color:#71c5e7" ;="">0.686</td><td style="background-color:#45b3e0" ;="">0.086</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">23</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CAR.png" width="75" height="50" align="left" alt="Carolina Hurricanes"></td><td style="text-align:left;">Frederik Andersen</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">22</td><td style="background-color:#f5fbfd" ;="">55</td><td style="background-color:#f5fbfd" ;="">63.95</td><td style="background-color:#45b3e0" ;="">9.0</td><td style="background-color:#45b3e0" ;="">14</td><td style="background-color:#45b3e0" ;="">0.409</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#c9e9f6" ;="">0.941</td><td style="background-color:#71c5e7" ;="">0.0083</td><td style="background-color:#c9e9f6" ;="">0.899</td><td style="background-color:#f5fbfd" ;="">2.50</td><td style="background-color:#f5fbfd" ;="">2.91</td><td style="background-color:#45b3e0" ;="">0.41</td><td style="background-color:#45b3e0" ;="">1.49</td><td style="background-color:#45b3e0" ;="">1319</td><td style="background-color:#f5fbfd" ;="">0.073</td><td style="background-color:#f5fbfd" ;="">0.08</td><td style="background-color:#f5fbfd" ;="">55</td><td style="background-color:#45b3e0" ;="">491</td><td style="background-color:#45b3e0" ;="">1020</td><td style="background-color:#71c5e7" ;="">19.78%</td><td style="background-color:#c9e9f6" ;="">50.79%</td><td style="background-color:#71c5e7" ;="">55.92%</td><td style="background-color:#45b3e0" ;="">-5.13%</td><td style="background-color:#c9e9f6" ;="">0.958</td><td style="background-color:#71c5e7" ;="">0.969</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#71c5e7" ;="">0.904</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#45b3e0" ;="">0.031</td><td style="background-color:#45b3e0" ;="">0.810</td><td style="background-color:#71c5e7" ;="">0.691</td><td style="background-color:#45b3e0" ;="">0.119</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">24</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/MTL.png" width="75" height="50" align="left" alt="Montreal Canadiens"></td><td style="text-align:left;">Jakub Dobes</td></tr></tbody></table></th><td style="background-color:#71c5e7" ;="">16</td><td style="background-color:#c9e9f6" ;="">40</td><td style="background-color:#f5fbfd" ;="">49.03</td><td style="background-color:#45b3e0" ;="">9.0</td><td style="background-color:#45b3e0" ;="">18.42</td><td style="background-color:#45b3e0" ;="">0.617</td><td style="background-color:#71c5e7" ;="">0.958</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#45b3e0" ;="">0.0094</td><td style="background-color:#9dd7ef" ;="">0.909</td><td style="background-color:#f5fbfd" ;="">2.74</td><td style="background-color:#f5fbfd" ;="">3.36</td><td style="background-color:#45b3e0" ;="">0.62</td><td style="background-color:#45b3e0" ;="">1.51</td><td style="background-color:#45b3e0" ;="">874</td><td style="background-color:#f5fbfd" ;="">0.064</td><td style="background-color:#f5fbfd" ;="">0.111</td><td style="background-color:#c9e9f6" ;="">40</td><td style="background-color:#71c5e7" ;="">400</td><td style="background-color:#45b3e0" ;="">917</td><td style="background-color:#45b3e0" ;="">22.88%</td><td style="background-color:#f5fbfd" ;="">45.98%</td><td style="background-color:#c9e9f6" ;="">51.37%</td><td style="background-color:#45b3e0" ;="">-5.4%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#9dd7ef" ;="">0.001</td><td style="background-color:#9dd7ef" ;="">0.858</td><td style="background-color:#9dd7ef" ;="">0.872</td><td style="background-color:#f5fbfd" ;="">-0.014</td><td style="background-color:#45b3e0" ;="">0.882</td><td style="background-color:#71c5e7" ;="">0.675</td><td style="background-color:#45b3e0" ;="">0.207</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">25</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/BUF.png" width="75" height="50" align="left" alt="Buffalo Sabres"></td><td style="text-align:left;">James Reimer</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">24</td><td style="background-color:#f5fbfd" ;="">69</td><td style="background-color:#f5fbfd" ;="">77.01</td><td style="background-color:#45b3e0" ;="">8.0</td><td style="background-color:#45b3e0" ;="">10.4</td><td style="background-color:#71c5e7" ;="">0.352</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#c9e9f6" ;="">0.946</td><td style="background-color:#71c5e7" ;="">0.0056</td><td style="background-color:#f5fbfd" ;="">0.896</td><td style="background-color:#f5fbfd" ;="">3.04</td><td style="background-color:#f5fbfd" ;="">3.39</td><td style="background-color:#45b3e0" ;="">0.35</td><td style="background-color:#45b3e0" ;="">1.34</td><td style="background-color:#45b3e0" ;="">1362</td><td style="background-color:#f5fbfd" ;="">0.052</td><td style="background-color:#f5fbfd" ;="">0.108</td><td style="background-color:#f5fbfd" ;="">69</td><td style="background-color:#45b3e0" ;="">595</td><td style="background-color:#45b3e0" ;="">1355</td><td style="background-color:#45b3e0" ;="">21.11%</td><td style="background-color:#f5fbfd" ;="">46.63%</td><td style="background-color:#9dd7ef" ;="">53.75%</td><td style="background-color:#45b3e0" ;="">-7.12%</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#71c5e7" ;="">0.969</td><td style="background-color:#9dd7ef" ;="">0.003</td><td style="background-color:#9dd7ef" ;="">0.870</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#c9e9f6" ;="">-0.008</td><td style="background-color:#45b3e0" ;="">0.788</td><td style="background-color:#45b3e0" ;="">0.713</td><td style="background-color:#45b3e0" ;="">0.075</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">26</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/FLA.png" width="75" height="50" align="left" alt="Florida Panthers"></td><td style="text-align:left;">Sergei Bobrovsky</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">54</td><td style="background-color:#f5fbfd" ;="">130</td><td style="background-color:#f5fbfd" ;="">137.24</td><td style="background-color:#45b3e0" ;="">7.2</td><td style="background-color:#71c5e7" ;="">5.28</td><td style="background-color:#71c5e7" ;="">0.135</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#9dd7ef" ;="">0.0026</td><td style="background-color:#c9e9f6" ;="">0.906</td><td style="background-color:#f5fbfd" ;="">2.44</td><td style="background-color:#f5fbfd" ;="">2.57</td><td style="background-color:#71c5e7" ;="">0.14</td><td style="background-color:#45b3e0" ;="">1.21</td><td style="background-color:#45b3e0" ;="">3199</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.116</td><td style="background-color:#f5fbfd" ;="">130</td><td style="background-color:#45b3e0" ;="">1247</td><td style="background-color:#45b3e0" ;="">2626</td><td style="background-color:#45b3e0" ;="">20.14%</td><td style="background-color:#c9e9f6" ;="">49.96%</td><td style="background-color:#9dd7ef" ;="">54.43%</td><td style="background-color:#45b3e0" ;="">-4.47%</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#9dd7ef" ;="">-0.002</td><td style="background-color:#c9e9f6" ;="">0.852</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#f5fbfd" ;="">-0.026</td><td style="background-color:#45b3e0" ;="">0.774</td><td style="background-color:#71c5e7" ;="">0.652</td><td style="background-color:#45b3e0" ;="">0.122</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">27</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CHI.png" width="75" height="50" align="left" alt="Chicago Blackhawks"></td><td style="text-align:left;">Spencer Knight</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">38</td><td style="background-color:#f5fbfd" ;="">100</td><td style="background-color:#f5fbfd" ;="">106.9</td><td style="background-color:#45b3e0" ;="">6.9</td><td style="background-color:#71c5e7" ;="">6.45</td><td style="background-color:#71c5e7" ;="">0.188</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#71c5e7" ;="">0.0033</td><td style="background-color:#c9e9f6" ;="">0.901</td><td style="background-color:#f5fbfd" ;="">2.72</td><td style="background-color:#f5fbfd" ;="">2.91</td><td style="background-color:#71c5e7" ;="">0.19</td><td style="background-color:#45b3e0" ;="">1.15</td><td style="background-color:#45b3e0" ;="">2202</td><td style="background-color:#f5fbfd" ;="">0.062</td><td style="background-color:#f5fbfd" ;="">0.114</td><td style="background-color:#f5fbfd" ;="">100</td><td style="background-color:#45b3e0" ;="">912</td><td style="background-color:#45b3e0" ;="">1972</td><td style="background-color:#71c5e7" ;="">19.88%</td><td style="background-color:#f5fbfd" ;="">48.84%</td><td style="background-color:#9dd7ef" ;="">54.61%</td><td style="background-color:#45b3e0" ;="">-5.76%</td><td style="background-color:#c9e9f6" ;="">0.960</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#71c5e7" ;="">0.900</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#45b3e0" ;="">0.024</td><td style="background-color:#45b3e0" ;="">0.792</td><td style="background-color:#71c5e7" ;="">0.687</td><td style="background-color:#45b3e0" ;="">0.105</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">28</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CAR.png" width="75" height="50" align="left" alt="Carolina Hurricanes"></td><td style="text-align:left;">Pyotr Kochetkov</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">47</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#f5fbfd" ;="">126.99</td><td style="background-color:#45b3e0" ;="">6.0</td><td style="background-color:#71c5e7" ;="">4.72</td><td style="background-color:#71c5e7" ;="">0.129</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#c9e9f6" ;="">0.945</td><td style="background-color:#9dd7ef" ;="">0.0026</td><td style="background-color:#f5fbfd" ;="">0.897</td><td style="background-color:#f5fbfd" ;="">2.60</td><td style="background-color:#f5fbfd" ;="">2.73</td><td style="background-color:#71c5e7" ;="">0.13</td><td style="background-color:#45b3e0" ;="">1.00</td><td style="background-color:#45b3e0" ;="">2790</td><td style="background-color:#f5fbfd" ;="">0.069</td><td style="background-color:#f5fbfd" ;="">0.106</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#45b3e0" ;="">1051</td><td style="background-color:#45b3e0" ;="">2185</td><td style="background-color:#45b3e0" ;="">20.35%</td><td style="background-color:#c9e9f6" ;="">50.82%</td><td style="background-color:#71c5e7" ;="">55.04%</td><td style="background-color:#45b3e0" ;="">-4.21%</td><td style="background-color:#9dd7ef" ;="">0.966</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.005</td><td style="background-color:#9dd7ef" ;="">0.870</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#c9e9f6" ;="">-0.008</td><td style="background-color:#45b3e0" ;="">0.778</td><td style="background-color:#71c5e7" ;="">0.680</td><td style="background-color:#45b3e0" ;="">0.098</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">29</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/STL.png" width="75" height="50" align="left" alt="St. Louis Blues"></td><td style="text-align:left;">Jordan Binnington</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">56</td><td style="background-color:#f5fbfd" ;="">145</td><td style="background-color:#f5fbfd" ;="">150.25</td><td style="background-color:#45b3e0" ;="">5.3</td><td style="background-color:#71c5e7" ;="">3.49</td><td style="background-color:#9dd7ef" ;="">0.098</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.0017</td><td style="background-color:#c9e9f6" ;="">0.9</td><td style="background-color:#f5fbfd" ;="">2.69</td><td style="background-color:#f5fbfd" ;="">2.78</td><td style="background-color:#71c5e7" ;="">0.10</td><td style="background-color:#45b3e0" ;="">0.88</td><td style="background-color:#45b3e0" ;="">3238</td><td style="background-color:#f5fbfd" ;="">0.057</td><td style="background-color:#f5fbfd" ;="">0.104</td><td style="background-color:#f5fbfd" ;="">145</td><td style="background-color:#45b3e0" ;="">1312</td><td style="background-color:#45b3e0" ;="">2960</td><td style="background-color:#45b3e0" ;="">22.8%</td><td style="background-color:#f5fbfd" ;="">46.92%</td><td style="background-color:#c9e9f6" ;="">51.32%</td><td style="background-color:#45b3e0" ;="">-4.4%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.005</td><td style="background-color:#9dd7ef" ;="">0.866</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#45b3e0" ;="">0.768</td><td style="background-color:#71c5e7" ;="">0.672</td><td style="background-color:#45b3e0" ;="">0.096</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">30</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NJD.png" width="75" height="50" align="left" alt="New Jersey Devils"></td><td style="text-align:left;">Jacob Markstrom</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">49</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#f5fbfd" ;="">124.43</td><td style="background-color:#71c5e7" ;="">3.4</td><td style="background-color:#9dd7ef" ;="">2.76</td><td style="background-color:#9dd7ef" ;="">0.070</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.0013</td><td style="background-color:#c9e9f6" ;="">0.9</td><td style="background-color:#f5fbfd" ;="">2.50</td><td style="background-color:#f5fbfd" ;="">2.57</td><td style="background-color:#9dd7ef" ;="">0.07</td><td style="background-color:#71c5e7" ;="">0.57</td><td style="background-color:#45b3e0" ;="">2903</td><td style="background-color:#f5fbfd" ;="">0.049</td><td style="background-color:#f5fbfd" ;="">0.103</td><td style="background-color:#f5fbfd" ;="">121</td><td style="background-color:#45b3e0" ;="">1093</td><td style="background-color:#45b3e0" ;="">2556</td><td style="background-color:#45b3e0" ;="">21.75%</td><td style="background-color:#f5fbfd" ;="">45.35%</td><td style="background-color:#9dd7ef" ;="">52.14%</td><td style="background-color:#45b3e0" ;="">-6.79%</td><td style="background-color:#c9e9f6" ;="">0.959</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#71c5e7" ;="">0.887</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#71c5e7" ;="">0.011</td><td style="background-color:#45b3e0" ;="">0.831</td><td style="background-color:#71c5e7" ;="">0.683</td><td style="background-color:#45b3e0" ;="">0.147</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">31</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/COL.png" width="75" height="50" align="left" alt="Colorado Avalanche"></td><td style="text-align:left;">Scott Wedgewood</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">24</td><td style="background-color:#f5fbfd" ;="">53</td><td style="background-color:#f5fbfd" ;="">56.17</td><td style="background-color:#71c5e7" ;="">3.2</td><td style="background-color:#71c5e7" ;="">5.64</td><td style="background-color:#71c5e7" ;="">0.140</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.0026</td><td style="background-color:#9dd7ef" ;="">0.908</td><td style="background-color:#c9e9f6" ;="">2.32</td><td style="background-color:#f5fbfd" ;="">2.45</td><td style="background-color:#71c5e7" ;="">0.14</td><td style="background-color:#71c5e7" ;="">0.53</td><td style="background-color:#45b3e0" ;="">1373</td><td style="background-color:#f5fbfd" ;="">0.052</td><td style="background-color:#f5fbfd" ;="">0.107</td><td style="background-color:#f5fbfd" ;="">53</td><td style="background-color:#45b3e0" ;="">525</td><td style="background-color:#45b3e0" ;="">1175</td><td style="background-color:#45b3e0" ;="">22.72%</td><td style="background-color:#f5fbfd" ;="">47.07%</td><td style="background-color:#c9e9f6" ;="">51.28%</td><td style="background-color:#45b3e0" ;="">-4.21%</td><td style="background-color:#c9e9f6" ;="">0.959</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#71c5e7" ;="">0.911</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#45b3e0" ;="">0.035</td><td style="background-color:#45b3e0" ;="">0.793</td><td style="background-color:#71c5e7" ;="">0.686</td><td style="background-color:#45b3e0" ;="">0.107</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">32</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/WPG.png" width="75" height="50" align="left" alt="Winnipeg Jets"></td><td style="text-align:left;">Eric Comrie</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">20</td><td style="background-color:#f5fbfd" ;="">47</td><td style="background-color:#f5fbfd" ;="">49.47</td><td style="background-color:#71c5e7" ;="">2.5</td><td style="background-color:#71c5e7" ;="">4.99</td><td style="background-color:#71c5e7" ;="">0.127</td><td style="background-color:#71c5e7" ;="">0.959</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">0.0021</td><td style="background-color:#9dd7ef" ;="">0.914</td><td style="background-color:#f5fbfd" ;="">2.39</td><td style="background-color:#f5fbfd" ;="">2.52</td><td style="background-color:#71c5e7" ;="">0.13</td><td style="background-color:#71c5e7" ;="">0.41</td><td style="background-color:#45b3e0" ;="">1179</td><td style="background-color:#c9e9f6" ;="">0.043</td><td style="background-color:#f5fbfd" ;="">0.124</td><td style="background-color:#c9e9f6" ;="">47</td><td style="background-color:#45b3e0" ;="">500</td><td style="background-color:#45b3e0" ;="">1109</td><td style="background-color:#45b3e0" ;="">21.84%</td><td style="background-color:#f5fbfd" ;="">47.32%</td><td style="background-color:#c9e9f6" ;="">51.94%</td><td style="background-color:#45b3e0" ;="">-4.62%</td><td style="background-color:#9dd7ef" ;="">0.968</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#9dd7ef" ;="">0.883</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#71c5e7" ;="">0.008</td><td style="background-color:#45b3e0" ;="">0.792</td><td style="background-color:#45b3e0" ;="">0.704</td><td style="background-color:#45b3e0" ;="">0.087</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">33</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/DET.png" width="75" height="50" align="left" alt="Detroit Red Wings"></td><td style="text-align:left;">Alex Lyon</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">30</td><td style="background-color:#f5fbfd" ;="">73</td><td style="background-color:#f5fbfd" ;="">75.37</td><td style="background-color:#71c5e7" ;="">2.4</td><td style="background-color:#71c5e7" ;="">3.14</td><td style="background-color:#9dd7ef" ;="">0.092</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#9dd7ef" ;="">0.0016</td><td style="background-color:#f5fbfd" ;="">0.896</td><td style="background-color:#f5fbfd" ;="">2.81</td><td style="background-color:#f5fbfd" ;="">2.90</td><td style="background-color:#9dd7ef" ;="">0.09</td><td style="background-color:#71c5e7" ;="">0.40</td><td style="background-color:#45b3e0" ;="">1559</td><td style="background-color:#f5fbfd" ;="">0.058</td><td style="background-color:#f5fbfd" ;="">0.104</td><td style="background-color:#f5fbfd" ;="">73</td><td style="background-color:#45b3e0" ;="">632</td><td style="background-color:#45b3e0" ;="">1447</td><td style="background-color:#45b3e0" ;="">21.93%</td><td style="background-color:#f5fbfd" ;="">46.38%</td><td style="background-color:#9dd7ef" ;="">52.06%</td><td style="background-color:#45b3e0" ;="">-5.68%</td><td style="background-color:#c9e9f6" ;="">0.961</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#9dd7ef" ;="">0.871</td><td style="background-color:#9dd7ef" ;="">0.880</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#45b3e0" ;="">0.852</td><td style="background-color:#71c5e7" ;="">0.693</td><td style="background-color:#45b3e0" ;="">0.159</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">34</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/OTT.png" width="75" height="50" align="left" alt="Ottawa Senators"></td><td style="text-align:left;">Anton Forsberg</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">30</td><td style="background-color:#f5fbfd" ;="">76</td><td style="background-color:#f5fbfd" ;="">78.23</td><td style="background-color:#71c5e7" ;="">2.2</td><td style="background-color:#9dd7ef" ;="">2.85</td><td style="background-color:#9dd7ef" ;="">0.079</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.0014</td><td style="background-color:#c9e9f6" ;="">0.901</td><td style="background-color:#f5fbfd" ;="">2.72</td><td style="background-color:#f5fbfd" ;="">2.80</td><td style="background-color:#9dd7ef" ;="">0.08</td><td style="background-color:#71c5e7" ;="">0.37</td><td style="background-color:#45b3e0" ;="">1676</td><td style="background-color:#f5fbfd" ;="">0.049</td><td style="background-color:#f5fbfd" ;="">0.096</td><td style="background-color:#f5fbfd" ;="">76</td><td style="background-color:#45b3e0" ;="">692</td><td style="background-color:#45b3e0" ;="">1563</td><td style="background-color:#45b3e0" ;="">23.2%</td><td style="background-color:#f5fbfd" ;="">46.86%</td><td style="background-color:#c9e9f6" ;="">50.99%</td><td style="background-color:#45b3e0" ;="">-4.13%</td><td style="background-color:#71c5e7" ;="">0.974</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">0.002</td><td style="background-color:#c9e9f6" ;="">0.838</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.035</td><td style="background-color:#45b3e0" ;="">0.766</td><td style="background-color:#71c5e7" ;="">0.687</td><td style="background-color:#45b3e0" ;="">0.079</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">35</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/VAN.png" width="75" height="50" align="left" alt="Vancouver Canucks"></td><td style="text-align:left;">Thatcher Demko</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">23</td><td style="background-color:#f5fbfd" ;="">63</td><td style="background-color:#f5fbfd" ;="">64.44</td><td style="background-color:#9dd7ef" ;="">1.4</td><td style="background-color:#9dd7ef" ;="">2.23</td><td style="background-color:#9dd7ef" ;="">0.065</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#9dd7ef" ;="">0.0012</td><td style="background-color:#f5fbfd" ;="">0.889</td><td style="background-color:#f5fbfd" ;="">2.90</td><td style="background-color:#f5fbfd" ;="">2.97</td><td style="background-color:#9dd7ef" ;="">0.07</td><td style="background-color:#71c5e7" ;="">0.24</td><td style="background-color:#45b3e0" ;="">1301</td><td style="background-color:#f5fbfd" ;="">0.065</td><td style="background-color:#f5fbfd" ;="">0.117</td><td style="background-color:#f5fbfd" ;="">63</td><td style="background-color:#45b3e0" ;="">506</td><td style="background-color:#45b3e0" ;="">1142</td><td style="background-color:#45b3e0" ;="">20.83%</td><td style="background-color:#f5fbfd" ;="">47.22%</td><td style="background-color:#9dd7ef" ;="">53.74%</td><td style="background-color:#45b3e0" ;="">-6.52%</td><td style="background-color:#71c5e7" ;="">0.969</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.003</td><td style="background-color:#c9e9f6" ;="">0.853</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.022</td><td style="background-color:#45b3e0" ;="">0.762</td><td style="background-color:#71c5e7" ;="">0.679</td><td style="background-color:#45b3e0" ;="">0.084</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">36</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CHI.png" width="75" height="50" align="left" alt="Chicago Blackhawks"></td><td style="text-align:left;">Arvid Soderblom</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">36</td><td style="background-color:#f5fbfd" ;="">111</td><td style="background-color:#f5fbfd" ;="">111.96</td><td style="background-color:#9dd7ef" ;="">1.0</td><td style="background-color:#9dd7ef" ;="">0.86</td><td style="background-color:#9dd7ef" ;="">0.029</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">0.0004</td><td style="background-color:#f5fbfd" ;="">0.898</td><td style="background-color:#f5fbfd" ;="">3.18</td><td style="background-color:#f5fbfd" ;="">3.20</td><td style="background-color:#9dd7ef" ;="">0.03</td><td style="background-color:#9dd7ef" ;="">0.16</td><td style="background-color:#45b3e0" ;="">2096</td><td style="background-color:#f5fbfd" ;="">0.06</td><td style="background-color:#f5fbfd" ;="">0.097</td><td style="background-color:#f5fbfd" ;="">111</td><td style="background-color:#45b3e0" ;="">976</td><td style="background-color:#45b3e0" ;="">2076</td><td style="background-color:#45b3e0" ;="">20.12%</td><td style="background-color:#c9e9f6" ;="">49.7%</td><td style="background-color:#9dd7ef" ;="">54.43%</td><td style="background-color:#45b3e0" ;="">-4.73%</td><td style="background-color:#c9e9f6" ;="">0.961</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#9dd7ef" ;="">0.864</td><td style="background-color:#9dd7ef" ;="">0.869</td><td style="background-color:#c9e9f6" ;="">-0.005</td><td style="background-color:#45b3e0" ;="">0.807</td><td style="background-color:#71c5e7" ;="">0.688</td><td style="background-color:#45b3e0" ;="">0.118</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">37</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CGY.png" width="75" height="50" align="left" alt="Calgary Flames"></td><td style="text-align:left;">Dan Vladar</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">30</td><td style="background-color:#f5fbfd" ;="">83</td><td style="background-color:#f5fbfd" ;="">83.91</td><td style="background-color:#9dd7ef" ;="">0.9</td><td style="background-color:#9dd7ef" ;="">1.08</td><td style="background-color:#9dd7ef" ;="">0.030</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.0005</td><td style="background-color:#f5fbfd" ;="">0.898</td><td style="background-color:#f5fbfd" ;="">2.80</td><td style="background-color:#f5fbfd" ;="">2.83</td><td style="background-color:#9dd7ef" ;="">0.03</td><td style="background-color:#9dd7ef" ;="">0.15</td><td style="background-color:#45b3e0" ;="">1781</td><td style="background-color:#f5fbfd" ;="">0.048</td><td style="background-color:#f5fbfd" ;="">0.11</td><td style="background-color:#f5fbfd" ;="">83</td><td style="background-color:#45b3e0" ;="">727</td><td style="background-color:#45b3e0" ;="">1660</td><td style="background-color:#45b3e0" ;="">22.94%</td><td style="background-color:#f5fbfd" ;="">46.47%</td><td style="background-color:#c9e9f6" ;="">50.96%</td><td style="background-color:#45b3e0" ;="">-4.49%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#c9e9f6" ;="">0.850</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.025</td><td style="background-color:#45b3e0" ;="">0.791</td><td style="background-color:#71c5e7" ;="">0.675</td><td style="background-color:#45b3e0" ;="">0.115</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">38</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/VGK.png" width="75" height="50" align="left" alt="Vegas Golden Knights"></td><td style="text-align:left;">Ilya Samsonov</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">29</td><td style="background-color:#f5fbfd" ;="">82</td><td style="background-color:#f5fbfd" ;="">82.61</td><td style="background-color:#9dd7ef" ;="">0.6</td><td style="background-color:#9dd7ef" ;="">0.74</td><td style="background-color:#9dd7ef" ;="">0.021</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#9dd7ef" ;="">0.0004</td><td style="background-color:#f5fbfd" ;="">0.891</td><td style="background-color:#f5fbfd" ;="">2.82</td><td style="background-color:#f5fbfd" ;="">2.84</td><td style="background-color:#9dd7ef" ;="">0.02</td><td style="background-color:#9dd7ef" ;="">0.10</td><td style="background-color:#45b3e0" ;="">1745</td><td style="background-color:#f5fbfd" ;="">0.064</td><td style="background-color:#f5fbfd" ;="">0.1</td><td style="background-color:#f5fbfd" ;="">82</td><td style="background-color:#45b3e0" ;="">670</td><td style="background-color:#45b3e0" ;="">1590</td><td style="background-color:#45b3e0" ;="">22.12%</td><td style="background-color:#f5fbfd" ;="">44.98%</td><td style="background-color:#9dd7ef" ;="">52.44%</td><td style="background-color:#45b3e0" ;="">-7.46%</td><td style="background-color:#c9e9f6" ;="">0.959</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.012</td><td style="background-color:#9dd7ef" ;="">0.867</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#c9e9f6" ;="">-0.008</td><td style="background-color:#45b3e0" ;="">0.825</td><td style="background-color:#71c5e7" ;="">0.689</td><td style="background-color:#45b3e0" ;="">0.135</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">39</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/VAN.png" width="75" height="50" align="left" alt="Vancouver Canucks"></td><td style="text-align:left;">Kevin Lankinen</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">51</td><td style="background-color:#f5fbfd" ;="">132</td><td style="background-color:#f5fbfd" ;="">132.09</td><td style="background-color:#9dd7ef" ;="">0.1</td><td style="background-color:#9dd7ef" ;="">0.07</td><td style="background-color:#9dd7ef" ;="">0.002</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#9dd7ef" ;="">0.0000</td><td style="background-color:#c9e9f6" ;="">0.902</td><td style="background-color:#f5fbfd" ;="">2.62</td><td style="background-color:#f5fbfd" ;="">2.62</td><td style="background-color:#9dd7ef" ;="">0.00</td><td style="background-color:#9dd7ef" ;="">0.02</td><td style="background-color:#45b3e0" ;="">3019</td><td style="background-color:#f5fbfd" ;="">0.051</td><td style="background-color:#f5fbfd" ;="">0.096</td><td style="background-color:#f5fbfd" ;="">132</td><td style="background-color:#45b3e0" ;="">1213</td><td style="background-color:#45b3e0" ;="">2796</td><td style="background-color:#45b3e0" ;="">22.19%</td><td style="background-color:#f5fbfd" ;="">45.94%</td><td style="background-color:#c9e9f6" ;="">51.56%</td><td style="background-color:#45b3e0" ;="">-5.62%</td><td style="background-color:#c9e9f6" ;="">0.961</td><td style="background-color:#71c5e7" ;="">0.973</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#71c5e7" ;="">0.891</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#45b3e0" ;="">0.017</td><td style="background-color:#45b3e0" ;="">0.784</td><td style="background-color:#71c5e7" ;="">0.684</td><td style="background-color:#45b3e0" ;="">0.100</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">40</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PIT.png" width="75" height="50" align="left" alt="Pittsburgh Penguins"></td><td style="text-align:left;">Alex Nedeljkovic</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">38</td><td style="background-color:#f5fbfd" ;="">112</td><td style="background-color:#f5fbfd" ;="">111.02</td><td style="background-color:#9dd7ef" ;="">-1.0</td><td style="background-color:#9dd7ef" ;="">-0.88</td><td style="background-color:#9dd7ef" ;="">-0.028</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">-0.0005</td><td style="background-color:#f5fbfd" ;="">0.894</td><td style="background-color:#f5fbfd" ;="">3.12</td><td style="background-color:#f5fbfd" ;="">3.10</td><td style="background-color:#9dd7ef" ;="">-0.03</td><td style="background-color:#9dd7ef" ;="">-0.16</td><td style="background-color:#45b3e0" ;="">2150</td><td style="background-color:#f5fbfd" ;="">0.067</td><td style="background-color:#f5fbfd" ;="">0.115</td><td style="background-color:#f5fbfd" ;="">112</td><td style="background-color:#45b3e0" ;="">942</td><td style="background-color:#45b3e0" ;="">2015</td><td style="background-color:#45b3e0" ;="">20.9%</td><td style="background-color:#c9e9f6" ;="">49.55%</td><td style="background-color:#9dd7ef" ;="">53.4%</td><td style="background-color:#45b3e0" ;="">-3.84%</td><td style="background-color:#c9e9f6" ;="">0.962</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#9dd7ef" ;="">-0.000</td><td style="background-color:#45b3e0" ;="">0.746</td><td style="background-color:#71c5e7" ;="">0.672</td><td style="background-color:#45b3e0" ;="">0.075</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">41</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/TBL.png" width="75" height="50" align="left" alt="Tampa Bay Lightning"></td><td style="text-align:left;">Jonas Johansson</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">19</td><td style="background-color:#f5fbfd" ;="">58</td><td style="background-color:#f5fbfd" ;="">56.95</td><td style="background-color:#9dd7ef" ;="">-1.0</td><td style="background-color:#9dd7ef" ;="">-1.84</td><td style="background-color:#9dd7ef" ;="">-0.054</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">-0.0009</td><td style="background-color:#f5fbfd" ;="">0.895</td><td style="background-color:#f5fbfd" ;="">3.13</td><td style="background-color:#f5fbfd" ;="">3.08</td><td style="background-color:#9dd7ef" ;="">-0.06</td><td style="background-color:#9dd7ef" ;="">-0.17</td><td style="background-color:#45b3e0" ;="">1110</td><td style="background-color:#f5fbfd" ;="">0.062</td><td style="background-color:#f5fbfd" ;="">0.113</td><td style="background-color:#f5fbfd" ;="">58</td><td style="background-color:#45b3e0" ;="">496</td><td style="background-color:#45b3e0" ;="">1057</td><td style="background-color:#45b3e0" ;="">20.13%</td><td style="background-color:#c9e9f6" ;="">49.69%</td><td style="background-color:#9dd7ef" ;="">54.37%</td><td style="background-color:#45b3e0" ;="">-4.68%</td><td style="background-color:#f5fbfd" ;="">0.956</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#f5fbfd" ;="">-0.014</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#9dd7ef" ;="">-0.001</td><td style="background-color:#45b3e0" ;="">0.823</td><td style="background-color:#45b3e0" ;="">0.701</td><td style="background-color:#45b3e0" ;="">0.121</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">42</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/WSH.png" width="75" height="50" align="left" alt="Washington Capitals"></td><td style="text-align:left;">Charlie Lindgren</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">39</td><td style="background-color:#f5fbfd" ;="">104</td><td style="background-color:#f5fbfd" ;="">103.03</td><td style="background-color:#9dd7ef" ;="">-1.0</td><td style="background-color:#9dd7ef" ;="">-0.94</td><td style="background-color:#9dd7ef" ;="">-0.026</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#9dd7ef" ;="">-0.0004</td><td style="background-color:#f5fbfd" ;="">0.895</td><td style="background-color:#f5fbfd" ;="">2.73</td><td style="background-color:#f5fbfd" ;="">2.70</td><td style="background-color:#9dd7ef" ;="">-0.03</td><td style="background-color:#9dd7ef" ;="">-0.16</td><td style="background-color:#45b3e0" ;="">2287</td><td style="background-color:#f5fbfd" ;="">0.047</td><td style="background-color:#f5fbfd" ;="">0.104</td><td style="background-color:#f5fbfd" ;="">104</td><td style="background-color:#45b3e0" ;="">883</td><td style="background-color:#45b3e0" ;="">2074</td><td style="background-color:#45b3e0" ;="">22.85%</td><td style="background-color:#f5fbfd" ;="">45.32%</td><td style="background-color:#c9e9f6" ;="">51.28%</td><td style="background-color:#45b3e0" ;="">-5.96%</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#9dd7ef" ;="">-0.000</td><td style="background-color:#9dd7ef" ;="">0.862</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#45b3e0" ;="">0.716</td><td style="background-color:#71c5e7" ;="">0.692</td><td style="background-color:#71c5e7" ;="">0.024</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">43</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/EDM.png" width="75" height="50" align="left" alt="Edmonton Oilers"></td><td style="text-align:left;">Stuart Skinner</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">51</td><td style="background-color:#f5fbfd" ;="">138</td><td style="background-color:#f5fbfd" ;="">136.48</td><td style="background-color:#9dd7ef" ;="">-1.5</td><td style="background-color:#9dd7ef" ;="">-1.11</td><td style="background-color:#9dd7ef" ;="">-0.031</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#9dd7ef" ;="">-0.0006</td><td style="background-color:#f5fbfd" ;="">0.896</td><td style="background-color:#f5fbfd" ;="">2.81</td><td style="background-color:#f5fbfd" ;="">2.78</td><td style="background-color:#9dd7ef" ;="">-0.03</td><td style="background-color:#c9e9f6" ;="">-0.25</td><td style="background-color:#45b3e0" ;="">2942</td><td style="background-color:#f5fbfd" ;="">0.062</td><td style="background-color:#f5fbfd" ;="">0.114</td><td style="background-color:#f5fbfd" ;="">138</td><td style="background-color:#45b3e0" ;="">1187</td><td style="background-color:#45b3e0" ;="">2593</td><td style="background-color:#45b3e0" ;="">22.13%</td><td style="background-color:#f5fbfd" ;="">48.52%</td><td style="background-color:#9dd7ef" ;="">52.57%</td><td style="background-color:#45b3e0" ;="">-4.05%</td><td style="background-color:#c9e9f6" ;="">0.962</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#c9e9f6" ;="">0.853</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#f5fbfd" ;="">-0.024</td><td style="background-color:#45b3e0" ;="">0.789</td><td style="background-color:#71c5e7" ;="">0.665</td><td style="background-color:#45b3e0" ;="">0.124</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">44</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/BOS.png" width="75" height="50" align="left" alt="Boston Bruins"></td><td style="text-align:left;">Joonas Korpisalo</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">27</td><td style="background-color:#f5fbfd" ;="">74</td><td style="background-color:#f5fbfd" ;="">72.35</td><td style="background-color:#c9e9f6" ;="">-1.7</td><td style="background-color:#9dd7ef" ;="">-2.28</td><td style="background-color:#9dd7ef" ;="">-0.067</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">-0.0011</td><td style="background-color:#f5fbfd" ;="">0.893</td><td style="background-color:#f5fbfd" ;="">2.90</td><td style="background-color:#f5fbfd" ;="">2.84</td><td style="background-color:#9dd7ef" ;="">-0.06</td><td style="background-color:#c9e9f6" ;="">-0.28</td><td style="background-color:#45b3e0" ;="">1529</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.106</td><td style="background-color:#f5fbfd" ;="">74</td><td style="background-color:#45b3e0" ;="">619</td><td style="background-color:#45b3e0" ;="">1432</td><td style="background-color:#45b3e0" ;="">22.21%</td><td style="background-color:#f5fbfd" ;="">46.02%</td><td style="background-color:#9dd7ef" ;="">52.1%</td><td style="background-color:#45b3e0" ;="">-6.09%</td><td style="background-color:#c9e9f6" ;="">0.962</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#9dd7ef" ;="">0.862</td><td style="background-color:#9dd7ef" ;="">0.871</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#45b3e0" ;="">0.790</td><td style="background-color:#71c5e7" ;="">0.683</td><td style="background-color:#45b3e0" ;="">0.107</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">45</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/STL.png" width="75" height="50" align="left" alt="St. Louis Blues"></td><td style="text-align:left;">Joel Hofer</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">31</td><td style="background-color:#f5fbfd" ;="">74</td><td style="background-color:#f5fbfd" ;="">69.66</td><td style="background-color:#c9e9f6" ;="">-4.3</td><td style="background-color:#c9e9f6" ;="">-6.23</td><td style="background-color:#c9e9f6" ;="">-0.154</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#71c5e7" ;="">0.957</td><td style="background-color:#9dd7ef" ;="">-0.0027</td><td style="background-color:#c9e9f6" ;="">0.904</td><td style="background-color:#f5fbfd" ;="">2.64</td><td style="background-color:#f5fbfd" ;="">2.49</td><td style="background-color:#c9e9f6" ;="">-0.16</td><td style="background-color:#f5fbfd" ;="">-0.72</td><td style="background-color:#45b3e0" ;="">1678</td><td style="background-color:#f5fbfd" ;="">0.045</td><td style="background-color:#f5fbfd" ;="">0.136</td><td style="background-color:#f5fbfd" ;="">74</td><td style="background-color:#45b3e0" ;="">693</td><td style="background-color:#45b3e0" ;="">1534</td><td style="background-color:#45b3e0" ;="">22.54%</td><td style="background-color:#f5fbfd" ;="">47.7%</td><td style="background-color:#c9e9f6" ;="">51.18%</td><td style="background-color:#45b3e0" ;="">-3.48%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.005</td><td style="background-color:#c9e9f6" ;="">0.849</td><td style="background-color:#9dd7ef" ;="">0.879</td><td style="background-color:#f5fbfd" ;="">-0.031</td><td style="background-color:#45b3e0" ;="">0.794</td><td style="background-color:#71c5e7" ;="">0.694</td><td style="background-color:#45b3e0" ;="">0.100</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">46</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CBJ.png" width="75" height="50" align="left" alt="Columbus Blue Jackets"></td><td style="text-align:left;">Daniil Tarasov</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">20</td><td style="background-color:#f5fbfd" ;="">65</td><td style="background-color:#f5fbfd" ;="">60.64</td><td style="background-color:#c9e9f6" ;="">-4.4</td><td style="background-color:#c9e9f6" ;="">-7.19</td><td style="background-color:#c9e9f6" ;="">-0.240</td><td style="background-color:#c9e9f6" ;="">0.942</td><td style="background-color:#c9e9f6" ;="">0.946</td><td style="background-color:#c9e9f6" ;="">-0.0039</td><td style="background-color:#f5fbfd" ;="">0.881</td><td style="background-color:#f5fbfd" ;="">3.54</td><td style="background-color:#f5fbfd" ;="">3.31</td><td style="background-color:#c9e9f6" ;="">-0.24</td><td style="background-color:#f5fbfd" ;="">-0.73</td><td style="background-color:#45b3e0" ;="">1100</td><td style="background-color:#f5fbfd" ;="">0.075</td><td style="background-color:#f5fbfd" ;="">0.076</td><td style="background-color:#f5fbfd" ;="">65</td><td style="background-color:#45b3e0" ;="">479</td><td style="background-color:#45b3e0" ;="">1048</td><td style="background-color:#45b3e0" ;="">20.73%</td><td style="background-color:#f5fbfd" ;="">48.88%</td><td style="background-color:#9dd7ef" ;="">53.91%</td><td style="background-color:#45b3e0" ;="">-5.03%</td><td style="background-color:#c9e9f6" ;="">0.958</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#f5fbfd" ;="">-0.012</td><td style="background-color:#c9e9f6" ;="">0.839</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#f5fbfd" ;="">-0.035</td><td style="background-color:#45b3e0" ;="">0.833</td><td style="background-color:#71c5e7" ;="">0.699</td><td style="background-color:#45b3e0" ;="">0.134</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">47</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PIT.png" width="75" height="50" align="left" alt="Pittsburgh Penguins"></td><td style="text-align:left;">Joel Blomqvist</td></tr></tbody></table></th><td style="background-color:#71c5e7" ;="">15</td><td style="background-color:#f5fbfd" ;="">49</td><td style="background-color:#f5fbfd" ;="">44.33</td><td style="background-color:#c9e9f6" ;="">-4.7</td><td style="background-color:#f5fbfd" ;="">-10.53</td><td style="background-color:#f5fbfd" ;="">-0.365</td><td style="background-color:#c9e9f6" ;="">0.939</td><td style="background-color:#c9e9f6" ;="">0.945</td><td style="background-color:#c9e9f6" ;="">-0.0058</td><td style="background-color:#f5fbfd" ;="">0.885</td><td style="background-color:#f5fbfd" ;="">3.81</td><td style="background-color:#f5fbfd" ;="">3.44</td><td style="background-color:#f5fbfd" ;="">-0.36</td><td style="background-color:#f5fbfd" ;="">-0.78</td><td style="background-color:#45b3e0" ;="">772</td><td style="background-color:#f5fbfd" ;="">0.055</td><td style="background-color:#f5fbfd" ;="">0.114</td><td style="background-color:#f5fbfd" ;="">49</td><td style="background-color:#71c5e7" ;="">376</td><td style="background-color:#45b3e0" ;="">757</td><td style="background-color:#45b3e0" ;="">20.98%</td><td style="background-color:#9dd7ef" ;="">52.73%</td><td style="background-color:#9dd7ef" ;="">53.92%</td><td style="background-color:#71c5e7" ;="">-1.19%</td><td style="background-color:#f5fbfd" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.019</td><td style="background-color:#c9e9f6" ;="">0.841</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.034</td><td style="background-color:#45b3e0" ;="">0.843</td><td style="background-color:#71c5e7" ;="">0.691</td><td style="background-color:#45b3e0" ;="">0.152</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">48</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PIT.png" width="75" height="50" align="left" alt="Pittsburgh Penguins"></td><td style="text-align:left;">Tristan Jarry</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">36</td><td style="background-color:#f5fbfd" ;="">105</td><td style="background-color:#f5fbfd" ;="">100.33</td><td style="background-color:#c9e9f6" ;="">-4.7</td><td style="background-color:#c9e9f6" ;="">-4.65</td><td style="background-color:#c9e9f6" ;="">-0.140</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#9dd7ef" ;="">-0.0023</td><td style="background-color:#f5fbfd" ;="">0.892</td><td style="background-color:#f5fbfd" ;="">3.12</td><td style="background-color:#f5fbfd" ;="">2.98</td><td style="background-color:#c9e9f6" ;="">-0.14</td><td style="background-color:#f5fbfd" ;="">-0.78</td><td style="background-color:#45b3e0" ;="">2019</td><td style="background-color:#f5fbfd" ;="">0.056</td><td style="background-color:#f5fbfd" ;="">0.103</td><td style="background-color:#f5fbfd" ;="">105</td><td style="background-color:#45b3e0" ;="">867</td><td style="background-color:#45b3e0" ;="">1905</td><td style="background-color:#45b3e0" ;="">21.24%</td><td style="background-color:#f5fbfd" ;="">48.36%</td><td style="background-color:#9dd7ef" ;="">52.76%</td><td style="background-color:#45b3e0" ;="">-4.4%</td><td style="background-color:#9dd7ef" ;="">0.967</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.004</td><td style="background-color:#c9e9f6" ;="">0.846</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.027</td><td style="background-color:#45b3e0" ;="">0.731</td><td style="background-color:#71c5e7" ;="">0.670</td><td style="background-color:#45b3e0" ;="">0.062</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">49</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NYR.png" width="75" height="50" align="left" alt="New York Rangers"></td><td style="text-align:left;">Jonathan Quick</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">24</td><td style="background-color:#f5fbfd" ;="">70</td><td style="background-color:#f5fbfd" ;="">64.62</td><td style="background-color:#f5fbfd" ;="">-5.4</td><td style="background-color:#c9e9f6" ;="">-8.33</td><td style="background-color:#c9e9f6" ;="">-0.244</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#c9e9f6" ;="">-0.0041</td><td style="background-color:#f5fbfd" ;="">0.893</td><td style="background-color:#f5fbfd" ;="">3.17</td><td style="background-color:#f5fbfd" ;="">2.92</td><td style="background-color:#c9e9f6" ;="">-0.24</td><td style="background-color:#f5fbfd" ;="">-0.90</td><td style="background-color:#45b3e0" ;="">1325</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.075</td><td style="background-color:#f5fbfd" ;="">70</td><td style="background-color:#45b3e0" ;="">587</td><td style="background-color:#45b3e0" ;="">1243</td><td style="background-color:#45b3e0" ;="">20.38%</td><td style="background-color:#c9e9f6" ;="">50.04%</td><td style="background-color:#9dd7ef" ;="">54.48%</td><td style="background-color:#45b3e0" ;="">-4.44%</td><td style="background-color:#c9e9f6" ;="">0.958</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#9dd7ef" ;="">0.866</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#45b3e0" ;="">0.790</td><td style="background-color:#71c5e7" ;="">0.692</td><td style="background-color:#45b3e0" ;="">0.098</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">50</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NYI.png" width="75" height="50" align="left" alt="New York Islanders"></td><td style="text-align:left;">Marcus Hogberg</td></tr></tbody></table></th><td style="background-color:#71c5e7" ;="">15</td><td style="background-color:#c9e9f6" ;="">41</td><td style="background-color:#9dd7ef" ;="">35.23</td><td style="background-color:#f5fbfd" ;="">-5.8</td><td style="background-color:#f5fbfd" ;="">-16.38</td><td style="background-color:#f5fbfd" ;="">-0.478</td><td style="background-color:#c9e9f6" ;="">0.943</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#c9e9f6" ;="">-0.0080</td><td style="background-color:#f5fbfd" ;="">0.878</td><td style="background-color:#f5fbfd" ;="">3.38</td><td style="background-color:#f5fbfd" ;="">2.90</td><td style="background-color:#f5fbfd" ;="">-0.48</td><td style="background-color:#f5fbfd" ;="">-0.96</td><td style="background-color:#71c5e7" ;="">728</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.089</td><td style="background-color:#c9e9f6" ;="">41</td><td style="background-color:#9dd7ef" ;="">294</td><td style="background-color:#45b3e0" ;="">684</td><td style="background-color:#45b3e0" ;="">22.13%</td><td style="background-color:#f5fbfd" ;="">46.21%</td><td style="background-color:#9dd7ef" ;="">52.58%</td><td style="background-color:#45b3e0" ;="">-6.38%</td><td style="background-color:#f5fbfd" ;="">0.938</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.033</td><td style="background-color:#9dd7ef" ;="">0.858</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#f5fbfd" ;="">-0.018</td><td style="background-color:#45b3e0" ;="">0.925</td><td style="background-color:#45b3e0" ;="">0.711</td><td style="background-color:#45b3e0" ;="">0.214</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">51</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NSH.png" width="75" height="50" align="left" alt="Nashville Predators"></td><td style="text-align:left;">Juuse Saros</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">58</td><td style="background-color:#f5fbfd" ;="">167</td><td style="background-color:#f5fbfd" ;="">159.58</td><td style="background-color:#f5fbfd" ;="">-7.4</td><td style="background-color:#c9e9f6" ;="">-4.65</td><td style="background-color:#c9e9f6" ;="">-0.132</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#9dd7ef" ;="">-0.0023</td><td style="background-color:#f5fbfd" ;="">0.895</td><td style="background-color:#f5fbfd" ;="">2.98</td><td style="background-color:#f5fbfd" ;="">2.85</td><td style="background-color:#c9e9f6" ;="">-0.13</td><td style="background-color:#f5fbfd" ;="">-1.24</td><td style="background-color:#45b3e0" ;="">3357</td><td style="background-color:#f5fbfd" ;="">0.053</td><td style="background-color:#f5fbfd" ;="">0.096</td><td style="background-color:#f5fbfd" ;="">167</td><td style="background-color:#45b3e0" ;="">1426</td><td style="background-color:#45b3e0" ;="">3034</td><td style="background-color:#45b3e0" ;="">21.6%</td><td style="background-color:#c9e9f6" ;="">49.77%</td><td style="background-color:#9dd7ef" ;="">53.05%</td><td style="background-color:#45b3e0" ;="">-3.29%</td><td style="background-color:#c9e9f6" ;="">0.957</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#71c5e7" ;="">0.889</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#71c5e7" ;="">0.011</td><td style="background-color:#45b3e0" ;="">0.739</td><td style="background-color:#71c5e7" ;="">0.682</td><td style="background-color:#45b3e0" ;="">0.057</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">52</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/MIN.png" width="75" height="50" align="left" alt="Minnesota Wild"></td><td style="text-align:left;">Marc-Andre Fleury</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">26</td><td style="background-color:#f5fbfd" ;="">68</td><td style="background-color:#f5fbfd" ;="">59.92</td><td style="background-color:#f5fbfd" ;="">-8.1</td><td style="background-color:#f5fbfd" ;="">-13.48</td><td style="background-color:#c9e9f6" ;="">-0.350</td><td style="background-color:#9dd7ef" ;="">0.950</td><td style="background-color:#71c5e7" ;="">0.956</td><td style="background-color:#c9e9f6" ;="">-0.0060</td><td style="background-color:#c9e9f6" ;="">0.899</td><td style="background-color:#f5fbfd" ;="">2.93</td><td style="background-color:#f5fbfd" ;="">2.59</td><td style="background-color:#f5fbfd" ;="">-0.35</td><td style="background-color:#f5fbfd" ;="">-1.35</td><td style="background-color:#45b3e0" ;="">1390</td><td style="background-color:#f5fbfd" ;="">0.047</td><td style="background-color:#f5fbfd" ;="">0.083</td><td style="background-color:#f5fbfd" ;="">68</td><td style="background-color:#45b3e0" ;="">602</td><td style="background-color:#45b3e0" ;="">1283</td><td style="background-color:#45b3e0" ;="">22.22%</td><td style="background-color:#c9e9f6" ;="">49.59%</td><td style="background-color:#c9e9f6" ;="">51.7%</td><td style="background-color:#45b3e0" ;="">-2.11%</td><td style="background-color:#9dd7ef" ;="">0.966</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.006</td><td style="background-color:#c9e9f6" ;="">0.837</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#f5fbfd" ;="">-0.040</td><td style="background-color:#45b3e0" ;="">0.725</td><td style="background-color:#71c5e7" ;="">0.658</td><td style="background-color:#45b3e0" ;="">0.067</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">53</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/CBJ.png" width="75" height="50" align="left" alt="Columbus Blue Jackets"></td><td style="text-align:left;">Elvis Merzlikins</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">53</td><td style="background-color:#f5fbfd" ;="">168</td><td style="background-color:#f5fbfd" ;="">159.83</td><td style="background-color:#f5fbfd" ;="">-8.2</td><td style="background-color:#c9e9f6" ;="">-5.11</td><td style="background-color:#c9e9f6" ;="">-0.155</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#9dd7ef" ;="">-0.0025</td><td style="background-color:#f5fbfd" ;="">0.892</td><td style="background-color:#f5fbfd" ;="">3.18</td><td style="background-color:#f5fbfd" ;="">3.02</td><td style="background-color:#c9e9f6" ;="">-0.15</td><td style="background-color:#f5fbfd" ;="">-1.36</td><td style="background-color:#45b3e0" ;="">3170</td><td style="background-color:#f5fbfd" ;="">0.055</td><td style="background-color:#f5fbfd" ;="">0.088</td><td style="background-color:#f5fbfd" ;="">168</td><td style="background-color:#45b3e0" ;="">1389</td><td style="background-color:#45b3e0" ;="">3156</td><td style="background-color:#45b3e0" ;="">23%</td><td style="background-color:#f5fbfd" ;="">46.84%</td><td style="background-color:#c9e9f6" ;="">51.05%</td><td style="background-color:#45b3e0" ;="">-4.21%</td><td style="background-color:#c9e9f6" ;="">0.960</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.012</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#9dd7ef" ;="">0.001</td><td style="background-color:#45b3e0" ;="">0.739</td><td style="background-color:#71c5e7" ;="">0.672</td><td style="background-color:#45b3e0" ;="">0.066</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">54</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/FLA.png" width="75" height="50" align="left" alt="Florida Panthers"></td><td style="text-align:left;">Vitek Vanecek</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">25</td><td style="background-color:#f5fbfd" ;="">84</td><td style="background-color:#f5fbfd" ;="">75.47</td><td style="background-color:#f5fbfd" ;="">-8.5</td><td style="background-color:#f5fbfd" ;="">-11.3</td><td style="background-color:#f5fbfd" ;="">-0.366</td><td style="background-color:#c9e9f6" ;="">0.943</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#c9e9f6" ;="">-0.0058</td><td style="background-color:#f5fbfd" ;="">0.884</td><td style="background-color:#f5fbfd" ;="">3.62</td><td style="background-color:#f5fbfd" ;="">3.25</td><td style="background-color:#f5fbfd" ;="">-0.37</td><td style="background-color:#f5fbfd" ;="">-1.42</td><td style="background-color:#45b3e0" ;="">1393</td><td style="background-color:#f5fbfd" ;="">0.062</td><td style="background-color:#f5fbfd" ;="">0.091</td><td style="background-color:#f5fbfd" ;="">84</td><td style="background-color:#45b3e0" ;="">640</td><td style="background-color:#45b3e0" ;="">1399</td><td style="background-color:#45b3e0" ;="">21.16%</td><td style="background-color:#f5fbfd" ;="">48.82%</td><td style="background-color:#9dd7ef" ;="">52.92%</td><td style="background-color:#45b3e0" ;="">-4.1%</td><td style="background-color:#c9e9f6" ;="">0.962</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#c9e9f6" ;="">0.829</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#f5fbfd" ;="">-0.048</td><td style="background-color:#45b3e0" ;="">0.773</td><td style="background-color:#71c5e7" ;="">0.681</td><td style="background-color:#45b3e0" ;="">0.092</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">55</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/BUF.png" width="75" height="50" align="left" alt="Buffalo Sabres"></td><td style="text-align:left;">Ukko-Pekka Luukkonen</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">55</td><td style="background-color:#f5fbfd" ;="">169</td><td style="background-color:#f5fbfd" ;="">160.42</td><td style="background-color:#f5fbfd" ;="">-8.6</td><td style="background-color:#c9e9f6" ;="">-5.35</td><td style="background-color:#c9e9f6" ;="">-0.163</td><td style="background-color:#c9e9f6" ;="">0.946</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">-0.0028</td><td style="background-color:#f5fbfd" ;="">0.887</td><td style="background-color:#f5fbfd" ;="">3.20</td><td style="background-color:#f5fbfd" ;="">3.03</td><td style="background-color:#c9e9f6" ;="">-0.16</td><td style="background-color:#f5fbfd" ;="">-1.43</td><td style="background-color:#45b3e0" ;="">3172</td><td style="background-color:#f5fbfd" ;="">0.061</td><td style="background-color:#f5fbfd" ;="">0.099</td><td style="background-color:#f5fbfd" ;="">169</td><td style="background-color:#45b3e0" ;="">1321</td><td style="background-color:#45b3e0" ;="">2946</td><td style="background-color:#45b3e0" ;="">21.3%</td><td style="background-color:#f5fbfd" ;="">47.83%</td><td style="background-color:#9dd7ef" ;="">52.95%</td><td style="background-color:#45b3e0" ;="">-5.11%</td><td style="background-color:#9dd7ef" ;="">0.965</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.006</td><td style="background-color:#c9e9f6" ;="">0.856</td><td style="background-color:#9dd7ef" ;="">0.873</td><td style="background-color:#f5fbfd" ;="">-0.017</td><td style="background-color:#45b3e0" ;="">0.715</td><td style="background-color:#71c5e7" ;="">0.661</td><td style="background-color:#45b3e0" ;="">0.054</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">56</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PHI.png" width="75" height="50" align="left" alt="Philadelphia Flyers"></td><td style="text-align:left;">Aleksei Kolosov</td></tr></tbody></table></th><td style="background-color:#71c5e7" ;="">17</td><td style="background-color:#f5fbfd" ;="">54</td><td style="background-color:#f5fbfd" ;="">45.01</td><td style="background-color:#f5fbfd" ;="">-9.0</td><td style="background-color:#f5fbfd" ;="">-19.97</td><td style="background-color:#f5fbfd" ;="">-0.599</td><td style="background-color:#c9e9f6" ;="">0.942</td><td style="background-color:#9dd7ef" ;="">0.952</td><td style="background-color:#f5fbfd" ;="">-0.0096</td><td style="background-color:#f5fbfd" ;="">0.867</td><td style="background-color:#f5fbfd" ;="">3.59</td><td style="background-color:#f5fbfd" ;="">2.99</td><td style="background-color:#f5fbfd" ;="">-0.60</td><td style="background-color:#f5fbfd" ;="">-1.50</td><td style="background-color:#45b3e0" ;="">901</td><td style="background-color:#f5fbfd" ;="">0.049</td><td style="background-color:#f5fbfd" ;="">0.092</td><td style="background-color:#f5fbfd" ;="">54</td><td style="background-color:#71c5e7" ;="">352</td><td style="background-color:#45b3e0" ;="">880</td><td style="background-color:#45b3e0" ;="">24.49%</td><td style="background-color:#f5fbfd" ;="">43.47%</td><td style="background-color:#c9e9f6" ;="">49.19%</td><td style="background-color:#45b3e0" ;="">-5.72%</td><td style="background-color:#c9e9f6" ;="">0.957</td><td style="background-color:#71c5e7" ;="">0.969</td><td style="background-color:#f5fbfd" ;="">-0.012</td><td style="background-color:#9dd7ef" ;="">0.881</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#71c5e7" ;="">0.005</td><td style="background-color:#9dd7ef" ;="">0.615</td><td style="background-color:#71c5e7" ;="">0.692</td><td style="background-color:#f5fbfd" ;="">-0.077</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">57</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/BOS.png" width="75" height="50" align="left" alt="Boston Bruins"></td><td style="text-align:left;">Jeremy Swayman</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">58</td><td style="background-color:#f5fbfd" ;="">176</td><td style="background-color:#f5fbfd" ;="">166.9</td><td style="background-color:#f5fbfd" ;="">-9.1</td><td style="background-color:#c9e9f6" ;="">-5.45</td><td style="background-color:#c9e9f6" ;="">-0.161</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#9dd7ef" ;="">0.951</td><td style="background-color:#9dd7ef" ;="">-0.0027</td><td style="background-color:#f5fbfd" ;="">0.892</td><td style="background-color:#f5fbfd" ;="">3.11</td><td style="background-color:#f5fbfd" ;="">2.95</td><td style="background-color:#c9e9f6" ;="">-0.16</td><td style="background-color:#f5fbfd" ;="">-1.52</td><td style="background-color:#45b3e0" ;="">3390</td><td style="background-color:#f5fbfd" ;="">0.051</td><td style="background-color:#f5fbfd" ;="">0.121</td><td style="background-color:#f5fbfd" ;="">176</td><td style="background-color:#45b3e0" ;="">1456</td><td style="background-color:#45b3e0" ;="">3200</td><td style="background-color:#45b3e0" ;="">21.56%</td><td style="background-color:#f5fbfd" ;="">48.34%</td><td style="background-color:#9dd7ef" ;="">52.54%</td><td style="background-color:#45b3e0" ;="">-4.2%</td><td style="background-color:#c9e9f6" ;="">0.958</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#9dd7ef" ;="">0.869</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#c9e9f6" ;="">-0.007</td><td style="background-color:#45b3e0" ;="">0.766</td><td style="background-color:#71c5e7" ;="">0.662</td><td style="background-color:#45b3e0" ;="">0.104</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">58</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/EDM.png" width="75" height="50" align="left" alt="Edmonton Oilers"></td><td style="text-align:left;">Calvin Pickard</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">36</td><td style="background-color:#f5fbfd" ;="">85</td><td style="background-color:#f5fbfd" ;="">75.91</td><td style="background-color:#f5fbfd" ;="">-9.1</td><td style="background-color:#f5fbfd" ;="">-11.97</td><td style="background-color:#c9e9f6" ;="">-0.290</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#c9e9f6" ;="">-0.0055</td><td style="background-color:#c9e9f6" ;="">0.9</td><td style="background-color:#f5fbfd" ;="">2.71</td><td style="background-color:#f5fbfd" ;="">2.42</td><td style="background-color:#c9e9f6" ;="">-0.29</td><td style="background-color:#f5fbfd" ;="">-1.52</td><td style="background-color:#45b3e0" ;="">1881</td><td style="background-color:#c9e9f6" ;="">0.044</td><td style="background-color:#f5fbfd" ;="">0.093</td><td style="background-color:#f5fbfd" ;="">85</td><td style="background-color:#45b3e0" ;="">764</td><td style="background-color:#45b3e0" ;="">1581</td><td style="background-color:#45b3e0" ;="">21.82%</td><td style="background-color:#c9e9f6" ;="">50.96%</td><td style="background-color:#9dd7ef" ;="">52.52%</td><td style="background-color:#71c5e7" ;="">-1.56%</td><td style="background-color:#c9e9f6" ;="">0.960</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#c9e9f6" ;="">-0.011</td><td style="background-color:#9dd7ef" ;="">0.858</td><td style="background-color:#9dd7ef" ;="">0.878</td><td style="background-color:#f5fbfd" ;="">-0.019</td><td style="background-color:#45b3e0" ;="">0.750</td><td style="background-color:#71c5e7" ;="">0.681</td><td style="background-color:#45b3e0" ;="">0.069</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">59</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/NSH.png" width="75" height="50" align="left" alt="Nashville Predators"></td><td style="text-align:left;">Justus Annunen</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">34</td><td style="background-color:#f5fbfd" ;="">95</td><td style="background-color:#f5fbfd" ;="">85.9</td><td style="background-color:#f5fbfd" ;="">-9.1</td><td style="background-color:#f5fbfd" ;="">-10.59</td><td style="background-color:#c9e9f6" ;="">-0.305</td><td style="background-color:#c9e9f6" ;="">0.943</td><td style="background-color:#9dd7ef" ;="">0.949</td><td style="background-color:#c9e9f6" ;="">-0.0054</td><td style="background-color:#f5fbfd" ;="">0.883</td><td style="background-color:#f5fbfd" ;="">3.18</td><td style="background-color:#f5fbfd" ;="">2.88</td><td style="background-color:#f5fbfd" ;="">-0.31</td><td style="background-color:#f5fbfd" ;="">-1.52</td><td style="background-color:#45b3e0" ;="">1789</td><td style="background-color:#f5fbfd" ;="">0.054</td><td style="background-color:#f5fbfd" ;="">0.119</td><td style="background-color:#f5fbfd" ;="">95</td><td style="background-color:#45b3e0" ;="">719</td><td style="background-color:#45b3e0" ;="">1579</td><td style="background-color:#45b3e0" ;="">21.45%</td><td style="background-color:#f5fbfd" ;="">48.63%</td><td style="background-color:#9dd7ef" ;="">53.08%</td><td style="background-color:#45b3e0" ;="">-4.45%</td><td style="background-color:#f5fbfd" ;="">0.949</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#f5fbfd" ;="">-0.021</td><td style="background-color:#9dd7ef" ;="">0.867</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#c9e9f6" ;="">-0.009</td><td style="background-color:#45b3e0" ;="">0.816</td><td style="background-color:#71c5e7" ;="">0.681</td><td style="background-color:#45b3e0" ;="">0.136</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">60</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/LAK.png" width="75" height="50" align="left" alt="Los Angeles Kings"></td><td style="text-align:left;">David Rittich</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">34</td><td style="background-color:#f5fbfd" ;="">88</td><td style="background-color:#f5fbfd" ;="">76.62</td><td style="background-color:#f5fbfd" ;="">-11.4</td><td style="background-color:#f5fbfd" ;="">-14.85</td><td style="background-color:#f5fbfd" ;="">-0.368</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#c9e9f6" ;="">-0.0068</td><td style="background-color:#f5fbfd" ;="">0.886</td><td style="background-color:#f5fbfd" ;="">2.84</td><td style="background-color:#f5fbfd" ;="">2.47</td><td style="background-color:#f5fbfd" ;="">-0.37</td><td style="background-color:#f5fbfd" ;="">-1.90</td><td style="background-color:#45b3e0" ;="">1860</td><td style="background-color:#f5fbfd" ;="">0.052</td><td style="background-color:#f5fbfd" ;="">0.082</td><td style="background-color:#f5fbfd" ;="">88</td><td style="background-color:#45b3e0" ;="">684</td><td style="background-color:#45b3e0" ;="">1582</td><td style="background-color:#45b3e0" ;="">23.18%</td><td style="background-color:#f5fbfd" ;="">46.23%</td><td style="background-color:#c9e9f6" ;="">50.9%</td><td style="background-color:#45b3e0" ;="">-4.67%</td><td style="background-color:#f5fbfd" ;="">0.956</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.015</td><td style="background-color:#c9e9f6" ;="">0.855</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#f5fbfd" ;="">-0.020</td><td style="background-color:#45b3e0" ;="">0.761</td><td style="background-color:#71c5e7" ;="">0.667</td><td style="background-color:#45b3e0" ;="">0.094</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">61</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/UTA.png" width="75" height="50" align="left" alt="Utah Hockey Club"></td><td style="text-align:left;">Connor Ingram</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">22</td><td style="background-color:#f5fbfd" ;="">66</td><td style="background-color:#f5fbfd" ;="">54.36</td><td style="background-color:#f5fbfd" ;="">-11.6</td><td style="background-color:#f5fbfd" ;="">-21.41</td><td style="background-color:#f5fbfd" ;="">-0.575</td><td style="background-color:#c9e9f6" ;="">0.944</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#f5fbfd" ;="">-0.0099</td><td style="background-color:#f5fbfd" ;="">0.882</td><td style="background-color:#f5fbfd" ;="">3.27</td><td style="background-color:#f5fbfd" ;="">2.70</td><td style="background-color:#f5fbfd" ;="">-0.58</td><td style="background-color:#f5fbfd" ;="">-1.94</td><td style="background-color:#45b3e0" ;="">1210</td><td style="background-color:#f5fbfd" ;="">0.051</td><td style="background-color:#f5fbfd" ;="">0.101</td><td style="background-color:#f5fbfd" ;="">66</td><td style="background-color:#45b3e0" ;="">492</td><td style="background-color:#45b3e0" ;="">1115</td><td style="background-color:#45b3e0" ;="">22.46%</td><td style="background-color:#f5fbfd" ;="">47.25%</td><td style="background-color:#9dd7ef" ;="">52.2%</td><td style="background-color:#45b3e0" ;="">-4.95%</td><td style="background-color:#f5fbfd" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.018</td><td style="background-color:#c9e9f6" ;="">0.841</td><td style="background-color:#9dd7ef" ;="">0.880</td><td style="background-color:#f5fbfd" ;="">-0.039</td><td style="background-color:#45b3e0" ;="">0.804</td><td style="background-color:#71c5e7" ;="">0.682</td><td style="background-color:#45b3e0" ;="">0.122</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">62</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PHI.png" width="75" height="50" align="left" alt="Philadelphia Flyers"></td><td style="text-align:left;">Ivan Fedotov</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">26</td><td style="background-color:#f5fbfd" ;="">75</td><td style="background-color:#f5fbfd" ;="">61.36</td><td style="background-color:#f5fbfd" ;="">-13.6</td><td style="background-color:#f5fbfd" ;="">-22.23</td><td style="background-color:#f5fbfd" ;="">-0.571</td><td style="background-color:#c9e9f6" ;="">0.945</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#f5fbfd" ;="">-0.0100</td><td style="background-color:#f5fbfd" ;="">0.88</td><td style="background-color:#f5fbfd" ;="">3.15</td><td style="background-color:#f5fbfd" ;="">2.58</td><td style="background-color:#f5fbfd" ;="">-0.57</td><td style="background-color:#f5fbfd" ;="">-2.27</td><td style="background-color:#45b3e0" ;="">1429</td><td style="background-color:#f5fbfd" ;="">0.05</td><td style="background-color:#f5fbfd" ;="">0.103</td><td style="background-color:#f5fbfd" ;="">75</td><td style="background-color:#45b3e0" ;="">549</td><td style="background-color:#45b3e0" ;="">1289</td><td style="background-color:#45b3e0" ;="">23.84%</td><td style="background-color:#f5fbfd" ;="">45.75%</td><td style="background-color:#c9e9f6" ;="">49.54%</td><td style="background-color:#45b3e0" ;="">-3.79%</td><td style="background-color:#f5fbfd" ;="">0.953</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.017</td><td style="background-color:#c9e9f6" ;="">0.842</td><td style="background-color:#9dd7ef" ;="">0.876</td><td style="background-color:#f5fbfd" ;="">-0.034</td><td style="background-color:#45b3e0" ;="">0.782</td><td style="background-color:#71c5e7" ;="">0.690</td><td style="background-color:#45b3e0" ;="">0.092</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">63</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/DET.png" width="75" height="50" align="left" alt="Detroit Red Wings"></td><td style="text-align:left;">Petr Mrazek</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">38</td><td style="background-color:#f5fbfd" ;="">116</td><td style="background-color:#f5fbfd" ;="">102.03</td><td style="background-color:#f5fbfd" ;="">-14.0</td><td style="background-color:#f5fbfd" ;="">-13.69</td><td style="background-color:#f5fbfd" ;="">-0.404</td><td style="background-color:#9dd7ef" ;="">0.947</td><td style="background-color:#9dd7ef" ;="">0.953</td><td style="background-color:#c9e9f6" ;="">-0.0064</td><td style="background-color:#f5fbfd" ;="">0.891</td><td style="background-color:#f5fbfd" ;="">3.35</td><td style="background-color:#f5fbfd" ;="">2.94</td><td style="background-color:#f5fbfd" ;="">-0.40</td><td style="background-color:#f5fbfd" ;="">-2.33</td><td style="background-color:#45b3e0" ;="">2080</td><td style="background-color:#f5fbfd" ;="">0.064</td><td style="background-color:#f5fbfd" ;="">0.102</td><td style="background-color:#f5fbfd" ;="">116</td><td style="background-color:#45b3e0" ;="">950</td><td style="background-color:#45b3e0" ;="">2073</td><td style="background-color:#45b3e0" ;="">22.57%</td><td style="background-color:#f5fbfd" ;="">48.7%</td><td style="background-color:#c9e9f6" ;="">51.52%</td><td style="background-color:#45b3e0" ;="">-2.82%</td><td style="background-color:#9dd7ef" ;="">0.966</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#c9e9f6" ;="">-0.006</td><td style="background-color:#f5fbfd" ;="">0.826</td><td style="background-color:#9dd7ef" ;="">0.877</td><td style="background-color:#f5fbfd" ;="">-0.050</td><td style="background-color:#45b3e0" ;="">0.783</td><td style="background-color:#45b3e0" ;="">0.701</td><td style="background-color:#45b3e0" ;="">0.082</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">64</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/SEA.png" width="75" height="50" align="left" alt="Seattle Kraken"></td><td style="text-align:left;">Philipp Grubauer</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">26</td><td style="background-color:#f5fbfd" ;="">85</td><td style="background-color:#f5fbfd" ;="">68.7</td><td style="background-color:#f5fbfd" ;="">-16.3</td><td style="background-color:#f5fbfd" ;="">-23.73</td><td style="background-color:#f5fbfd" ;="">-0.670</td><td style="background-color:#c9e9f6" ;="">0.944</td><td style="background-color:#9dd7ef" ;="">0.954</td><td style="background-color:#f5fbfd" ;="">-0.0108</td><td style="background-color:#f5fbfd" ;="">0.875</td><td style="background-color:#f5fbfd" ;="">3.49</td><td style="background-color:#f5fbfd" ;="">2.82</td><td style="background-color:#f5fbfd" ;="">-0.67</td><td style="background-color:#f5fbfd" ;="">-2.72</td><td style="background-color:#45b3e0" ;="">1460</td><td style="background-color:#f5fbfd" ;="">0.046</td><td style="background-color:#f5fbfd" ;="">0.104</td><td style="background-color:#f5fbfd" ;="">85</td><td style="background-color:#45b3e0" ;="">596</td><td style="background-color:#45b3e0" ;="">1422</td><td style="background-color:#45b3e0" ;="">22.08%</td><td style="background-color:#f5fbfd" ;="">45.19%</td><td style="background-color:#c9e9f6" ;="">51.65%</td><td style="background-color:#45b3e0" ;="">-6.46%</td><td style="background-color:#c9e9f6" ;="">0.958</td><td style="background-color:#71c5e7" ;="">0.972</td><td style="background-color:#f5fbfd" ;="">-0.014</td><td style="background-color:#f5fbfd" ;="">0.796</td><td style="background-color:#9dd7ef" ;="">0.874</td><td style="background-color:#f5fbfd" ;="">-0.078</td><td style="background-color:#45b3e0" ;="">0.831</td><td style="background-color:#45b3e0" ;="">0.710</td><td style="background-color:#45b3e0" ;="">0.121</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">65</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/SJS.png" width="75" height="50" align="left" alt="San Jose Sharks"></td><td style="text-align:left;">Alexandar Georgiev</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">49</td><td style="background-color:#f5fbfd" ;="">165</td><td style="background-color:#f5fbfd" ;="">147.05</td><td style="background-color:#f5fbfd" ;="">-17.9</td><td style="background-color:#f5fbfd" ;="">-12.21</td><td style="background-color:#f5fbfd" ;="">-0.402</td><td style="background-color:#c9e9f6" ;="">0.940</td><td style="background-color:#c9e9f6" ;="">0.946</td><td style="background-color:#c9e9f6" ;="">-0.0065</td><td style="background-color:#f5fbfd" ;="">0.875</td><td style="background-color:#f5fbfd" ;="">3.71</td><td style="background-color:#f5fbfd" ;="">3.30</td><td style="background-color:#f5fbfd" ;="">-0.40</td><td style="background-color:#f5fbfd" ;="">-2.99</td><td style="background-color:#45b3e0" ;="">2671</td><td style="background-color:#f5fbfd" ;="">0.07</td><td style="background-color:#f5fbfd" ;="">0.105</td><td style="background-color:#f5fbfd" ;="">165</td><td style="background-color:#45b3e0" ;="">1152</td><td style="background-color:#45b3e0" ;="">2583</td><td style="background-color:#45b3e0" ;="">22.85%</td><td style="background-color:#f5fbfd" ;="">47.93%</td><td style="background-color:#c9e9f6" ;="">51.63%</td><td style="background-color:#45b3e0" ;="">-3.7%</td><td style="background-color:#c9e9f6" ;="">0.957</td><td style="background-color:#71c5e7" ;="">0.970</td><td style="background-color:#f5fbfd" ;="">-0.013</td><td style="background-color:#c9e9f6" ;="">0.846</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#f5fbfd" ;="">-0.029</td><td style="background-color:#45b3e0" ;="">0.739</td><td style="background-color:#71c5e7" ;="">0.674</td><td style="background-color:#45b3e0" ;="">0.065</td></tr><tr><th><table border="0" style="width:290px;" id="noBorders"><tbody><tr><td width="35" style="font-weight:bold; font-size:35px;">66</td><td style="width:40px"><img src="http://peter-tanner.com/moneypuck/logos/PHI.png" width="75" height="50" align="left" alt="Philadelphia Flyers"></td><td style="text-align:left;">Samuel Ersson</td></tr></tbody></table></th><td style="background-color:#45b3e0" ;="">47</td><td style="background-color:#f5fbfd" ;="">136</td><td style="background-color:#f5fbfd" ;="">116.12</td><td style="background-color:#f5fbfd" ;="">-19.9</td><td style="background-color:#f5fbfd" ;="">-17.12</td><td style="background-color:#f5fbfd" ;="">-0.459</td><td style="background-color:#9dd7ef" ;="">0.948</td><td style="background-color:#71c5e7" ;="">0.955</td><td style="background-color:#c9e9f6" ;="">-0.0076</td><td style="background-color:#f5fbfd" ;="">0.883</td><td style="background-color:#f5fbfd" ;="">3.14</td><td style="background-color:#f5fbfd" ;="">2.68</td><td style="background-color:#f5fbfd" ;="">-0.46</td><td style="background-color:#f5fbfd" ;="">-3.31</td><td style="background-color:#45b3e0" ;="">2601</td><td style="background-color:#f5fbfd" ;="">0.05</td><td style="background-color:#f5fbfd" ;="">0.078</td><td style="background-color:#f5fbfd" ;="">136</td><td style="background-color:#45b3e0" ;="">1026</td><td style="background-color:#45b3e0" ;="">2470</td><td style="background-color:#45b3e0" ;="">24.53%</td><td style="background-color:#f5fbfd" ;="">44.59%</td><td style="background-color:#c9e9f6" ;="">49.37%</td><td style="background-color:#45b3e0" ;="">-4.79%</td><td style="background-color:#f5fbfd" ;="">0.954</td><td style="background-color:#71c5e7" ;="">0.971</td><td style="background-color:#f5fbfd" ;="">-0.017</td><td style="background-color:#c9e9f6" ;="">0.841</td><td style="background-color:#9dd7ef" ;="">0.875</td><td style="background-color:#f5fbfd" ;="">-0.035</td><td style="background-color:#45b3e0" ;="">0.781</td><td style="background-color:#71c5e7" ;="">0.660</td><td style="background-color:#45b3e0" ;="">0.121</td></tr></tbody></table></div>		
+		
+		</div>
+		
+<script>
+
+  $("#sidebar-wrapper").load('sidebar_contents.htm'); 
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value + ' Games';
+  updateChart('')
+  
+}
+
+slider.onload = function() {
+  output.innerHTML = this.value + ' Games';
+}
+
+output.innerHTML = slider.value + ' Games';
+
+
+var isMobile = false; 
+
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
+	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
+	isMobile = true;
+}
+
+if(!isMobile)
+{
+	$( "#top_nav_bar" ).load( "navBarDesktop.htm" );
+}
+
+
+</script>
+
+
+
+
+	<script> 
+	
+	
+		var currentSort;
+		
+		
+		
+		
+		function updateSeason()
+		{
+			var season = document.getElementById("season_type").options[document.getElementById("season_type").selectedIndex].value
+			
+			var playoffType = document.getElementById("table_playoff_type").options[document.getElementById("table_playoff_type").selectedIndex].value
+			
+			var numGamesType = document.getElementById("num_games_type").options[document.getElementById("num_games_type").selectedIndex].value
+			
+			loadCSV("moneypuck/playerData/seasonSummary/" + season + "/" + playoffType + "/" + "goalies" + numGamesType + ".csv");
+			
+			updateChart('')
+			ga('send', 'event', 'Season Change', 'Change', season);
+			
+		}
+		
+		function updateChart(typeChange)
+		{
+
+				var situationChoice = document.getElementById("situation_type").options[document.getElementById("situation_type").selectedIndex].value
+				var teamChoice = document.getElementById("team_type").options[document.getElementById("team_type").selectedIndex].value
+				var sliderChoice = parseInt(slider.value)
+				
+				if(typeChange == 'situation')
+				{
+					ga('send', 'event', 'Goalie Stats Situation Change', 'Change', situationChoice);
+				}
+				else if(typeChange == 'team')
+				{
+					ga('send', 'event', 'Goalie Stats Team', 'Change', teamChoice);
+				}
+				parseCSV(situationChoice, teamChoice,  sliderChoice )
+
+		}
+		
+	
+	
+		function teamCodesReversed(teamCode)
+		{
+			return teamCode.replace('L.A', 'LAK').replace('N.J', 'NJD').replace('T.B','TBL').replace('S.J','SJS')
+		}	
+	
+
+		function roundToThree(num) {    
+				return +(Math.round(num + "e+3")  + "e-3");
+			}
+	
+		function roundToThreeWithZeros(num) {    
+				return Number.parseFloat(num).toFixed(3);
+			}
+			
+		function roundToFourWithZeros(num) {    
+				return Number.parseFloat(num).toFixed(4);
+			}
+	
+		function roundToTwo(num) {    
+				return +(Math.round(num + "e+2")  + "e-2");
+			}
+
+		function roundToOne(num) {    
+				return +(Math.round(num + "e+1")  + "e-1");
+			}
+
+			
+		function loadFile(file) {
+			var request;
+			if (window.XMLHttpRequest) {
+				// IE7+, Firefox, Chrome, Opera, Safari
+				request = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				request = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			// load
+			request.open('GET', file, false);
+			request.send();
+			updateTime = request.responseText
+			
+			updateTimeAsTime = moment(updateTime.substring(0,16) , 'YYYY-MM-DD hh:mm');
+			updateTimeString = moment(updateTimeAsTime).format('dddd MMMM D[,] YYYY [at] h:mm A')
+			
+			
+			document.getElementById("updateTime").innerHTML = "Stats updated: " +  updateTimeString  + " Eastern Time"
+			}
+		
+		var downloadedData = ''
+		
+		function loadCSV(file) {
+		
+			try
+			{
+				var request;
+				if (window.XMLHttpRequest) {
+					request = new XMLHttpRequest();
+				} else {
+					request = new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				request.open('GET', file, false);
+				request.send();
+				
+				downloadedData = request.responseText
+			}
+			catch
+			{
+				downloadedData = ""
+				console.log("Data not found")
+			}
+			updateChart('');
+		}
+		
+
+		
+		function fancyTimeFormat(duration)
+		{   
+			var hrs = ~~(duration / 3600);
+			var mins = ~~((duration % 3600) / 60);
+			var secs = ~~duration % 60;
+			var ret = "";
+			if (hrs > 0) 
+			{
+				ret += "" + parseInt(parseInt(hrs * 60) + parseInt(mins)) + ":" + (secs < 10 ? "0" : "");	
+			}
+			else
+			{
+				ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+			
+			}
+			ret += "" + secs;
+			return ret;
+		}
+		
+		function getBackgroundColorFor(value,lowEnd,highEnd, switcher)
+		{
+			if(switcher==-1)
+			{
+				femtile = (highEnd-lowEnd) / 5 
+						
+				if(value>highEnd - femtile)
+					return '#f5fbfd'
+				else if(value>highEnd - femtile*2)
+					return '#c9e9f6'
+				else if(value>highEnd - femtile*3)
+					return '#9dd7ef'
+				else if(value>highEnd - femtile*4)
+					return '#71c5e7'
+				else return '#45b3e0'
+			}
+			
+			else
+			{
+				femtile = (highEnd-lowEnd) / 5 
+						
+				if(value>highEnd - femtile)
+					return '#45b3e0'
+				else if(value>highEnd - femtile*2)
+					return '#71c5e7'
+				else if(value>highEnd - femtile*3)
+					return '#9dd7ef'
+				else if(value>highEnd - femtile*4)
+					return '#c9e9f6'
+				else return '#f5fbfd'
+			}
+
+			
+		}
+		
+		
+		var goalieStatList = []
+		goalieStatList.push(['Name', 'c[2]', [0,0,1]     ])
+		goalieStatList.push(['Games<BR>Played', 'c[6]', [5,20,1]   ])
+		goalieStatList.push(['Goals<BR>Against', 'parseInt(c[9])',   [20, 50,-1] ])
+		goalieStatList.push(['Expected<BR>Goals<BR>Against', 'c[8]' , [20,50,-1]   ])
+		goalieStatList.push(['Goals Saved<BR>Above<BR>Expected', 'parseFloat(c[8]-c[9]).toFixed(1)',   [-8,8,1] ])
+		
+		goalieStatList.push(['% of Expected<BR>Goals Saved<BR>Above Average', 'roundToTwo(parseFloat(c[8]-c[9])/c[8]*100)', [-15,15,1]])
+		
+		
+		goalieStatList.push(['Goals Saved<BR>Above Expected<BR>Per 60', 'roundToThreeWithZeros(parseFloat(c[8]-c[9]).toFixed(1)/(c[7]/60/60))',   [-.6,.6,1] ])
+		goalieStatList.push(['Save % on<BR>Unblocked<BR>Shots', 'roundToThreeWithZeros((c[10]-c[9])/c[10])' , [0.93,0.97,1]   ])
+		goalieStatList.push(['xSave % on<BR>Unblocked<BR>Shots', 'roundToThreeWithZeros((c[10]-c[8])/c[10])' , [0.93,0.97,1]   ])
+		goalieStatList.push(['Save %<BR>Above<BR>Expected', 'roundToFourWithZeros(((c[10]-c[9])/c[10]) - ((c[10]-c[8])/c[10]))' , [-0.015,0.015,1]   ])
+		goalieStatList.push(['Save % on<BR>Shots On<BR>Goal', 'roundToThree((c[16]-c[9])/c[16])' , [0.89,0.93,1]   ])
+		goalieStatList.push(['GAA', 'parseFloat(c[9]/(c[7]/60/60)).toFixed(2)', [1.9,2.5,-1]])
+		goalieStatList.push(['xGAA', 'parseFloat(c[8]/(c[7]/60/60)).toFixed(2)', [1.9,2.5,-1]])
+		goalieStatList.push(['GAA Better<BR>Than Expected', 'parseFloat((c[8]-c[9])/(c[7]/60/60)).toFixed(2)', [-0.5,0.5,1]])
+		
+		
+		
+		//goalieStatList.push(['% of Expected<BR>Goals Saved<BR>Above Expected', 'roundToTwo((1 - parseFloat(parseInt(c[9])/parseInt(c[8])))*100)', [-.2,.2,1]])
+		
+		goalieStatList.push(['Wins Above<BR>Replacement', 'parseFloat((c[8]-c[9])/6).toFixed(2)', [-1,1,1] ])
+		
+		goalieStatList.push(['Icetime<BR>(Minutes)', 'parseInt(c[7]/60)', [100, 900,1]])
+		//goalieStatList.push(['Icetime', 'fancyTimeFormat(c[7])', [100, 900,1]])
+		goalieStatList.push(['Rebounds<BR>Per Save', 'roundToThree(c[12]/(c[10]-c[9]))', [0.02,.05,-1]])
+		goalieStatList.push(['Puck Freezes<BR>Per Save',  'roundToThree(c[14]/(c[10]-c[9]))', [40,100,1]])
+		
+		
+		//goalieStatList.push(['xRebounds<BR>Per Save', 'roundToThree(c[11]/(c[10]-c[8]))', [0.02,.05,-1]])
+		//goalieStatList.push(['Rebounds<BR>Above<BR>Expected', 'roundToThree((c[12]/(c[10]-c[9])) - (c[11]/(c[10]-c[8]))) ', [-0.01,0.01,-1]])
+		
+		//goalieStatList.push(['Expected<BR>Puck<BR>Freeze', 'c[13]', [40,100,1]])
+		//goalieStatList.push(['Puck Freezes<BR>Above<BR>Expected', 'roundToTwo(c[14]- c[13])', [-20,20,-1]])
+		//goalieStatList.push(['Puck Freezes<BR>Above Expected<BR>Per Shot On Goal', 'roundToTwo((c[14]- c[13])/c[16])', [-0.05,0.05,-1]])
+		goalieStatList.push(['Goals Against', 'parseInt(c[9])', [0,60,-1]])
+		goalieStatList.push(['Saves on Shots<BR>On Goal', 'c[16]-c[9]', [40,500,1]])
+		goalieStatList.push(['Saves on Unblocked<BR>Shot Attempts', 'c[10]-c[9]', [40,800,1]])
+		goalieStatList.push(['% of Shot Attempts<BR>Blocked By Teammates', 'roundToTwo(c[33]/ (parseInt(c[33])+parseInt(c[10]))*100) + "%"', [16,21,1]])
+		goalieStatList.push(['% of Unblocked Shot<BR>Attempts Against<BR>On Goal', 'roundToTwo(c[16]/ (parseInt(c[10]))*100) + "%"', [46,61,1]])
+		goalieStatList.push(['Expected % of Unblocked<BR>Shot Attempts<BR>Against On Goal', 'roundToTwo(c[15]/ (parseInt(c[10]))*100) + "%"', [46,61,1]])
+		goalieStatList.push(['On Goal %<BR>Above Expected', 'roundToTwo((c[16]-c[15])/ (parseInt(c[10]))*100) + "%"', [-3,3,-1]])
+		goalieStatList.push(['Low Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[24]-c[30])/c[24])', [.95,.98,1]])
+		goalieStatList.push(['xLow Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[24]-c[27])/c[24])', [.95,.98,1]])
+		goalieStatList.push(['Low Danger Unblocked Shot<BR>Attempt Save%<BR>Above Expected', 'roundToThreeWithZeros((c[27]-c[30])/c[24])', [-.02,.02,1]])
+		goalieStatList.push(['Medium Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[25]-c[31])/c[25])', [.8,.94,1]])
+		goalieStatList.push(['xMedium Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[25]-c[28])/c[25])', [.8,.94,1]])
+		goalieStatList.push(['Medium Danger Unblocked Shot<BR>AttemptSave %<BR>Above Expected', 'roundToThreeWithZeros((c[28]-c[31])/c[25])', [-.02,.02,1]])
+		goalieStatList.push(['High Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[26]-c[32])/c[26])', [.5,.75,1]])
+		goalieStatList.push(['xHigh Danger Unblocked<BR>Shot Attempt<BR>Save %', 'roundToThreeWithZeros((c[26]-c[29])/c[26])', [.5,.75,1]])
+		goalieStatList.push(['High Danger Unblocked Shot<BR>Attempt Save %<BR>Above Expected', 'roundToThreeWithZeros((c[29]-c[32])/c[26])', [-.04,.04,1]])
+
+		numRecordsPrinted = 0
+		
+		
+		playerStatHeader = '<table class="tablesorter" id="goaliesTable"><thead><tr>'
+		sortIcon = ""
+
+		statListToUse = goalieStatList
+
+		for (var i = 0; i < statListToUse.length; i++) 
+
+		{
+
+			statDescription = statListToUse[i][0]
+			if(i>0)
+			{
+			 sortIcon = '<i class="fas fa-sort"></i>'
+			}
+			
+			playerStatHeader = playerStatHeader + '<th>' + statDescription + '<span class="ui-icon-caret-2-n-s" style="display:inline-block"></span>' + sortIcon +  '</th>'   
+
+		}
+		
+		
+		function parseCSV(situationChoice, teamChoice, gamesPlayedChoice ){
+
+				if(downloadedData.substring(0,5) == "<!DOC") //missing data
+				{
+					downloadedData = ""
+				}
+		
+				
+				data = downloadedData
+				
+				
+				completeString =  playerStatHeader
+				
+				completeString += "</tr></thead><tbody>"
+		
+				data = data.replace (/\r\n/g, "\n");
+				data = data.replace (/\r/g, "\n");
+				var rows = data.split("\n");
+				
+				playerStatData = ""
+				
+				if(rows.length>=1)
+				{
+					playerStatData = rows.slice(1,rows.length); 
+				}
+				
+				numRecordsPrinted = 0
+				numRowsPrinted = 0
+				playerStatRows = ""
+				
+				for (var i = 0; i < playerStatData.length; i++) {
+					if (playerStatData[i]) {
+							
+							
+							var c = playerStatData[i].split(",");
+						
+							
+							
+							var playerName = c[2];
+							var teamCode= teamCodesReversed(c[3]);
+							var icetime = parseInt(c[7]);
+							var position = c[4];
+							var situation = c[5];
+							var unblockedShotAttempts = parseInt(c[10]);	
+							var gamesPlayed = parseInt(c[6]);	
+							
+							
+							
+							if(situation == situationChoice && gamesPlayed  >= gamesPlayedChoice  && (teamChoice == 'all' || teamChoice == teamCode) && position == 'G' && unblockedShotAttempts > 0 )
+							{
+										numRowsPrinted = numRowsPrinted + 1
+										altText = "alt='" + teamFullNames[teamCode] + "'"
+										teamCode = '<img src="http://peter-tanner.com/moneypuck/logos/' + teamCode + '.png" width="75" height="50" align="left" ' + altText + '>'
+								
+										playerStatRow = "<tr><th ><table border='0' style='width:290px;' id='noBorders' ><tr><td width='35' style='font-weight:bold; font-size:35px;'>" + "</td><td style='width:40px'>" + teamCode + "</td><td style='text-align:left;'>" + playerName + "</td></tr></table></th>"
+										
+										
+										
+		
+										for (var j = 1; j < statListToUse.length; j++) 
+										{
+											statDescription = statListToUse[j][1]
+											statValue = eval(statDescription)
+											
+											
+											colorRangeLowEnd = statListToUse[j][2][0]
+											colorRangeHighEnd = statListToUse[j][2][1]
+											colorRangeNegative = statListToUse[j][2][2]
+											
+									
+											
+											backgroundColour = getBackgroundColorFor(parseFloat(statValue),colorRangeLowEnd, colorRangeHighEnd, colorRangeNegative)
+											
+											
+											
+											playerStatColumn = "<td style='background-color:" + backgroundColour +"';>" + statValue  + '</td>'
+											playerStatRow = playerStatRow + playerStatColumn  
+											
+											numRecordsPrinted += 1
+										
+										}
+												
+										playerStatRow = playerStatRow + '</tr>'
+										
+										playerStatRows = playerStatRows  + playerStatRow
+										
+							
+							
+							}
+							
+						
+					}
+					
+				}
+				
+
+				completeString += playerStatRows + "</tbody></table>"
+				document.getElementById("includedContent").innerHTML = completeString 
+				
+					
+				
+				
+				
+				$("table").tablesorter({
+				}).on("sortEnd", function(sorter) {
+					if(numRecordsPrinted>0)
+					{					
+					currentSort = sorter.target.config.sortList;
+					}
+					document.getElementById('includedContent').scrollTop = 0;	
+	
+					
+					
+					
+					var table = $("#goaliesTable");
+					var i = 1;
+					table.find("tr:gt(0)").each(function(){
+						$(this).find("td:eq(0)").text(i/2);
+		
+						i++;
+					});
+	
+				});
+				
+				$("table").tablesorter({
+				}).on("sortStart", function(sorter) {
+					if(numRecordsPrinted>0)
+					{
+					currentSort = sorter.target.config.sortList;
+					}
+				});
+				
+				
+				
+				 
+						
+			
+				if(currentSort != null)
+				{
+					if(numRecordsPrinted>0)
+					{
+						$("table").tablesorter({ 
+							sortList: currentSort
+						}); 
+					}
+				
+					
+					
+				}
+					
+		}
+
+
+
+
+			function get_country_code() {
+		return new Promise((resolve, reject) => {
+			var trace = []; 
+			jQuery.ajax('/cdn-cgi/trace', {
+				success: function(response) {
+					var lines = response.split('\n');
+					var keyValue;
+					for (var index = 0; index < lines.length; index++) {
+						const line = lines[index];
+						keyValue = line.split('=');
+						trace[keyValue[0]] = decodeURIComponent(keyValue[1] || '');
+						if (keyValue[0] === 'loc' && trace['loc'] !== 'XX') {
+							return resolve(trace['loc']);
+						}
+					}
+				},
+				error: function() {
+					return reject(trace);
+				}
+			});
+
+		});
+	}
+	
+
+function showFanDuel()
+{
+	document.getElementById("fd_banner").style.display = "block";
+}	
+	
+	
+(async () => {
+    
+		printGoogleAds()	
+	
+})();
+
+
+		
+		loadFile("moneypuck/playerData/seasonSummary/update_date.txt");
+		loadCSV("moneypuck/playerData/seasonSummary/2024/regular/goalies.csv");
+
+
+
+
+
+	
+	
+		$(document).ready(function() { 
+		
+		
+		
+			$("table").tablesorter({ 
+				sortInitialOrder: 'desc',
+				sortList: [[4,1]]
+			}); 
+			
+			$('#includedContent').doubleScroll();
+		
+			
+		
+		}); 
+		
+
+		
+
+		</script> 
+	
+	
+		<br><br><br><br><br><br>
+		
+		<br><br><br><br>
+<hr>
+<div style="text-align:center; font-size:20px;">
+<a href="privacy.htm">Privacy Policy</a> &nbsp; &nbsp; &nbsp;    <a href="about.htm">About</a> &nbsp; &nbsp; &nbsp;  <a href="glossary.htm">Glossary</a>
+</div>
+
+
+		<br><br><br><br><br><br>
+		
+		   <br><br>
+		    <!-- actual page content stops here -->
+		   
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+ 
+
+
+
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;9b9932501d1a47e5ad7ebabcd4335c0e&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+
+
+	
+
+<script>		
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60159814-1', 'auto');
+  ga('send', 'pageview');
+  
+
+</script>
+
+<script src="https://peter-tanner.com/moneypuck/jss/menu.js"></script>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_0_host" style="border: medium; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1085579666653840&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1751340913&amp;plaf=2%3A2%2C7%3A2&amp;plat=2%3A16777216%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fmoneypuck.com%2Fgoalies.htm&amp;pra=5&amp;wgl=1&amp;aihb=0&amp;asro=0&amp;aifxl=29_18~30_19&amp;aiapm=0.1542&amp;aiapmd=0.25178&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;abgtt=6&amp;dt=1756798343934&amp;bpp=7&amp;bdt=1448&amp;idt=837&amp;shv=r20250827&amp;mjsv=m202508280201&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=5686580567699&amp;frm=20&amp;pv=2&amp;u_tz=-360&amp;u_his=1&amp;u_h=768&amp;u_w=1366&amp;u_ah=768&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1349&amp;bih=683&amp;scr_x=0&amp;scr_y=0&amp;eid=95362656%2C95369804%2C95370331%2C95370341%2C31094405&amp;oid=2&amp;pvsid=1347186756426856&amp;tmod=1432164762&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1366%2C0%2C1366%2C768%2C1366%2C683&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=859" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe style="display: none; width: 0px; height: 0px; border: medium; z-index: -1000; left: -1000px; top: -1000px;" name="googlefcPresent"></iframe><iframe name="__tcfapiLocator" src="about:blank" style="display: none; width: 0px; height: 0px; border: medium; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="about:blank" style="display: none; width: 0px; height: 0px; border: medium; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="about:blank" style="display: none; width: 0px; height: 0px; border: medium; z-index: -1000; left: -1000px; top: -1000px;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: block; width: auto !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 50%; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; transform: translateX(-50%); box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 12px -4px, rgba(0, 0, 0, 0.3) 0px 4px 8px -3px; border-radius: 5px; background: rgb(250, 250, 250) !important;" data-anchor-status="displayed" data-ad-status="filled" data-anchor-shown="true"><div class="grippy-host"></div><div id="aswift_1_host" style="border: medium !important; height: 124px !important; width: 1005px !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_1" name="aswift_1" style="width: 1005px !important; height: 124px !important; min-height: auto; max-height: none; min-width: auto; max-width: none; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20250827/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-1085579666653840&amp;fa=1&amp;ifi=2&amp;uci=a!2" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNeUyOrHuY8DFa9mCQkdnts6qA" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20250827/r20190131/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>

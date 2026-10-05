@@ -226,3 +226,13 @@ persisted live records of the T06 S1 test run (completion timestamps and
 latencies; wall = last completion - first start). `jev/run.py` now logs the
 worker count per request; for older logs the concurrency column falls back to
 the config value.
+
+**D29. `data/raw_responses/` and `data/derived/` are tracked in git while the
+repository is private** (Andreas, 2026-10-05, for the handover to the
+co-author). Ground rule 9 and `CLAUDE.md` said `data/` is never committed; the
+exception covers the Jev cache, the spend ledger and the development samples
+(bootstrap HTML of 250 PhreshPhish and Putra pages, states). The datasets
+themselves (`data/datasets/`) stay out. Before the repository is made public
+or the Zenodo bundle is built, the licence question for the page content must
+be settled and the folders removed from git history if it is not. The ledger
+is append-only: never rebase or rewrite history on `main`.

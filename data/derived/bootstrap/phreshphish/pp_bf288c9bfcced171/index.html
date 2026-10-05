@@ -1,0 +1,1092 @@
+<html lang="en" class="mdl-js"><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style type="text/css" data-tag-name="trix-editor">trix-editor {
+    display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+    content: attr(placeholder);
+    color: graytext;
+    cursor: text;
+    pointer-events: none;
+    white-space: pre-line;
+}
+
+trix-editor a[contenteditable=false] {
+    cursor: text;
+}
+
+trix-editor img {
+    max-width: 100%;
+    height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+    resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+    position: absolute;
+    left: -9999px;
+    max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+    content: attr(data-trix-placeholder);
+    color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+    display: inline-block !important;
+    width: 1px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+    vertical-align: top !important;
+    margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+    vertical-align: bottom !important;
+    margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+<title>Google Cloud Skills Boost for Partners</title>
+<meta name="action-cable-url" content="/cable">
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-3BRP57TPMR&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5XSKHDX"></script><script>
+//<![CDATA[
+window.gon={};gon.deployment="googlecourses-run";
+//]]>
+</script>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer',"GTM-5XSKHDX");
+</script>
+<script src="https://cdn.qwiklabs.com/assets/hallofmirrors/polyfills/webcomponents-loader-2e147cb1679d97581f981243bfc2d1c03dc34a58.js"></script>
+<script src="https://cdn.qwiklabs.com/assets/vendor-5ee6eafe71fd3831091397e1aa344044a8642273.js"></script>
+<script src="https://cdn.qwiklabs.com/assets/application-bc1370bd7242725a111bd73a0deb268d31c65153.js"></script><style>:root {
+  --game-color: #E52592;
+  --classroom-color: #01877E;
+  --external-course-color: #D56E0C;
+  --certification-color: #C5221F;
+}
+
+abbr[title],
+abbr[data-original-title] {
+  border-bottom: none !important;
+}
+
+label abbr[title] {
+  color: var(--primary-text-on-surface-color);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--hairline-color);
+  display: block;
+  height: 1px;
+  margin: 24px 0;
+  padding: 0;
+}
+
+mark {
+  background-color: #F9AB00;
+  border-radius: 2px;
+  color: inherit;
+  padding: 2px 0px;
+}
+
+p, li {
+  font: var(--md-sys-typescale-body-large);
+}
+
+._small-label_1gdx7_37,
+._label--small_1gdx7_38 {
+  font: var(--md-sys-typescale-body-medium);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+._mdl-typography--small-title_1gdx7_47 {
+  color: #202124;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+._text--blue_1gdx7_53 {
+  color: var(--primary-text-on-surface-color);
+}
+
+._text--center_1gdx7_57 {
+  text-align: center;
+}
+
+._text--capitalize_1gdx7_61 {
+  text-transform: capitalize;
+}
+
+._text--code_1gdx7_65 {
+  font-family: "Roboto Mono", monospace;
+}
+
+._text--copy_1gdx7_69 {
+  font-family: var(--md-ref-typeface-plain);
+}
+
+._text--error_1gdx7_73 {
+  color: var(--warn-color);
+}
+
+._text--free_1gdx7_77 {
+  color: var(--success-color);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+._text--gray_1gdx7_83 {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+._text--light_1gdx7_87 {
+  color: var(--light-text-on-surface-color) !important;
+}
+
+._text--right_1gdx7_91 {
+  text-align: right;
+}
+
+._text--sign_1gdx7_95 {
+  font-family: "Oswald", sans-serif;
+}
+
+._text--small_1gdx7_99 {
+  font-size: 14px !important;
+}
+
+._text--large_1gdx7_103 {
+  font-size: 20px !important;
+}
+
+._text--success_1gdx7_107 {
+  color: var(--success-color) !important;
+}
+
+._text--yellow_1gdx7_111 {
+  color: #F9AB00;
+}
+
+._text--red_1gdx7_115 {
+  color: #D93025;
+}
+
+._text--green_1gdx7_119 {
+  color: #34A853;
+}
+
+u {
+  text-decoration: none;
+}
+
+._material-icons_1gdx7_127 {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+._ellipsis_1gdx7_149 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+._text--rtl_1gdx7_155 {
+  direction: rtl;
+}
+
+._body-wrapper_1gdx7_159 {
+  max-width: 800px;
+}
+
+._text--button_1gdx7_163 {
+  font: var(--md-sys-typescale-label-large);
+}</style>
+<script src="https://cdn.qwiklabs.com/assets/hallofmirrors/hallofmirrors-9e32680d29ee90fd2b7d294015e62b25551bd63e.js"></script>
+<custom-style>
+  <style is="custom-style">[hidden] {
+  display: none !important;
+}
+
+</style>
+</custom-style>
+<custom-style>
+  <style is="custom-style">html {
+  --layout_-_display:  flex;;
+
+      --layout-inline_-_display:  inline-flex;;
+
+      --layout-horizontal_-_display:  var(--layout_-_display); --layout-horizontal_-_-ms-flex-direction:  row; --layout-horizontal_-_-webkit-flex-direction:  row; --layout-horizontal_-_flex-direction:  row;;
+
+      --layout-horizontal-reverse_-_display:  var(--layout_-_display); --layout-horizontal-reverse_-_-ms-flex-direction:  row-reverse; --layout-horizontal-reverse_-_-webkit-flex-direction:  row-reverse; --layout-horizontal-reverse_-_flex-direction:  row-reverse;;
+
+      --layout-vertical_-_display:  var(--layout_-_display); --layout-vertical_-_-ms-flex-direction:  column; --layout-vertical_-_-webkit-flex-direction:  column; --layout-vertical_-_flex-direction:  column;;
+
+      --layout-vertical-reverse_-_display:  var(--layout_-_display); --layout-vertical-reverse_-_-ms-flex-direction:  column-reverse; --layout-vertical-reverse_-_-webkit-flex-direction:  column-reverse; --layout-vertical-reverse_-_flex-direction:  column-reverse;;
+
+      --layout-wrap_-_-ms-flex-wrap:  wrap; --layout-wrap_-_-webkit-flex-wrap:  wrap; --layout-wrap_-_flex-wrap:  wrap;;
+
+      --layout-wrap-reverse_-_-ms-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_-webkit-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_flex-wrap:  wrap-reverse;;
+
+      --layout-flex-auto_-_-ms-flex:  1 1 auto; --layout-flex-auto_-_-webkit-flex:  1 1 auto; --layout-flex-auto_-_flex:  1 1 auto;;
+
+      --layout-flex-none_-_-ms-flex:  none; --layout-flex-none_-_-webkit-flex:  none; --layout-flex-none_-_flex:  none;;
+
+      --layout-flex_-_-ms-flex:  1 1 0.000000001px; --layout-flex_-_-webkit-flex:  1; --layout-flex_-_flex:  1; --layout-flex_-_-webkit-flex-basis:  0.000000001px; --layout-flex_-_flex-basis:  0.000000001px;;
+
+      --layout-flex-2_-_-ms-flex:  2; --layout-flex-2_-_-webkit-flex:  2; --layout-flex-2_-_flex:  2;;
+
+      --layout-flex-3_-_-ms-flex:  3; --layout-flex-3_-_-webkit-flex:  3; --layout-flex-3_-_flex:  3;;
+
+      --layout-flex-4_-_-ms-flex:  4; --layout-flex-4_-_-webkit-flex:  4; --layout-flex-4_-_flex:  4;;
+
+      --layout-flex-5_-_-ms-flex:  5; --layout-flex-5_-_-webkit-flex:  5; --layout-flex-5_-_flex:  5;;
+
+      --layout-flex-6_-_-ms-flex:  6; --layout-flex-6_-_-webkit-flex:  6; --layout-flex-6_-_flex:  6;;
+
+      --layout-flex-7_-_-ms-flex:  7; --layout-flex-7_-_-webkit-flex:  7; --layout-flex-7_-_flex:  7;;
+
+      --layout-flex-8_-_-ms-flex:  8; --layout-flex-8_-_-webkit-flex:  8; --layout-flex-8_-_flex:  8;;
+
+      --layout-flex-9_-_-ms-flex:  9; --layout-flex-9_-_-webkit-flex:  9; --layout-flex-9_-_flex:  9;;
+
+      --layout-flex-10_-_-ms-flex:  10; --layout-flex-10_-_-webkit-flex:  10; --layout-flex-10_-_flex:  10;;
+
+      --layout-flex-11_-_-ms-flex:  11; --layout-flex-11_-_-webkit-flex:  11; --layout-flex-11_-_flex:  11;;
+
+      --layout-flex-12_-_-ms-flex:  12; --layout-flex-12_-_-webkit-flex:  12; --layout-flex-12_-_flex:  12;;
+
+      
+
+      --layout-start_-_-ms-flex-align:  start; --layout-start_-_-webkit-align-items:  flex-start; --layout-start_-_align-items:  flex-start;;
+
+      --layout-center_-_-ms-flex-align:  center; --layout-center_-_-webkit-align-items:  center; --layout-center_-_align-items:  center;;
+
+      --layout-end_-_-ms-flex-align:  end; --layout-end_-_-webkit-align-items:  flex-end; --layout-end_-_align-items:  flex-end;;
+
+      --layout-baseline_-_-ms-flex-align:  baseline; --layout-baseline_-_-webkit-align-items:  baseline; --layout-baseline_-_align-items:  baseline;;
+
+      
+
+      --layout-start-justified_-_-ms-flex-pack:  start; --layout-start-justified_-_-webkit-justify-content:  flex-start; --layout-start-justified_-_justify-content:  flex-start;;
+
+      --layout-center-justified_-_-ms-flex-pack:  center; --layout-center-justified_-_-webkit-justify-content:  center; --layout-center-justified_-_justify-content:  center;;
+
+      --layout-end-justified_-_-ms-flex-pack:  end; --layout-end-justified_-_-webkit-justify-content:  flex-end; --layout-end-justified_-_justify-content:  flex-end;;
+
+      --layout-around-justified_-_-ms-flex-pack:  distribute; --layout-around-justified_-_-webkit-justify-content:  space-around; --layout-around-justified_-_justify-content:  space-around;;
+
+      --layout-justified_-_-ms-flex-pack:  justify; --layout-justified_-_-webkit-justify-content:  space-between; --layout-justified_-_justify-content:  space-between;;
+
+      --layout-center-center_-_-ms-flex-align:  var(--layout-center_-_-ms-flex-align); --layout-center-center_-_-webkit-align-items:  var(--layout-center_-_-webkit-align-items); --layout-center-center_-_align-items:  var(--layout-center_-_align-items); --layout-center-center_-_-ms-flex-pack:  var(--layout-center-justified_-_-ms-flex-pack); --layout-center-center_-_-webkit-justify-content:  var(--layout-center-justified_-_-webkit-justify-content); --layout-center-center_-_justify-content:  var(--layout-center-justified_-_justify-content);;
+
+      
+
+      --layout-self-start_-_-ms-align-self:  flex-start; --layout-self-start_-_-webkit-align-self:  flex-start; --layout-self-start_-_align-self:  flex-start;;
+
+      --layout-self-center_-_-ms-align-self:  center; --layout-self-center_-_-webkit-align-self:  center; --layout-self-center_-_align-self:  center;;
+
+      --layout-self-end_-_-ms-align-self:  flex-end; --layout-self-end_-_-webkit-align-self:  flex-end; --layout-self-end_-_align-self:  flex-end;;
+
+      --layout-self-stretch_-_-ms-align-self:  stretch; --layout-self-stretch_-_-webkit-align-self:  stretch; --layout-self-stretch_-_align-self:  stretch;;
+
+      --layout-self-baseline_-_-ms-align-self:  baseline; --layout-self-baseline_-_-webkit-align-self:  baseline; --layout-self-baseline_-_align-self:  baseline;;
+
+      
+
+      --layout-start-aligned_-_-ms-flex-line-pack:  start; --layout-start-aligned_-_-ms-align-content:  flex-start; --layout-start-aligned_-_-webkit-align-content:  flex-start; --layout-start-aligned_-_align-content:  flex-start;;
+
+      --layout-end-aligned_-_-ms-flex-line-pack:  end; --layout-end-aligned_-_-ms-align-content:  flex-end; --layout-end-aligned_-_-webkit-align-content:  flex-end; --layout-end-aligned_-_align-content:  flex-end;;
+
+      --layout-center-aligned_-_-ms-flex-line-pack:  center; --layout-center-aligned_-_-ms-align-content:  center; --layout-center-aligned_-_-webkit-align-content:  center; --layout-center-aligned_-_align-content:  center;;
+
+      --layout-between-aligned_-_-ms-flex-line-pack:  justify; --layout-between-aligned_-_-ms-align-content:  space-between; --layout-between-aligned_-_-webkit-align-content:  space-between; --layout-between-aligned_-_align-content:  space-between;;
+
+      --layout-around-aligned_-_-ms-flex-line-pack:  distribute; --layout-around-aligned_-_-ms-align-content:  space-around; --layout-around-aligned_-_-webkit-align-content:  space-around; --layout-around-aligned_-_align-content:  space-around;;
+
+      
+
+      --layout-block_-_display:  block;;
+
+      --layout-invisible_-_visibility:  hidden !important;;
+
+      --layout-relative_-_position:  relative;;
+
+      --layout-fit_-_position:  absolute; --layout-fit_-_top:  0; --layout-fit_-_right:  0; --layout-fit_-_bottom:  0; --layout-fit_-_left:  0;;
+
+      --layout-scroll_-_-webkit-overflow-scrolling:  touch; --layout-scroll_-_overflow:  auto;;
+
+      --layout-fullbleed_-_margin:  0; --layout-fullbleed_-_height:  100vh;;
+
+      
+
+      --layout-fixed-top_-_position:  fixed; --layout-fixed-top_-_top:  0; --layout-fixed-top_-_left:  0; --layout-fixed-top_-_right:  0;;
+
+      --layout-fixed-right_-_position:  fixed; --layout-fixed-right_-_top:  0; --layout-fixed-right_-_right:  0; --layout-fixed-right_-_bottom:  0;;
+
+      --layout-fixed-bottom_-_position:  fixed; --layout-fixed-bottom_-_right:  0; --layout-fixed-bottom_-_bottom:  0; --layout-fixed-bottom_-_left:  0;;
+
+      --layout-fixed-left_-_position:  fixed; --layout-fixed-left_-_top:  0; --layout-fixed-left_-_bottom:  0; --layout-fixed-left_-_left:  0;;
+}
+
+</style>
+</custom-style><style>[hidden] { display: none !important; }</style><custom-style>
+  <style is="custom-style">html {
+  --google-red-100: #f4c7c3;
+      --google-red-300: #e67c73;
+      --google-red-500: #db4437;
+      --google-red-700: #c53929;
+
+      --google-blue-100: #c6dafc;
+      --google-blue-300: #7baaf7;
+      --google-blue-500: #4285f4;
+      --google-blue-700: #3367d6;
+
+      --google-green-100: #b7e1cd;
+      --google-green-300: #57bb8a;
+      --google-green-500: #0f9d58;
+      --google-green-700: #0b8043;
+
+      --google-yellow-100: #fce8b2;
+      --google-yellow-300: #f7cb4d;
+      --google-yellow-500: #f4b400;
+      --google-yellow-700: #f09300;
+
+      --google-grey-100: #f5f5f5;
+      --google-grey-300: #e0e0e0;
+      --google-grey-500: #9e9e9e;
+      --google-grey-700: #616161;
+
+      
+
+      --paper-red-50: #ffebee;
+      --paper-red-100: #ffcdd2;
+      --paper-red-200: #ef9a9a;
+      --paper-red-300: #e57373;
+      --paper-red-400: #ef5350;
+      --paper-red-500: #f44336;
+      --paper-red-600: #e53935;
+      --paper-red-700: #d32f2f;
+      --paper-red-800: #c62828;
+      --paper-red-900: #b71c1c;
+      --paper-red-a100: #ff8a80;
+      --paper-red-a200: #ff5252;
+      --paper-red-a400: #ff1744;
+      --paper-red-a700: #d50000;
+
+      --paper-pink-50: #fce4ec;
+      --paper-pink-100: #f8bbd0;
+      --paper-pink-200: #f48fb1;
+      --paper-pink-300: #f06292;
+      --paper-pink-400: #ec407a;
+      --paper-pink-500: #e91e63;
+      --paper-pink-600: #d81b60;
+      --paper-pink-700: #c2185b;
+      --paper-pink-800: #ad1457;
+      --paper-pink-900: #880e4f;
+      --paper-pink-a100: #ff80ab;
+      --paper-pink-a200: #ff4081;
+      --paper-pink-a400: #f50057;
+      --paper-pink-a700: #c51162;
+
+      --paper-purple-50: #f3e5f5;
+      --paper-purple-100: #e1bee7;
+      --paper-purple-200: #ce93d8;
+      --paper-purple-300: #ba68c8;
+      --paper-purple-400: #ab47bc;
+      --paper-purple-500: #9c27b0;
+      --paper-purple-600: #8e24aa;
+      --paper-purple-700: #7b1fa2;
+      --paper-purple-800: #6a1b9a;
+      --paper-purple-900: #4a148c;
+      --paper-purple-a100: #ea80fc;
+      --paper-purple-a200: #e040fb;
+      --paper-purple-a400: #d500f9;
+      --paper-purple-a700: #aa00ff;
+
+      --paper-deep-purple-50: #ede7f6;
+      --paper-deep-purple-100: #d1c4e9;
+      --paper-deep-purple-200: #b39ddb;
+      --paper-deep-purple-300: #9575cd;
+      --paper-deep-purple-400: #7e57c2;
+      --paper-deep-purple-500: #673ab7;
+      --paper-deep-purple-600: #5e35b1;
+      --paper-deep-purple-700: #512da8;
+      --paper-deep-purple-800: #4527a0;
+      --paper-deep-purple-900: #311b92;
+      --paper-deep-purple-a100: #b388ff;
+      --paper-deep-purple-a200: #7c4dff;
+      --paper-deep-purple-a400: #651fff;
+      --paper-deep-purple-a700: #6200ea;
+
+      --paper-indigo-50: #e8eaf6;
+      --paper-indigo-100: #c5cae9;
+      --paper-indigo-200: #9fa8da;
+      --paper-indigo-300: #7986cb;
+      --paper-indigo-400: #5c6bc0;
+      --paper-indigo-500: #3f51b5;
+      --paper-indigo-600: #3949ab;
+      --paper-indigo-700: #303f9f;
+      --paper-indigo-800: #283593;
+      --paper-indigo-900: #1a237e;
+      --paper-indigo-a100: #8c9eff;
+      --paper-indigo-a200: #536dfe;
+      --paper-indigo-a400: #3d5afe;
+      --paper-indigo-a700: #304ffe;
+
+      --paper-blue-50: #e3f2fd;
+      --paper-blue-100: #bbdefb;
+      --paper-blue-200: #90caf9;
+      --paper-blue-300: #64b5f6;
+      --paper-blue-400: #42a5f5;
+      --paper-blue-500: #2196f3;
+      --paper-blue-600: #1e88e5;
+      --paper-blue-700: #1976d2;
+      --paper-blue-800: #1565c0;
+      --paper-blue-900: #0d47a1;
+      --paper-blue-a100: #82b1ff;
+      --paper-blue-a200: #448aff;
+      --paper-blue-a400: #2979ff;
+      --paper-blue-a700: #2962ff;
+
+      --paper-light-blue-50: #e1f5fe;
+      --paper-light-blue-100: #b3e5fc;
+      --paper-light-blue-200: #81d4fa;
+      --paper-light-blue-300: #4fc3f7;
+      --paper-light-blue-400: #29b6f6;
+      --paper-light-blue-500: #03a9f4;
+      --paper-light-blue-600: #039be5;
+      --paper-light-blue-700: #0288d1;
+      --paper-light-blue-800: #0277bd;
+      --paper-light-blue-900: #01579b;
+      --paper-light-blue-a100: #80d8ff;
+      --paper-light-blue-a200: #40c4ff;
+      --paper-light-blue-a400: #00b0ff;
+      --paper-light-blue-a700: #0091ea;
+
+      --paper-cyan-50: #e0f7fa;
+      --paper-cyan-100: #b2ebf2;
+      --paper-cyan-200: #80deea;
+      --paper-cyan-300: #4dd0e1;
+      --paper-cyan-400: #26c6da;
+      --paper-cyan-500: #00bcd4;
+      --paper-cyan-600: #00acc1;
+      --paper-cyan-700: #0097a7;
+      --paper-cyan-800: #00838f;
+      --paper-cyan-900: #006064;
+      --paper-cyan-a100: #84ffff;
+      --paper-cyan-a200: #18ffff;
+      --paper-cyan-a400: #00e5ff;
+      --paper-cyan-a700: #00b8d4;
+
+      --paper-teal-50: #e0f2f1;
+      --paper-teal-100: #b2dfdb;
+      --paper-teal-200: #80cbc4;
+      --paper-teal-300: #4db6ac;
+      --paper-teal-400: #26a69a;
+      --paper-teal-500: #009688;
+      --paper-teal-600: #00897b;
+      --paper-teal-700: #00796b;
+      --paper-teal-800: #00695c;
+      --paper-teal-900: #004d40;
+      --paper-teal-a100: #a7ffeb;
+      --paper-teal-a200: #64ffda;
+      --paper-teal-a400: #1de9b6;
+      --paper-teal-a700: #00bfa5;
+
+      --paper-green-50: #e8f5e9;
+      --paper-green-100: #c8e6c9;
+      --paper-green-200: #a5d6a7;
+      --paper-green-300: #81c784;
+      --paper-green-400: #66bb6a;
+      --paper-green-500: #4caf50;
+      --paper-green-600: #43a047;
+      --paper-green-700: #388e3c;
+      --paper-green-800: #2e7d32;
+      --paper-green-900: #1b5e20;
+      --paper-green-a100: #b9f6ca;
+      --paper-green-a200: #69f0ae;
+      --paper-green-a400: #00e676;
+      --paper-green-a700: #00c853;
+
+      --paper-light-green-50: #f1f8e9;
+      --paper-light-green-100: #dcedc8;
+      --paper-light-green-200: #c5e1a5;
+      --paper-light-green-300: #aed581;
+      --paper-light-green-400: #9ccc65;
+      --paper-light-green-500: #8bc34a;
+      --paper-light-green-600: #7cb342;
+      --paper-light-green-700: #689f38;
+      --paper-light-green-800: #558b2f;
+      --paper-light-green-900: #33691e;
+      --paper-light-green-a100: #ccff90;
+      --paper-light-green-a200: #b2ff59;
+      --paper-light-green-a400: #76ff03;
+      --paper-light-green-a700: #64dd17;
+
+      --paper-lime-50: #f9fbe7;
+      --paper-lime-100: #f0f4c3;
+      --paper-lime-200: #e6ee9c;
+      --paper-lime-300: #dce775;
+      --paper-lime-400: #d4e157;
+      --paper-lime-500: #cddc39;
+      --paper-lime-600: #c0ca33;
+      --paper-lime-700: #afb42b;
+      --paper-lime-800: #9e9d24;
+      --paper-lime-900: #827717;
+      --paper-lime-a100: #f4ff81;
+      --paper-lime-a200: #eeff41;
+      --paper-lime-a400: #c6ff00;
+      --paper-lime-a700: #aeea00;
+
+      --paper-yellow-50: #fffde7;
+      --paper-yellow-100: #fff9c4;
+      --paper-yellow-200: #fff59d;
+      --paper-yellow-300: #fff176;
+      --paper-yellow-400: #ffee58;
+      --paper-yellow-500: #ffeb3b;
+      --paper-yellow-600: #fdd835;
+      --paper-yellow-700: #fbc02d;
+      --paper-yellow-800: #f9a825;
+      --paper-yellow-900: #f57f17;
+      --paper-yellow-a100: #ffff8d;
+      --paper-yellow-a200: #ffff00;
+      --paper-yellow-a400: #ffea00;
+      --paper-yellow-a700: #ffd600;
+
+      --paper-amber-50: #fff8e1;
+      --paper-amber-100: #ffecb3;
+      --paper-amber-200: #ffe082;
+      --paper-amber-300: #ffd54f;
+      --paper-amber-400: #ffca28;
+      --paper-amber-500: #ffc107;
+      --paper-amber-600: #ffb300;
+      --paper-amber-700: #ffa000;
+      --paper-amber-800: #ff8f00;
+      --paper-amber-900: #ff6f00;
+      --paper-amber-a100: #ffe57f;
+      --paper-amber-a200: #ffd740;
+      --paper-amber-a400: #ffc400;
+      --paper-amber-a700: #ffab00;
+
+      --paper-orange-50: #fff3e0;
+      --paper-orange-100: #ffe0b2;
+      --paper-orange-200: #ffcc80;
+      --paper-orange-300: #ffb74d;
+      --paper-orange-400: #ffa726;
+      --paper-orange-500: #ff9800;
+      --paper-orange-600: #fb8c00;
+      --paper-orange-700: #f57c00;
+      --paper-orange-800: #ef6c00;
+      --paper-orange-900: #e65100;
+      --paper-orange-a100: #ffd180;
+      --paper-orange-a200: #ffab40;
+      --paper-orange-a400: #ff9100;
+      --paper-orange-a700: #ff6500;
+
+      --paper-deep-orange-50: #fbe9e7;
+      --paper-deep-orange-100: #ffccbc;
+      --paper-deep-orange-200: #ffab91;
+      --paper-deep-orange-300: #ff8a65;
+      --paper-deep-orange-400: #ff7043;
+      --paper-deep-orange-500: #ff5722;
+      --paper-deep-orange-600: #f4511e;
+      --paper-deep-orange-700: #e64a19;
+      --paper-deep-orange-800: #d84315;
+      --paper-deep-orange-900: #bf360c;
+      --paper-deep-orange-a100: #ff9e80;
+      --paper-deep-orange-a200: #ff6e40;
+      --paper-deep-orange-a400: #ff3d00;
+      --paper-deep-orange-a700: #dd2c00;
+
+      --paper-brown-50: #efebe9;
+      --paper-brown-100: #d7ccc8;
+      --paper-brown-200: #bcaaa4;
+      --paper-brown-300: #a1887f;
+      --paper-brown-400: #8d6e63;
+      --paper-brown-500: #795548;
+      --paper-brown-600: #6d4c41;
+      --paper-brown-700: #5d4037;
+      --paper-brown-800: #4e342e;
+      --paper-brown-900: #3e2723;
+
+      --paper-grey-50: #fafafa;
+      --paper-grey-100: #f5f5f5;
+      --paper-grey-200: #eeeeee;
+      --paper-grey-300: #e0e0e0;
+      --paper-grey-400: #bdbdbd;
+      --paper-grey-500: #9e9e9e;
+      --paper-grey-600: #757575;
+      --paper-grey-700: #616161;
+      --paper-grey-800: #424242;
+      --paper-grey-900: #212121;
+
+      --paper-blue-grey-50: #eceff1;
+      --paper-blue-grey-100: #cfd8dc;
+      --paper-blue-grey-200: #b0bec5;
+      --paper-blue-grey-300: #90a4ae;
+      --paper-blue-grey-400: #78909c;
+      --paper-blue-grey-500: #607d8b;
+      --paper-blue-grey-600: #546e7a;
+      --paper-blue-grey-700: #455a64;
+      --paper-blue-grey-800: #37474f;
+      --paper-blue-grey-900: #263238;
+
+      
+      --dark-divider-opacity: 0.12;
+      --dark-disabled-opacity: 0.38; 
+      --dark-secondary-opacity: 0.54;
+      --dark-primary-opacity: 0.87;
+
+      
+      --light-divider-opacity: 0.12;
+      --light-disabled-opacity: 0.3; 
+      --light-secondary-opacity: 0.7;
+      --light-primary-opacity: 1.0;
+}
+
+</style>
+</custom-style><custom-style>
+  <style is="custom-style">html {
+  --primary-text-color: var(--light-theme-text-color);
+      --primary-background-color: var(--light-theme-background-color);
+      --secondary-text-color: var(--light-theme-secondary-color);
+      --disabled-text-color: var(--light-theme-disabled-color);
+      --divider-color: var(--light-theme-divider-color);
+      --error-color: var(--paper-deep-orange-a700);
+
+      
+      --primary-color: var(--paper-indigo-500);
+      --light-primary-color: var(--paper-indigo-100);
+      --dark-primary-color: var(--paper-indigo-700);
+
+      --accent-color: var(--paper-pink-a200);
+      --light-accent-color: var(--paper-pink-a100);
+      --dark-accent-color: var(--paper-pink-a400);
+
+
+      
+      --light-theme-background-color: #ffffff;
+      --light-theme-base-color: #000000;
+      --light-theme-text-color: var(--paper-grey-900);
+      --light-theme-secondary-color: #737373;  
+      --light-theme-disabled-color: #9b9b9b;  
+      --light-theme-divider-color: #dbdbdb;
+
+      
+      --dark-theme-background-color: var(--paper-grey-900);
+      --dark-theme-base-color: #ffffff;
+      --dark-theme-text-color: #ffffff;
+      --dark-theme-secondary-color: #bcbcbc;  
+      --dark-theme-disabled-color: #646464;  
+      --dark-theme-divider-color: #3c3c3c;
+
+      
+      --text-primary-color: var(--dark-theme-text-color);
+      --default-primary-color: var(--primary-color);
+}
+
+</style>
+</custom-style><script async="" src="https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js"></script><script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://support.google.com/inapp/api.js"></script>
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="eNvoyyw69heUV2VkPBo+Ze/P3hrvgAY64v+8G0Q+GbGE6kMUiUnG73pA+bxv3WspajBfhArQnzxbI7HlxDmj1w==">
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport">
+<meta content="1rRsY0INj8RvwB5EF5pwdxt2A2P9aDgAlsICaJ0d5w0" name="google-site-verification">
+<meta content="#3681E4" property="msapplication-TileColor">
+<meta content="/favicon-144.png" property="msapplication-TileImage">
+<meta content="{&quot;userId&quot;:null,&quot;experimentIds&quot;:[&quot;course_monetization&quot;,&quot;chat_off_for_signed_out_users&quot;,&quot;one_tap&quot;,&quot;agressive_monsoon_quota&quot;,&quot;alexandria_subscriptions_pagination&quot;,&quot;catalog_filters_button&quot;,&quot;content_provider_admin&quot;,&quot;alexandria_show_bundle_errors&quot;,&quot;innovator_membership&quot;,&quot;new_report_fields&quot;,&quot;ai_skills&quot;,&quot;show_interview_warmup&quot;,&quot;cache_explore_page_result&quot;,&quot;learning_plan_search&quot;,&quot;search_autocomplete&quot;,&quot;hide_unpopular_filters&quot;,&quot;canonical_domain_redirect&quot;,&quot;onramp&quot;,&quot;innovator_membership_modal&quot;,&quot;monsoon_quota&quot;,&quot;credly_integration_announcement_modal&quot;,&quot;program_announcements&quot;,&quot;oauth_risc_shutoff&quot;,&quot;landing_page&quot;,&quot;search_updates&quot;,&quot;rise_poc&quot;,&quot;show_annual_purchase_now&quot;,&quot;iw_ai_assistant&quot;,&quot;teams&quot;,&quot;dedup_badge&quot;,&quot;tell_navy_allowed_zones&quot;,&quot;guest_user&quot;,&quot;reroute_new_interview_warmup&quot;,&quot;credly&quot;,&quot;gcsbo_free&quot;,&quot;used_in&quot;,&quot;hide_price&quot;,&quot;entity_api_keys&quot;]}" name="help-api-product-data">
+<meta content="{&quot;groupIds&quot;:[]}" name="help-api-custom-data">
+<meta content="Qwiklabs provides real cloud environments that help developers and IT professionals learn cloud platforms and software, such as Firebase, Kubernetes and more." name="description">
+<meta content="Qwiklabs" name="author">
+<meta content="Google Cloud Skills Boost for Partners" property="og:title">
+<meta content="website" property="og:type">
+<meta content="/favicon-144.png" property="og:image">
+<meta content="Qwiklabs" property="og:site_name">
+<meta content="Qwiklabs provides real cloud environments that help developers and IT professionals learn cloud platforms and software, such as Firebase, Kubernetes and more." property="og:description">
+<meta content="/qwiklabs_logo_900x887.png" property="og:logo" size="900x887">
+<meta content="/qwiklabs_logo_994x187.png" property="og:logo" size="994x187">
+
+
+<meta property="og:url" content="https://partner.cloudskillsboost.google"><link href="https://partner.cloudskillsboost.google" rel="canonical">
+<link href="https://partner.cloudskillsboost.google/?locale=ar" hreflang="ar" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=de" hreflang="de" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=es" hreflang="es" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=fr" hreflang="fr" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=fr_CA" hreflang="fr-CA" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=he" hreflang="he" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=id" hreflang="id" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=it" hreflang="it" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=ja" hreflang="ja" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=ko" hreflang="ko" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=pl" hreflang="pl" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=pt_BR" hreflang="pt-BR" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=pt_PT" hreflang="pt-PT" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=ru" hreflang="ru" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=tr" hreflang="tr" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=uk" hreflang="uk" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=zh" hreflang="zh" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/?locale=zh_TW" hreflang="zh-TW" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/" hreflang="en" rel="alternate">
+<link href="https://partner.cloudskillsboost.google/" hreflang="x-default" rel="alternate">
+<link href="https://cdn.qwiklabs.com/Vag5GK2J6rS6843Qvg8TQJ1kEbAsEmQoF0%2BdLRfcLRE%3D" rel="shortcut icon" type="image/x-icon">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400|Roboto+Mono:400,700|Roboto:300,400,500,700|Google+Sans:300,400,500,700|Google+Sans+Display:400|Material+Icons|Google+Material+Icons|Google+Sans+Text:400,500,700" media="screen">
+
+<link rel="stylesheet" href="https://cdn.qwiklabs.com/assets/application-47c4bbea420e6053cf6c286414d97b82f4086429.css" media="all">
+<link rel="stylesheet" href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" media="screen">
+
+
+<style>
+  :root {
+    --primary-text-on-surface-color: #1c3ee9;
+    --primary-text-on-surface-color-dark: #1536d9;
+    --primary-text-on-surface-color-darker: #1330c4;
+    --primary-text-on-surface-color-darkest: #112baf;
+    --primary-surface-color: #1a73e8;
+    --primary-surface-color-rgb: 26,115,232;
+    --primary-surface-color-light: #d1e3fa;
+    --primary-surface-color-lightest: #e8f1fd;
+    --text-on-primary-color: #ffffff;
+    --accent-text-on-surface-color: #f000e8;
+    --accent-surface-color: #f9ab00;
+    --accent-surface-color-rgb: 249,171,0;
+    --accent-surface-color-light: #ffefcc;
+    --text-on-accent-color: #202124;
+  }
+</style>
+
+
+
+<style id="googleidentityservice_button_styles">.qJTHM{-moz-user-select:none;color:#202124;direction:ltr;font-family:"Roboto-Regular",arial,sans-serif;font-weight:400;margin:0;overflow:hidden}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-moz-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;transition:background-color .218s,border-color .218s;-moz-user-select:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;flex-direction:row;justify-content:space-between;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-moz-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><link id="googleidentityservice" type="text/css" media="all" rel="stylesheet" href="https://accounts.google.com/gsi/style"></head>
+<body class=" learner-layout-body ">
+<ql-drawer-container class="body-container">
+<ql-drawer id="app-nav" mode="over" slot="drawer" width="288" style="width: 288px; visibility: hidden;" tabindex="-1" aria-hidden="true" role="region">
+<div class="nav-panel__logo">
+<div class="custom-logo"><img alt="Google Cloud Skills Boost for Partners" height="24" aria-label="Google Cloud Skills Boost for Partners" src="https://cdn.qwiklabs.com/PGyhmgS3zZncIEGywnx5UXsKwepRRFQ9BhAg%2FWHNrlQ%3D"></div>
+</div>
+<nav class="ql-sidenav">
+<ql-sidenav-item href="/paths" icon="playlist_add_check" label="Paths"></ql-sidenav-item>
+
+<ql-sidenav-item href="/catalog" icon="school" label="Explore"></ql-sidenav-item>
+
+<ql-sidenav-item href="/subscriptions" icon="subscriptions" label="Subscriptions"></ql-sidenav-item>
+
+</nav>
+
+</ql-drawer>
+<ql-drawer-content class="body-content" slot="drawer-content">
+<ql-toolbar class="sticky app-toolbar" jumpenabled="" role="banner">
+<div class="toolbar-navigation" slot="navigation">
+<ql-toggle-button for="app-nav" icon="menu" label="Toggle navigation drawer" tip="Menu" class=""></ql-toggle-button>
+</div>
+<div class="toolbar-title ql-title-medium" slot="title"><a class="custom-logo" aria-label="Google Cloud Skills Boost for Partners" href="/"><div class="custom-logo"><img alt="Google Cloud Skills Boost for Partners" height="24" aria-label="Google Cloud Skills Boost for Partners" src="https://cdn.qwiklabs.com/PGyhmgS3zZncIEGywnx5UXsKwepRRFQ9BhAg%2FWHNrlQ%3D"></div></a>
+</div>
+<div class="toolbar-tabs" role="tablist" slot="tabs"><ql-tab href="/paths" label="Paths"></ql-tab>
+<ql-tab href="/catalog" label="Explore"></ql-tab>
+<ql-tab href="/subscriptions" label="Subscriptions"></ql-tab>
+</div>
+<div class="toolbar-actions" slot="action">
+
+
+<ql-icon-button class="mobile-hide" icon="help_outline" id="help-menu-button" label="Open help menu" tip="Help"></ql-icon-button>
+<ql-menu for="help-menu-button" id="help-menu" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" tabindex="-1" aria-hidden="true" role="menu" aria-labelledby="help-menu-button">
+<ql-menu-item data-analytics-action="opened_help" data-analytics-label="" label="Help Center" onclick="hallofmirrors.helpService.startHelp({&quot;productData&quot;:{&quot;userId&quot;:null},&quot;context&quot;:&quot;&quot;})"></ql-menu-item>
+<ql-menu-item href="mailto:support@qwiklabs.com" label="Email support"></ql-menu-item>
+<ql-menu-item href="https://reportingwidget.google.com/widget/54?cid=1&amp;url=https://partner.cloudskillsboost.google/?" label="Report Illegal Content"></ql-menu-item>
+</ql-menu>
+
+<ql-icon-button class="mobile-hide" icon="language" id="language" label="Select your language preference" tip="Language"></ql-icon-button>
+<ql-menu for="language" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" tabindex="-1" aria-hidden="true" role="menu" aria-labelledby="language">
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ar" href="/?locale=ar" label="العربية‬‎" lang="ar"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="de" href="/?locale=de" label="Deutsch" lang="de"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="en" href="/?locale=en" label="English" lang="en"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="es" href="/?locale=es" label="español (Latinoamérica)" lang="es"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr" href="/?locale=fr" label="français" lang="fr"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr_CA" href="/?locale=fr_CA" label="français (Canada)" lang="fr-CA"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="he" href="/?locale=he" label="עברית" lang="he"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="id" href="/?locale=id" label="bahasa Indonesia" lang="id"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="it" href="/?locale=it" label="italiano" lang="it"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ja" href="/?locale=ja" label="日本語" lang="ja"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ko" href="/?locale=ko" label="한국어" lang="ko"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pl" href="/?locale=pl" label="polski" lang="pl"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_BR" href="/?locale=pt_BR" label="português (Brasil)" lang="pt-BR"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_PT" href="/?locale=pt_PT" label="português (Portugal)" lang="pt-PT"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ru" href="/?locale=ru" label="русский" lang="ru"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="tr" href="/?locale=tr" label="Türkçe" lang="tr"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="uk" href="/?locale=uk" label="українська" lang="uk"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh" href="/?locale=zh" label="简体中文" lang="zh"></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh_TW" href="/?locale=zh_TW" label="繁體中文" lang="zh-TW"></ql-menu-item>
+</ql-menu>
+
+<ql-button class="mobile-hide" data-analytics-action="clicked_header_sign_in" href="/users/sign_in" label="Sign in" text=""></ql-button>
+<ql-button data-analytics-action="clicked_header_join" href="/users/sign_up" label="Join"></ql-button>
+<script src="https://accounts.google.com/gsi/client"></script>
+<div data-authenticity_token="cF+q3mLfZEpdb7gWS+FT050tdwWcOI7J46hQtl/rkoiMbgEBx6xUsrN4JM4YJgafGNL2m3loF89adF1I3+wo7g==" data-cancel_on_tap_outside="false" data-client_id="1023251155897-tb54g624q9e77gtsrnemgv4c2ihekurv.apps.googleusercontent.com" data-login_uri="/auth/google?tos=false" data-prompt_parent_id="g_id_onload" data-turbo="false" id="g_id_onload"></div>
+
+
+</div>
+</ql-toolbar>
+<div class="page-header">
+<ql-toolbar class="page-toolbar">
+<h1 class="toolbar-title ql-title-medium" slot="title">Google Cloud Skills Boost for Partners</h1>
+<div class="toolbar-actions" slot="action"></div>
+</ql-toolbar>
+</div>
+<main id="jump-content">
+<div class="guest-landing-wrapper">
+<div class="guest-landing-intro">
+<div class="guest-landing-intro__headline">
+<div class="guest-landing-intro__headline__headers">
+<h1 class="ql-display-large">Google Cloud Skills Boost</h1>
+<h2 class="ql-headline-small">Unleash your potential with hands-on learning, crafted for you by Google Cloud experts. Explore a curated collection of activities designed to meet your unique interests and advance your professional journey — all in  one convenient hub.</h2>
+</div>
+<img src="https://cdn.qwiklabs.com/assets/snippet_defaults/landing-page-learning-mosaic-lego-be968b6ba90792aeb2777560b768a09a2c1bbd4c.svg">
+</div>
+<div class="guest-landing-intro__discover">
+<div class="guest-landing-intro__discover__headers">
+<h2 class="ql-headline-large">Discover Google Cloud training your way</h2>
+</div>
+<div class="guest-landing-intro__discover__tabs">
+<ql-tab-group tabnames="[&quot;Learning Path&quot;, &quot;Course&quot;, &quot;Lab&quot;]">
+<div class="learning_plan-tab" slot="content-0">
+<div class="grid">
+<ql-activity-card name="Vertex AI Agent Builder" path="/paths/615"></ql-activity-card>
+<ql-activity-card name="Rapid Migration &amp; Modernization Program" path="/paths/255"></ql-activity-card>
+<ql-activity-card name="Professional Cloud Architect for Associate Cloud Engineers " path="/paths/117"></ql-activity-card>
+<ql-activity-card imagesrc="https://cdn.qwiklabs.com/oug2RNEtJGpZn6nxIYgSUjyh%2FVGSZjX%2FfUYi5GS%2FKZ0%3D" name="Introduction to Generative AI" path="/paths/119"></ql-activity-card>
+<ql-activity-card imagesrc="https://cdn.qwiklabs.com/WzbyhiumCWXB8PIez8OT9W34olfi4nKkkj1qexT%2BsfY%3D" name="Professional Cloud Network Engineer Certification Learning Path" path="/paths/78"></ql-activity-card>
+<ql-activity-card imagesrc="https://cdn.qwiklabs.com/QR%2BTM2i1aQTIuiPHSRPWcUVsjras3lAr%2BfhHA2Edjmo%3D" name="Professional Cloud Security Engineer Certification Learning Path" path="/paths/79"></ql-activity-card>
+</div>
+<div class="guest-landing-intro__discover__tabs__next">
+<a href="/paths">See all learning paths</a>
+</div>
+</div>
+<div class="courses-tab" slot="content-1">
+<div class="grid">
+<ql-activity-card aria-label="Managing Cloud Infrastructure with Terraform" imagesrc="https://cdn.qwiklabs.com/06c%2BE%2F78vW9evIxlhG53uonlYCaKB2oJTtsKYjuS8EQ%3D" name="Managing Cloud Infrastructure with Terraform" path="/course_templates/746" type="course"></ql-activity-card>
+
+<ql-activity-card aria-label="Derive Insights from BigQuery Data" imagesrc="https://cdn.qwiklabs.com/QlISwn8678nHhE9uvpqsvcjNZkDQNu6dU0SUdr7%2Bwec%3D" name="Derive Insights from BigQuery Data" path="/course_templates/623" type="course"></ql-activity-card>
+
+<ql-activity-card aria-label="Use Machine Learning APIs on Google Cloud" imagesrc="https://cdn.qwiklabs.com/4rMa1zeVwwLX8OBIQTsV98MLR%2FOKDOxLif5mhqblyJs%3D" name="Use Machine Learning APIs on Google Cloud" path="/course_templates/630" type="course"></ql-activity-card>
+
+<ql-activity-card aria-label="Language, Speech, Text, &amp; Translation with Google Cloud APIs" imagesrc="https://cdn.qwiklabs.com/%2Fuq8ZLWpBwlunLbphQPHuSEgIQgZxNapBXxAZ0om%2BjI%3D" name="Language, Speech, Text, &amp; Translation with Google Cloud APIs" path="/course_templates/745" type="course"></ql-activity-card>
+
+<ql-activity-card aria-label="Migrate MySQL data to Cloud SQL using Database Migration Service" imagesrc="https://cdn.qwiklabs.com/Hzsx8PD0xzkQJBXMQ3qCq9rQZy9rSXLsuDj3XBKDEdc%3D" name="Migrate MySQL data to Cloud SQL using Database Migration Service" path="/course_templates/629" type="course"></ql-activity-card>
+
+<ql-activity-card aria-label="Monitor Environments with Google Cloud Managed Service for Prometheus" imagesrc="https://cdn.qwiklabs.com/dv0KNZFzw9Sl5fLH5OfzP96bzmbyYmQ6OZcVT4W7aMI%3D" name="Monitor Environments with Google Cloud Managed Service for Prometheus" path="/course_templates/761" type="course"></ql-activity-card>
+
+</div>
+<div class="guest-landing-intro__discover__tabs__next">
+<a href="/catalog?format=courses">See all courses</a>
+</div>
+</div>
+<div class="labs-tab" slot="content-2">
+<div class="grid">
+<ql-activity-card aria-label="Generative AI: Go Mandarin Chinese" name="Generative AI: Go Mandarin Chinese" type="lab"></ql-activity-card>
+
+<ql-activity-card aria-label="Migrating to AlloyDB from PostgreSQL Using PostgreSQL Tools" name="Migrating to AlloyDB from PostgreSQL Using PostgreSQL Tools" type="lab"></ql-activity-card>
+
+<ql-activity-card aria-label="Enhancing Google Cloud Network Security" name="Enhancing Google Cloud Network Security" type="lab"></ql-activity-card>
+
+<ql-activity-card aria-label="Accelerating Analytical Queries using the AlloyDB Columnar Engine" name="Accelerating Analytical Queries using the AlloyDB Columnar Engine" type="lab"></ql-activity-card>
+
+<ql-activity-card aria-label="Introduction to Convolutions with TensorFlow" name="Introduction to Convolutions with TensorFlow" type="lab"></ql-activity-card>
+
+<ql-activity-card aria-label="Arcade Hero: Enter the Artifact Registry Policy" name="Arcade Hero: Enter the Artifact Registry Policy" type="lab"></ql-activity-card>
+
+</div>
+<div class="guest-landing-intro__discover__tabs__next">
+<a href="/catalog?format=labs">See all labs</a>
+</div>
+</div>
+</ql-tab-group>
+</div>
+</div>
+<div class="guest-landing-intro__elevate">
+<div class="guest-landing-intro__elevate__headers">
+<h2 class="ql-headline-large">Elevate your career with Google Cloud certified skills</h2>
+</div>
+<div class="guest-landing-intro__elevate__grid">
+<img src="https://cdn.qwiklabs.com/assets/snippet_defaults/landing-page-build-in-the-cloud-c28faa8f61e03fd65e07c8e58efbceef38644b0f.svg">
+</div>
+<div class="guest-landing-intro__elevate__grid">
+<div class="guest-landing-intro__elevate__grid__block">
+<img src="https://cdn.qwiklabs.com/assets/snippet_defaults/landing-page-google-cloud-certified-c03a0079d0ee45f2dac39bd566e16cafb76899cf.svg">
+</div>
+<div class="guest-landing-intro__elevate__grid__block">
+<img src="https://cdn.qwiklabs.com/assets/snippet_defaults/landing-page-earn-your-expertise-e72f26d8155022c7f9e23d1a4a06f69b06e08606.svg">
+</div>
+</div>
+</div>
+<div class="guest-landing-intro__help">
+<div class="guest-landing-intro__help__headers">
+<h2 class="ql-headline-large">Frequently asked questions</h2>
+</div>
+<div class="guest-landing-intro__help__body">
+<div class="guest-landing-intro__help__body__qa" id="qa_0">
+<div class="guest-landing-intro__help__body__qa__question">
+<h3 class="ql-headline-medium">What is Cloud Skills Boost?</h3>
+<ql-toggle-button class="guest-landing-intro__help__body__qa__question__button" for="qa_0">
+expand_less
+</ql-toggle-button>
+</div>
+<div class="answer">
+<h3 class="ql-body-large">Cloud Skills Boost is Google's platform that offers on-demand training and skill development in Google Cloud technologies.</h3>
+</div>
+</div>
+<div class="guest-landing-intro__help__body__qa" id="qa_1">
+<div class="guest-landing-intro__help__body__qa__question">
+<h3 class="ql-headline-medium">What are Hands-on-labs?</h3>
+<ql-toggle-button class="guest-landing-intro__help__body__qa__question__button" for="qa_1">
+expand_less
+</ql-toggle-button>
+</div>
+<div class="answer">
+<h3 class="ql-body-large">Hands-on-labs give you direct practical experience as you learn by doing.</h3>
+</div>
+</div>
+<div class="guest-landing-intro__help__body__qa" id="qa_2">
+<div class="guest-landing-intro__help__body__qa__question">
+<h3 class="ql-headline-medium">What is a Google Cloud Certificate?</h3>
+<ql-toggle-button class="guest-landing-intro__help__body__qa__question__button" for="qa_2">
+expand_less
+</ql-toggle-button>
+</div>
+<div class="answer">
+<h3 class="ql-body-large"><p>Google Cloud Certificates prepare learners for entry-level roles in cloud in the areas of data analytics and cybersecurity. In addition to acquiring hard technical skills, learners can practice interviewing with AI driven insights, and stand out to cloud employers seeking entry-level cloud talent with a shareable digital credential. </p>
+
+<p>Learn more about <a href="https://cloud.google.com/learn/certificates?e=48754805&amp;hl=en" target="_blank">Cloud Certificates here</a>!</p></h3>
+</div>
+</div>
+<div class="guest-landing-intro__help__body__qa" id="qa_3">
+<div class="guest-landing-intro__help__body__qa__question">
+<h3 class="ql-headline-medium">How do I get access to the Google Cloud Certificates?</h3>
+<ql-toggle-button class="guest-landing-intro__help__body__qa__question__button" for="qa_3">
+expand_less
+</ql-toggle-button>
+</div>
+<div class="answer">
+<h3 class="ql-body-large"><p>Learners can preview the certificates at <a href="https://www.youtube.com/@googlecloud/courses" target="_blank">no cost on YouTube</a>. To earn the certificate credential, purchase a $29US/month subscription to Google Cloud Skills Boost and complete the series of courses in the learning path.  The monthly subscription also grants access to all courses and hands-on labs in the Google Cloud Skills Boost catalog.</p>
+
+<p>For higher education and government or non-profit workforce development programs, check out the Google Cloud Career Launchpad <a href="https://cloud.google.com/edu/faculty/career-launchpad" target="_blank">Google Cloud Career Launchpad</a> program that provides no cost, instructor-facilitated access to these certificates and more.</p></h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</main>
+
+<footer class="application-footer">
+
+<a target="_blank" href="/privacy_policy">Privacy</a>
+<a href="/terms_of_service">Terms</a>
+<div class="powered-by">
+<span aria-hidden="">Powered by</span>
+<img alt="Powered by Qwiklabs" src="https://cdn.qwiklabs.com/assets/qwiklabs_logo_grayscale-253167e4722753ac463e99dbda9945e0db4a7f88.svg">
+</div>
+
+
+</footer>
+</ql-drawer-content>
+</ql-drawer-container>
+
+<span class="hidden" id="flash-sibling-before"></span>
+<ql-snackbar aria-live="polite" role="alert"></ql-snackbar>
+
+<script data-glue-cookie-notification-bar-category="2B" src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"></script>
+
+
+
+
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    ql.initMaterialInputs();
+    initChosen();
+    initTabs();
+    ql.list.init();
+    ql.favoriting.init();
+    ql.header.myAccount.init();
+    initTooltips();
+    ql.autocomplete.init();
+    ql.modals.init();
+    ql.toggleButtons.init();
+    ql.analytics.init();
+    Turbo.session.drive = false;
+    ql.jumpContent.init();
+  
+  }, {once: true});
+</script>
+
+
+
+
+
+</body></html>

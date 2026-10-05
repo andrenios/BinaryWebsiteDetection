@@ -1,0 +1,11 @@
+HTTP/2 400 
+date: Sun, 04 Oct 2026 10:56:17 GMT
+content-type: application/json
+content-length: 79
+server: cloudflare
+set-cookie: __cf_bm=wNaQ75lIhpwNrUyeFlKs_eAerntN0mfF.PCBtCguU5I-1791111376.9228778-1.0.1.1-W5TlOYine7ljtYB4R3elyKyTnpN2lxLicLxd0dxycOX_8W9RMai2oPpLyPCDGbUOoHb5qTzR2c7R0.hY.F_fIU622dYm89rENN3YJOhZPV_IjylJMfURD9gmh3RGVpvy; HttpOnly; SameSite=None; Secure; Path=/; Domain=typesafe.ai; Expires=Sun, 04 Oct 2026 11:26:17 GMT
+x-typesafe-request-id: req_01a1068eb07274af882d7c75b9ef9ba2
+cf-cache-status: DYNAMIC
+cf-ray: a453a8b9c8ab3244-VIE
+alt-svc: h3=":443"; ma=86400
+

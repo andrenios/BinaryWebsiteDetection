@@ -1,0 +1,153 @@
+<html lang="en"><head>
+<base href="https://cutt.ly">
+<meta charset="utf-8">
+<title>Cuttly | URL Shortener, Short URLs &amp; Free Custom Link Shortener, Custom Domains</title>
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index,follow,all">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/icon152x152.png">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/style.css?v=12042024117" type="text/css" media="screen">
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+<script src="scripts/jquery.js"></script>
+<script data-pace-options="{&quot;eventLag&quot;: false}" src="scripts/pace.js"></script>
+</head>
+<body class="pace-done "><div class="pace pace-inactive"><div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+<header>
+<nav class="navbar navbar-expand-md navbar-cuttly">
+<div class="container">
+<a class="navbar-brand mx-auto" href="/">
+<img class="logo" src="img/cuttly.svg" alt="Cuttly">
+</a>
+</div>
+</nav>
+</header>
+<main id="content" role="main">
+<section class="page_cuttly">
+<div class="container">
+<div class="row">
+<div class="col-12 max800 text-center">
+<h2 class="h1_of">Ooops... 404</h2>
+<h3 class="h1_of">That URL doesn't exist.</h3>
+<p class="of_main">Keep calm and shorten/manage your links with cutt.ly</p>
+<img src="img/404.svg" alt="404">
+</div>
+</div>
+</div>
+</section>
+</main>
+<link rel="stylesheet" href="https://cutt.ly/css/cookieconsent.css?v=1811202320" media="all" onload="this.media='all'">
+<script defer="" src="https://cutt.ly/scripts/cookieconsent.js?v=1811202320"></script>
+<script>
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+window.addEventListener("load", function () {
+    var cc = initCookieConsent();
+    cc.run({
+        current_lang: "en",
+        autoclear_cookies: true,
+        page_scripts: true,
+        remove_cookie_tables: true,
+        gui_options: { consent_modal: { layout: "cloud", position: "bottom center", transition: "slide", swap_buttons: true }, settings_modal: { layout: "box", transition: "slide" } },
+        onFirstAction: function (user_preferences, cookie) {},
+        onAccept: function (cookie) {},
+		onChange: function (cookie, changed_categories) {
+                if (!cc.allowedCategory('preferences')) {
+                    if (getCookie('preview') === '1') {
+                        // Usuń cookie 'preview'
+                        setCookie('preview', '', -1);
+                    }
+                    if (getCookie('lang')) {
+                        setCookie('lang', '', -1);
+                    }
+                    location.reload();
+                }
+            },
+        languages: {
+            en: {
+                consent_modal: {
+                    title: "We have cookies",
+                    description:
+                        'We use cookies to ensure the functionality of our website, as well as to better understand how our website is used and to customize advertisements. More about cookies can be found in our <a href="/privacy">privacy policy</a>',
+                    primary_btn: { text: "Accept all", role: "accept_all" },
+                    secondary_btn: { text: "Manage", role: "settings" },
+                },
+                settings_modal: {
+                    title: "Cuttly | Cookie preferences",
+                    save_settings_btn: "Save settings",
+                    accept_all_btn: "Accept all",
+                    reject_all_btn: "Reject all",
+                    close_btn_label: "Close",
+                    cookie_table_headers: [{ col1: "Name" }, { col2: "Domain" }, { col3: "Expiration" }, { col4: "Description" }],
+                    blocks: [
+                        {
+                            title: "Cookie usage",
+                            description:
+                                'We use cookies on our website to provide you with access to website functionality as well as for analytics, personalization and marketing purposes. You can change your settings or accept the default settings at any time. For more information on cookies and other sensitive data, please read the full <a href="privacy" class="cc-link">privacy policy</a>.',
+                        },
+						{
+							title: "Necessary Cookies (Always Enabled)",
+							description:
+								"Necessary cookies are essential for the basic functionality of our website and cannot be disabled. They ensure that our website operates correctly and securely, providing the core services you request. This includes cookies that support features like secure log-in, session management, and fraud prevention. Unlike Preferences or Analytics Cookies, these are strictly required for the website to function and do not store any personal preferences or track user activity beyond essential site operations.",
+							toggle: { value: "necessary", enabled: true, readonly: true },
+						},
+						{
+							title: "Preferences Cookies",
+							description:
+								"Preferences Cookies enhance your browsing experience by remembering your individual settings and choices on our website. These cookies enable our site to remember key preferences such as your preferred language, preview mode and other customization features. By doing so, they facilitate more seamless and personalized interactions each time you visit. These cookies are not used for tracking purposes and are dedicated to making your website experience more convenient and tailored to your needs.",
+							toggle: { value: "preferences", enabled: false, readonly: false },
+						},
+                        {
+                            title: "Analytics Cookies",
+                            description:
+                                "These cookies help us understand how our website works, show the number of visitors and visualize how users are interacting with the website. These files usually do not collect personally identifiable information. This group includes Google Analytics - an analysis service provided by Google.",
+                            toggle: { value: "analytics", enabled: false, readonly: false },
+                            cookie_table: [
+                                { col1: "^_ga", col2: "google.com", col3: "2 years", col4: "description ...", is_regex: true },
+                                { col1: "_gid", col2: "google.com", col3: "1 day", col4: "description ..." },
+                            ],
+                        },
+                        {
+                            title: "Advertisement and Targeting Cookies",
+                            description:
+                                "Targeted and advertising cookies enable the collection of information from you on your device and thus show you advertisements based on your preferences. This includes the unique identification of your browser and end device.",
+                            toggle: { value: "targeting", enabled: false, readonly: false },
+                        },
+                    ],
+                },
+            },
+        },
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    });
+</script>
+<script src="scripts/classie.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/main.js?v=2"></script>
+
+</body></html>

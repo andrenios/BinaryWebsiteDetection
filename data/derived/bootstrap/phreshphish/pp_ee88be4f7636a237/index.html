@@ -1,0 +1,2425 @@
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus theme-light" lang="en-us" dir="ltr" data-authenticated="false" data-auth-status-determined="true" data-target="docs" x-ms-format-detection="none" style="--window-inner-height: 683px  !important; --atlas-header-height: 0px  !important; --atlas-footer-height: 0px  !important;"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls"><meta property="og:description" content="Learn about the Microsoft Defender for Cloud secure score, which is part of the Microsoft cloud security benchmark."><meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png">
+
+	<meta property="og:image:alt" content="Microsoft Learn">
+
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta name="twitter:site" content="@MicrosoftLearn">
+
+	<meta name="color-scheme" content="light dark"><meta name="adobe-target" content="true">
+<meta name="author" content="dcurwin">
+<meta name="breadcrumb_path" content="/azure/breadcrumb/azure-security/toc.json">
+<meta name="depot_name" content="Learn.azure-security">
+<meta name="description" content="Learn about the Microsoft Defender for Cloud secure score, which is part of the Microsoft cloud security benchmark.">
+<meta name="document_id" content="b9d7741b-cd5a-29b0-c360-e054f7686c87">
+<meta name="document_version_independent_id" content="f03434f5-504a-d87f-b9ce-3ed695db9227">
+<meta name="feedback_help_link_type" content="ask-the-community">
+<meta name="feedback_help_link_url" content="https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bd-p/MicrosoftDefenderCloud">
+<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/0f853254-0425-ec11-b6e6-000d3a4f07b8">
+<meta name="feedback_system" content="Standard">
+<meta name="git_commit_id" content="cc94e38eb84a931ab265c0fd676995149b32b134">
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-security-docs-pr/blob/cc94e38eb84a931ab265c0fd676995149b32b134/articles/defender-for-cloud/secure-score-security-controls.md">
+<meta name="learn_banner_products" content="azure">
+<meta name="locale" content="en-us">
+<meta name="manager" content="raynew">
+<meta name="ms.author" content="dacurwin">
+<meta name="ms.date" content="02/05/2024">
+<meta name="ms.service" content="defender-for-cloud">
+<meta name="ms.suite" content="office">
+<meta name="ms.topic" content="conceptual">
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-security-docs-pr/blob/live/articles/defender-for-cloud/secure-score-security-controls.md">
+<meta name="page_type" content="conceptual">
+<meta name="permissioned-type" content="public">
+<meta name="recommendation_types" content="Training">
+<meta name="recommendation_types" content="Certification">
+<meta name="recommendations" content="true">
+<meta name="schema" content="Conceptual">
+<meta name="site_name" content="Docs">
+<meta name="toc_rel" content="toc.json">
+<meta name="uhfHeaderId" content="azure">
+<meta name="updated_at" content="2024-09-09 11:07 AM">
+<meta name="word_count" content="1772">
+<meta name="persistent_id" content="4e52ff72-199a-ddfc-a973-5c9bf66e62ab">
+	
+	<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/cd48b104-e308-4e08-a405-66f04a7df418" data-source="generated">
+	<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707" data-source="generated">
+	
+	<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/ac23bdb5-c078-4620-8ee2-60eba45e97f8" data-source="generated">
+	<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421" data-source="generated">
+	<meta name="scope" content="Azure"><meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-security-docs/blob/main/articles/defender-for-cloud/secure-score-security-controls.md"><link href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls" rel="canonical"><title>Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn</title><link rel="stylesheet" href="/static/assets/0.4.028516059/styles/site-ltr.css">
+
+	<script id="msdocs-script">
+	var msDocs = {environment: {
+			supportLevel: 'production',
+			accessLevel: 'online',
+			reviewFeatures: false,
+			systemContent: true,
+			azurePortalHostname: 'portal.azure.com',
+			legacyHosting: false,
+			siteName: 'learn',
+		},data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: 'azure',
+			context: {},
+			hasBinaryRating: true,
+			feedbackHelpLinkType:'ask-the-community',
+			feedbackHelpLinkUrl:'https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bd-p/MicrosoftDefenderCloud',
+			standardFeedback: true,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'Standard',
+			feedbackGitHubRepo: 'MicrosoftDocs/azure-docs',
+			feedbackProductUrl: 'https://feedback.azure.com/d365community/forum/0f853254-0425-ec11-b6e6-000d3a4f07b8',extendBreadcrumb: false,isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasPrintButton: true,
+			hasBookmark: true,
+			hasShare: true,
+			isPermissioned: false,
+			isPrivateUnauthorized: false,hasRecommendations: true,contributors: [{ name: "dcurwin", url: "https://github.com/dcurwin" },{ name: "ElazarK", url: "https://github.com/ElazarK" },{ name: "AlizaBernstein", url: "https://github.com/AlizaBernstein" },{ name: "rayne-wiselman", url: "https://github.com/rayne-wiselman" },{ name: "SaibabaBalapur-MSFT", url: "https://github.com/SaibabaBalapur-MSFT" },{ name: "liorarviv", url: "https://github.com/liorarviv" },{ name: "prmerger-automator[bot]", url: "https://github.com/prmerger-automator[bot]" },{ name: "lmhutch", url: "https://github.com/lmhutch" },{ name: "bmansheim", url: "https://github.com/bmansheim" },{ name: "memildin", url: "https://github.com/memildin" }],},
+		functions:{}
+	};
+	</script><script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+	<script src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script><script src="/static/assets/0.4.028516059/global/deprecation.js"></script><link rel="preconnect" href="//mscom.demdex.net" crossorigin="">
+		<link rel="dns-prefetch" href="//target.microsoft.com">
+		<link rel="dns-prefetch" href="//microsoftmscompoc.tt.omtrdc.net">
+		<link rel="preload" as="script" href="/static/third-party/adobe-target/at-js/2.9.0/at.js" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous" id="adobe-target-script" type="application/javascript"><script src="/static/assets/0.4.028516059/scripts/en-us/index-docs.js"></script><style></style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"name":"Learn","position":1,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/"},{"name":"Azure","position":2,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/azure/"},{"name":"Defender for Cloud","position":3,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/azure/defender-for-cloud/"}]}</script></head>
+
+<body lang="en-us" dir="ltr">
+	<div class="header-holder has-default-focus">
+		<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused position-fixed has-inner-focus focus-visible top-0 left-0 right-0 padding-xs has-text-centered has-body-background" tabindex="1">Skip to main content</a><div hidden="" id="cookie-consent-holder" data-test-id="cookie-consent-container"></div><div id="banner-holder" class="has-default-focus has-overflow-hidden display-none-visual-diff theme-light"><!----><section data-bi-name="tier1-event-banner" data-dismissable="disappearing" class="tier1-event-banner position-relative padding-block-lg padding-block-md-tablet ignite-2024-banner display-none-visual-diff">
+		<div class="uhf-container display-flex-tablet align-items-center">
+			<div class="has-backdrop-filter-blur margin-right-xxl-tablet">
+				<h2 class="title is-2 margin-bottom-xs"><!---->Microsoft Ignite<!----></h2>
+				<p class="font-size-sm"><!---->Nov 19–22, 2024<!----></p>
+			</div>
+			<p class="container is-max-mobile display-none display-block-widescreen has-backdrop-filter-blur font-size-sm margin-left-none margin-right-xxl text-wrap-pretty">
+				Join us this November to explore AI innovations, level up your skillset, and expand your network.
+			</p>
+			<a data-bi-name="CTA" class="button margin-top-sm margin-bottom-sm-tablet " href="https://aka.ms/msignite_docs_banner">
+				<span><!---->Register now<!----></span>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</a>
+		</div>
+		<button type="button" data-dismiss="" data-bi-name="close" class="button delete delete-lg position-absolute top-0 right-0 margin-xs margin-sm-tablet ">
+			<span class="visually-hidden"><!---->Dismiss alert<!----></span>
+		</button>
+	</section><!----></div>
+
+		<div id="unsupported-browser" style="
+			background-color: white;
+			color: black;
+			padding: 16px;
+			border-bottom: 1px solid grey;" hidden="">
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p style="font-size: 24px">This browser is no longer supported.</p>
+				<p style="font-size: 16px; margin-top: 16px;">Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.</p>
+				<div style="margin-top: 12px;">
+					<a href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 " style="
+						background-color: #0078d4;
+						border: 1px solid #0078d4;
+						color: white;
+						padding: 6px 12px;
+						border-radius: 2px;
+						display: inline-block;
+						">Download Microsoft Edge</a>
+					<a href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge" style="
+							background-color: white;
+							padding: 6px 12px;
+							border: 1px solid #505050;
+							color: #171717;
+							border-radius: 2px;
+							display: inline-block;
+							">More info about Internet Explorer and Microsoft Edge</a>
+				</div>
+			</div>
+		</div>
+		<!-- liquid-tag banners global -->
+
+		<!-- site header -->
+		<header id="ms--site-header" data-test-id="site-header-wrapper" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+			<div id="ms--mobile-nav" class="site-header display-none-tablet padding-inline-none gap-none" data-bi-name="mobile-header" data-test-id="mobile-header"><!---->
+		<div id="ms--site-header-hamburger" data-test-id="site-header-hamburger">
+			<button type="button" class="button button-clear inner-focus" data-test-id="mobile-nav-open-button" data-bi-name="mobile-nav-open-button" title="Global navigation" aria-label="Global navigation">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-menu"></span>
+				</span>
+			</button>
+		</div>
+
+		<!-- Brand -->
+		
+		<a class="site-header-brand" itemprop="url" href="/en-us/" data-bi-name="site-header-brand-learn-mobile" data-test-id="site-header-brand-mobile">
+			<span><!---->Learn<!----></span>
+		</a>
+	
+
+		<!-- MS logo -->
+		
+				<a href="https://www.microsoft.com" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo-mobile" data-test-id="site-header-microsoft-logo-mobile" class="site-header-logo site-header-logo-centered">
+					
+		<svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
+			<path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+			<path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+			<path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+			<path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+		</svg>
+	
+				</a>
+		  
+
+		<!-- Search -->
+		
+		<search-expander data-test-id="site-header-search-mobile" class="display-flex flex-grow-1 justify-content-flex-end">
+			<div hidden="" id="ms--site-header-search-mobile" class="display-flex align-items-center gap-xxs width-full padding-left-xxs">
+				
+		<form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form-mobile" data-bi-name="site-header-search-form-mobile" name="site-header-search-form-mobile" aria-label="Search" action="/en-us/search/">
+			<div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+			<div class="field-body control ">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input-mobile" data-test-id="site-header-search-autocomplete-input-mobile" class="autocomplete-input input 
+						
+						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-1-listbox" aria-controls="ax-1-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-mobile-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input-mobile" pattern=".*">
+
+				
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--site-header-search-autocomplete-input-mobile-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-1-listbox" data-test-id="site-header-search-autocomplete-input-mobile-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="">
+			
+			
+		</form>
+	
+				<button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Close search" data-bi-name="site-header-search-close-mobile" data-test-id="site-header-search-close-mobile">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-navigate-close"></span>
+					</span>
+				</button>
+			</div>
+			<button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search-mobile" aria-label="Open search" data-bi-name="site-header-search-open-mobile" data-test-id="site-header-search-open-mobile">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-search"></span>
+				</span>
+			</button>
+		</search-expander>
+	
+
+		<!-- User avatar/Sign in -->
+		<!---->
+		<a href="#" data-bi-name="site-header-sign-in-mobile" data-test-id="site-header-sign-in-mobile" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated margin-right-xs margin-left-xxs">
+			Sign in
+		</a>
+	 
+		<details data-bi-name="site-header-user-mobile" class="popover popover-right auth-status-determined authenticated margin-right-xs margin-left-xxs">
+			<summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user-mobile">
+				<div class="persona persona-sm">
+					<figure class="persona-avatar">
+						<img alt="" data-profile-property="avatarThumbnailUrl">
+					</figure>
+				</div>
+			</summary>
+			<div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+				<div class="persona persona-sm">
+					<figure class="persona-avatar">
+						<img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name-mobile">
+					</figure>
+					<div class="persona-details" data-test-id="persona-detail-mobile">
+						<p class="persona-name" data-profile-property="displayName" id="ms--user-display-name-mobile"></p>
+						<p data-profile-property="upn"></p>
+					</div>
+				</div>
+				<ul class="padding-block-xs">
+					<li class="padding-bottom-xs">
+						<a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-us/users/me/activity/">
+							Profile
+						</a>
+					</li>
+					<li>
+						<a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-us/users/me/settings/">
+							Settings
+						</a>
+					</li>
+				</ul>
+				<div class="border-top padding-top-xs">
+					<a class="docs-sign-out font-size-sm" href="#" data-bi-name="site-header-sign-out-mobile" data-test-id="site-header-user-sign-out-mobile">
+						Sign out
+					</a>
+				</div>
+			</div>
+		</details>
+	<!---->
+	<!----></div>
+			<div id="ms--primary-nav" class="site-header display-none display-flex-tablet" data-bi-name="L1-header" data-test-id="primary-header"><!---->
+		<!-- MS logo -->
+		
+				<a href="https://www.microsoft.com" aria-label="Microsoft" itemprop="url" data-bi-name="site-header-microsoft-logo" data-test-id="site-header-microsoft-logo" class="site-header-logo ">
+					
+		<svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" itemprop="logo" itemscope="itemscope">
+			<path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+			<path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+			<path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+			<path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+		</svg>
+	
+				</a>
+		  
+
+		<!-- Divider -->
+		<div class="site-header-divider"></div>
+
+		<!-- Brand -->
+		
+		<a class="site-header-brand" itemprop="url" href="/en-us/" data-bi-name="site-header-brand-learn" data-test-id="site-header-brand">
+			<span><!---->Learn<!----></span>
+		</a>
+	
+
+		<div id="ms--search-expander-wrapper" class="display-flex justify-content-space-between flex-grow-1 align-items-center overflow-x-hidden height-full">
+			<!-- Main Nav -->
+			
+		<overflow-menu class="align-self-stretch" style="display: block; overflow: hidden; width: 100%;">
+			<nav class="site-header-nav" data-bi-name="primary-nav" data-overflow-menu-container="" aria-label="Global" style="visibility: visible; overflow: hidden;">
+				<button type="button" data-overflow-menu-prev-button="" data-bi-name="site-header-btn-prev" class="button button-clear button-sm inner-focus" hidden="" aria-label="Previous">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-chevron-left-light"></span>
+					</span>
+				</button>
+
+				
+		<ul class="display-flex gap-xxs-desktop">
+			<!---->
+			<li aria-setsize="4" aria-posinset="1">
+				<panel-controller data-bi-name="site-header-btn-1-discover">
+					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-1" data-test-id="site-header-panel-controller-1" style="white-space: nowrap;">
+						<span><!---->Discover<!----></span>
+						<span class="icon expanded-indicator" aria-hidden="true">
+							<span class="docon docon-chevron-down-light"></span>
+						</span>
+					</button>
+					<div class="site-header-panel" hidden="" id="ms--panel-1" data-bi-name="panel-1-discover" data-test-id="site-header-panel-1">
+						
+		<div class="site-header-panel-content">
+			<ul class="site-header-panel-cards">
+				<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-1-documentation">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/docs/">
+								Documentation
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->In-depth articles on Microsoft developer tools and technologies<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-2-training">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/training/">
+								Training
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Personalized learning paths and courses<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-3-credentials">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/credentials/">
+								Credentials
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Globally recognized, industry-endorsed credentials<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-4-qna">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/answers/">
+								Q&amp;A
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Technical questions and answers moderated by Microsoft<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-5-code-samples">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/samples/">
+								Code Samples
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Code sample library for Microsoft developer tools and technologies<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-6-assessments">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/assessments/">
+								Assessments
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Interactive, curated guidance and recommendations<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+				<li>
+					<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="panel-card-7-shows">
+						<div class="card-content">
+							<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/shows/">
+								Shows
+							</a>
+							<p class="card-content-description line-clamp-2"><!---->Thousands of hours of original programming from Microsoft experts<!----></p>
+						</div>
+					</article>
+				</li>
+			<!---->
+			</ul>
+			
+		</div>
+		
+			<section class="site-header-panel-featured-content"><!----><!---->
+				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+					<div class="card-content">
+						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft Learn for Organizations<!----></p>
+						<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/training/organizations/">
+							Boost your team's technical skills
+						</a>
+						<p class="card-content-description line-clamp-2"><!---->Access curated resources to upskill your team and close skills gaps.<!----></p>
+					</div>
+				</article>
+			<!----><!----></section>
+		
+	
+					</div>
+				</panel-controller>
+			</li>
+		<!---->
+			<li aria-setsize="4" aria-posinset="2">
+				<panel-controller data-bi-name="site-header-btn-2-product-documentation">
+					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-2" data-test-id="site-header-panel-controller-2" style="white-space: nowrap;">
+						<span><!---->Product documentation<!----></span>
+						<span class="icon expanded-indicator" aria-hidden="true">
+							<span class="docon docon-chevron-down-light"></span>
+						</span>
+					</button>
+					<div class="site-header-panel" hidden="" id="ms--panel-2" data-bi-name="panel-2-product-documentation" data-test-id="site-header-panel-2">
+						
+		<div class="site-header-panel-content">
+			<ul class="site-header-panel-links">
+				<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/aspnet/" data-bi-name="panel-link-1-asp-dotnet">
+						ASP.NET
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/azure/" data-bi-name="panel-link-2-azure">
+						Azure
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/dynamics365/" data-bi-name="panel-link-3-dynamics365">
+						Dynamics 365
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/microsoft-365/" data-bi-name="panel-link-4-microsoft-365">
+						Microsoft 365
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/microsoft-edge/" data-bi-name="panel-link-5-microsoft-edge">
+						Microsoft Edge
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/entra/" data-bi-name="panel-link-6-microsoft-entra">
+						Microsoft Entra
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/graph/" data-bi-name="panel-link-7-microsoft-graph">
+						Microsoft Graph
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/mem/" data-bi-name="panel-link-8-microsoft-intune">
+						Microsoft Intune
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/purview/" data-bi-name="panel-link-9-microsoft-purview">
+						Microsoft Purview
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/microsoftteams/" data-bi-name="panel-link-10-microsoft-teams">
+						Microsoft Teams
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/dotnet/" data-bi-name="panel-link-11-dotnet">
+						.NET
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/power-apps/" data-bi-name="panel-link-12-power-apps">
+						Power Apps
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/power-automate/" data-bi-name="panel-link-13-power-automate">
+						Power Automate
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/power-bi/" data-bi-name="panel-link-14-power-bi">
+						Power BI
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/power-platform/" data-bi-name="panel-link-15-power-platform">
+						Power Platform
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/powershell/" data-bi-name="panel-link-16-powershell">
+						PowerShell
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/sql/" data-bi-name="panel-link-17-sql">
+						SQL
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/sysinternals/" data-bi-name="panel-link-18-sysinternals">
+						Sysinternals
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/visualstudio/" data-bi-name="panel-link-19-visual-studio">
+						Visual Studio
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/windows/" data-bi-name="panel-link-20-windows">
+						Windows
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/windows-server/" data-bi-name="panel-link-21-windows-server">
+						Windows Server
+					</a>
+				</li>
+			<!---->
+			</ul>
+			
+			<a class="button button-clear button-sm color-hyperlink justify-content-flex-start border-none background-color-transparent margin-top-sm" href="/en-us/docs/" data-bi-name="panel-cta-view-all-products">
+				View all products
+			</a>
+		
+		</div>
+		
+			<section class="site-header-panel-featured-content"><!----><!---->
+				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+					<div class="card-content">
+						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft Learn for Organizations<!----></p>
+						<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/training/organizations/">
+							Boost your team's technical skills
+						</a>
+						<p class="card-content-description line-clamp-2"><!---->Access curated resources to upskill your team and close skills gaps.<!----></p>
+					</div>
+				</article>
+			<!----><!----></section>
+		
+	
+					</div>
+				</panel-controller>
+			</li>
+		<!---->
+			<li aria-setsize="4" aria-posinset="3">
+				<panel-controller data-bi-name="site-header-btn-3-dev-languages">
+					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-3" data-test-id="site-header-panel-controller-3" style="white-space: nowrap;">
+						<span><!---->Development languages<!----></span>
+						<span class="icon expanded-indicator" aria-hidden="true">
+							<span class="docon docon-chevron-down-light"></span>
+						</span>
+					</button>
+					<div class="site-header-panel" hidden="" id="ms--panel-3" data-bi-name="panel-3-dev-languages" data-test-id="site-header-panel-3">
+						
+		<div class="site-header-panel-content">
+			<ul class="site-header-panel-links">
+				<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/cpp/" data-bi-name="panel-link-1-cpp">
+						C++
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/dotnet/csharp/" data-bi-name="panel-link-2-csharp">
+						C#
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/dax/" data-bi-name="panel-link-3-dax">
+						DAX
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/java/" data-bi-name="panel-link-4-java">
+						Java
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/odata/" data-bi-name="panel-link-5-odata">
+						OData
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/openapi/" data-bi-name="panel-link-6-open-api">
+						OpenAPI
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/powerquery-m/" data-bi-name="panel-link-7-power-query-m">
+						Power Query M
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/office/vba/" data-bi-name="panel-link-8-vba">
+						VBA
+					</a>
+				</li>
+			<!---->
+			</ul>
+			
+		</div>
+		
+			<section class="site-header-panel-featured-content"><!----><!---->
+				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+					<div class="card-content">
+						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft Learn for Organizations<!----></p>
+						<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/training/organizations/">
+							Boost your team's technical skills
+						</a>
+						<p class="card-content-description line-clamp-2"><!---->Access curated resources to upskill your team and close skills gaps.<!----></p>
+					</div>
+				</article>
+			<!----><!----></section>
+		
+	
+					</div>
+				</panel-controller>
+			</li>
+		<!---->
+			<li aria-setsize="4" aria-posinset="4">
+				<panel-controller data-bi-name="site-header-btn-4-topics">
+					<button type="button" aria-expanded="false" class="site-header-button" data-overflow-menu-item="" aria-controls="ms--panel-4" data-test-id="site-header-panel-controller-4" style="white-space: nowrap;">
+						<span><!---->Topics<!----></span>
+						<span class="icon expanded-indicator" aria-hidden="true">
+							<span class="docon docon-chevron-down-light"></span>
+						</span>
+					</button>
+					<div class="site-header-panel" hidden="" id="ms--panel-4" data-bi-name="panel-4-topics" data-test-id="site-header-panel-4">
+						
+		<div class="site-header-panel-content">
+			<ul class="site-header-panel-links">
+				<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/ai/" data-bi-name="panel-link-1-ai">
+						Artificial intelligence
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/compliance/" data-bi-name="panel-link-2-compliance">
+						Compliance
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/devops/" data-bi-name="panel-link-3-devops">
+						DevOps
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/platform-engineering/" data-bi-name="panel-link-4-platform-engineering">
+						Platform engineering
+					</a>
+				</li>
+			<!---->
+				<li>
+					<a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover" href="/en-us/security/" data-bi-name="panel-link-5-security">
+						Security
+					</a>
+				</li>
+			<!---->
+			</ul>
+			
+		</div>
+		
+			<section class="site-header-panel-featured-content"><!----><!---->
+				<article class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none" data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+					<div class="card-content">
+						<p class="card-supertitle line-clamp-2 line-height-normal"><!---->Microsoft Learn for Organizations<!----></p>
+						<a class="card-title color-text background-color-transparent stretched-link" href="/en-us/training/organizations/">
+							Boost your team's technical skills
+						</a>
+						<p class="card-content-description line-clamp-2"><!---->Access curated resources to upskill your team and close skills gaps.<!----></p>
+					</div>
+				</article>
+			<!----><!----></section>
+		
+	
+					</div>
+				</panel-controller>
+			</li>
+		<!---->
+		</ul>
+	
+
+				<button type="button" data-overflow-menu-next-button="" data-bi-name="site-header-btn-next" class="button button-clear button-sm inner-focus margin-left-auto" hidden="" aria-label="Next">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-chevron-right-light"></span>
+					</span>
+				</button>
+			</nav>
+		</overflow-menu>
+	
+
+			<!-- Search -->
+			
+		<search-expander data-test-id="site-header-search" class="flex-grow-1 margin-left-xxs">
+			<div hidden="" id="ms--site-header-search" class="display-flex align-items-center gap-xxs ">
+				
+		<form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form" data-bi-name="site-header-search-form" name="site-header-search-form" aria-label="Search" action="/en-us/search/">
+			<div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+			<div class="field-body control ">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" id="site-header-search-autocomplete-input" data-test-id="site-header-search-autocomplete-input" class="autocomplete-input input input-sm
+						
+						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-0-listbox" aria-controls="ax-0-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-header-search-autocomplete-input-description" placeholder="Search" data-bi-name="site-header-search-autocomplete-input" pattern=".*">
+
+				
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--site-header-search-autocomplete-input-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-0-listbox" data-test-id="site-header-search-autocomplete-input-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="">
+			
+			
+		</form>
+	
+				<button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Close search" data-bi-name="site-header-search-close" data-test-id="site-header-search-close">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-navigate-close"></span>
+					</span>
+				</button>
+			</div>
+			<button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus" aria-controls="ms--site-header-search" aria-label="Open search" data-bi-name="site-header-search-open" data-test-id="site-header-search-open">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-search"></span>
+				</span>
+			</button>
+		</search-expander>
+	
+		</div>
+
+		<!-- User avatar/Sign in -->
+		<!---->
+		<a href="#" data-bi-name="site-header-sign-in" data-test-id="site-header-sign-in" class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated ">
+			Sign in
+		</a>
+	 
+		<details data-bi-name="site-header-user" class="popover popover-right auth-status-determined authenticated ">
+			<summary data-bi-name="site-header-user-avatar" aria-label="Your Account" data-test-id="site-header-user">
+				<div class="persona ">
+					<figure class="persona-avatar">
+						<img alt="" data-profile-property="avatarThumbnailUrl">
+					</figure>
+				</div>
+			</summary>
+			<div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+				<div class="persona ">
+					<figure class="persona-avatar">
+						<img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name">
+					</figure>
+					<div class="persona-details" data-test-id="persona-detail">
+						<p class="persona-name" data-profile-property="displayName" id="ms--user-display-name"></p>
+						<p data-profile-property="upn"></p>
+					</div>
+				</div>
+				<ul class="padding-block-xs">
+					<li class="padding-bottom-xs">
+						<a data-profile-property="profileUrl" class="font-size-sm" data-bi-name="site-header-user-profile" href="https://learn.microsoft.com/en-us/users/me/activity/">
+							Profile
+						</a>
+					</li>
+					<li>
+						<a data-profile-property="settingsUrl" class="font-size-sm" data-bi-name="site-header-user-settings" href="https://learn.microsoft.com/en-us/users/me/settings/">
+							Settings
+						</a>
+					</li>
+				</ul>
+				<div class="border-top padding-top-xs">
+					<a class="docs-sign-out font-size-sm" href="#" data-bi-name="site-header-sign-out" data-test-id="site-header-user-sign-out">
+						Sign out
+					</a>
+				</div>
+			</div>
+		</details>
+	<!---->
+	<!----></div>
+			<div id="ms--secondary-nav" class="display-none display-flex-tablet" data-bi-name="L2-header" data-test-id="secondary-header"><!----><div class="site-header width-full"><!----> 
+		<a class="site-header-brand font-size-h6 padding-inline-none margin-right-xxs" itemprop="url" href="/en-us/azure/" data-bi-name="secondary-nav-link-category-azure">
+			<span>
+				Azure
+				
+			</span>
+		</a>
+	 
+		
+		<nav class="site-header-nav width-auto" data-bi-name="secondary-nav" aria-label="Site">
+			<ul class="display-flex">
+				<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-137" data-bi-name="secondary-nav-btn-1-products" value="undefined">
+				<span><!---->Products<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-137" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+				<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-138" data-bi-name="secondary-nav-btn-1-popular-products" value="undefined">
+				<span><!---->Popular products<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-138" aria-label="Popular products" data-bi-name="secondary-nav-menu-1-popular-products">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/ai-services/" data-bi-name="secondary-nav-link-1-azure-ai-services">
+						<span><!---->Azure AI Services<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/app-service/" data-bi-name="secondary-nav-link-2-azure-app-service">
+						<span><!---->Azure App Service<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/databricks/" data-bi-name="secondary-nav-link-3-azure-databricks">
+						<span><!---->Azure Databricks<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/devops/" data-bi-name="secondary-nav-link-4-azure-devops">
+						<span><!---->Azure DevOps<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/azure-functions/" data-bi-name="secondary-nav-link-5-azure-functions">
+						<span><!---->Azure Functions<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/azure-monitor/" data-bi-name="secondary-nav-link-6-azure-monitor">
+						<span><!---->Azure Monitor<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/virtual-machines/" data-bi-name="secondary-nav-link-7-azure-virtual-machines">
+						<span><!---->Azure Virtual Machines<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-139" data-bi-name="secondary-nav-btn-2-popular-categories" value="undefined">
+				<span><!---->Popular categories<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-139" aria-label="Popular categories" data-bi-name="secondary-nav-menu-2-popular-categories">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=compute" data-bi-name="secondary-nav-link-1-compute">
+						<span><!---->Compute<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=networking" data-bi-name="secondary-nav-link-2-networking">
+						<span><!---->Networking<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=storage" data-bi-name="secondary-nav-link-3-storage">
+						<span><!---->Storage<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=ai-machine-learning" data-bi-name="secondary-nav-link-4-ai-and-machine-learning">
+						<span><!---->AI &amp; machine learning<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=analytics" data-bi-name="secondary-nav-link-5-analytics">
+						<span><!---->Analytics<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=databases" data-bi-name="secondary-nav-link-6-databases">
+						<span><!---->Databases<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=security" data-bi-name="secondary-nav-link-7-security">
+						<span><!---->Security<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/" data-bi-name="secondary-nav-link-3-view-all-products">
+						<span><!---->View all products<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-140" data-bi-name="secondary-nav-btn-2-architecture" value="undefined">
+				<span><!---->Architecture<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-140" aria-label="Architecture" data-bi-name="secondary-nav-menu-2-architecture">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/cloud-adoption-framework/" data-bi-name="secondary-nav-link-1-cloud-adoption-framework">
+						<span><!---->Cloud Adoption Framework<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/well-architected/" data-bi-name="secondary-nav-link-2-well-architected-framework">
+						<span><!---->Well-Architected Framework<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/architecture/" data-bi-name="secondary-nav-link-3-azure-architecture-center">
+						<span><!---->Azure Architecture Center<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-141" data-bi-name="secondary-nav-btn-3-develop" value="undefined">
+				<span><!---->Develop<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-141" aria-label="Develop" data-bi-name="secondary-nav-menu-3-develop">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/python/" data-bi-name="secondary-nav-link-1-python">
+						<span><!---->Python<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/dotnet/azure/" data-bi-name="secondary-nav-link-2-dotnet">
+						<span><!---->.NET<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/javascript/" data-bi-name="secondary-nav-link-3-javascript">
+						<span><!---->JavaScript<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/java/" data-bi-name="secondary-nav-link-4-java">
+						<span><!---->Java<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/powershell/azure/" data-bi-name="secondary-nav-link-5-powershell">
+						<span><!---->PowerShell<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/cli/azure/" data-bi-name="secondary-nav-link-6-azure-cli">
+						<span><!---->Azure CLI<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/" data-bi-name="secondary-nav-link-7-view-all-developer-resources">
+						<span><!---->View all developer resources<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-142" data-bi-name="secondary-nav-btn-4-learn-azure" value="undefined">
+				<span><!---->Learn Azure<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-142" aria-label="Learn Azure" data-bi-name="secondary-nav-menu-4-learn-azure">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/assessments/1c032171-8ca0-4032-8962-a38a5cc424a8/" data-bi-name="secondary-nav-link-1-start-your-ai-learning-assessment">
+						<span><!---->Start your AI learning assessment<!----></span>
+					</a>
+				</li>
+		  <!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-143" data-bi-name="secondary-nav-btn-2-top-learning-paths" value="undefined">
+				<span><!---->Top learning paths<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-143" aria-label="Top learning paths" data-bi-name="secondary-nav-menu-2-top-learning-paths">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/" data-bi-name="secondary-nav-link-1-cloud-concepts">
+						<span><!---->Cloud concepts<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/" data-bi-name="secondary-nav-link-2-ai-fundamentals">
+						<span><!---->AI fundamentals<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/introduction-generative-ai/" data-bi-name="secondary-nav-link-3-intro-to-generative-ai">
+						<span><!---->Intro to generative AI<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/" data-bi-name="secondary-nav-link-4-azure-architecture-fundamentals">
+						<span><!---->Azure Architecture fundamentals<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/credentials/browse/?products=azure" data-bi-name="secondary-nav-link-3-earn-credentials">
+						<span><!---->Earn credentials<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/browse/?products=azure&amp;resource_type=course" data-bi-name="secondary-nav-link-4-instructor-led-courses">
+						<span><!---->Instructor-led courses<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/azure/" data-bi-name="secondary-nav-link-5-view-all-training">
+						<span><!---->View all training<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li>
+					<a data-test-id="header-link-troubleshooting" class="has-external-link-indicator site-header-button " href="/en-us/troubleshoot/azure/" data-bi-name="secondary-nav-link-5-troubleshooting">
+						<span><!---->Troubleshooting<!----></span>
+					</a>
+				</li>
+		  <!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-144" data-bi-name="secondary-nav-btn-6-resources" value="undefined">
+				<span><!---->Resources<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-144" aria-label="Resources" data-bi-name="secondary-nav-menu-6-resources">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/get-started" data-bi-name="secondary-nav-link-1-product-overview">
+						<span><!---->Product overview<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/blog/" data-bi-name="secondary-nav-link-2-latest-blog-posts">
+						<span><!---->Latest blog posts<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/pricing/" data-bi-name="secondary-nav-link-3-pricing-information">
+						<span><!---->Pricing information<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/support/options/" data-bi-name="secondary-nav-link-4-support-options">
+						<span><!---->Support options<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  site-header-button-icon-chevron" aria-controls="bx-145" data-bi-name="secondary-nav-btn-more" value="undefined">
+				<span><!---->More<!----></span>
+				<span aria-hidden="true" class="icon expanded-indicator ">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-145" aria-label="More" data-bi-name="secondary-nav-menu-more">
+				<!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-146" data-bi-name="secondary-nav-btn-1-products" value="undefined">
+				<span><!---->Products<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-146" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+				<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-147" data-bi-name="secondary-nav-btn-1-popular-products" value="undefined">
+				<span><!---->Popular products<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-147" aria-label="Popular products" data-bi-name="secondary-nav-menu-1-popular-products">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/ai-services/" data-bi-name="secondary-nav-link-1-azure-ai-services">
+						<span><!---->Azure AI Services<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/app-service/" data-bi-name="secondary-nav-link-2-azure-app-service">
+						<span><!---->Azure App Service<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/databricks/" data-bi-name="secondary-nav-link-3-azure-databricks">
+						<span><!---->Azure Databricks<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/devops/" data-bi-name="secondary-nav-link-4-azure-devops">
+						<span><!---->Azure DevOps<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/azure-functions/" data-bi-name="secondary-nav-link-5-azure-functions">
+						<span><!---->Azure Functions<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/azure-monitor/" data-bi-name="secondary-nav-link-6-azure-monitor">
+						<span><!---->Azure Monitor<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/virtual-machines/" data-bi-name="secondary-nav-link-7-azure-virtual-machines">
+						<span><!---->Azure Virtual Machines<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-148" data-bi-name="secondary-nav-btn-2-popular-categories" value="undefined">
+				<span><!---->Popular categories<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-148" aria-label="Popular categories" data-bi-name="secondary-nav-menu-2-popular-categories">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=compute" data-bi-name="secondary-nav-link-1-compute">
+						<span><!---->Compute<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=networking" data-bi-name="secondary-nav-link-2-networking">
+						<span><!---->Networking<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=storage" data-bi-name="secondary-nav-link-3-storage">
+						<span><!---->Storage<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=ai-machine-learning" data-bi-name="secondary-nav-link-4-ai-and-machine-learning">
+						<span><!---->AI &amp; machine learning<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=analytics" data-bi-name="secondary-nav-link-5-analytics">
+						<span><!---->Analytics<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=databases" data-bi-name="secondary-nav-link-6-databases">
+						<span><!---->Databases<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/?product=security" data-bi-name="secondary-nav-link-7-security">
+						<span><!---->Security<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/" data-bi-name="secondary-nav-link-3-view-all-products">
+						<span><!---->View all products<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-149" data-bi-name="secondary-nav-btn-2-architecture" value="undefined">
+				<span><!---->Architecture<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-149" aria-label="Architecture" data-bi-name="secondary-nav-menu-2-architecture">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/cloud-adoption-framework/" data-bi-name="secondary-nav-link-1-cloud-adoption-framework">
+						<span><!---->Cloud Adoption Framework<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/well-architected/" data-bi-name="secondary-nav-link-2-well-architected-framework">
+						<span><!---->Well-Architected Framework<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/architecture/" data-bi-name="secondary-nav-link-3-azure-architecture-center">
+						<span><!---->Azure Architecture Center<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-150" data-bi-name="secondary-nav-btn-3-develop" value="undefined">
+				<span><!---->Develop<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-150" aria-label="Develop" data-bi-name="secondary-nav-menu-3-develop">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/python/" data-bi-name="secondary-nav-link-1-python">
+						<span><!---->Python<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/dotnet/azure/" data-bi-name="secondary-nav-link-2-dotnet">
+						<span><!---->.NET<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/javascript/" data-bi-name="secondary-nav-link-3-javascript">
+						<span><!---->JavaScript<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/java/" data-bi-name="secondary-nav-link-4-java">
+						<span><!---->Java<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/powershell/azure/" data-bi-name="secondary-nav-link-5-powershell">
+						<span><!---->PowerShell<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/cli/azure/" data-bi-name="secondary-nav-link-6-azure-cli">
+						<span><!---->Azure CLI<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/azure/developer/" data-bi-name="secondary-nav-link-7-view-all-developer-resources">
+						<span><!---->View all developer resources<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-151" data-bi-name="secondary-nav-btn-4-learn-azure" value="undefined">
+				<span><!---->Learn Azure<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-151" aria-label="Learn Azure" data-bi-name="secondary-nav-menu-4-learn-azure">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/assessments/1c032171-8ca0-4032-8962-a38a5cc424a8/" data-bi-name="secondary-nav-link-1-start-your-ai-learning-assessment">
+						<span><!---->Start your AI learning assessment<!----></span>
+					</a>
+				</li>
+		  <!---->
+		<li class="dropdown">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-152" data-bi-name="secondary-nav-btn-2-top-learning-paths" value="undefined">
+				<span><!---->Top learning paths<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-152" aria-label="Top learning paths" data-bi-name="secondary-nav-menu-2-top-learning-paths">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/" data-bi-name="secondary-nav-link-1-cloud-concepts">
+						<span><!---->Cloud concepts<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/" data-bi-name="secondary-nav-link-2-ai-fundamentals">
+						<span><!---->AI fundamentals<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/introduction-generative-ai/" data-bi-name="secondary-nav-link-3-intro-to-generative-ai">
+						<span><!---->Intro to generative AI<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/" data-bi-name="secondary-nav-link-4-azure-architecture-fundamentals">
+						<span><!---->Azure Architecture fundamentals<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/credentials/browse/?products=azure" data-bi-name="secondary-nav-link-3-earn-credentials">
+						<span><!---->Earn credentials<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/browse/?products=azure&amp;resource_type=course" data-bi-name="secondary-nav-link-4-instructor-led-courses">
+						<span><!---->Instructor-led courses<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/training/azure/" data-bi-name="secondary-nav-link-5-view-all-training">
+						<span><!---->View all training<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+				<li hidden="">
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="/en-us/troubleshoot/azure/" data-bi-name="secondary-nav-link-5-troubleshooting">
+						<span><!---->Troubleshooting<!----></span>
+					</a>
+				</li>
+		  <!---->
+		<li class="dropdown" hidden="">
+			<button type="button" aria-expanded="false" class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs" aria-controls="bx-153" data-bi-name="secondary-nav-btn-6-resources" value="undefined">
+				<span><!---->Resources<!----></span>
+				<span aria-hidden="true" class="icon  margin-left-xs">
+					<span class="docon docon-chevron-right-light"></span>
+				</span>
+			</button>
+			<ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-153" aria-label="Resources" data-bi-name="secondary-nav-menu-6-resources">
+				<!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/get-started" data-bi-name="secondary-nav-link-1-product-overview">
+						<span><!---->Product overview<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/blog/" data-bi-name="secondary-nav-link-2-latest-blog-posts">
+						<span><!---->Latest blog posts<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/pricing/" data-bi-name="secondary-nav-link-3-pricing-information">
+						<span><!---->Pricing information<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li>
+					<a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs " href="https://azure.microsoft.com/support/options/" data-bi-name="secondary-nav-link-4-support-options">
+						<span><!---->Support options<!----></span>
+					</a>
+				</li>
+		  <!---->
+			</ul>
+		</li>
+	<!---->
+			</ul>
+		</li>
+	<!---->
+			</ul>
+		</nav>
+	
+		<span class="nav-bar-spacer"></span>
+		 <div class="buttons"><!---->
+		<a data-test-id="navbar-primary-cta" class="button button-sm button-primary " href="https://portal.azure.com" data-bi-name="secondary-nav-cta-secondary-portal">
+			Portal
+		</a>
+	 
+		<a data-test-id="navbar-primary-cta" class="button button-sm button-primary button-filled margin-right-none" href="https://azure.microsoft.com/free/" data-bi-name="secondary-nav-cta-primary-free-account">
+			Free account
+		</a>
+	<!----></div>  
+	 <!----></div><!----></div>
+		</header><div id="content-header" class="content-header uhf-container has-padding has-default-focus border-bottom-none" data-bi-name="content-header">
+				<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+					<button type="button" class="contents-button button button-sm margin-right-xxs" data-bi-name="contents-expand" aria-haspopup="true" data-contents-button="">
+						<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+						<span class="contents-expand-title">Table of contents</span>
+					</button>
+					<button type="button" class="ap-collapse-behavior ap-expanded button button-sm" data-bi-name="ap-collapse" aria-controls="action-panel">
+						<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+						<span>Exit focus mode</span>
+					</button>
+				</div>
+			</div><div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+			<!-- liquid-tag banners sectional -->
+		</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile "><div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="margin-top-sm-tablet position-sticky display-flex flex-direction-column" aria-label="Primary" style="top: 24px; height: calc(-157px + 100vh); max-height: 10050.5px;" data-bi-name="left toc" role="navigation"><form action="javascript:" role="search" aria-label="Search" class="margin-bottom-xxs"><label class="visually-hidden" for="ax-2">Search</label><div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+			<div class="field-body control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" id="ax-2" data-test-id="ax-2" class="autocomplete-input input input-sm
+						control has-icons-left
+						width-full" type="text" aria-expanded="false" aria-owns="ax-3-listbox" aria-controls="ax-3-listbox" aria-activedescendant="" aria-describedby="ms--ax-2-description" placeholder="Filter by title" pattern=".*">
+
+				
+					<span aria-hidden="true" class="icon is-small is-left">
+						<span class="has-text-primary docon docon-filter-settings"></span>
+					</span>
+			  
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--ax-2-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-3-listbox" data-test-id="ax-2-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div></form><ul class="tree table-of-contents is-vertically-scrollable flex-grow-1 flex-shrink-1" role="tree" aria-label="Table of contents" data-bi-name="tree" data-is-collapsible="true"><li role="none"><a aria-setsize="11" aria-level="1" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/">Microsoft Defender for Cloud documentation</a></li><li class="tree-item is-expanded" aria-setsize="11" aria-level="1" aria-posinset="2" role="treeitem" tabindex="-1" id="title-2-1" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Overview</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="5" aria-level="2" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction">What is Microsoft Defender for Cloud?</a></li><li role="none"><a aria-setsize="5" aria-level="2" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes">What's new in Defender for Cloud features</a></li><li role="none"><a aria-setsize="5" aria-level="2" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes-recommendations-alerts">What's new in recommendations, alerts, and incidents</a></li><li role="none"><a aria-setsize="5" aria-level="2" aria-posinset="4" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent">Prepare for retirement of the Log Analytics agent</a></li><li class="tree-item" aria-setsize="5" aria-level="2" aria-posinset="5" role="treeitem" tabindex="-1" id="title-2-1_5-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Common questions</span></li></ul></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="3" role="treeitem" tabindex="-1" id="title-3-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Plan</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="4" role="treeitem" tabindex="-1" id="title-4-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Deploy</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="5" role="treeitem" tabindex="-1" id="title-5-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Tutorials</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="6" role="treeitem" tabindex="-1" id="title-6-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Samples</span></li><li class="tree-item is-expanded" aria-setsize="11" aria-level="1" aria-posinset="7" role="treeitem" tabindex="-1" id="title-7-1" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Concepts</span><ul class="tree-group" role="group"><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="1" role="treeitem" tabindex="-1" id="title-7-1_1-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Support and requirements</span></li><li class="tree-item is-expanded" aria-setsize="8" aria-level="2" aria-posinset="2" role="treeitem" tabindex="-1" id="title-7-1_2-2" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Improve cloud security posture</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management">Cloud Security Posture Management (CSPM)</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-policy-concept">Security policies</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization">Risk prioritization</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="4" role="treeitem" tabindex="0" class="tree-item is-leaf has-external-link-indicator is-selected" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls" aria-current="page">Secure score</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="5" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-regulatory-compliance-standards">Regulatory compliance standards</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="6" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-regulatory-compliance">Microsoft Cloud Security Benchmark (MCSB)</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="7" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-attack-path">Investigating risks with security explorer/attack paths</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="8" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-easm">External attack surface management in Defender for Cloud</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="9" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/critical-assets-protection">Critical assets protection</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="10" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management">Permissions management (CIEM)</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="11" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection">Agentless machine scanning</a></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="12" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/multicloud-resource-types-support-foundational-cspm">Supported resource types for multicloud in Foundational CSPM</a></li><li class="tree-item" aria-setsize="15" aria-level="3" aria-posinset="13" role="treeitem" tabindex="-1" id="title-7-1_2-2_13-3" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Secrets protection</span></li><li class="tree-item" aria-setsize="15" aria-level="3" aria-posinset="14" role="treeitem" tabindex="-1" id="title-7-1_2-2_14-3" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Integrations</span></li><li role="none"><a aria-setsize="15" aria-level="3" aria-posinset="15" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/faq-cspm">Common questions</a></li></ul></li><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="3" role="treeitem" tabindex="-1" id="title-7-1_3-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Improve data security posture</span></li><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="4" role="treeitem" tabindex="-1" id="title-7-1_4-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Improve container security posture</span></li><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="5" role="treeitem" tabindex="-1" id="title-7-1_5-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Improve AI security posture</span></li><li role="none"><a aria-setsize="8" aria-level="2" aria-posinset="6" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/copilot-security-in-defender-for-cloud">Copilot for Security in Defender for Cloud</a></li><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="7" role="treeitem" tabindex="-1" id="title-7-1_7-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Security recommendations</span></li><li class="tree-item" aria-setsize="8" aria-level="2" aria-posinset="8" role="treeitem" tabindex="-1" id="title-7-1_8-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Security alerts and incidents</span></li></ul></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="8" role="treeitem" tabindex="-1" id="title-8-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>How-to guides</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="9" role="treeitem" tabindex="-1" id="title-9-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Protect workloads</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="10" role="treeitem" tabindex="-1" id="title-10-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Reference</span></li><li class="tree-item" aria-setsize="11" aria-level="1" aria-posinset="11" role="treeitem" tabindex="-1" id="title-11-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Resources</span></li></ul><div class="padding-xxs padding-none-tablet border-top border-bottom-tablet"><button class="button button-sm button-clear button-block inner-focus justify-content-flex-start-tablet" data-bi-name="download-pdf" rel="nofollow"><!---->
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-dictionary-download"></span>
+			</span>
+			<span><!---->Download PDF<!----></span>
+		<!----></button></div></nav>
+			</div><!-- .primary-holder -->
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<!--div.columns -->
+				<div class="columns is-gapless-mobile has-large-gaps "><div id="main-column" class="column  is-full is-8-desktop">
+
+						<main id="main" class="" role="main" data-bi-name="content" lang="en-us" dir="ltr"><!-- article-header -->
+							<div id="article-header" class="background-color-body margin-top-sm-tablet margin-bottom-xs display-none-print">
+								<div class="display-flex align-items-center "><details id="article-header-breadcrumbs-overflow-popover" class="popover" data-for="article-header-breadcrumbs" hidden="">
+										<summary class="button button-clear button-primary button-sm inner-focus" aria-label="All breadcrumbs">
+											<span class="icon">
+												<span class="docon docon-more"></span>
+											</span>
+										</summary>
+										<div id="article-header-breadcrumbs-overflow" class="popover-content padding-none"><!---->
+			<nav>
+				<ol class="list-style-none">
+					<!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/">
+										Learn
+									</a>
+								</li>
+							<!----><!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/azure/">
+										Azure
+									</a>
+								</li>
+							<!----><!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/">
+										Defender for Cloud
+									</a>
+								</li>
+							<!---->
+				</ol>
+			</nav>
+			
+		<!----></div>
+									</details>
+
+									<bread-crumbs id="article-header-breadcrumbs" data-test-id="article-header-breadcrumbs" class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs" style="display: block; white-space: nowrap; overflow: hidden;"><!---->
+			<nav>
+				<ol class="breadcrumbs">
+					<!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+									<a href="https://learn.microsoft.com/en-us/"><!---->Learn<!----></a>
+								</li>
+							<!----><!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+									<a href="https://learn.microsoft.com/en-us/azure/"><!---->Azure<!----></a>
+								</li>
+							<!----><!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="" style="">
+									<a href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/" style=""><!---->Defender for Cloud<!----></a>
+								</li>
+							<!---->
+				</ol>
+			</nav>
+		<!----></bread-crumbs><div id="article-header-page-actions" class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"><a id="lang-link-tablet" class="button button-primary button-clear button-sm display-none display-inline-flex-tablet" title="Read in English" data-bi-name="language-toggle" data-read-in-link="" hidden="" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+											<span class="icon margin-none" aria-hidden="true" data-read-in-link-icon="">
+												<span class="docon docon-locale-globe"></span>
+											</span>
+											<span class="is-visually-hidden" data-read-in-link-text="">Read in English</span>
+										</a><details class="popover popover-right add-item-popover">
+		<summary class="button button-clear button-sm button-primary display-none display-inline-flex-tablet" data-list-type="collection" data-list-item-title="Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn" data-list-item-url="/azure/defender-for-cloud/secure-score-security-controls" data-list-source="module" data-resource-type="" data-bi-name="add-to-list" aria-describedby="popover-content" aria-expanded="false">
+			
+												<span class="icon margin-none" aria-hidden="true">
+													<span class="docon docon-circle-addition"></span>
+												</span>
+												<span class="collection-status is-visually-hidden">Save</span>
+											
+		</summary>
+		<div class="popover-content has-z-index-one">
+			<ul class="list-style-none margin-inline-none">
+				<li>
+					<button class="button button-clear button-sm button-primary" data-list-type="collection" data-list-item-title="Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn" data-list-item-url="/azure/defender-for-cloud/secure-score-security-controls" data-bi-name="add-to-collections" data-pressed="false" title="Add Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn to a collection">
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-circle-addition"></span>
+						</span>
+						<span class="collection-status">Add to Collections</span>
+					</button>
+				</li>
+				<li>
+					<button class="button button-clear button-sm button-primary" data-list-type="plan" data-list-item-title="Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn" data-list-item-url="/azure/defender-for-cloud/secure-score-security-controls" data-bi-name="add-to-plans" data-pressed="false" title="Add Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn to a Plan">
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-circle-addition"></span>
+						</span>
+						<span class="plan-status">Add to Plan</span>
+					</button>
+				</li>
+				
+			</ul>
+		</div>
+	</details><a data-contenteditbtn="" class="button button-clear button-sm text-decoration-none button-primary display-none display-inline-flex-tablet" aria-label="Edit" title="Edit This Document" data-bi-name="edit" href="https://github.com/MicrosoftDocs/azure-security-docs/blob/main/articles/defender-for-cloud/secure-score-security-controls.md" data-original_content_git_url="https://github.com/MicrosoftDocs/azure-security-docs-pr/blob/live/articles/defender-for-cloud/secure-score-security-controls.md" data-original_content_git_url_template="{repo}/blob/{branch}/articles/defender-for-cloud/secure-score-security-controls.md" data-pr_repo="" data-pr_branch="">
+												<span class="icon margin-none" aria-hidden="true">
+													<span class="docon docon-edit-outline"></span>
+												</span>
+											</a>
+										<details class="popover popover-right" id="article-header-page-actions-overflow">
+											<summary class="justify-content-flex-start button button-clear button-sm button-primary" aria-label="More actions" title="More actions">
+												<span class="icon" aria-hidden="true">
+													<span class="docon docon-more-vertical"></span>
+												</span>
+											</summary>
+											<div class="popover-content padding-xs"><button data-page-action-item="overflow-mobile" type="button" class="justify-content-flex-start button-block button-sm has-inner-focus button button-clear display-none-tablet" data-bi-name="contents-expand" data-contents-button="" data-popover-close="">
+														<span class="icon">
+															<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+														</span><span class="contents-expand-title">Table of contents</span></button><a id="lang-link-overflow" class="justify-content-flex-start button-sm has-inner-focus button button-clear button-block display-none-tablet" title="Read in English" data-bi-name="language-toggle" data-page-action-item="overflow-mobile" data-check-hidden="true" data-read-in-link="" hidden="" href="https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+													<span class="icon" aria-hidden="true" data-read-in-link-icon="">
+														<span class="docon docon-locale-globe"></span>
+													</span>
+													<span data-read-in-link-text="">Read in English</span>
+												</a><button type="button" class="collection justify-content-flex-start button button-clear button-sm has-inner-focus button-block display-none-tablet" data-list-type="collection" data-bi-name="collection" title="Add Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn to a collection" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-circle-addition"></span>
+														</span>
+														<span class="collection-status">Add to Collections</span>
+													</button>
+
+			 										
+													<button type="button" class="collection justify-content-flex-start button button-clear button-sm has-inner-focus button-block display-none-tablet" data-list-type="plan" data-bi-name="plan" title="Add Secure score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn to a Plan" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-circle-addition"></span>
+														</span>
+														<span class="plan-status">Add to Plan</span>
+													</button><a data-contenteditbtn="" class="button button-clear button-block button-sm has-inner-focus justify-content-flex-start text-decoration-none display-none-tablet" aria-label="Edit" title="Edit This Document" data-bi-name="edit" href="https://github.com/MicrosoftDocs/azure-security-docs/blob/main/articles/defender-for-cloud/secure-score-security-controls.md" data-original_content_git_url="https://github.com/MicrosoftDocs/azure-security-docs-pr/blob/live/articles/defender-for-cloud/secure-score-security-controls.md" data-original_content_git_url_template="{repo}/blob/{branch}/articles/defender-for-cloud/secure-score-security-controls.md" data-pr_repo="" data-pr_branch="">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-edit-outline"></span>
+														</span>
+														<span>Edit</span>
+													</a><div aria-hidden="true" class="margin-none" data-page-action-item="overflow-all"></div>
+														<hr class="display-none-tablet margin-bottom-xxs margin-top-xxs">
+														<h4 class="font-size-sm padding-left-xxs">Share via</h4>
+
+													<a class="button button-clear button-sm button-block has-inner-focus text-decoration-none justify-content-flex-start share-facebook" data-bi-name="facebook" data-page-action-item="overflow-all" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls%3FWT.mc_id%3Dfacebook">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-facebook-share font-size-md color-primary"></span>
+															</span>
+															<span class="margin-left-xxs">Facebook</span>
+														</a>
+														<a class="button button-clear button-sm has-inner-focus button-block text-decoration-none justify-content-flex-start share-twitter" data-bi-name="twitter" data-page-action-item="overflow-all" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls%3FWT.mc_id%3Dtwitter&amp;text=Today%20I%20completed%20%22Secure%20score%20in%20Microsoft%20Defender%20for%20Cloud%20-%20Microsoft%20Defender%20for%20Cloud%20%7C%20Microsoft%20Learn%22!%20I'm%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls%3FWT.mc_id%3Dtwitter">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-xlogo-share font-size-xxs"></span>
+															</span>
+															<span class="margin-left-xxs">x.com</span>
+														</a>
+														<a class="button button-clear button-sm has-inner-focus button-block text-decoration-none justify-content-flex-start share-linkedin" data-bi-name="linkedin" data-page-action-item="overflow-all" href="https://www.linkedin.com/feed/?shareActive=true&amp;text=Today%20I%20completed%20%22Secure%20score%20in%20Microsoft%20Defender%20for%20Cloud%20-%20Microsoft%20Defender%20for%20Cloud%20%7C%20Microsoft%20Learn%22!%20I'm%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!%0A%0D%0Ahttps%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls%3FWT.mc_id%3Dlinkedin">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-linked-in-logo font-size-sm color-primary"></span>
+															</span>
+															<span class="margin-left-xxs">LinkedIn</span>
+														</a>
+														<a class="button button-clear button-sm button-block has-inner-focus text-decoration-none justify-content-flex-start margin-bottom-xxs share-email" data-bi-name="email" data-page-action-item="overflow-all" href="mailto:?subject=%5BShared%20Article%5D%20Secure%20score%20in%20Microsoft%20Defender%20for%20Cloud%20-%20Microsoft%20Defender%20for%20Cloud%20%7C%20Microsoft%20Learn&amp;body=Today%20I%20completed%20%22Secure%20score%20in%20Microsoft%20Defender%20for%20Cloud%20-%20Microsoft%20Defender%20for%20Cloud%20%7C%20Microsoft%20Learn%22!%20I'm%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!%0A%0D%0Ahttps%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls%3FWT.mc_id%3Demail">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-mail-message font-size-sm color-primary"></span>
+															</span>
+															<span class="margin-left-xxs">Email</span>
+														</a><hr>
+													<button class="button button-block button-clear button-sm justify-content-flex-start has-inner-focus margin-top-xxs" title="Print" type="button" aria-label="Print" data-bi-name="print" data-page-action-item="overflow-all" data-popover-close="" data-print-page="" data-check-hidden="true">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-print font-size-sm color-primary"></span>
+														</span>
+														<span class="margin-left-xxs">Print</span>
+													</button>
+											</div>
+										</details>
+										
+									</div></div>
+							</div>
+							<!-- end article-header --><div>
+								<button type="button" class="border contents-button button button-clear button-sm is-hidden-tablet has-inner-focus" data-bi-name="contents-expand" data-contents-button="" hidden="">
+									<span class="icon">
+										<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+									</span><span class="contents-expand-title">Table of contents</span></button>
+							</div><!-- end mobile-contents button  -->
+
+							<div class="content "><h1 id="secure-score-in-defender-for-cloud">Secure score in Defender for Cloud</h1><div class="display-flex justify-content-space-between align-items-center flex-wrap-wrap page-metadata-container">
+										<div class="margin-right-xxs">
+											<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr"><li>Article</li><li class="visibility-hidden-visual-diff"><time class="" data-article-date="" aria-label="Article review date" datetime="2024-09-09T11:07:00.000Z" data-article-date-source="calculated">09/09/2024</time>
+															</li><li class="contributors-holder display-none-print">
+															<button aria-label="View all contributors" class="contributors-button link-button" data-bi-name="contributors" title="View all contributors">10 contributors</button>
+														</li></ul>
+										</div>
+<div id="user-feedback" class="margin-block-xxs display-none-print" data-hide-on-archived="">
+	<button id="user-feedback-button" data-test-id="conceptual-feedback-button" class="button button-sm button-clear button-primary" type="button" data-bi-name="user-feedback-button" data-user-feedback-button="">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-like"></span>
+		</span>
+		<span>Feedback</span>
+	</button>
+</div></div><nav id="center-doc-outline" class="doc-outline display-none-print margin-bottom-sm" data-bi-name="intopic toc" aria-label="In this article"><!----> 
+		<h2 id="ms--in-this-article" class="title is-6 margin-block-xs"><!---->In this article<!----></h2>
+		<ol id="content-well-in-this-article-list" class="border-left padding-left-xxs">
+			<!---->
+					<li class="">
+						<a href="#viewing-the-secure-score"><!---->Viewing the secure score<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="#exploring-your-security-posture"><!---->Exploring your security posture<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="#calculation-of-the-secure-score"><!---->Calculation of the secure score<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="#score-calculation-equations"><!---->Score calculation equations<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="#improving-a-secure-score"><!---->Improving a secure score<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="#secure-score-controls"><!---->Secure score controls<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="#next-steps"><!---->Next steps<!----></a>
+					</li>
+				<!---->
+		</ol>
+	 
+		<button type="button" aria-expanded="false" data-show-more="" class="link-button font-weight-semibold font-size-sm margin-top-xxs margin-left-xs" aria-controls="content-well-in-this-article-list" data-title="Show 3 more" data-bi-name="show-more-btn" data-test-id="undefined">
+			<span class="show-more-text "><!---->Show 3 more<!----></span>
+			
+		</button>
+	 <!----></nav><!-- <content> --><p>The secure score in Microsoft Defender for Cloud can help you to improve your cloud security posture. The secure score aggregates security findings into a single score so that you can assess, at a glance, your current security situation. The higher the score, the lower the identified risk level is.</p>
+<p>When you turn on Defender for Cloud in a subscription, the <a href="/en-us/security/benchmark/azure/introduction" data-linktype="absolute-path">Microsoft cloud security benchmark (MCSB)</a> standard is applied by default in the subscription. Assessment of resources in scope against the MCSB standard begins.</p>
+<p>The MCSB issues recommendations based on assessment findings. Only built-in recommendations from the MCSB affect the secure score. Currently, <a href="risk-prioritization" data-linktype="relative-path">risk prioritization</a> doesn't affect the secure score.</p>
+<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p>Recommendations flagged as <strong>Preview</strong> aren't included in secure score calculations. You should still remediate these recommendations wherever possible, so that when the preview period ends, they'll contribute toward your score. Preview recommendations are marked with an icon: <img src="media/secure-score-security-controls/preview-icon.png" role="presentation" data-linktype="relative-path">
+.</p>
+</div>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#viewing-the-secure-score" aria-label="Section titled: Viewing the secure score"></a><h2 id="viewing-the-secure-score" class="heading-anchor">Viewing the secure score</h2></div>
+<p>When you view the Defender for Cloud <strong>Overview</strong> dashboard, you can view the secure score for all of your environments. The dashboard shows the secure score as a percentage value and includes the underlying values.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/single-secure-score-via-ui.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/single-secure-score-via-ui.png" alt="Screenshot of the portal dashboard that shows an overall secure score and underlying values." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>The Azure mobile app shows the secure score as a percentage value. Tap it to see details that explain the score.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/single-secure-score-via-mobile.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/single-secure-score-via-mobile.png" alt="Screenshot of the Azure mobile app that shows an overall secure score and details." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#exploring-your-security-posture" aria-label="Section titled: Exploring your security posture"></a><h2 id="exploring-your-security-posture" class="heading-anchor">Exploring your security posture</h2></div>
+<p>The <strong>Security posture</strong> page in Defender for Cloud shows the secure score for your environments overall and for each environment separately.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/security-posture-page.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/security-posture-page.png" alt="Screenshot of the Defender for Cloud page for security posture." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>On this page, you can see the subscriptions, accounts, and projects that affect your overall score, information about unhealthy resources, and relevant recommendations. You can filter by environment, such as Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and Azure DevOps. You can then drill down into each Azure subscription, AWS account, and GCP project.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/bottom-half.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/bottom-half.png" alt="Screenshot of the bottom half of the security posture page." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#calculation-of-the-secure-score" aria-label="Section titled: Calculation of the secure score"></a><h2 id="calculation-of-the-secure-score" class="heading-anchor">Calculation of the secure score</h2></div>
+<p>On the <strong>Recommendations</strong> page in Defender for Cloud, the <strong>Secure score recommendations</strong> tab shows how compliance controls within the MCSB contribute toward the overall security score.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/security-controls.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/security-controls.png" alt="Screenshot that shows security controls that affect a secure score." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>Defender for Cloud calculates each control every eight hours for each Azure subscription or for each AWS or GCP cloud connector.</p>
+<div class="alert is-primary">
+<p class="alert-title"><span class="docon docon-status-info-outline" aria-hidden="true"></span> Important</p>
+<p>Recommendations within a control are updated more often than the control itself. You might find discrepancies between the resource count on the recommendations and the resource count on the control.</p>
+</div>
+<div class="heading-wrapper" data-heading-level="h3"><a class="anchor-link docon docon-link" href="#example-scores-for-a-control" aria-label="Section titled: Example scores for a control"></a><h3 id="example-scores-for-a-control" class="heading-anchor">Example scores for a control</h3></div>
+<p>The following example focuses on secure score recommendations for <strong>Remediate vulnerabilities</strong>.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/remediate-vulnerabilities-control.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt="Screenshot that shows secure score recommendations for multifactor authentication." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>This example illustrates the following fields in the recommendations.</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm"><!----> <button class="button button-clear button-sm display-flex gap-xxs">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-expand color-primary"></span>
+		</span>
+		<span><!---->Expand table<!----></span>
+	</button><!----></div><div class="has-inner-focus"><table aria-label="Table 1" class="table table-sm margin-top-none">
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Remediate vulnerabilities</strong></td>
+<td>A grouping of recommendations for discovering and resolving known vulnerabilities.</td>
+</tr>
+<tr>
+<td><strong>Max score</strong></td>
+<td>The maximum number of points that you can gain by completing all recommendations within a control.<br><br> The maximum score for a control indicates the relative significance of that control and is fixed for every environment.<br><br>Use the values in this column to determine which issues to work on first.</td>
+</tr>
+<tr>
+<td><strong>Current score</strong></td>
+<td>The current score for this control.<br><br> Current score = [Score per resource] * [Number of healthy resources]<br><br>Each control contributes to the total score. In this example, the control is contributing 3.33 points to current total score.</td>
+</tr>
+<tr>
+<td><strong>Potential score increase</strong></td>
+<td>The remaining points available to you within the control. If you remediate all the recommendations in this control, your score increases by 4%.<br><br> Potential score increase = [Score per resource] * [Number of unhealthy resources]</td>
+</tr>
+<tr>
+<td><strong>Insights</strong></td>
+<td>Extra details for each recommendation, such as:<br><br>  - <img src="media/secure-score-security-controls/preview-icon.png" role="presentation" data-linktype="relative-path">
+ <strong>Preview recommendation</strong>: This recommendation affects the secure score only when it's generally available.<br><br> - <img src="media/secure-score-security-controls/fix-icon.png" role="presentation" data-linktype="relative-path">
+ <strong>Fix</strong>: Resolve this issue.<br><br> - <img src="media/secure-score-security-controls/enforce-icon.png" role="presentation" data-linktype="relative-path">
+ <strong>Enforce</strong>: Automatically deploy a policy to fix this issue whenever someone creates a noncompliant resource.<br><br> - <img src="media/secure-score-security-controls/deny-icon.png" role="presentation" data-linktype="relative-path">
+ <strong>Deny</strong>: Prevent new resources from being created with this issue.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#score-calculation-equations" aria-label="Section titled: Score calculation equations"></a><h2 id="score-calculation-equations" class="heading-anchor">Score calculation equations</h2></div>
+<p>Here's how scores are calculated.</p>
+<div class="heading-wrapper" data-heading-level="h3"><a class="anchor-link docon docon-link" href="#security-control" aria-label="Section titled: Security control"></a><h3 id="security-control" class="heading-anchor">Security control</h3></div>
+<p>The equation for determining the score for a security control is:</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-equation-single-control.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-equation-single-control.png" alt="Screenshot that shows the equation for calculating a security control score." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>The current score for each control is a measure of the status of the resources within the control. Each individual security control contributes toward the secure score. Each resource that's affected by a recommendation within the control contributes toward the control's current score. The secure score doesn't include resources found in preview recommendations.</p>
+<p>In the following example, the maximum score of 6 is divided by 78 because that's the sum of the healthy and unhealthy resources. So, 6 / 78 = 0.0769. Multiplying that by the number of healthy resources (4) results in the current score: 0.0769 * 4 = 0.31.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/security-control-scoring-tooltips.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/security-control-scoring-tooltips.png" alt="Screenshot of tooltips that show the values used in calculating the security control's current score." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<div class="heading-wrapper" data-heading-level="h3"><a class="anchor-link docon docon-link" href="#single-subscription-or-connector" aria-label="Section titled: Single subscription or connector"></a><h3 id="single-subscription-or-connector" class="heading-anchor">Single subscription or connector</h3></div>
+<p>The equation for determining the secure score for a single subscription or connector is:</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-equation-single-sub.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-equation-single-sub.png" alt="Screenshot of the equation for calculating a subscription's secure score." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>In the following example, there's a single subscription or connector with all security controls available (a potential maximum score of 60 points).
+The score shows 29 points out of a possible 60. The remaining 31 points are reflected in the <strong>Potential score increase</strong> figures of the security controls.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-example-single-sub.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-example-single-sub.png" alt="Screenshot of a single-subscription secure score with all controls enabled." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-example-single-sub-recs.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt="Screenshot that shows a list of controls and the potential score increase." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>This equation is the same equation for a connector, with just the word <em>subscription</em> replaced by the word <em>connector</em>.</p>
+<div class="heading-wrapper" data-heading-level="h3"><a class="anchor-link docon docon-link" href="#multiple-subscriptions-and-connectors" aria-label="Section titled: Multiple subscriptions and connectors"></a><h3 id="multiple-subscriptions-and-connectors" class="heading-anchor">Multiple subscriptions and connectors</h3></div>
+<p>The equation for determining the secure score for multiple subscriptions and connectors is:</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-equation-multiple-subs.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt="Screenshot that shows the equation for calculating the secure score for multiple subscriptions." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>The combined score for multiple subscriptions and connectors includes a <em>weight</em> for each subscription and connector. Defender for Cloud determines the relative weights for your subscriptions and connectors based on factors such as the number of resources. The current score for each subscription and connector is calculated in the same way as for a single subscription or connector, but then the weight is applied as shown in the equation.</p>
+<p>When you view multiple subscriptions and connectors, the secure score evaluates all resources within all enabled policies and groups them. Grouping them shows how, together, they affect each security control's maximum score.</p>
+<p><span class="mx-imgBorder">
+<a href="media/secure-score-security-controls/secure-score-example-multiple-subs.png#lightbox" data-linktype="relative-path" class="lightbox-enabled" data-bi-name="lightbox" aria-haspopup="dialog">
+<img src="media/secure-score-security-controls/secure-score-example-multiple-subs.png" alt="Screenshot that shows a secure score for multiple subscriptions with all controls enabled." data-linktype="relative-path">
+</a>
+</span>
+</p>
+<p>The combined score is <em>not</em> an average. Rather, it's the evaluated posture of the status of all resources across all subscriptions and connectors. If you go to the <strong>Recommendations</strong> page and add up the potential points available, you find that it's the difference between the current score (22) and the maximum score available (58).</p>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#improving-a-secure-score" aria-label="Section titled: Improving a secure score"></a><h2 id="improving-a-secure-score" class="heading-anchor">Improving a secure score</h2></div>
+<p>The MCSB consists of a series of compliance controls. Each control is a logical group of related security recommendations and reflects your vulnerable attack surfaces.</p>
+<p>To see how well your organization is securing each individual attack surface, review the scores for each security control. Your score improves only when you remediate <em>all</em> of the recommendations.</p>
+<p>To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations for how to secure your management ports. You need to remediate them all to make a difference in your secure score.</p>
+<p>You can improve your secure score by using either of these methods:</p>
+<ul>
+<li>Remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or use the <strong>Fix</strong> option (when available) to resolve an issue on multiple resources quickly.</li>
+<li><a href="prevent-misconfigurations" data-linktype="relative-path">Enforce or deny</a> recommendations to improve your score, and to make sure that your users don't create resources that negatively affect your score.</li>
+</ul>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#secure-score-controls" aria-label="Section titled: Secure score controls"></a><h2 id="secure-score-controls" class="heading-anchor">Secure score controls</h2></div>
+<p>The following table lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points that you can add to your secure score if you remediate <em>all</em> of the recommendations listed in the control, for <em>all</em> of your resources.</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm"><!----> <button class="button button-clear button-sm display-flex gap-xxs">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-expand color-primary"></span>
+		</span>
+		<span><!---->Expand table<!----></span>
+	</button><!----></div><div class="has-inner-focus"><table aria-label="Table 2" class="table table-sm margin-top-none">
+<thead>
+<tr>
+<th><strong>Secure score</strong></th>
+<th><strong>Security control</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td><strong>Enable MFA</strong>: Defender for Cloud places a high value on MFA. Use these recommendations to help secure the users of your subscriptions.<br><br> There are three ways to enable MFA and be compliant with the recommendations: security defaults, per-user assignment, and conditional access policy. <a href="multi-factor-authentication-enforcement" data-linktype="relative-path">Learn more</a>.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Secure management ports</strong>: Brute force attacks often target management ports. Use these recommendations to reduce your exposure with tools like <a href="just-in-time-access-overview" data-linktype="relative-path">just-in-time VM access</a> and <a href="/en-us/azure/virtual-network/network-security-groups-overview" data-linktype="absolute-path">network security groups</a>.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Apply system updates</strong>: Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. Use these recommendations to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for your users. To deploy system updates, you can use the <a href="/en-us/azure/automation/update-management/overview" data-linktype="absolute-path">Update Management solution</a> to manage patches and updates for your machines.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Remediate vulnerabilities</strong>: When your vulnerability assessment tool reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. Use these recommendations to remediate identified vulnerabilities.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Remediate security configurations</strong>: Misconfigured IT assets have a higher risk of being attacked. Use these recommendations to harden the identified misconfigurations across your infrastructure.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Manage access and permissions</strong>: A core part of a security program is ensuring that your users have just the necessary access to do their jobs: the least privilege access model. Use these recommendations to manage your identity and access requirements.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Enable encryption at rest</strong>: Use these recommendations to ensure that you mitigate misconfigurations around the protection of your stored data.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Encrypt data in transit</strong>: Use these recommendations to help secure data that's moving between components, locations, or programs. Such data is susceptible to man-in-the-middle attacks, eavesdropping, and session hijacking.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Restrict unauthorized network access</strong>: Azure offers a suite of tools that help you provide high security standards for access across your network.<br><br> Use these recommendations to manage adaptive network hardening in Defender for Cloud, ensure that you configured <a href="/en-us/azure/private-link/private-link-overview" data-linktype="absolute-path">Azure Private Link</a> for all relevant platform as a service (PaaS) services, enable <a href="/en-us/azure/firewall/overview" data-linktype="absolute-path">Azure Firewall</a> on virtual networks, and more.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Apply adaptive application control</strong>: Adaptive application control is an intelligent, automated, end-to-end solution to control which applications can run on your machines. It also helps to harden your machines against malware.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Protect applications against DDoS attacks</strong>: Advanced networking security solutions in Azure include Azure DDoS Protection, Azure Web Application Firewall, and the Azure Policy add-on for Kubernetes. Use these recommendations to help protect your applications with these tools and others.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Enable endpoint protection</strong>: Defender for Cloud checks your organization's endpoints for active threat detection and response solutions, such as Microsoft Defender for Endpoint or any of the major solutions shown in this list.<br><br> If no endpoint detection and response (EDR) solution is enabled, use these recommendations to deploy Microsoft Defender for Endpoint. Defender for Endpoint is included in the <a href="defender-for-servers-introduction" data-linktype="relative-path">Defender for Servers plan</a>.<br><br>Other recommendations in this control help you deploy agents and configure <a href="file-integrity-monitoring-overview" data-linktype="relative-path">file integrity monitoring</a>.</td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Enable auditing and logging</strong>: Detailed logs are a crucial part of incident investigations and many other troubleshooting operations. The recommendations in this control focus on ensuring that you enabled diagnostic logs wherever they're relevant.</td>
+</tr>
+<tr>
+<td>0</td>
+<td><strong>Enable enhanced security features</strong>: Use these recommendations to enable any Defender for Cloud plans.</td>
+</tr>
+<tr>
+<td>0</td>
+<td><strong>Implement security best practices</strong>: This collection of recommendations is important for your organizational security but doesn't affect your secure score.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="#next-steps" aria-label="Section titled: Next steps"></a><h2 id="next-steps" class="heading-anchor">Next steps</h2></div>
+<p><a href="secure-score-access-and-track" data-linktype="relative-path">Track your secure score</a></p>
+</div><div id="ms--inline-notifications" class="margin-block-xs" data-bi-name="inline-notification"></div><div id="assertive-live-region" role="alert" aria-live="assertive" class="visually-hidden" aria-relevant="additions" aria-atomic="true"></div>
+							<div id="polite-live-region" role="status" aria-live="polite" class="visually-hidden" aria-relevant="additions" aria-atomic="true"></div>
+							<!-- </content> -->
+
+						</main><!-- recommendations section --><!-- end recommendations section -->
+
+						<!-- feedback section --><section id="site-user-feedback-footer" class="font-size-sm margin-top-md" data-test-id="site-user-feedback-footer" data-bi-name="site-feedback-section">
+	<hr class="hr">
+	<h2 id="feedback" class="title is-3">Feedback</h2>
+	<div class="display-flex flex-wrap-wrap align-items-center">
+		<p class="font-weight-semibold margin-xxs margin-left-none">Was this page helpful?</p>
+		<div class="buttons">
+			<button class="thumb-rating-button like button button-primary button-sm" data-test-id="footer-rating-yes" data-binary-rating-response="rating-yes" type="button" title="This article is helpful" data-bi-name="button-rating-yes" aria-pressed="false">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-like"></span>
+				</span>
+				<span>Yes</span>
+			</button>
+			<button class="thumb-rating-button dislike button button-primary button-sm" data-test-id="footer-rating-no" data-binary-rating-response="rating-no" type="button" title="This article is not helpful" data-bi-name="button-rating-no" aria-pressed="false">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-dislike"></span>
+				</span>
+				<span>No</span>
+			</button>
+		</div>
+	</div><div class="display-flex flex-wrap-wrap margin-top-xxs"><div>
+			<a data-bi-name="provide-feedback-cta" class="has-external-link-indicator" href="https://feedback.azure.com/d365community/forum/0f853254-0425-ec11-b6e6-000d3a4f07b8">
+				<span>Provide product feedback</span>
+			</a><span class="margin-inline-xxs" aria-hidden="true">|</span></div><a href="https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bd-p/MicrosoftDefenderCloud" class="has-external-link-indicator" data-bi-name="ask-the-community">
+			<span>Ask the community</span>
+		</a></div>
+
+</section><!-- end feedback section -->
+
+						<!-- feedback report section --><!-- end feedback report section --><aside id="ms--additional-resources-mobile" aria-label="Additional resources" class="display-none-desktop display-none-print">
+								<hr class="hr">
+								<h2 id="ms--additional-resources-mobile-heading" class="title is-3">Additional resources</h2>
+								<section id="right-rail-recommendations-mobile" data-bi-name="recommendations" hidden=""></section>
+								<section id="right-rail-training-mobile" data-bi-name="learning-resources-card"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-cube-cone-ball-shapes"></span>
+			</span>
+			Training
+		</p>
+	
+			<div class="margin-top-xs position-relative">
+				<!---->
+		<div class="position-relative margin-top-xs">
+			 
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Module
+				</p>
+		   
+				<p class="line-clamp-3">
+					<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="/en-us/training/modules/examine-microsoft-secure-score/?source=recommendations">
+						Examine Microsoft  Secure Score - Training
+					</a>
+				</p>
+		   
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			This module examines how Microsoft Secure Score helps organizations understand what they've done to reduce the risk to their data and show them what they can do to further reduce that risk. MS-102
+		</p>
+	
+		</div>
+	<!---->
+		<div class="position-relative margin-top-sm">
+			 
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Certification
+				</p>
+		   
+				<p class="line-clamp-3">
+					<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="/en-us/credentials/certifications/security-operations-analyst/?source=recommendations">
+						Microsoft Certified: Security Operations Analyst Associate - Certifications
+					</a>
+				</p>
+		   
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Investigate, search for, and mitigate threats using Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender.
+		</p>
+	
+		</div>
+	<!---->
+			</div>
+			
+		</article>
+	<!----></section>
+								<section id="right-rail-events-mobile" data-bi-name="events-card" hidden=""></section>
+								<section id="right-rail-qna-mobile" data-bi-name="qna-link-card" hidden=""></section>
+							</aside><div class="border-top is-visible-interactive has-default-focus margin-top-sm "><footer id="footer-interactive" data-bi-name="footer" class="footer-layout"><div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop"><a data-mscc-ic="false" class="locale-selector-link button button-sm button-clear flex-shrink-0" href="/en-us/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls" data-bi-name="select-locale" aria-label="Content language selector. Currently set to English (United States).">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text">English (United States)</span></a><div class="ccpa-privacy-link" data-ccpa-privacy-link="">
+<a href="https://aka.ms/yourcaliforniaprivacychoices" class="button button-sm button-clear flex-shrink-0" data-mscc-ic="false" data-bi-name="your-privacy-choices">
+	<svg role="img" aria-label="California Consumer Privacy Act (CCPA) Opt-Out Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" xml:space="preserve" height="16" width="43" focusable="false">
+		<title>California Consumer Privacy Act (CCPA) Opt-Out Icon</title>
+		<path d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"></path>
+		<path d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"></path>
+		<path d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z" style="fill:#fff"></path>
+		<path d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z" style="fill:#06f"></path>
+	</svg>
+	<span>Your Privacy Choices</span>
+</a>
+
+		</div>
+		<div class="flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+		<span class="icon expanded-indicator" aria-hidden="true">
+			<span class="docon docon-chevron-down-light"></span>
+		</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector padding-xxs" role="none">
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light margin-right-xxs">
+						<span class="theme-selector-icon border display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>Light</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark margin-right-xxs">
+						<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>Dark</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast margin-right-xxs">
+						<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>High contrast</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden=""></li><li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/previous-versions/" data-bi-name="archivelink">Previous Versions</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink">Blog</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/contribute/" data-bi-name="contributorGuide">Contribute</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks">Trademarks</a></li><li>© Microsoft 2024</li>
+	</ul>
+</footer></div></div><div id="ms--additional-resources" class="right-container column is-4-desktop display-none display-block-desktop" data-bi-name="pageactions" role="complementary" aria-label="Additional resources">
+							<div id="affixed-right-container" class="margin-top-sm-tablet position-sticky" data-bi-name="right-column" style="top: 36px; bottom: 36px;">
+								<h2 id="ms--additional-resources-heading" class="title is-6 margin-top-md">Additional resources</h2>
+								<section id="right-rail-events" data-bi-name="events-card" hidden=""></section>
+								<section id="right-rail-training" data-bi-name="learning-resources-card"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-cube-cone-ball-shapes"></span>
+			</span>
+			Training
+		</p>
+	
+			<div class="margin-top-xs position-relative">
+				<!---->
+		<div class="position-relative margin-top-xs">
+			 
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Module
+				</p>
+		   
+				<p class="line-clamp-3">
+					<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="/en-us/training/modules/examine-microsoft-secure-score/?source=recommendations">
+						Examine Microsoft  Secure Score - Training
+					</a>
+				</p>
+		   
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			This module examines how Microsoft Secure Score helps organizations understand what they've done to reduce the risk to their data and show them what they can do to further reduce that risk. MS-102
+		</p>
+	
+		</div>
+	<!---->
+		<div class="position-relative margin-top-sm">
+			 
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Certification
+				</p>
+		   
+				<p class="line-clamp-3">
+					<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="/en-us/credentials/certifications/security-operations-analyst/?source=recommendations">
+						Microsoft Certified: Security Operations Analyst Associate - Certifications
+					</a>
+				</p>
+		   
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Investigate, search for, and mitigate threats using Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender.
+		</p>
+	
+		</div>
+	<!---->
+			</div>
+			
+		</article>
+	<!----></section>
+								<section id="right-rail-recommendations" data-bi-name="recommendations" hidden=""></section>
+								<nav id="side-doc-outline" class="doc-outline" data-bi-name="intopic toc" aria-label="In this article">
+									<h3>In this article</h3>
+								</nav>
+								<section id="right-rail-qna" class="margin-top-xxs" data-bi-name="qna-link-card" hidden=""></section>
+							</div>
+						</div></div>
+				<!--end of div.columns -->
+
+			</section>
+			<!--end of .primary-holder -->
+
+			<!-- interactive container -->
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+			<!-- end of interactive container -->
+		</div>
+
+	</div>
+	<!--end of .mainContainer -->
+
+	<section class="border-top has-default-focus is-hidden-interactive margin-top-sm "><footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo"><div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop"><a data-mscc-ic="false" class="locale-selector-link button button-sm button-clear flex-shrink-0" href="/en-us/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fdefender-for-cloud%2Fsecure-score-security-controls" data-bi-name="select-locale" aria-label="Content language selector. Currently set to English (United States).">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text">English (United States)</span></a><div class="ccpa-privacy-link" data-ccpa-privacy-link="">
+<a href="https://aka.ms/yourcaliforniaprivacychoices" class="button button-sm button-clear flex-shrink-0" data-mscc-ic="false" data-bi-name="your-privacy-choices">
+	<svg role="img" aria-label="California Consumer Privacy Act (CCPA) Opt-Out Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" xml:space="preserve" height="16" width="43" focusable="false">
+		<title>California Consumer Privacy Act (CCPA) Opt-Out Icon</title>
+		<path d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"></path>
+		<path d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"></path>
+		<path d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z" style="fill:#fff"></path>
+		<path d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z" style="fill:#06f"></path>
+	</svg>
+	<span>Your Privacy Choices</span>
+</a>
+
+		</div>
+		<div class="flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+		<span class="icon expanded-indicator" aria-hidden="true">
+			<span class="docon docon-chevron-down-light"></span>
+		</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector padding-xxs" role="none">
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light margin-right-xxs">
+						<span class="theme-selector-icon border display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>Light</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark margin-right-xxs">
+						<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>Dark</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast margin-right-xxs">
+						<span class="border theme-selector-icon display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>High contrast</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden=""></li><li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/previous-versions/" data-bi-name="archivelink">Previous Versions</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink">Blog</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/contribute/" data-bi-name="contributorGuide">Contribute</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li><li><a class="external-link-indicator" data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks">Trademarks</a></li><li>© Microsoft 2024</li>
+	</ul>
+</footer>
+
+	</section>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+
+<script src="https://learn.microsoft.com/static/third-party/adobe-target/at-js/2.9.0/at.js" async="" defer="" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous"></script></body></html>

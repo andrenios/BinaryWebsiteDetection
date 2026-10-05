@@ -1,5 +1,7 @@
 # data never goes into git (only the fixed fixture id list)
 data/*
+!data/raw_responses/
+!data/derived/
 !data/fixture/
 data/fixture/*
 !data/fixture/ids.txt

